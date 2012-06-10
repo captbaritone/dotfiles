@@ -2,6 +2,9 @@
 " .vimrc
 " ----------------------------------------------------------------------------
 " TODO: Add larger comment blocks to split up larger sections
+" Use environment variables for paths
+" See what happens when the swap/undo/backup files are not in place
+
 
 " Pathogen
 call pathogen#infect()

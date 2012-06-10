@@ -1,9 +1,7 @@
 " ----------------------------------------------------------------------------
-" .vimrc
+"   .vimrc
 " ----------------------------------------------------------------------------
-" TODO: Add larger comment blocks to split up larger sections
-" Use environment variables for paths
-" See what happens when the swap/undo/backup files are not in place
+" TODO: See what happens when the swap/undo/backup files are not in place
 
 
 " Pathogen
@@ -18,14 +16,9 @@ set ttyfast " Indicates a fast terminal connection
 set backspace=indent,eol,start " Allow backspaceing over autoindent, line breaks, starts of insert
 set shortmess+=I
 
-" Indenting
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set autoindent " Copy indent from current line when starting new line
-set smartindent " Smart indent on new line, works for C-like langs.
-set shiftround " Round indent to multiple of 'shiftwidth'.
+" ----------------------------------------------------------------------------
+"   Interface
+" ----------------------------------------------------------------------------
 
 " Control Area (May be superseeded by PowerLine)
 set showcmd
@@ -70,9 +63,6 @@ set ignorecase    " ignore case when searching
     " Clear search highlights
 nnoremap <leader><space> :noh<cr>
 
-" automatically reload vimrc when it's saved
-au BufWritePost *vimrc so ~/.vimrc
-
 " Disable arrow keys to keep from falling back on bad habbits 
 nnoremap <left> <nop>
 nnoremap <right> <nop>
@@ -83,6 +73,26 @@ inoremap <right> <nop>
 " Navigate using displayed lines not actual lines
 nnoremap j gj
 nnoremap k gk
+
+
+" ----------------------------------------------------------------------------
+"   Formatting
+" ----------------------------------------------------------------------------
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set autoindent " Copy indent from current line when starting new line
+set smartindent " Smart indent on new line, works for C-like langs.
+set shiftround " Round indent to multiple of 'shiftwidth'.
+
+
+" ----------------------------------------------------------------------------
+"   Custom Comands
+" ----------------------------------------------------------------------------
+
+" automatically reload vimrc when it's saved
+au BufWritePost *vimrc so $MYVIMRC
 
 " Custom command to refresh Chrome on save
 command! W exec "w" | silent !osascript ~/.vim/scripts/refresh_chrome.scptd
@@ -98,7 +108,10 @@ filetype plugin on
 " Templates
 "au BufNewFile *.html 0r ~/.vim/templates/html.txt
 
-" MACVIM SETTINGS
+
+" ----------------------------------------------------------------------------
+"   GUI Specific 
+" ----------------------------------------------------------------------------
 if has("gui_running")
     " Hide Scrollbars
 	set guioptions-=T
@@ -108,11 +121,14 @@ if has("gui_running")
     colorscheme molokai
 endif
 
-" Backup and other swap files 
-set directory=~/.vim/swapdir//
-set backupdir=~/.vim/backupdir//
+" ----------------------------------------------------------------------------
+"   Undo, Backup and Swap file locations
+" ----------------------------------------------------------------------------
+
+set directory=$HOME/.vim/swapdir//
+set backupdir=$HOME/.vim/backupdir//
 if exists('+undodir') 
-    set undodir=~/.vim/undodir
+    set undodir=$HOME/.vim/undodir
     set undofile
 endif
     

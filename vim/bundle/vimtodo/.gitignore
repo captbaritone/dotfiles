@@ -1,0 +1,8 @@
+vimtodo.vba
+*.swp
+test/*.msgout
+test/*.out
+test/*.tap
+t/*.out
+t/*.dbg
+doc/tags

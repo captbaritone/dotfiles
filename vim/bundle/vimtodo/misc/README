@@ -1,0 +1,10 @@
+Autocommit script
+=================
+
+Autocommit.sh is a script that will automatically commit and push any changes
+to a remote git repository. If you have your todo.txt file stored in a git
+repository, then adding this script to your crontab will keep the git
+repository up to date.
+
+Configuration is in autocommit.cfg. See the comments for what each option
+does.

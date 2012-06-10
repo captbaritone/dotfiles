@@ -1,0 +1,12 @@
+These tests require the vimcram plugin, available from:
+
+    https://github.com/mivok/vimcram
+
+To run the tests, execute the run_test.sh script on one or more .t files in
+this directory. For example:
+
+    /path/to/vimcram/run_test.sh *.t
+
+or to run a specific test:
+
+    /path/to/vimcram/run_test.sh test001.t

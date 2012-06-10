@@ -1,7 +1,7 @@
 " ----------------------------------------------------------------------------
 " .vimrc
 " ----------------------------------------------------------------------------
-
+" TODO: Add larger comment blocks to split up larger sections
 
 " Pathogen
 call pathogen#infect()

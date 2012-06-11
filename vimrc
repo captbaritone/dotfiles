@@ -57,8 +57,11 @@ set t_Co=256 " enable 256 colors
 set gdefault " Greedy search by default
 set incsearch
 set showmatch
+set hlsearch
 nnoremap / /\v
-vnoremap / /\vset hlsearch
+vnoremap / /\v
+nnoremap ? ?\v
+vnoremap ? ?\v
 set ignorecase    " ignore case when searching
     " Clear search highlights
 nnoremap <leader><space> :noh<cr>

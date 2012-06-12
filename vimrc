@@ -120,9 +120,10 @@ filetype plugin on
 " ----------------------------------------------------------------------------
 if has("gui_running")
     " Hide Scrollbars
-	set guioptions-=T
-	set guioptions-=r
-    set guioptions-=L 
+	set guioptions-=T " Remove toolbar
+	set guioptions-=r " Remove right-hand scroll bar
+    set guioptions-=m " Remove menu bar
+    set guioptions-=L " Remove left-hand scroll bar 
     set background=dark
     colorscheme molokai
 endif

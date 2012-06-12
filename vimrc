@@ -103,6 +103,9 @@ command! W exec "w" | silent !osascript ~/.vim/scripts/refresh_chrome.scptd
 " Map :NERDTree to nt
 nmap nt :NERDTree <CR>
 
+" Enable NERDCommenter
+filetype plugin on
+
 " Code hilighing extentions
 autocmd BufRead *.md        set filetype=markdown
 autocmd BufRead *.markdown  set filetype=markdown

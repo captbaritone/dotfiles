@@ -24,7 +24,7 @@ do_list() {
 
 do_status_of() {
 	local name="$1"
-	local src="$HOME/dotfiles/$name"
+	local src="dotfiles/$name"
 	local dst="$HOME/.$name"
 	if ! test -e "$dst" ; then
 		echo "."

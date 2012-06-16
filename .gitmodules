@@ -1,0 +1,6 @@
+[submodule "myTodo"]
+	path = myTodo
+	url = git://github.com/captbaritone/myTodo
+[submodule "vim/bundle/myTodo"]
+	path = vim/bundle/myTodo
+	url = git://github.com/captbaritone/myTodo

@@ -137,4 +137,11 @@ if exists('+undodir')
     set undodir=$HOME/.vim/undodir
     set undofile
 endif
-    
+
+" ----------------------------------------------------------------------------
+"   If there is a local .vimrc, source it here at the end
+" ----------------------------------------------------------------------------
+
+if filereadable(glob("~/.vimrc.local")) 
+    source ~/.vimrc.local
+endif

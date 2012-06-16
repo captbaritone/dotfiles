@@ -3,7 +3,6 @@
 " ----------------------------------------------------------------------------
 " TODO: See what happens when the swap/undo/backup files are not in place
 
-
 " Pathogen
 call pathogen#infect()
 

@@ -68,6 +68,8 @@ nnoremap <leader><space> :noh<cr>
 " Disable arrow keys to keep from falling back on bad habbits 
 nnoremap <left> <nop>
 nnoremap <right> <nop>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
 inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>

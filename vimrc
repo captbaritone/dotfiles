@@ -144,6 +144,6 @@ endif
 "   If there is a local .vimrc, source it here at the end
 " ----------------------------------------------------------------------------
 
-if filereadable(glob("~/.vimrc.local")) 
-    source ~/.vimrc.local
+if filereadable(glob("$HOME/.vimrc.local")) 
+    source $HOME/.vimrc.local
 endif

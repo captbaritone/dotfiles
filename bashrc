@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 
+=======
+#alias vim="gvim || mvim || vim || vi || ed"
+alias vim="gvim"
+>>>>>>> bcfe1fc8917a9ae11ac93c32ee4a1d0e6c070457
 alias ftpush="git-ftp" #Esier to type and remember for pushing websites
 # Get some baseball scores
 alias score="lynx -nonumbers -dump http://m.mlb.com/sf/ | grep -A1 \"\(Last Game\)\|\(Next Game\)\|\(Live:\)\" | sed '/--/d'"

@@ -1,9 +1,11 @@
-## DotFiles
+Dotfiles
+========
 
 This is my personal collection of "dotfiles". Having them in a github
 repository allows me to easily clone them on any machine I find myself on.
 
-## Install
+Install
+-------
 
 In the home directory:
 
@@ -11,27 +13,17 @@ In the home directory:
     git submodule update --init
 
 
-Then deplay (symbolically link) the files into your home dir
+Then deploy (symbolically link) the files into your home dir
 
-    dotfiles/deploy install
+    cd dotfiles
+    ./install.sh
 
 
-## Deploy Help
+install.sh
+----------
 
-The deploy file was forked from `dot-files` by [Bartman](https://github.com/bartman/dot-files)
-
-    
-    deploy - manages symlink files from ~/dotfiles/* to ~/.*
-
-    Syntax: deploy [ <command> ] [ <options> ]
-
-    Commands:
-
-        list                   - list all dotfiles files
-        status                 - status of available files
-        install [-v] [-f] [-s] - installs symlinks
-
-    Options:
-            -v                     - be verbose
-            -f                     - force updates
-            -s                     - skip over existing files
+`install.sh` will symlink all the dotfiles (every file in `dotfiles` except
+`README.md` and `install.sh`) into your home dir. If the dotfile already
+exists, and is not the correct symlink, it will be moved to `$FILENAME.local`
+with the expectation that the repository version of the dotfile will source it.
+This allows for per-machine customization.

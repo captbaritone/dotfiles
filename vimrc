@@ -28,7 +28,7 @@ set showmode
 "let g:Powerline_symbols = 'fancy'
 
 " Buffer Area Visuals
-set scrolloff=3 " Minimal number of screen lines to keep above and below the cursor.
+set scrolloff=7 " Minimal number of screen lines to keep above and below the cursor.
 set visualbell
 set cursorline
 set ruler " Show the line and column number of the cursor position, separated by a comma.
@@ -78,6 +78,14 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
+" Return to last edit position when opening files
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+
+" Turn on spellcheck
+setlocal spell spelllang=en_us
 
 " ----------------------------------------------------------------------------
 "   Formatting
@@ -92,7 +100,7 @@ set shiftround " Round indent to multiple of 'shiftwidth'.
 
 
 " ----------------------------------------------------------------------------
-"   Custom Comands
+"   Custom Commands
 " ----------------------------------------------------------------------------
 
 " automatically reload vimrc when it's saved
@@ -120,7 +128,7 @@ autocmd BufRead *.markdown  set filetype=markdown
 " ----------------------------------------------------------------------------
 if has("gui_running")
     " Hide Scrollbars
-	set guioptions-=T " Remove toolbar
+	set guioptions-=T " Remove tool bar
 	set guioptions-=r " Remove right-hand scroll bar
     set guioptions-=m " Remove menu bar
     set guioptions-=L " Remove left-hand scroll bar 

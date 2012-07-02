@@ -3,7 +3,7 @@
 for name in *; do
     if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ]; then
         target="$HOME/.$name"
-        if [ -L "$target" ] && [ `readlink -f $target` = "$PWD/$name" ]; then
+        if [ "$target" -ef "$PWD/$name" ]; then
             echo "OK - .$name"
         else
             if [ -e "$target" ]; then

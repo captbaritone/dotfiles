@@ -110,7 +110,6 @@ filetype plugin on
 " Code hilighing extentions
 autocmd BufRead *.md        set filetype=markdown
 autocmd BufRead *.markdown  set filetype=markdown
-filetype plugin on
 
 " Templates
 "au BufNewFile *.html 0r ~/.vim/templates/html.txt

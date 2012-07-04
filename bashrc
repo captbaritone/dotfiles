@@ -34,7 +34,7 @@ server() {
 }
 
 # fix the ubuntu bug which spits out an error message after launching gvim
-function gvim () { echo "foo"; (/usr/bin/gvim -f "$@" &) }
+function gvim () { (/usr/bin/gvim -f "$@" &) }
 
 # Set the default editor
 if [ -z "$SSH_CLIENT" ] ; then          # for local/console sessions

@@ -32,31 +32,31 @@ server() {
 
 # Set the default editor
 if [ -z "$SSH_CLIENT" ] ; then          # for local/console sessions
-  case "$TERM" in
-  screen*|xterm-256color)               # we're in screen or tmux
-    if command -v vim >/dev/null ; then
-      export EDITOR="$(which vim)"
-    else
-      export EDITOR="$(which vi)"
-    fi
-  ;;
-  *)                                      # we're on a normal term console
+#  case "$TERM" in
+#  screen*|xterm-256color)               # we're in screen or tmux
+#    if command -v vim >/dev/null ; then
+#      export EDITOR="$(which vim)"
+#    else
+#      export EDITOR="$(which vi)"
+#    fi
+#  ;;
+#  *)                                      # we're on a normal term console
     if command -v mvim >/dev/null ; then
       case "$TERM_PROGRAM" in
         Apple_Terminal) _terminal="Terminal"  ;;
         iTerm.app)      _terminal="iTerm"     ;;
       esac
-      export EDITOR="$(which mvim) -f -c \"au VimLeave * !open -a ${_terminal}\""
+      export EDITOR="$(which mvim)"
       unset _terminal
     elif command -v gvim >/dev/null ; then
-      export EDITOR="$(which gvim) -f"
+      export EDITOR="$(which gvim)"
     elif command -v vim >/dev/null ; then
       export EDITOR="$(which vim)"
     else
       export EDITOR="$(which vi)"
     fi
-  ;;
-  esac
+#  ;;
+#  esac
 else                                    # for remote/ssh sessions
   if command -v vim >/dev/null ; then
     export EDITOR="$(which vim)"

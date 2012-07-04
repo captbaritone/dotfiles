@@ -4,6 +4,9 @@ alias score="lynx -nonumbers -dump http://m.mlb.com/sf/ | grep -A1 \"\(Last Game
 
 alias standings="lynx -nonumbers -dump http://m.mlb.com/standings/ | grep 'San Francisco' | awk '{print \"   GB:\",\$6,\$8}'"
 
+# Help me!
+rtfm() { help $@ || man $@ || lynx -nonumbers -dump "http://www.google.com/search?q=$@\&btnI" | less; }
+
 # Fancy prompt
 function __setprompt {
   local BLUE="\[\033[0;34m\]"

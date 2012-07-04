@@ -33,6 +33,9 @@ server() {
   $(which python) -m SimpleHTTPServer ${1:-8000}
 }
 
+# fix the ubuntu bug which spits out an error message after launching gvim
+function gvim () { echo "foo"; (/usr/bin/gvim -f "$@" &) }
+
 # Set the default editor
 if [ -z "$SSH_CLIENT" ] ; then          # for local/console sessions
 #  case "$TERM" in
@@ -49,30 +52,28 @@ if [ -z "$SSH_CLIENT" ] ; then          # for local/console sessions
         Apple_Terminal) _terminal="Terminal"  ;;
         iTerm.app)      _terminal="iTerm"     ;;
       esac
-      export EDITOR="$(which mvim)"
+      export EDITOR="mvim"
       unset _terminal
     elif command -v gvim >/dev/null ; then
-      export EDITOR="$(which gvim)"
+      export EDITOR="gvim"
     elif command -v vim >/dev/null ; then
-      export EDITOR="$(which vim)"
+      export EDITOR="vim"
     else
-      export EDITOR="$(which vi)"
+      export EDITOR="vi"
     fi
 #  ;;
 #  esac
 else                                    # for remote/ssh sessions
   if command -v vim >/dev/null ; then
-    export EDITOR="$(which vim)"
+    export EDITOR="vim"
   else
-    export EDITOR="$(which vi)"
+    export EDITOR="vi"
   fi
 fi
 export VISUAL="$EDITOR"
 
 # I want "vim" to be the best available version
 alias vim="$EDITOR"
-
-
 
 # Number of commands to remember in the command history
 export HISTSIZE=10000

@@ -15,3 +15,5 @@ for name in *; do
         fi
     fi
 done
+
+echo "Installation complete. You may wish to \`source ~/.bashrc\` to get up to date"

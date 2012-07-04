@@ -62,7 +62,7 @@ vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
 set ignorecase    " ignore case when searching
-    " Clear search highlights
+" Clear search highlights
 nnoremap <leader><space> :noh<cr>
 
 " Disable arrow keys to keep from falling back on bad habbits 
@@ -86,6 +86,10 @@ autocmd BufReadPost *
 
 " Turn on spellcheck
 setlocal spell spelllang=en_us
+
+" Reselect visual block after indent/outdent: http://vimbits.com/bits/20
+vnoremap < <gv
+vnoremap > >gv
 
 " ----------------------------------------------------------------------------
 "   Formatting
@@ -146,6 +150,15 @@ function! s:NumberTextObject(whole)
     endif
 endfunction
 
+" Make standard cut/copy/paste hotkeys work as expected
+" TODO: This should only run in gvim
+"
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
+" Note: the next command destroys the visual mode <C-v> hotkey
+nnoremap <C-v> "+pa
 
 " ----------------------------------------------------------------------------
 "   GUI Specific 

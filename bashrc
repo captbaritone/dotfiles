@@ -1,4 +1,3 @@
-
 alias ftpush="git-ftp" #Esier to type and remember for pushing websites
 # Get some baseball scores
 alias score="lynx -nonumbers -dump http://m.mlb.com/sf/ | grep -A1 \"\(Last Game\)\|\(Next Game\)\|\(Live:\)\" | sed '/--/d'"
@@ -14,7 +13,7 @@ function __setprompt {
   if [ $SSH2_IP ] || [ $SSH_IP ] ; then
     local SSH_FLAG="@\h"
   fi
-  PS1="$BLUE[\$(date +%H:%M)][\u$SSH_FLAG:\w]\\$ $NO_COLOUR"
+  PS1="$BLUE[\u$SSH_FLAG:\w]\\$ $NO_COLOUR"
   PS2="$BLUE>$NO_COLOUR "
   PS4='$BLUE+$NO_COLOUR '
 }
@@ -27,7 +26,7 @@ __setprompt
 # http://superuser.com/questions/52483/terminal-tips-and-tricks-for-mac-os-x
 #
 # @param [optional, Integer] bind port number, default 8000
-serve() {
+server() {
   $(which python) -m SimpleHTTPServer ${1:-8000}
 }
 
@@ -67,6 +66,11 @@ else                                    # for remote/ssh sessions
 fi
 export VISUAL="$EDITOR"
 
+# I want "vim" to be the best available version
+alias vim="$EDITOR"
+
+
+
 # Number of commands to remember in the command history
 export HISTSIZE=10000
 
@@ -75,6 +79,5 @@ export HISTFILESIZE=999999
 
 # Prepend a timestamp on each history event
 export HISTTIMEFORMAT="%Y-%m-%dT%H:%M:%S "
-
 
 [ -r bashrc.local ] && source bashrc.local

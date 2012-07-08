@@ -7,21 +7,11 @@ alias standings="lynx -nonumbers -dump http://m.mlb.com/standings/ | grep 'San F
 # Help me!
 rtfm() { help $@ || man $@ || lynx -nonumbers -dump "http://www.google.com/search?q=$@\&btnI" | less; }
 
-# Fancy prompt
-function __setprompt {
-  local BLUE="\[\033[0;34m\]"
-  local NO_COLOUR="\[\033[0m\]"
-  local SSH_IP=`echo $SSH_CLIENT | awk '{ print $1 }'`
-  local SSH2_IP=`echo $SSH2_CLIENT | awk '{ print $1 }'`
-  if [ $SSH2_IP ] || [ $SSH_IP ] ; then
-    local SSH_FLAG="@\h"
-  fi
-  PS1="$BLUE[\u$SSH_FLAG:\w]\\$ $NO_COLOUR"
-  PS2="$BLUE>$NO_COLOUR "
-  PS4='$BLUE+$NO_COLOUR '
-}
-__setprompt
-
+# Prompt inspired by 
+# https://raw.github.com/paulirish/dotfiles/master/.bash_prompt
+source $HOME/.bash_prompt
+# z
+. $HOME/dotfiles/tools/z/z.sh
 ##
 # Quickly starts a webserver from the current directory.
 #

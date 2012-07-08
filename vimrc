@@ -22,7 +22,7 @@ set shortmess+=I
 " Control Area (May be superseeded by PowerLine)
 set showcmd                 " Show (partial) command in the last line of the screen.
 set wildmenu                " Command completion
-set wildmode=list:longest   " When more than one match, list all matches and complete till longest common string
+set wildmode=list:longest   " List all matches and complete till longest common string
 set laststatus=2            " The last window will have a status line always
 set showmode                " Show the mode in the last line of the screen
 set ruler                   " Show the line and column number of the cursor position, separated by a comma.

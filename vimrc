@@ -10,36 +10,35 @@ call pathogen#infect()
 set nocompatible
 let mapleader = ","
 set encoding=utf-8
-set hidden " Allow buffers to exist in the background
-set ttyfast " Indicates a fast terminal connection
-set backspace=indent,eol,start " Allow backspaceing over autoindent, line breaks, starts of insert
+set hidden                      " Allow buffers to exist in the background
+set ttyfast                     " Indicates a fast terminal connection
+set backspace=indent,eol,start  " Allow backspaceing over autoindent, line breaks, starts of insert
 set shortmess+=I
 
 " ----------------------------------------------------------------------------
-"   Interface
+"   Visual
 " ----------------------------------------------------------------------------
 
 " Control Area (May be superseeded by PowerLine)
-set showcmd
-set wildmenu " Command completion
-set wildmode=list:longest " When more than one match, list all matches and complete till longest common string
-set laststatus=2 " The last window will have a status line always
-set showmode
-"let g:Powerline_symbols = 'fancy'
+set showcmd                 " Show (partial) command in the last line of the screen.
+set wildmenu                " Command completion
+set wildmode=list:longest   " When more than one match, list all matches and complete till longest common string
+set laststatus=2            " The last window will have a status line always
+set showmode                " Show the mode in the last line of the screen
+set ruler                   " Show the line and column number of the cursor position, separated by a comma.
 
 " Buffer Area Visuals
-set scrolloff=7 " Minimal number of screen lines to keep above and below the cursor.
-set visualbell
-set cursorline
-set ruler " Show the line and column number of the cursor position, separated by a comma.
-set number
-set wrap
-set linebreak " Break the line on words
-set textwidth=79
+set scrolloff=7             " Minimal number of screen lines to keep above and below the cursor.
+set visualbell              " Use a visual bell
+set cursorline              " Highlight the current line
+set number                  " Show line numbers
+set wrap                    " Soft wrap at the window width
+set linebreak               " Break the line on words
+set textwidth=79            " Break lines at just under 80 characters
 if exists('+colorcolumn')
-  set colorcolumn=+1
+  set colorcolumn=+1        " Highlight the column after `textwidth` 
 endif
-set formatoptions=cqrn1
+
 " letter meaning when present in 'formatoptions'
 " ------ ---------------------------------------
 " c Auto-wrap comments using textwidth, inserting
@@ -49,66 +48,70 @@ set formatoptions=cqrn1
 " after hitting <Enter> in Insert mode. 
 " t Auto-wrap text using textwidth (does not apply
 " to comments)
-syntax enable " This has to come after colorcolumn in order to draw it.
-set t_Co=256 " enable 256 colors
+set formatoptions=cqrn1
 
-" Search
-set gdefault " Greedy search by default
-set incsearch
-set showmatch
-set hlsearch
-nnoremap / /\v
+syntax enable               " This has to come after colorcolumn in order to draw it.
+set t_Co=256                " enable 256 colors
+
+" Colorscheme
+colorscheme molokai
+
+" ----------------------------------------------------------------------------
+"   GUI Specific 
+" ----------------------------------------------------------------------------
+
+if has("gui_running")
+    " Hide Scrollbars
+	set guioptions-=T       " Remove tool bar
+	set guioptions-=r       " Remove right-hand scroll bar
+    set guioptions-=m       " Remove menu bar
+    set guioptions-=L       " Remove left-hand scroll bar 
+    set background=dark
+    " Turn on spellcheck only for GUI because colors don't work so well in
+    " command line
+    setlocal spell spelllang=en_us
+
+endif
+
+" ----------------------------------------------------------------------------
+"   Search
+" ----------------------------------------------------------------------------
+
+set gdefault                " Greedy search by default
+set incsearch               " Show search results as we type
+set showmatch               " Show matching brackets
+set hlsearch                " Highlight search results
+                            " Use regex for searches
+nnoremap / /\v              
 vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
-set ignorecase    " ignore case when searching
-" Clear search highlights
-nnoremap <leader><space> :noh<cr>
-
-" Disable arrow keys to keep from falling back on bad habbits 
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-" Navigate using displayed lines not actual lines
-nnoremap j gj
-nnoremap k gk
-
-" Return to last edit position when opening files
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
-
-" Turn on spellcheck
-setlocal spell spelllang=en_us
-
-" Reselect visual block after indent/outdent: http://vimbits.com/bits/20
-vnoremap < <gv
-vnoremap > >gv
+set ignorecase              " Ignore case when searching
+                            " Clear search highlights
+nnoremap <leader><space> :nohlsearch<cr>
 
 " ----------------------------------------------------------------------------
-"   Formatting
+"   Tabs
 " ----------------------------------------------------------------------------
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set autoindent " Copy indent from current line when starting new line
-set smartindent " Smart indent on new line, works for C-like langs.
-set shiftround " Round indent to multiple of 'shiftwidth'.
 
+set tabstop=4               " Show a tab as four spaces
+set shiftwidth=4            " Reindent is also four spaces
+set softtabstop=4           " When hit <tab> use four columns
+set expandtab               " Create spaces when I type <tab>
+set autoindent              " Copy indent from current line when starting new line
+set smartindent             " Smart indent on new line, works for C-like langs.
+set shiftround              " Round indent to multiple of 'shiftwidth'.
 
 " ----------------------------------------------------------------------------
-"   Custom Commands
+"   Custom commands
 " ----------------------------------------------------------------------------
 
 " automatically reload vimrc when it's saved
 au BufWritePost *vimrc so $MYVIMRC
+
+" ----------------------------------------------------------------------------
+"   Plugins
+" ----------------------------------------------------------------------------
 
 " Custom command to refresh Chrome on save
 command! W exec "w" | silent !osascript ~/.vim/scripts/refresh_chrome.scptd
@@ -119,12 +122,12 @@ nmap nt :NERDTree <CR>
 " Enable NERDCommenter
 filetype plugin on
 
-" Code hilighing extentions
-autocmd BufRead *.md        set filetype=markdown
-autocmd BufRead *.markdown  set filetype=markdown
+" Return to last edit position when opening files
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
 
-" Templates
-"au BufNewFile *.html 0r ~/.vim/templates/html.txt
 
 " N is now an 'integer' motion
 onoremap N :<c-u>call <SID>NumberTextObject(0)<cr>
@@ -136,23 +139,33 @@ xnoremap iN :<c-u>call <SID>NumberTextObject(1)<cr>
 
 function! s:NumberTextObject(whole)
     normal! v
-
     while getline('.')[col('.')] =~# '\v[0-9]'
         normal! l
     endwhile
-
     if a:whole
         normal! o
-
         while col('.') > 1 && getline('.')[col('.') - 2] =~# '\v[0-9]'
             normal! h
         endwhile
     endif
 endfunction
 
-" Make standard cut/copy/paste hotkeys work as expected
+" ----------------------------------------------------------------------------
+"   Custom filetypes
+" ----------------------------------------------------------------------------
+
+autocmd BufRead *.md        set filetype=markdown
+autocmd BufRead *.markdown  set filetype=markdown
+
+" Templates
+au BufNewFile *.html 0r ~/.vim/templates/html.txt
+
+" ----------------------------------------------------------------------------
+"   Custom mappings
+" ----------------------------------------------------------------------------
+
+" Make standard GUI cut/copy/paste hotkeys work as expected
 " TODO: This should only run in gvim
-"
 vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
@@ -160,18 +173,26 @@ imap <C-v> <ESC>"+pa
 " Note: the next command destroys the visual mode <C-v> hotkey
 nnoremap <C-v> "+pa
 
-" ----------------------------------------------------------------------------
-"   GUI Specific 
-" ----------------------------------------------------------------------------
-if has("gui_running")
-    " Hide Scrollbars
-	set guioptions-=T " Remove tool bar
-	set guioptions-=r " Remove right-hand scroll bar
-    set guioptions-=m " Remove menu bar
-    set guioptions-=L " Remove left-hand scroll bar 
-    set background=dark
-    colorscheme molokai
-endif
+" gundo plugin. Requires vim being compiled with Python support
+nnoremap <F5> :GundoToggle<CR>
+
+" Disable arrow keys to keep from falling back on bad habits 
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+" Navigate using displayed lines not actual lines
+nnoremap j gj
+nnoremap k gk
+
+" Reselect visual block after indent/outdent: http://vimbits.com/bits/20
+vnoremap < <gv
+vnoremap > >gv
 
 " ----------------------------------------------------------------------------
 "   Undo, Backup and Swap file locations

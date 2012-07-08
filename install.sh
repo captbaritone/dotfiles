@@ -1,7 +1,7 @@
 #!/bin/sh
 
 for name in *; do
-    if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ]; then
+    if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ] && [ "$name" != 'tools' ]; then
         target="$HOME/.$name"
         if [ "$target" -ef "$PWD/$name" ]; then
             echo "OK - .$name"

@@ -82,7 +82,7 @@ set incsearch               " Show search results as we type
 set showmatch               " Show matching brackets
 set hlsearch                " Highlight search results
                             " Use regex for searches
-nnoremap / /\v              
+nnoremap / /\v
 vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v

@@ -1,3 +1,5 @@
+# Use colors for ls
+export CLICOLOR=1
 # Get some baseball scores
 alias score="lynx -nonumbers -dump http://m.mlb.com/sf/ | grep -A1 \"\(Last Game\)\|\(Next Game\)\|\(Live:\)\" | sed '/--/d'"
 

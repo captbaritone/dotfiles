@@ -1,12 +1,12 @@
 [submodule "myTodo"]
 	path = myTodo
-	url = git://github.com/captbaritone/myTodo
+	url = http://github.com/captbaritone/myTodo
 [submodule "vim/bundle/myTodo"]
 	path = vim/bundle/myTodo
-	url = git://github.com/captbaritone/myTodo
+	url = http://github.com/captbaritone/myTodo
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
+	url = http://github.com/altercation/vim-colors-solarized.git
 [submodule "tools/z"]
     path = tools/z
-    url = git://github.com/rupa/z.git
+    url = http://github.com/rupa/z.git

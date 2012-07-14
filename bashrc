@@ -6,6 +6,17 @@ alias score="lynx -nonumbers -dump http://m.mlb.com/sf/ | grep -A1 \"\(Last Game
 alias standings="lynx -nonumbers -dump http://m.mlb.com/standings/ | grep 'San Francisco' | awk '{print \"   GB:\",\$6,\$8}'"
 
 alias g='git'
+
+caes "$OSTYPE" in
+   cygwin)
+      alias open="cmd /c start"
+   linux)
+      alias open="xdg-open"
+# OSX already does this
+#   darwin*)
+#      alias open="open"
+
+
 # Help me!
 rtfm() { help $@ || man $@ || lynx -nonumbers -dump "http://www.google.com/search?q=$@\&btnI" | less; }
 

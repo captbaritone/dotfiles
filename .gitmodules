@@ -10,3 +10,6 @@
 [submodule "tools/z"]
     path = tools/z
     url = http://github.com/rupa/z.git
+[submodule "ssh"]
+	path = ssh
+	url = git@db.classicalcode.com:ssh

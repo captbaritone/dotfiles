@@ -4,6 +4,7 @@
 " TODO: See what happens when the swap/undo/backup files are not in place
 
 " Pathogen
+set shell=/bin/bash             " Allows pathogen to work on jailed servers
 call pathogen#infect()
 
 " Base Options

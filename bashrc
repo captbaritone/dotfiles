@@ -7,15 +7,18 @@ alias standings="lynx -nonumbers -dump http://m.mlb.com/standings/ | grep 'San F
 
 alias g='git'
 
-caes "$OSTYPE" in
+case "$OSTYPE" in
    cygwin)
       alias open="cmd /c start"
+      ;;
    linux)
       alias open="xdg-open"
+      ;;
 # OSX already does this
 #   darwin*)
 #      alias open="open"
-
+#       ;;
+esac
 
 # Help me!
 rtfm() { help $@ || man $@ || lynx -nonumbers -dump "http://www.google.com/search?q=$@\&btnI" | less; }

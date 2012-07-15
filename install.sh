@@ -1,8 +1,12 @@
 #!/bin/sh
 
-cd "$( dirname "${BASH_SOURCE[0]}" )"
+cd "~/dotfiles"
 
-echo "Linking dotfiles into place"
+echo "\nUpdating submodules..."
+git submodule update -q --init
+echo "Done"
+
+echo "\nLinking dotfiles into place"
 for name in *; do
     if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ] && [ "$name" != 'tools' ]; then
         target="$HOME/.$name"
@@ -18,8 +22,6 @@ for name in *; do
         fi
     fi
 done
-echo "\nUpdating submodules..."
-git submodule update -q --init
-echo "Done"
+
 echo "\nInstallation complete. You may wish to issue the following:"
 echo "        source ~/.bashrc"

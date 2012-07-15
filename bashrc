@@ -90,4 +90,4 @@ export HISTFILESIZE=999999
 # Prepend a timestamp on each history event
 export HISTTIMEFORMAT="%Y-%m-%dT%H:%M:%S "
 
-[ -r bashrc.local ] && source bashrc.local
+[ -r "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"

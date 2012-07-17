@@ -5,29 +5,28 @@ alias score="lynx -nonumbers -dump http://m.mlb.com/sf/ | grep -A1 \"\(Last Game
 
 alias standings="lynx -nonumbers -dump http://m.mlb.com/standings/ | grep 'San Francisco' | awk '{print \"   GB:\",\$6,\$8}'"
 
-alias g='git'
-
 case "$OSTYPE" in
-   cygwin)
-      alias open="cmd /c start"
-      ;;
-   linux)
-      alias open="xdg-open"
-      ;;
-# OSX already does this
-#   darwin*)
-#      alias open="open"
-#       ;;
+    cygwin)
+        alias open="cmd /c start"
+        ;;
+    linux*)
+        # fix the ubuntu bug which spits out an error message after launching gvim
+        function gvim () { (/usr/bin/gvim -f "$@" &) }
+        alias open="xdg-open"
+        ;;
+    darwin*)
+        # OSX already does this
+        #alias open="open"
+        ;;
 esac
-
-# Help me!
-rtfm() { help $@ || man $@ || lynx -nonumbers -dump "http://www.google.com/search?q=$@\&btnI" | less; }
 
 # Prompt inspired by 
 # https://raw.github.com/paulirish/dotfiles/master/.bash_prompt
 source $HOME/.bash_prompt
+
 # z
 . $HOME/dotfiles/tools/z/z.sh
+
 ##
 # Quickly starts a webserver from the current directory.
 #
@@ -36,11 +35,9 @@ source $HOME/.bash_prompt
 #
 # @param [optional, Integer] bind port number, default 8000
 server() {
-  $(which python) -m SimpleHTTPServer ${1:-8000}
+    $(which python) -m SimpleHTTPServer ${1:-8000}
 }
 
-# fix the ubuntu bug which spits out an error message after launching gvim
-function gvim () { (/usr/bin/gvim -f "$@" &) }
 
 # Set the default editor
 if [ -z "$SSH_CLIENT" ] ; then          # for local/console sessions

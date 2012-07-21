@@ -9,12 +9,13 @@ fi
 
 if tput setaf 1 &> /dev/null; then
 	tput sgr0
+    # These colors don't match up with their names either on Ubuntu 12.04 or OSX
 	if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
 		MAGENTA=$(tput setaf 9)
 		ORANGE=$(tput setaf 172)
 		GREEN=$(tput setaf 190)
 		PURPLE=$(tput setaf 141)
-		WHITE=$(tput setaf 256)
+		WHITE=$(tput setaf 255)
 	else
 		MAGENTA=$(tput setaf 5)
 		ORANGE=$(tput setaf 4)
@@ -36,7 +37,8 @@ fi
 
 
 function parse_git_dirty() {
-	[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+# Added "cut" to accommodate .gitconfig "statusHints = false"
+    [[ $(git status 2> /dev/null | tail -n1 | cut -c1-17) != "nothing to commit" ]] && echo "*"
 }
 
 function parse_git_branch() {

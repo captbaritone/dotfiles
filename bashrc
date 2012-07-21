@@ -1,3 +1,6 @@
+# Source the local bashrc file first, so it doesn't override any of our
+# settings
+[ -r "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"
 # Use colors for ls
 export CLICOLOR=1
 # Get some baseball scores
@@ -86,5 +89,3 @@ export HISTFILESIZE=999999
 
 # Prepend a timestamp on each history event
 export HISTTIMEFORMAT="%Y-%m-%dT%H:%M:%S "
-
-[ -r "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"

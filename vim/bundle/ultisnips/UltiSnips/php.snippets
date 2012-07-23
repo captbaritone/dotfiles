@@ -1,20 +1,6 @@
 ## Snippets from SnipMate, taken from
 ## https://github.com/scrooloose/snipmate-snippets.git
 
-snippet array "array"
-$${1:arrayName} = array('${2}' => ${3});${4}
-endsnippet
-
-snippet def "def"
-define('${1}'${2});${3}
-endsnippet
-
-snippet do "do"
-do {
-	${2:// code... }
-} while (${1:/* condition */});"
-endsnippet
-
 snippet doc_f "doc_f"
 /**
  * $2
@@ -37,15 +23,15 @@ interface ${1:someClass}
 } // END interface $1"
 endsnippet
 
-snippet else "else"
-else {
-	${1:// code...}
-}
-endsnippet
-
 snippet for "for"
 for ($${2:i} = 0; $$2 < ${1:count}; $$2${3:++}) {
 	${4:// code...}
+}
+endsnippet
+
+snippet foreach "foreach"
+foreach ($${1:variable} as $${2:value}){
+	${3:// code...}
 }
 endsnippet
 
@@ -229,6 +215,12 @@ endsnippet
 
 snippet pc "Dumb debug helper in cli"
 var_export($1);
+endsnippet
+
+snippet redirect "301 redirect"
+// Redirect
+header("Location: ${1:foo.php}",TRUE,301);
+die();
 endsnippet
 
 # :vim:ft=snippets:

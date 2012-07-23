@@ -4,6 +4,12 @@
 " TODO: See what happens when the swap/undo/backup files are not in place
 
 " Pathogen
+let g:pathogen_disabled = []    
+if !has('python')               " Some plugins require python
+    call add(g:pathogen_disabled, 'gundo')
+    call add(g:pathogen_disabled, 'ultisnips')
+endif
+
 set shell=/bin/bash             " Allows pathogen to work on jailed servers
 call pathogen#infect()
 

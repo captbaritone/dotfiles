@@ -12,6 +12,7 @@ endif
 
 set shell=/bin/bash             " Allows pathogen to work on jailed servers
 call pathogen#infect()
+call pathogen#helptags()        " Initiate any (new?) plugin help files
 
 " Base Options
 set nocompatible
@@ -45,6 +46,20 @@ set textwidth=79            " Break lines at just under 80 characters
 if exists('+colorcolumn')
   set colorcolumn=+1        " Highlight the column after `textwidth` 
 endif
+
+" Highlight tabs and trailing spaces
+"set listchars=tab:>-,trail:-
+"set list
+
+" Trim trailing white space on save (preserving cursor postion
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd FileType c,cpp,java,php,ruby,python,css autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " letter meaning when present in 'formatoptions'
 " ------ ---------------------------------------
@@ -135,27 +150,32 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 
+" Gist Vim
+
+"let g:gist_clip_command = 'pbcopy'
+"let g:gist_detect_filetype = 1
+"let g:gist_open_browser_after_post = 1
 
 " N is now an 'integer' motion
-onoremap N :<c-u>call <SID>NumberTextObject(0)<cr>
-xnoremap N :<c-u>call <SID>NumberTextObject(0)<cr>
-onoremap aN :<c-u>call <SID>NumberTextObject(1)<cr>
-xnoremap aN :<c-u>call <SID>NumberTextObject(1)<cr>
-onoremap iN :<c-u>call <SID>NumberTextObject(1)<cr>
-xnoremap iN :<c-u>call <SID>NumberTextObject(1)<cr>
+"$1noremap N :<c-u>call <SID>NumberTextObject(0)<cr>
+"$1noremap N :<c-u>call <SID>NumberTextObject(0)<cr>
+"$1noremap aN :<c-u>call <SID>NumberTextObject(1)<cr>
+"$1noremap aN :<c-u>call <SID>NumberTextObject(1)<cr>
+"$1noremap iN :<c-u>call <SID>NumberTextObject(1)<cr>
+"$1noremap iN :<c-u>call <SID>NumberTextObject(1)<cr>
 
-function! s:NumberTextObject(whole)
-    normal! v
-    while getline('.')[col('.')] =~# '\v[0-9]'
-        normal! l
-    endwhile
-    if a:whole
-        normal! o
-        while col('.') > 1 && getline('.')[col('.') - 2] =~# '\v[0-9]'
-            normal! h
-        endwhile
-    endif
-endfunction
+"$1unction! s:NumberTextObject(whole)
+"$1   normal! v
+"$1   while getline('.')[col('.')] =~# '\v[0-9]'
+"$1       normal! l
+"$1   endwhile
+"$1   if a:whole
+"$1       normal! o
+"$1       while col('.') > 1 && getline('.')[col('.') - 2] =~# '\v[0-9]'
+"$1           normal! h
+"$1       endwhile
+"$1   endif
+"$1ndfunction
 
 " ----------------------------------------------------------------------------
 "   Custom filetypes

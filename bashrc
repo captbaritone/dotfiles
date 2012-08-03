@@ -1,12 +1,26 @@
+###########################################################################
+#                         Source ~/.bashrc.local                          #
+###########################################################################
+
 # Source the local bashrc file first, so it doesn't override any of our
-# settings
 [ -r "$HOME/.bashrc.local" ] && source "$HOME/.bashrc.local"
+
 # Use colors for ls
 export CLICOLOR=1
+
+###########################################################################
+#                             Baseball Scores                             #
+###########################################################################
+
 # Get some baseball scores
 alias score="lynx -nonumbers -dump http://m.mlb.com/sf/ | grep -A1 \"\(Last Game\)\|\(Next Game\)\|\(Live:\)\" | sed '/--/d'"
 
 alias standings="lynx -nonumbers -dump http://m.mlb.com/standings/ | grep 'San Francisco' | awk '{print \"   GB:\",\$6,\$8}'"
+
+###########################################################################
+#                          OS Dependent Options                           #
+###########################################################################
+
 
 case "$OSTYPE" in
     cygwin)
@@ -23,11 +37,17 @@ case "$OSTYPE" in
         ;;
 esac
 
-# Prompt inspired by 
+###########################################################################
+#                              Fancy Prompt                               #
+###########################################################################
+
 # https://raw.github.com/paulirish/dotfiles/master/.bash_prompt
 source $HOME/.bash_prompt
 
-# z
+###########################################################################
+#                             z shell command                             #
+###########################################################################
+
 . $HOME/dotfiles/tools/z/z.sh
 
 ##
@@ -40,6 +60,10 @@ source $HOME/.bash_prompt
 server() {
     $(which python) -m SimpleHTTPServer ${1:-8000}
 }
+
+###########################################################################
+#                Detect the best version of vim avalaible                 #
+###########################################################################
 
 
 # Set the default editor
@@ -80,6 +104,11 @@ export VISUAL="$EDITOR"
 
 # I want "vim" to be the best available version
 alias vim="$EDITOR"
+
+###########################################################################
+#                             History Options                             #
+###########################################################################
+
 
 # Number of commands to remember in the command history
 export HISTSIZE=10000

@@ -186,8 +186,7 @@ autocmd BufReadPost *
 "   Custom filetypes
 " ----------------------------------------------------------------------------
 
-autocmd BufRead *.md        set filetype=markdown
-autocmd BufRead *.markdown  set filetype=markdown
+autocmd BufNewFile,BufRead *.md,*.markdown  set filetype=markdown
 
 " Templates
 au BufNewFile *.html 0r ~/.vim/templates/html.txt

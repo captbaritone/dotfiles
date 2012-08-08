@@ -1,0 +1,15 @@
+#!/bin/bash
+SOURCE="$PWD/$1"
+DESTINATION=$( dirname "$SOURCE" )
+FILENAME=$( basename "$SOURCE" )
+BAKDIR="/Users/captbaritone/dotfiles/tools/j/bak/"
+BAKDEST="$BAKDIR$FILENAME"
+
+mv "$SOURCE" "$BAKDIR"
+ORIGSIZE=$( j size "$BAKDEST" )
+convert "$BAKDEST" -print "Original: $ORIGSIZE ($BAKDEST)\n" /dev/null
+convert -trim $BAKDEST $SOURCE
+NEWSIZE=$( j size "$SOURCE" )
+convert "$SOURCE" -print "New: $NEWSIZE ($1)\n" /dev/null
+
+

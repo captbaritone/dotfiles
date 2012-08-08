@@ -1,3 +1,4 @@
+extends html
 ## Snippets from SnipMate, taken from
 ## https://github.com/scrooloose/snipmate-snippets.git
 
@@ -221,6 +222,10 @@ snippet redirect "301 redirect"
 // Redirect
 header("Location: ${1:foo.php}",TRUE,301);
 die();
+endsnippet
+
+snippet <?= "I like inline php, but it's a sin"
+<?php echo $1; ?>
 endsnippet
 
 # Eli like this stuff

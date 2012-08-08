@@ -10,6 +10,12 @@ if !has('python')               " Some plugins require python
     call add(g:pathogen_disabled, 'ultisnips')
 endif
 
+if !executable("curl")          " Other plugins require curl
+    " This could also test for git
+    " if !executable("git")
+    call add(g:pathogen_disabled, 'gist-vim')
+endif
+
 set shell=/bin/bash             " Allows pathogen to work on jailed servers
 call pathogen#infect()
 call pathogen#helptags()        " Initiate any (new?) plugin help files
@@ -160,27 +166,6 @@ autocmd BufReadPost *
 "let g:gist_clip_command = 'pbcopy'
 "let g:gist_detect_filetype = 1
 "let g:gist_open_browser_after_post = 1
-
-" N is now an 'integer' motion
-"$1noremap N :<c-u>call <SID>NumberTextObject(0)<cr>
-"$1noremap N :<c-u>call <SID>NumberTextObject(0)<cr>
-"$1noremap aN :<c-u>call <SID>NumberTextObject(1)<cr>
-"$1noremap aN :<c-u>call <SID>NumberTextObject(1)<cr>
-"$1noremap iN :<c-u>call <SID>NumberTextObject(1)<cr>
-"$1noremap iN :<c-u>call <SID>NumberTextObject(1)<cr>
-
-"$1unction! s:NumberTextObject(whole)
-"$1   normal! v
-"$1   while getline('.')[col('.')] =~# '\v[0-9]'
-"$1       normal! l
-"$1   endwhile
-"$1   if a:whole
-"$1       normal! o
-"$1       while col('.') > 1 && getline('.')[col('.') - 2] =~# '\v[0-9]'
-"$1           normal! h
-"$1       endwhile
-"$1   endif
-"$1ndfunction
 
 " ----------------------------------------------------------------------------
 "   Custom filetypes

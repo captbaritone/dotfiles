@@ -1,0 +1,2 @@
+#!/bin/bash
+convert "$1" -print "%w x %h\n" /dev/null

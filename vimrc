@@ -27,7 +27,7 @@ set encoding=utf-8
 set hidden                      " Allow buffers to exist in the background
 set ttyfast                     " Indicates a fast terminal connection
 set backspace=indent,eol,start  " Allow backspaceing over autoindent, line breaks, starts of insert
-set shortmess+=I
+set shortmess+=I                " No welcome screen
 
 " ----------------------------------------------------------------------------
 "   Visual

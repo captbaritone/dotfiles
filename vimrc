@@ -23,6 +23,7 @@ call pathogen#helptags()        " Initiate any (new?) plugin help files
 " Base Options
 set nocompatible
 let mapleader = ","
+set notimeout                   " Turn off the timeout for the leader key
 set encoding=utf-8
 set hidden                      " Allow buffers to exist in the background
 set ttyfast                     " Indicates a fast terminal connection

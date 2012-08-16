@@ -1,5 +1,0 @@
-set nocompatible
-set runtimepath=vim_test
-filetype plugin on
-nnoremap q :qa!<cr>
-color desert

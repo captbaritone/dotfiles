@@ -145,6 +145,8 @@ au BufWritePost *vimrc so $MYVIMRC
 " Custom command to refresh Chrome on save
 command! W exec "w" | silent !osascript ~/.vim/scripts/refresh_chrome.scptd
 
+" Set Ultisnip directory
+let g:UltiSnipsSnippetsDir="~/.vim/ultisnips/"
 " Cycle through ultisnip triggers with <tab>
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"

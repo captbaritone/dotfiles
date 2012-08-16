@@ -31,3 +31,9 @@
 [submodule "vim/bundle/minibufexpl.vim"]
 	path = vim/bundle/minibufexpl.vim
 	url = https://github.com/fholgado/minibufexpl.vim.git
+[submodule "vim/bundle/gundo"]
+	path = vim/bundle/gundo
+	url = http://github.com/sjl/gundo.vim.git
+[submodule "vim/bundle/ultisnips"]
+	path = vim/bundle/ultisnips
+	url = https://github.com/vim-scripts/UltiSnips.git

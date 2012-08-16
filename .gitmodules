@@ -1,6 +1,3 @@
-[submodule "myTodo"]
-	path = myTodo
-	url = http://github.com/captbaritone/myTodo
 [submodule "vim/bundle/myTodo"]
 	path = vim/bundle/myTodo
 	url = http://github.com/captbaritone/myTodo
@@ -37,3 +34,6 @@
 [submodule "vim/bundle/ultisnips"]
 	path = vim/bundle/ultisnips
 	url = https://github.com/vim-scripts/UltiSnips.git
+[submodule "vim/bundle/gist-vim"]
+	path = vim/bundle/gist-vim
+	url = https://github.com/mattn/gist-vim

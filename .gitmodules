@@ -15,7 +15,19 @@
 	url = git@db.classicalcode.com:ssh
 [submodule "vim/bundle/zencoding-vim"]
 	path = vim/bundle/zencoding-vim
-	url = http://github.com/mattn/zencoding-vim.git
+	url = https://github.com/mattn/zencoding-vim.git
 [submodule "vim/bundle/vim-powerline"]
 	path = vim/bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline/
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic/
+[submodule "vim/bundle/webapi-vim"]
+	path = vim/bundle/webapi-vim
+	url = https://github.com/mattn/webapi-vim/
+[submodule "vim/bundle/molokai"]
+	path = vim/bundle/molokai
+	url = https://github.com/tomasr/molokai/
+[submodule "vim/bundle/minibufexpl.vim"]
+	path = vim/bundle/minibufexpl.vim
+	url = https://github.com/fholgado/minibufexpl.vim.git

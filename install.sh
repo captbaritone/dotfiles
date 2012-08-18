@@ -2,10 +2,6 @@
 
 cd "~/dotfiles"
 
-echo "\nUpdating submodules..."
-git submodule update -q --init
-echo "Done"
-
 echo "\nLinking dotfiles into place"
 for name in *; do
     if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ] && [ "$name" != 'tools' ]; then
@@ -25,3 +21,5 @@ done
 
 echo "\nInstallation complete. You may wish to issue the following:"
 echo "        source ~/.bashrc"
+echo "        git submodule update -q --init"
+echo "        vim +BundleInstall +qall"

@@ -3,44 +3,55 @@
 " ----------------------------------------------------------------------------
 " TODO: See what happens when the swap/undo/backup files are not in place
 
+" This must happen before Vundle
 set nocompatible
 
 " ----------------------------------------------------------------------------
 "   Vundle
 " ----------------------------------------------------------------------------
 
-filetype off                   " required!
-
+filetype off                              " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-
 " let Vundle manage Vundle (required)
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/vundle'                    
 
-" My Bundles here:
-Bundle 'tomasr/molokai'
-Bundle 'captbaritone/myTodo'
-Bundle 'sjl/gundo.vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Bundle 'vim-scripts/CountJump'
-Bundle 'fholgado/minibufexpl.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'SirVer/ultisnips'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'Lokaltog/vim-powerline'
+                                          " Molokai colorscheme
+Bundle 'tomasr/molokai'                   
+                                          " My personal Todo list syntax
+Bundle 'captbaritone/myTodo'              
+                                          " Gundo: Undo history
+Bundle 'sjl/gundo.vim'                    
+                                          " Webapi: Dependancy of Gist-vim
+Bundle 'mattn/webapi-vim'                 
+                                          " Gist: Post text to gist.github
+Bundle 'mattn/gist-vim'                   
+                                          " MiniBufExpl: Show open buffers
+Bundle 'fholgado/minibufexpl.vim'         
+                                          " Syntastic: Highlight code errors
+Bundle 'scrooloose/syntastic'             
+                                          " Ultisnips: Snippet manager
+Bundle 'SirVer/ultisnips'                 
+                                          " Solarized: Colorscheme
+Bundle 'altercation/vim-colors-solarized' 
+                                          " Powerline: Pretty statusline
+Bundle 'Lokaltog/vim-powerline'           
 
+filetype plugin indent on                 " required!
 
-filetype plugin indent on     " required!
+" Not sure if this will be needed on jailed servers
+" set shell=/bin/bash                     " Allows pathogen to work on jailed servers
 
-set shell=/bin/bash             " Allows pathogen to work on jailed servers
+" ----------------------------------------------------------------------------
+"   Base Options
+" ----------------------------------------------------------------------------
 
-" Base Options
+" Set the leader key to , instead of \ because it's easier to reach
 let mapleader = ","
 "set notimeout                  " Turn off the timeout for the leader key
                                 " Seems to break `n` in normal mode, so
                                 " I turned it off
-set encoding=utf-8
+set encoding=utf-8              " I generally want utf-8 encoding
 set hidden                      " Allow buffers to exist in the background
 set ttyfast                     " Indicates a fast terminal connection
 set backspace=indent,eol,start  " Allow backspaceing over autoindent, line breaks, starts of insert
@@ -162,17 +173,11 @@ au BufWritePost *vimrc so $MYVIMRC
 command! W exec "w" | silent !osascript ~/.vim/scripts/refresh_chrome.scptd
 
 " Set Ultisnip directory
-let g:UltiSnipsSnippetsDir="~/.vim/ultisnips/"
+let g:UltiSnipsSnippetDirectories=["snippets"]
 " Cycle through ultisnip triggers with <tab>
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" Map :NERDTree to nt
-nmap nt :NERDTree <CR>
-
-" Enable NERDCommenter
-filetype plugin on
 
 " Return to last edit position when opening files
 autocmd BufReadPost *
@@ -190,9 +195,6 @@ let g:gist_open_browser_after_post = 1
 " ----------------------------------------------------------------------------
 
 autocmd BufNewFile,BufRead *.md,*.markdown  set filetype=markdown
-
-" Templates
-au BufNewFile *.html 0r ~/.vim/templates/html.txt
 
 " ----------------------------------------------------------------------------
 "   Custom mappings

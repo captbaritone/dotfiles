@@ -3,27 +3,43 @@
 " ----------------------------------------------------------------------------
 " TODO: See what happens when the swap/undo/backup files are not in place
 
-" Pathogen
-let g:pathogen_disabled = []    
-if !has('python')               " Some plugins require python
-    call add(g:pathogen_disabled, 'gundo')
-    call add(g:pathogen_disabled, 'ultisnips')
-endif
+set nocompatible
 
-if !executable("curl")          " Other plugins require curl
-    " This could also test for git
-    " if !executable("git")
-    call add(g:pathogen_disabled, 'gist-vim')
-endif
+" ----------------------------------------------------------------------------
+"   Vundle
+" ----------------------------------------------------------------------------
+
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle (required)
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+Bundle 'tomasr/molokai'
+Bundle 'captbaritone/myTodo'
+Bundle 'sjl/gundo.vim'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+Bundle 'vim-scripts/CountJump'
+Bundle 'fholgado/minibufexpl.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'SirVer/ultisnips'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'Lokaltog/vim-powerline'
+
+
+filetype plugin indent on     " required!
 
 set shell=/bin/bash             " Allows pathogen to work on jailed servers
-call pathogen#infect()
-call pathogen#helptags()        " Initiate any (new?) plugin help files
 
 " Base Options
-set nocompatible
 let mapleader = ","
-set notimeout                   " Turn off the timeout for the leader key
+"set notimeout                  " Turn off the timeout for the leader key
+                                " Seems to break `n` in normal mode, so
+                                " I turned it off
 set encoding=utf-8
 set hidden                      " Allow buffers to exist in the background
 set ttyfast                     " Indicates a fast terminal connection
@@ -82,8 +98,8 @@ set formatoptions=cqrn1
 syntax enable               " This has to come after colorcolumn in order to draw it.
 set t_Co=256                " enable 256 colors
 
-" Colorscheme
-colorscheme molokai
+" Colorscheme (Don't complain if you don't have it yet)
+silent! colorscheme molokai
 
 " ----------------------------------------------------------------------------
 "   GUI Specific 
@@ -123,9 +139,9 @@ nnoremap <leader><space> :nohlsearch<cr>
 "   Tabs
 " ----------------------------------------------------------------------------
 
-set tabstop=4               " Show a tab as four spaces
-set shiftwidth=4            " Reindent is also four spaces
-set softtabstop=4           " When hit <tab> use four columns
+set tabstop=2               " Show a tab as two spaces
+set shiftwidth=2            " Reindent is also two spaces
+set softtabstop=2           " When hit <tab> use two columns
 set expandtab               " Create spaces when I type <tab>
 set autoindent              " Copy indent from current line when starting new line
 set smartindent             " Smart indent on new line, works for C-like langs.
@@ -165,10 +181,9 @@ autocmd BufReadPost *
      \ endif
 
 " Gist Vim
-
-"let g:gist_clip_command = 'pbcopy'
-"let g:gist_detect_filetype = 1
-"let g:gist_open_browser_after_post = 1
+let g:gist_clip_command = 'pbcopy'
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
 
 " ----------------------------------------------------------------------------
 "   Custom filetypes

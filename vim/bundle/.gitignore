@@ -1,5 +1,5 @@
 # Ignore ALL THE PLUGINS!
-*
+/*/
 
 # Except vundle
 !vundle/

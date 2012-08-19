@@ -3,44 +3,14 @@
 " ----------------------------------------------------------------------------
 " TODO: See what happens when the swap/undo/backup files are not in place
 
-" This must happen before Vundle
-set nocompatible
 
 " ----------------------------------------------------------------------------
 "   Vundle
 " ----------------------------------------------------------------------------
 
-filetype off                              " required!
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" let Vundle manage Vundle (required)
-Bundle 'gmarik/vundle'                    
-
-                                          " Molokai colorscheme
-Bundle 'tomasr/molokai'                   
-                                          " My personal Todo list syntax
-Bundle 'captbaritone/myTodo'              
-                                          " Gundo: Undo history
-Bundle 'sjl/gundo.vim'                    
-                                          " Webapi: Dependancy of Gist-vim
-Bundle 'mattn/webapi-vim'                 
-                                          " Gist: Post text to gist.github
-Bundle 'mattn/gist-vim'                   
-                                          " MiniBufExpl: Show open buffers
-Bundle 'fholgado/minibufexpl.vim'         
-                                          " Syntastic: Highlight code errors
-Bundle 'scrooloose/syntastic'             
-                                          " Ultisnips: Snippet manager
-Bundle 'SirVer/ultisnips'                 
-                                          " Solarized: Colorscheme
-Bundle 'altercation/vim-colors-solarized' 
-                                          " Powerline: Pretty statusline
-Bundle 'Lokaltog/vim-powerline'           
-
-filetype plugin indent on                 " required!
-
-" Not sure if this will be needed on jailed servers
-" set shell=/bin/bash                     " Allows pathogen to work on jailed servers
+" Include bundles in a separate file to avoid Chicken and Egg issue
+" http://gmarik.info/blog/2011/05/17/chicken-or-egg-dilemma
+source ~/.vim/bundles.vim
 
 " ----------------------------------------------------------------------------
 "   Base Options

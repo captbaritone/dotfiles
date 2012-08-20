@@ -22,6 +22,10 @@ Bundle 'scrooloose/syntastic'
 Bundle 'altercation/vim-colors-solarized' 
                                           " Powerline: Pretty statusline
 Bundle 'Lokaltog/vim-powerline'           
+                                          " Vim-Git: Hilight git files
+Bundle 'tpope/vim-git'
+                                          " Fugitive: Git from within Vim
+Bundle 'tpope/vim-fugitive'
 
 if has('python')                          " Some plugins require python
                                           " Gundo: Undo history

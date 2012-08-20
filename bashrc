@@ -105,6 +105,15 @@ export VISUAL="$EDITOR"
 # I want "vim" to be the best available version
 alias vim="$EDITOR"
 
+# Some single letter commands
+alias v="vim"
+alias g="git"
+alias w="cd ~/Work"
+alias s="cd ~/Sites"
+
+alias cpu="open -a 'Activity Monitor'"
+alias mem="open -a 'Activity Monitor'"
+
 ###########################################################################
 #                             History Options                             #
 ###########################################################################
@@ -118,3 +127,6 @@ export HISTFILESIZE=999999
 
 # Prepend a timestamp on each history event
 export HISTTIMEFORMAT="%Y-%m-%dT%H:%M:%S "
+
+# I wish I could issue this as `git root`
+alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'

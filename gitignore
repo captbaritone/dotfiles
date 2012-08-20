@@ -7,5 +7,9 @@
 .Spotlight-V100
 .Trashes
 
+# Vim creates this hidden file on network drives
+# http://stackoverflow.com/questions/9850360/what-is-netrwhist
+.netrwhist
+
 #Sass
 .sass-cache

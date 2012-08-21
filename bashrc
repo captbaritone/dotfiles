@@ -108,11 +108,37 @@ alias vim="$EDITOR"
 # Some single letter commands
 alias v="vim"
 alias g="git"
-alias w="cd ~/Work"
-alias s="cd ~/Sites"
+# Enable autocomplete for g
+complete -o default -o nospace -F _git g
+alias w="cd ~/Work && ls"
+alias s="cd ~/Sites && ls"
+alias o="open"
+alias t="open -a 'Transmit'"
+function p() { open "$@" -a "Adobe Photoshop CS6"; }
+function i() { open "$@" -a "Adobe Illustrator CS6"; }
 
 alias cpu="open -a 'Activity Monitor'"
 alias mem="open -a 'Activity Monitor'"
+
+alias todo="vim ~/todo.txt"
+
+# Look for project details matching a regex
+function pw() {
+  dir=`ls ~/Work | grep -i "$@"`;
+  if [ "$dir" == '' ]; then
+   echo "No project matching \"$@\""; 
+   return;
+  fi
+  path="~/Work/$dir"
+  info="$path/info.md" 
+  if [ -f "$info" ]; then
+    echo "Info for $path"
+    vim "~/Work/$path/info.md"
+  else
+    echo $info;
+    echo "No info.md found in $path"
+  fi
+}
 
 ###########################################################################
 #                             History Options                             #
@@ -127,6 +153,10 @@ export HISTFILESIZE=999999
 
 # Prepend a timestamp on each history event
 export HISTTIMEFORMAT="%Y-%m-%dT%H:%M:%S "
+
+# Up/Down arrows autocomplete what I have already started
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
 
 # I wish I could issue this as `git root`
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'

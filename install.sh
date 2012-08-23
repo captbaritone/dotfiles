@@ -48,9 +48,12 @@ fi
 
 echo "Updating dotfiles:"
 # Is the dotfiles repo clean?
-if [[ $(git status 2> /dev/null | tail -n1 | cut -c1-17) == "nothing to commit" ]]; then
-  git pull
-  echo "    OK - Updated dotfiles"
+if [[ $(git status 2> /dev/null | tail -n1 | cut -c1-17) = "nothing to commit" ]]; then
+  if [[ $(git pull 2> /dev/null) = "Already up-to-date." ]]; then
+    echo "    OK - Already up-to-date"
+  else
+    echo "    OK - Updated dotfiles"
+  fi
   # Perhaps here we should 
 else
   echo "    NOTICE - Did not upldate dotfiles (unclean)"
@@ -58,10 +61,10 @@ fi
 
 
 echo "Updating submodules:"
-echo "    Vundle..."
 git submodule update -q --init ~/dotfiles/vim/bundle/vundle
-echo "    z..."
+echo "    OK - Vundle"
 git submodule update -q --init ~/dotfiles/tools/z
+echo "    OK - Z"
 #echo "    .ssh..."
 #git submodule update -q --init ~/dotfiles/ssh
 
@@ -69,7 +72,7 @@ echo "Updating Vundle bundles:"
 vim -u ~/.vim/bundles.vim +BundleInstall +qall
 echo "    OK"
 
-echo -e "\nLinking dotfiles into place:"
+echo "Linking dotfiles into place:"
 for name in *; do
     if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ] && [ "$name" != 'tools' ] && [ "$name" != 'ssh' ]; then
         target="$HOME/.$name"

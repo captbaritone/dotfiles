@@ -3,14 +3,11 @@
 # Installs or updates all settings and configurations
 # 
 # TODO:
-#   Check for vim, curl and vim+python
 #   Don't try submodules if no git
 #   Check success of submodule updates
 #   Test if we can get ssh?
 #   Test success of Vundle update
 #   
-#   cd && git clone http://github.com/captbaritone/dotfiles && dotfiles/install.sh
-#   curl bit.ly/installdots
 #     Could run git clone for us?
 #     Can't depend of either wget or curl :(
 
@@ -52,11 +49,11 @@ if [[ $(git status 2> /dev/null | tail -n1 | cut -c1-17) = "nothing to commit" ]
   if [[ $(git pull 2> /dev/null) = "Already up-to-date." ]]; then
     echo "    OK - Already up-to-date"
   else
-    echo "    OK - Updated dotfiles"
+    echo "    OK - Updated dotfiles (you may want to rerun install.sh)"
+    # Perhaps here we should start over with the new install.sh?
   fi
-  # Perhaps here we should 
 else
-  echo "    NOTICE - Did not upldate dotfiles (unclean)"
+  echo "    NOTICE - Did not update dotfiles (unclean)"
 fi
 
 

@@ -234,4 +234,20 @@ snippet three "Top, Bottom, Fill: Sliding doors"
     ${1:<!-- Code... -->}
 </div></div></div>
 endsnippet
+
+# Templating foreach
+snippet each "Foreach for use in HTML templates"
+<?php if($$1): ?>
+<?php foreach($$1 as $${2:item}): ?>
+  
+${3:<!-- Code -->}
+
+<?php endforeach; ?>
+<?php endif; ?>
+endsnippet
+
+# Placekitten
+snippet kitten "Placeholder image of a kitten"
+http://placekitten.com/g/{1:400}/{2:600}
+endsnippet
 # :vim:ft=snippets:

@@ -1,19 +1,19 @@
 " ----------------------------------------------------------------------------
-"   .vimrc
+"   .vimrc                                                                {{{
 " ----------------------------------------------------------------------------
 " TODO: See what happens when the swap/undo/backup files are not in place
 
 
-" ----------------------------------------------------------------------------
-"   Vundle
+" }}}-------------------------------------------------------------------------
+"   Vundle                                                                {{{
 " ----------------------------------------------------------------------------
 
 " Include bundles in a separate file to avoid Chicken and Egg issue
 " http://gmarik.info/blog/2011/05/17/chicken-or-egg-dilemma
 source ~/.vim/bundles.vim
 
-" ----------------------------------------------------------------------------
-"   Base Options
+" }}}-------------------------------------------------------------------------
+"   Base Options                                                          {{{
 " ----------------------------------------------------------------------------
 
 " Set the leader key to , instead of \ because it's easier to reach
@@ -27,8 +27,8 @@ set ttyfast                     " Indicates a fast terminal connection
 set backspace=indent,eol,start  " Allow backspaceing over autoindent, line breaks, starts of insert
 set shortmess+=I                " No welcome screen
 
-" ----------------------------------------------------------------------------
-"   Visual
+" }}}-------------------------------------------------------------------------
+"   Visual                                                                {{{
 " ----------------------------------------------------------------------------
 
 " Control Area (May be superseeded by PowerLine)
@@ -50,6 +50,10 @@ set textwidth=79            " Break lines at just under 80 characters
 if exists('+colorcolumn')
   set colorcolumn=+1        " Highlight the column after `textwidth` 
 endif
+
+" show fold column, fold by markers
+set foldcolumn=2
+set foldmethod=marker
 
 " Highlight tabs and trailing spaces
 "set listchars=tab:>-,trail:-
@@ -82,8 +86,8 @@ set t_Co=256                " enable 256 colors
 " Colorscheme (Don't complain if you don't have it yet)
 silent! colorscheme molokai
 
-" ----------------------------------------------------------------------------
-"   GUI Specific 
+" }}}-------------------------------------------------------------------------
+"   GUI Specific                                                          {{{
 " ----------------------------------------------------------------------------
 
 if has("gui_running")
@@ -99,8 +103,8 @@ if has("gui_running")
 
 endif
 
-" ----------------------------------------------------------------------------
-"   Search
+" }}}-------------------------------------------------------------------------
+"   Search                                                                {{{
 " ----------------------------------------------------------------------------
 
 set gdefault                " Greedy search by default
@@ -116,27 +120,27 @@ set ignorecase              " Ignore case when searching
                             " Clear search highlights
 nnoremap <leader><space> :nohlsearch<cr>
 
-" ----------------------------------------------------------------------------
-"   Tabs
+" }}}-------------------------------------------------------------------------
+"   Tabs                                                                  {{{
 " ----------------------------------------------------------------------------
 
-set tabstop=2               " Show a tab as two spaces
-set shiftwidth=2            " Reindent is also two spaces
-set softtabstop=2           " When hit <tab> use two columns
+set tabstop=4               " Show a tab as four spaces
+set shiftwidth=4            " Reindent is also four spaces
+set softtabstop=4           " When hit <tab> use four columns
 set expandtab               " Create spaces when I type <tab>
 set autoindent              " Copy indent from current line when starting new line
 set smartindent             " Smart indent on new line, works for C-like langs.
 set shiftround              " Round indent to multiple of 'shiftwidth'.
 
-" ----------------------------------------------------------------------------
-"   Custom commands
+" }}}-------------------------------------------------------------------------
+"   Custom commands                                                       {{{
 " ----------------------------------------------------------------------------
 
 " automatically reload vimrc when it's saved
 au BufWritePost *vimrc so $MYVIMRC
 
-" ----------------------------------------------------------------------------
-"   Plugins
+" }}}-------------------------------------------------------------------------
+"   Plugins                                                               {{{
 " ----------------------------------------------------------------------------
 
 " Custom command to refresh Chrome on save
@@ -160,14 +164,26 @@ let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
-" ----------------------------------------------------------------------------
-"   Custom filetypes
+" }}}-------------------------------------------------------------------------
+"   Custom filetypes                                                      {{{
 " ----------------------------------------------------------------------------
 
 autocmd BufNewFile,BufRead *.md,*.markdown  set filetype=markdown
 
-" ----------------------------------------------------------------------------
-"   Custom mappings
+"php syntax options 
+let php_sql_query = 1                   "for SQL syntax highlighting inside strings
+let php_htmlInStrings = 1               "for HTML syntax highlighting inside strings
+"php_baselib = 1                        "for highlighting baselib functions
+"php_asp_tags = 1                       "for highlighting ASP-style short tags
+"php_parent_error_close = 1             "for highlighting parent error ] or )
+"php_parent_error_open = 1              "for skipping an php end tag, if there exists an open ( or [ without a closing one
+"php_oldStyle = 1                       "for using old colorstyle
+"php_noShortTags = 1                    "don't sync <? ?> as php
+let php_folding = 1                     "for folding classes and functions
+
+
+" }}}-------------------------------------------------------------------------
+"   Custom mappings                                                       {{{
 " ----------------------------------------------------------------------------
 
 " Make standard GUI cut/copy/paste hotkeys work as expected
@@ -200,8 +216,8 @@ nnoremap k gk
 vnoremap < <gv
 vnoremap > >gv
 
-" ----------------------------------------------------------------------------
-"   Undo, Backup and Swap file locations
+" }}}-------------------------------------------------------------------------
+"   Undo, Backup and Swap file locations                                  {{{
 " ----------------------------------------------------------------------------
 
 set directory=$HOME/.vim/swapdir//
@@ -211,10 +227,12 @@ if exists('+undodir')
     set undofile
 endif
 
-" ----------------------------------------------------------------------------
-"   If there is a local .vimrc, source it here at the end
+" }}}-------------------------------------------------------------------------
+"   If there is a local .vimrc, source it here at the end                 {{{
 " ----------------------------------------------------------------------------
 
 if filereadable(glob("$HOME/.vimrc.local")) 
     source $HOME/.vimrc.local
 endif
+
+" }}}

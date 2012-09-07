@@ -13,11 +13,20 @@
 
 cd ~/dotfiles
 
+txtrst=$(tput sgr0) # Text reset
+txtred=$(tput setaf 9) # Red
+txtgreen=$(tput setaf 190) # Green
+txtorange=$(tput setaf 172) # Orange
+indent="    "
+ok(){ echo "${indent}${txtgreen}OK${txtrst}"; }
+notice(){ echo "${indent}${txtorange}NOTICE${txtrst}"; }
+missing(){ echo "${indent}${txtred}MISSING${txtrst}"; }
+
 # Check for some required tools
 echo "Checking for commonly used tools:"
 # git
 if [ `command -v git` ]; then
-    echo "    OK - Git"
+  echo -e "$(ok) - Git"
 else
     echo "    MISSING - Git"
     echo -e "\nYou serioulsy expect me to do this witout git?. Fix that shit."
@@ -25,56 +34,56 @@ else
 fi
 # vim
 if [ `command -v vim` ]; then
-    echo "    OK - Vim"
+    echo "$(ok) - Vim"
     #   +python?
     if [ "$(vim --version | grep \+python)" ]; then
-        echo "    OK - Vim +python"
+        echo "$(ok) - Vim +python"
     else
-        echo "    MISSING - Vim +python (Gundo won't work)"
+        echo "$(missing) - Vim +python (Gundo won't work)"
     fi
 else
-    echo "    MISSING - Vim"
+    echo "$(missing) - Vim"
 fi
 
 # curl
 if [ `command -v curl` ]; then
-    echo "    OK - Curl"
+    echo "$(ok) - Curl"
 else
-    echo "    Missing - Curl (Vim-Gist won't work)"
+  echo "$(missing) - Curl (Vim-Gist won't work)"
 fi
 
 echo "Updating dotfiles:"
 # Is the dotfiles repo clean?
 if [[ $(git status 2> /dev/null | tail -n1 | cut -c1-17) = "nothing to commit" ]]; then
   if [[ $(git pull 2> /dev/null) = "Already up-to-date." ]]; then
-    echo "    OK - Already up-to-date"
+    echo "$(ok) - Already up-to-date"
   else
-    echo "    OK - Updated dotfiles (you may want to rerun install.sh)"
+    echo "$(ok) - Updated dotfiles (you may want to rerun install.sh)"
     # Perhaps here we should start over with the new install.sh?
   fi
 else
-  echo "    NOTICE - Did not update dotfiles (unclean)"
+  echo "$(notice) - Did not update dotfiles (unclean)"
 fi
 
 
 echo "Updating submodules:"
 git submodule update -q --init ~/dotfiles/vim/bundle/vundle
-echo "    OK - Vundle"
+echo "$(ok) - Vundle"
 git submodule update -q --init ~/dotfiles/tools/z
-echo "    OK - Z"
+echo "$(ok) - Z"
 #echo "    .ssh..."
 #git submodule update -q --init ~/dotfiles/ssh
 
 echo "Updating Vundle bundles:"
 vim -u ~/.vim/bundles.vim +BundleInstall +qall
-echo "    OK"
+echo "$(ok)"
 
 echo "Linking dotfiles into place:"
 for name in *; do
     if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ] && [ "$name" != 'tools' ] && [ "$name" != 'ssh' ]; then
         target="$HOME/.$name"
         if [ "$target" -ef "$name" ]; then
-            echo "    OK - .$name"
+            echo "$(ok) - .$name"
         else
             if [ -e "$target" ]; then
                 mv $target "$target.local"

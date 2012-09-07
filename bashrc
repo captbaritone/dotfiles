@@ -122,6 +122,9 @@ alias mem="open -a 'Activity Monitor'"
 
 alias todo="vim ~/todo.txt"
 
+# Disable DELETE/UPDATE without WHERE
+alias mysql='mysql --safe-updates'
+
 # Look for project details matching a regex
 function pw() {
   dir=`ls ~/Work | grep -i "$@"`;

@@ -22,10 +22,17 @@ Bundle 'scrooloose/syntastic'
 Bundle 'altercation/vim-colors-solarized' 
                                           " Powerline: Pretty statusline
 Bundle 'Lokaltog/vim-powerline'           
-                                          " Vim-Git: Hilight git files
+                                          " Vim-Git: Highlight git files
 Bundle 'tpope/vim-git'
+                                          " Zen Coding: Quickly write html
+Bundle 'mattn/zencoding-vim'
+                                          " Scss Syntax
+Bundle 'cakebaker/scss-syntax.vim'
                                           " Fugitive: Git from within Vim
 Bundle 'tpope/vim-fugitive'
+                                          " Window manager for vim splits
+Bundle 'spolu/dwm.vim'
+
 
 if has('python')                          " Some plugins require python
                                           " Gundo: Undo history
@@ -35,7 +42,7 @@ if has('python')                          " Some plugins require python
 endif
 
 if executable("curl")                     " Other plugins require curl
-                                          " Webapi: Dependancy of Gist-vim
+                                          " Webapi: Dependency of Gist-vim
     Bundle 'mattn/webapi-vim'                 
                                           " Gist: Post text to gist.github
     Bundle 'mattn/gist-vim'                   

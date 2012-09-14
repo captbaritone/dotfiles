@@ -52,8 +52,8 @@ if exists('+colorcolumn')
 endif
 
 " show fold column, fold by markers
-set foldcolumn=2
-set foldmethod=marker
+set foldcolumn=0            " Don't show the folding gutter/column
+set foldmethod=marker       " Fold on {{{ }}}
 
 " Highlight tabs and trailing spaces
 "set listchars=tab:>-,trail:-

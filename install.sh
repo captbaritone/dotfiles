@@ -75,7 +75,7 @@ echo "$(ok) - Z"
 #git submodule update -q --init ~/dotfiles/ssh
 
 echo "Updating Vundle bundles:"
-vim -u ~/.vim/bundles.vim +BundleInstall +qall
+vim -u ~/dotfiles/vim/bundles.vim +BundleInstall +qall
 echo "$(ok)"
 
 echo "Linking dotfiles into place:"

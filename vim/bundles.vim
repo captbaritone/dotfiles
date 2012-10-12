@@ -49,6 +49,8 @@ Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'tpope/vim-fugitive'
                                           " Window manager for vim splits
 Bundle 'spolu/dwm.vim'
+                                          " Syntax and scripts for Lilypond
+Bundle 'qrps/lilypond-vim'
                                           " Indexed Search: Shows the number of
                                           " matches when you search
 Bundle 'vim-scripts/IndexedSearch'                                        

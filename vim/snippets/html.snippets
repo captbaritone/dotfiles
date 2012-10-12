@@ -202,7 +202,7 @@ snippet meta "XHTML <meta>"
 <meta name="${1:name}" content="${2:content}"`!p x(snip)`>
 endsnippet
 
-snippet scriptsrc "XHTML <script src...>"
+snippet javascript "XHTML <script src...>"
 <script src="$1" type="text/javascript" charset="${3:utf-8}"></script>
 endsnippet
 
@@ -280,4 +280,9 @@ endsnippet
 snippet css "Embed a css file" b
 <link rel="stylesheet" href="${1:style.css}" type="text/css" />
 endsnippet
+
+snippet clear "Clearing div" b
+<div class='clear'></div>
+endsnippet
+
 # vim:ft=snippets:

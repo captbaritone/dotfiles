@@ -250,4 +250,18 @@ endsnippet
 snippet kitten "Placeholder image of a kitten"
 http://placekitten.com/g/{1:400}/{2:600}
 endsnippet
+
+# PDO database connection
+snippet pdo "Basic PHP PDO connection"
+$host = '${4:localhost}';
+$database = '$1';
+$user = '$2';
+$password = '$3';
+
+try {
+    $dbh = new PDO("mysql:dbname={$database};host={$host}", $user, $password);
+} catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
+}
+endsnippet
 # :vim:ft=snippets:

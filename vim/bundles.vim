@@ -72,5 +72,5 @@ endif
   
 filetype plugin indent on                 " required!
 
-" Not sure if this will be needed on jailed servers
-" set shell=/bin/bash                     " Allows pathogen to work on jailed servers
+" Needed on jailed servers
+set shell=/bin/bash                     " Allows Vundle to work on jailed servers

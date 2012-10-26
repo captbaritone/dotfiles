@@ -32,7 +32,7 @@ Bundle 'tomasr/molokai'
                                           " My personal Todo list syntax
 Bundle 'captbaritone/myTodo'              
                                           " MiniBufExpl: Show open buffers
-Bundle 'fholgado/minibufexpl.vim'         
+"Bundle 'fholgado/minibufexpl.vim'         
                                           " Syntastic: Highlight code errors
 Bundle 'scrooloose/syntastic'             
                                           " Solarized: Colorscheme

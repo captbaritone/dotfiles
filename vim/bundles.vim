@@ -32,7 +32,7 @@ Bundle 'tomasr/molokai'
                                           " My personal Todo list syntax
 Bundle 'captbaritone/myTodo'              
                                           " MiniBufExpl: Show open buffers
-Bundle 'fholgado/minibufexpl.vim'         
+"Bundle 'fholgado/minibufexpl.vim'         
                                           " Syntastic: Highlight code errors
 Bundle 'scrooloose/syntastic'             
                                           " Solarized: Colorscheme
@@ -49,6 +49,8 @@ Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'tpope/vim-fugitive'
                                           " Window manager for vim splits
 Bundle 'spolu/dwm.vim'
+                                          " Syntax and scripts for Lilypond
+Bundle 'qrps/lilypond-vim'
                                           " Indexed Search: Shows the number of
                                           " matches when you search
 Bundle 'vim-scripts/IndexedSearch'                                        
@@ -70,5 +72,5 @@ endif
   
 filetype plugin indent on                 " required!
 
-" Not sure if this will be needed on jailed servers
-" set shell=/bin/bash                     " Allows pathogen to work on jailed servers
+" Needed on jailed servers
+set shell=/bin/bash                     " Allows Vundle to work on jailed servers

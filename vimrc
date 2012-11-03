@@ -192,6 +192,10 @@ vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
+
+" When pasting, refill the default register with what you just pasted
+xnoremap p pgvy
+
 " Note: the next command destroys the visual mode <C-v> hotkey
 nnoremap <C-v> "+pa
 

@@ -1,3 +1,6 @@
+# Exit if we are not in an interactive shell
+if [ -n "$PS1" ]; then
+
 ###########################################################################
 #                         Source ~/.bashrc.local                          #
 ###########################################################################
@@ -85,7 +88,7 @@ if [ -z "$SSH_CLIENT" ] ; then          # for local/console sessions
       export EDITOR="open -a 'MacVim'"
       unset _terminal
     elif command -v gvim >/dev/null ; then
-      export EDITOR="gvim"
+      export EDITOR="gvim --remote-silent"
     elif command -v vim >/dev/null ; then
       export EDITOR="vim"
     else
@@ -121,6 +124,9 @@ alias cpu="open -a 'Activity Monitor'"
 alias mem="open -a 'Activity Monitor'"
 
 alias todo="vim ~/todo.txt"
+
+# Aliases for fat fingered or stupid people
+alias :q="exit"
 
 # Disable DELETE/UPDATE without WHERE
 alias mysql='mysql --safe-updates'
@@ -163,3 +169,6 @@ bind '"\e[B": history-search-forward'
 
 # I wish I could issue this as `git root`
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
+
+# End if testing if we are in interactive mode
+fi

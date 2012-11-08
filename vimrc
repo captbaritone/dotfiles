@@ -100,7 +100,14 @@ if has("gui_running")
     " Turn on spellcheck only for GUI because colors don't work so well in
     " command line
     setlocal spell spelllang=en_us
-
+    if has("gui_running")
+        if has("gui_gtk2")
+            " Set the font for linux machines
+            set guifont=Inconsolata\ 9
+        elseif has("gui_win32")
+            " set guifont=Consolas:h11:cANSI
+        endif
+    endif
 endif
 
 " }}}-------------------------------------------------------------------------

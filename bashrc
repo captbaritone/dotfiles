@@ -82,7 +82,7 @@ if [ -z "$SSH_CLIENT" ] ; then          # for local/console sessions
         Apple_Terminal) _terminal="Terminal"  ;;
         iTerm.app)      _terminal="iTerm"     ;;
       esac
-      export EDITOR="mvim"
+      export EDITOR="open -a 'MacVim'"
       unset _terminal
     elif command -v gvim >/dev/null ; then
       export EDITOR="gvim"

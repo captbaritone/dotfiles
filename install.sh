@@ -91,8 +91,8 @@ echo "$(ok) - Z"
 #git submodule update -q --init ~/dotfiles/ssh
 
 echo "Updating Vundle bundles:"
-vim -u ~/.vim/bundles.vim +BundleInstall +qall
-echo "$(ok)"
+vim -u ~/.vim/bundles.vim "+BundleInstall!" +qall
+echo "$(ok)" - Bundles
 
 echo -e "\nInstallation complete. You may wish to issue the following:"
 echo "    . ~/.bashrc"

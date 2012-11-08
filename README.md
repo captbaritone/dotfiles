@@ -117,6 +117,8 @@ Shortcomings
   with my version of PHP or perhaps my php.ini.
 - On Ubuntu, opening a file in Vim from the command line spawns a new GVim
   instance instead of opening a new pane in the existing instance.
+- Opening a non-existant file in vim on OSX does not create the file because we
+  are using `open -a` instead of mvim
 - install.sh should force updates of Vundle bundles, and should clean up old
   bundles.
 - There should be a script, or at least a list, to install expected software on

@@ -100,7 +100,14 @@ if has("gui_running")
     " Turn on spellcheck only for GUI because colors don't work so well in
     " command line
     setlocal spell spelllang=en_us
-
+    if has("gui_running")
+        if has("gui_gtk2")
+            " Set the font for linux machines
+            set guifont=Inconsolata\ 9
+        elseif has("gui_win32")
+            " set guifont=Consolas:h11:cANSI
+        endif
+    endif
 endif
 
 " }}}-------------------------------------------------------------------------
@@ -192,6 +199,10 @@ vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
+
+" When pasting, refill the default register with what you just pasted
+xnoremap p pgvy
+
 " Note: the next command destroys the visual mode <C-v> hotkey
 nnoremap <C-v> "+pa
 

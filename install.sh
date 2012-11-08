@@ -65,19 +65,6 @@ else
   echo "$(notice) - Did not update dotfiles (unclean)"
 fi
 
-
-echo "Updating submodules:"
-git submodule update -q --init ~/dotfiles/vim/bundle/vundle
-echo "$(ok) - Vundle"
-git submodule update -q --init ~/dotfiles/tools/z
-echo "$(ok) - Z"
-#echo "    .ssh..."
-#git submodule update -q --init ~/dotfiles/ssh
-
-echo "Updating Vundle bundles:"
-vim -u ~/.vim/bundles.vim +BundleInstall +qall
-echo "$(ok)"
-
 echo "Linking dotfiles into place:"
 for name in *; do
     if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ] && [ "$name" != 'tools' ] && [ "$name" != 'ssh' ]; then
@@ -94,6 +81,18 @@ for name in *; do
         fi
     fi
 done
+
+echo "Updating submodules:"
+git submodule update -q --init ~/dotfiles/vim/bundle/vundle
+echo "$(ok) - Vundle"
+git submodule update -q --init ~/dotfiles/tools/z
+echo "$(ok) - Z"
+#echo "    .ssh..."
+#git submodule update -q --init ~/dotfiles/ssh
+
+echo "Updating Vundle bundles:"
+vim -u ~/.vim/bundles.vim +BundleInstall +qall
+echo "$(ok)"
 
 echo -e "\nInstallation complete. You may wish to issue the following:"
 echo "    . ~/.bashrc"

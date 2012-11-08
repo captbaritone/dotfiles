@@ -88,7 +88,7 @@ if [ -z "$SSH_CLIENT" ] ; then          # for local/console sessions
       export EDITOR="mvim"
       unset _terminal
     elif command -v gvim >/dev/null ; then
-      export EDITOR="gvim"
+      export EDITOR="gvim --remote-silent"
     elif command -v vim >/dev/null ; then
       export EDITOR="vim"
     else
@@ -124,6 +124,9 @@ alias cpu="open -a 'Activity Monitor'"
 alias mem="open -a 'Activity Monitor'"
 
 alias todo="vim ~/todo.txt"
+
+# Aliases for fat fingered or stupid people
+alias :q="exit"
 
 # Disable DELETE/UPDATE without WHERE
 alias mysql='mysql --safe-updates'

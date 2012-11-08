@@ -33,10 +33,7 @@ Workflow
 --------
 
 I work as a freelance web developer mostly on small projects where I am
-responsible for taking sites from .psd to production. I am beginning to learn
-the value of honing not just my knowledge and skills, but also my tools. Every
-second spent doing something that could have been automated is wasteful and
-tedious, but more importantly makes my work less interesting.
+responsible for taking sites from .psd to production. 
 
 For the curious, here is a list of the tools (toolchain) I am 
 currently using. It is heavily keyboard and command-line centric.
@@ -57,6 +54,16 @@ currently using. It is heavily keyboard and command-line centric.
     - __Colorscheme:__
       [Molokai](http://www.vim.org/scripts/script.php?script_id=2340) a high
       contrast, dark background colorscheme. 
+    - __Code Linting:__ [Syntastic](http://github.com/scrooloose/syntastic)
+      Find mal-formatted code at save time instead of at run time.
+    - __Undo:__ [Gundo](http://github.com/sjl/gundo.vim) View and move through
+      undo history as a tree.
+    - __Status Line:__ [Vim
+      Powerline](http://github.com/Lokaltog/vim-powerline) Beautiful status
+      line with all the info I need.
+    - __Window Manager:__ [DWM.Vim](http://github.com/spolu/dwm.vim) Manage
+      multiple editing panes within Vim. One main focused editing pane on the
+      left, and the rest are stacked on the left.
 - __Revision control:__ [Git](http://git-scm.com/) I interact with Git via the
   command line.
     - __Branching model:__ [A Successful Git Branching
@@ -102,3 +109,17 @@ currently using. It is heavily keyboard and command-line centric.
   personal information being used as a marketing tool, but between the spam
   filter, search functionality and the highly usable web interface, for now
   I sacrifice principle for convenience.
+
+Shortcomings
+------------
+
+- Syntastic does not work with PHP on my OSX machine. I suspect it has to do
+  with my version of PHP or perhaps my php.ini.
+- On Ubuntu, opening a file in Vim from the command line spawns a new GVim
+  instance instead of opening a new pane in the existing instance.
+- install.sh should force updates of Vundle bundles, and should clean up old
+  bundles.
+- There should be a script, or at least a list, to install expected software on
+  brand new machines. Perhaps a `sh | curl http://example.com/bootstrap` kind
+  of solution which would apt-get/brew install the initial requirements like
+  Git, Vim etc.

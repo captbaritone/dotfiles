@@ -1,3 +1,6 @@
+# Exit if we are not in an interactive shell
+if [ -n "$PS1" ]; then
+
 ###########################################################################
 #                         Source ~/.bashrc.local                          #
 ###########################################################################
@@ -163,3 +166,6 @@ bind '"\e[B": history-search-forward'
 
 # I wish I could issue this as `git root`
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
+
+# End if testing if we are in interactive mode
+fi

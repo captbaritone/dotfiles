@@ -73,4 +73,4 @@ endif
 filetype plugin indent on                 " required!
 
 " Needed on jailed servers
-set shell=/bin/bash                     " Allows Vundle to work on jailed servers
+set shell=/bin/bash                       " Allows Vundle to work on jailed servers

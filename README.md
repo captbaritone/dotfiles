@@ -63,7 +63,7 @@ currently using. It is heavily keyboard and command-line centric.
       line with all the info I need.
     - __Window Manager:__ [DWM.Vim](http://github.com/spolu/dwm.vim) Manage
       multiple editing panes within Vim. One main focused editing pane on the
-      left, and the rest are stacked on the left.
+      left, and the rest are stacked on the right.
 - __Revision control:__ [Git](http://git-scm.com/) I interact with Git via the
   command line.
     - __Branching model:__ [A Successful Git Branching
@@ -79,7 +79,8 @@ currently using. It is heavily keyboard and command-line centric.
   collaborative projects.
 - __CSS preprocessing:__ [Sass](http://sass-lang.com/) (Processed by Live
   Reload) write CSS the way a programmer ought to with inheritance and
-  variables. Faster to write, easier to maintain.
+  variables. Faster to write, easier to maintain. The new .scss version is
+  backwards compatible to .css which makes transitioning very easy. 
 - __Browser:__ [Chrome](http://www.google.com/chrome) runs faster than Firefox
   for me, and their developer tools are second to none.
 - __Browser refresher:__ [Live Reload](http://livereload.com/) one of the few
@@ -122,6 +123,16 @@ Shortcomings
 - install.sh should force updates of Vundle bundles, and should clean up old
   bundles.
 - There should be a script, or at least a list, to install expected software on
-  brand new machines. Perhaps a `sh | curl http://example.com/bootstrap` kind
+  brand new machines. Perhaps a `curl -s http://classicalcode.com | sh` kind
   of solution which would apt-get/brew install the initial requirements like
-  Git, Vim etc.
+  Git, Vim etc. We could use the .htaccess to return the script instead of
+  index.php. For reference see http://tpo.pe. This may be too complicated
+  because different OSs use different package managers.
+- Git push and pull on linux machines throw an error having to do with the OXS
+  key thingy.
+- Commands prefaced with `sudo` don't run as their alias. Especially annoying
+  for editing system files. However, perhaps this is better because it makes
+  sure everything you run as root is explicit.
+- I should add the .vimrc hack to retroactively open a file as root/rw
+- Auto indent in vim doesn't work for HTML tags
+- 

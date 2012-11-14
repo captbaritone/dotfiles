@@ -1,27 +1,23 @@
-Dotfiles
-========
+Dotfiles ========
 
-These are my personal configuration files. Having them in a Gihub repository 
-allows me to instantly set up shop on any machine as well as keep my tools and 
+These are my personal configuration files. Having them in a Gihub repository
+allows me to instantly set up shop on any machine as well as keep my tools and
 configurations in sync across my laptop and desktop machines.
 
-Install
--------
+Install -------
 
 In the home directory:
 
-    git clone git://github.com/captbaritone/dotfiles
-    git submodule update --init
+    git clone git://github.com/captbaritone/dotfiles git submodule update
+    --init
 
 
 Then deploy (symbolically link) the files into your home dir
 
-    cd dotfiles
-    ./install.sh
+    cd dotfiles ./install.sh
 
 
-install.sh
-----------
+install.sh ----------
 
 `install.sh` will symlink all the dotfiles (every file in `dotfiles` except
 `README.md` and `install.sh`) into your home dir. If the dotfile already
@@ -29,18 +25,17 @@ exists, and is not the correct symlink, it will be moved to `$FILENAME.local`
 with the expectation that the repository version of the dotfile will source it.
 This allows for per-machine customization.
 
-Workflow
---------
+Workflow --------
 
 I work as a freelance web developer mostly on small projects where I am
 responsible for taking sites from .psd to production. 
 
-For the curious, here is a list of the tools (toolchain) I am 
-currently using. It is heavily keyboard and command-line centric.
+For the curious, here is a list of the tools (toolchain) I am currently using.
+It is heavily keyboard and command-line centric.
 
-- __OS:__ OSX on my desktop and Ubuntu on my laptop. These dotfiles work on    
+- __OS:__ OSX on my desktop and Ubuntu on my laptop. These dotfiles work on
   both. 
-- __Text editor:__ [Vim](http://www.vim.org/) may have a steep learning curve, 
+- __Text editor:__ [Vim](http://www.vim.org/) may have a steep learning curve,
   but for me the return on investment was nearly immediate. For anyone looking
   to make the leap, I recommend reading [Coming Home to
   Vim](http://stevelosh.com/blog/2010/09/coming-home-to-vim/) a blog post by
@@ -104,15 +99,14 @@ currently using. It is heavily keyboard and command-line centric.
   collaborative projects. Especially useful in conjunction with Git-ftp (above)
   running as a server side Git hook.
 - __Database management:__ [PhpMyAdmin](http://www.phpmyadmin.net/) another
-  task for which I still use a GUI. PhpMyAdmin is generally already available on
-  most shared hosting accounts.
+  task for which I still use a GUI. PhpMyAdmin is generally already available
+  on most shared hosting accounts.
 - __Email:__ [Gmail](http://gmail.com) I have some privacy concerns about my
   personal information being used as a marketing tool, but between the spam
   filter, search functionality and the highly usable web interface, for now
   I sacrifice principle for convenience.
 
-Shortcomings
-------------
+Shortcomings ------------
 
 - Syntastic does not work with PHP on my OSX machine. I suspect it has to do
   with my version of PHP or perhaps my php.ini.
@@ -123,16 +117,19 @@ Shortcomings
 - install.sh should force updates of Vundle bundles, and should clean up old
   bundles.
 - There should be a script, or at least a list, to install expected software on
-  brand new machines. Perhaps a `curl -s http://classicalcode.com | sh` kind
-  of solution which would apt-get/brew install the initial requirements like
-  Git, Vim etc. We could use the .htaccess to return the script instead of
+  brand new machines. Perhaps a `curl -s http://classicalcode.com | sh` kind of
+  solution which would apt-get/brew install the initial requirements like Git,
+  Vim etc. We could use the .htaccess to return the script instead of
   index.php. For reference see http://tpo.pe. This may be too complicated
   because different OSs use different package managers.
 - Git push and pull on linux machines throw an error having to do with the OXS
   key thingy.
 - Commands prefaced with `sudo` don't run as their alias. Especially annoying
   for editing system files. However, perhaps this is better because it makes
-  sure everything you run as root is explicit.
+    sure everything you run as root is explicit.
 - I should add the .vimrc hack to retroactively open a file as root/rw
 - Auto indent in vim doesn't work for HTML tags
-- 
+- When install.sh links or moves files, it does not color the response message
+  correctly (at all?).
+- Ocassionally `git lg` will crash after it runs
+- Git aparently has a better way to do the brach and status in the prompt now.

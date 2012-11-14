@@ -129,7 +129,5 @@ Shortcomings ------------
     sure everything you run as root is explicit.
 - I should add the .vimrc hack to retroactively open a file as root/rw
 - Auto indent in vim doesn't work for HTML tags
-- When install.sh links or moves files, it does not color the response message
-  correctly (at all?).
 - Ocassionally `git lg` will crash after it runs
 - Git aparently has a better way to do the brach and status in the prompt now.

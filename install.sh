@@ -19,6 +19,8 @@ txtgreen=$(tput setaf 190) # Green
 txtorange=$(tput setaf 172) # Orange
 indent="    "
 ok(){ echo "${indent}${txtgreen}OK${txtrst}"; }
+moved(){ echo "${indent}${txtgreen}MOVED${txtrst}"; }
+installed(){ echo "${indent}${txtgreen}INSTALLED${txtrst}"; }
 notice(){ echo "${indent}${txtorange}NOTICE${txtrst}"; }
 missing(){ echo "${indent}${txtred}MISSING${txtrst}"; }
 
@@ -74,10 +76,10 @@ for name in *; do
         else
             if [ -e "$target" ]; then
                 mv $target "$target.local"
-                echo "    MOVED - $target to $target.local"
+                echo "$(moved) - $target to $target.local"
             fi
             ln -s "$PWD/$name" "$target"
-            echo "    INSTALLED .$name"
+            echo "$(installed) - .$name"
         fi
     fi
 done

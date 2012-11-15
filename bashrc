@@ -124,6 +124,7 @@ alias cpu="open -a 'Activity Monitor'"
 alias mem="open -a 'Activity Monitor'"
 
 alias todo="vim ~/todo.txt"
+alias irc="irssi"
 
 # Aliases for fat fingered or stupid people
 alias :q="exit"

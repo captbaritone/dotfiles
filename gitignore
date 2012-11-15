@@ -1,3 +1,4 @@
+# Annoying OSX tmp files
 .DS_Store
 
 # Thumbnails
@@ -11,5 +12,5 @@
 # http://stackoverflow.com/questions/9850360/what-is-netrwhist
 .netrwhist
 
-#Sass
+# Sass
 .sass-cache

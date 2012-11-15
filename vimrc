@@ -86,6 +86,13 @@ set t_Co=256                " enable 256 colors
 " Colorscheme (Don't complain if you don't have it yet)
 silent! colorscheme molokai
 
+" Printing options
+set printoptions=header:0,duplex:long,paper:letter,syntax:n
+" header:0                  Do not print a header
+" duplex:long (default)	    Print on both sides (when possible), bind on long
+" syntax:n		            Do not use syntax highlighting.  This is faster and
+
+
 " }}}-------------------------------------------------------------------------
 "   GUI Specific                                                          {{{
 " ----------------------------------------------------------------------------
@@ -118,13 +125,15 @@ set gdefault                " Greedy search by default
 set incsearch               " Show search results as we type
 set showmatch               " Show matching brackets
 set hlsearch                " Highlight search results
-                            " Use regex for searches
+
+" Use regex for searches
 nnoremap / /\v
 vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
 set ignorecase              " Ignore case when searching
-                            " Clear search highlights
+
+" Clear search highlights
 nnoremap <leader><space> :nohlsearch<cr>
 
 " }}}-------------------------------------------------------------------------
@@ -144,7 +153,24 @@ set shiftround              " Round indent to multiple of 'shiftwidth'.
 " ----------------------------------------------------------------------------
 
 " automatically reload vimrc when it's saved
-au BufWritePost *vimrc so $MYVIMRC
+" Turned off because it would end up loading plugins multiple times
+" au BufWritePost *vimrc so $MYVIMRC
+
+" Show the highlighting group that the cursor position belongs to
+" Stolen from: https://github.com/derekwyatt/vim-config/blob/master/vimrc
+nmap <silent> ,h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" Edit the vimrc file
+nmap <silent> ,ev :e $MYVIMRC<CR>
+nmap <silent> ,sv :so $MYVIMRC<CR>
+
+" Underline the current line with '='
+nmap <silent> ,u= :t.\|s/./=/g\|:nohls<cr>
+nmap <silent> ,u- :t.\|s/./-/g\|:nohls<cr>
+
+" Trying this alternative to escape
+imap jj <esc>
+cmap jj <esc>
 
 " }}}-------------------------------------------------------------------------
 "   Plugins                                                               {{{
@@ -249,4 +275,7 @@ if filereadable(glob("$HOME/.vimrc.local"))
     source $HOME/.vimrc.local
 endif
 
-" }}}
+" }}}-------------------------------------------------------------------------
+"                                                                         {{{
+" ----------------------------------------------------------------------------
+

@@ -62,6 +62,11 @@ if has('python')                          " Some plugins require python
     Bundle 'SirVer/ultisnips'                 
 endif
 
+if has('ruby')
+                                          " File launcher        
+    "Bundle 'wincent/Command-T'
+endif
+
 if executable("curl")                     " Other plugins require curl
                                           " Webapi: Dependency of Gist-vim
     Bundle 'mattn/webapi-vim'                 

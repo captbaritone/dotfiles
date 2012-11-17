@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 # This script will bootstrap a Linux, or OS X machine to a useful state by:
 # - Fetching and installing my dotfile configs
@@ -18,8 +18,9 @@
 # - What does mkdir do if the dir already exists?
 
 # Settings
-dotfiles = "$HOME/dotfiles"
-dotrepo = "http://github.com/captbaritone/dotfiles"
+dotfiles="$HOME/dotfiles"
+dotrepo="http://github.com/captbaritone/dotfiles"
+tmp="$HOME/tmp"
 
 #  apt-get install curl git-core irssi lame mplayer vim wget 
 
@@ -28,7 +29,7 @@ dotrepo = "http://github.com/captbaritone/dotfiles"
 # installed from the app store.
 
 # Install some ruby gems
-gem install sass        # Sass css preprossesor 
+#gem install sass        # Sass css preprossesor 
 
 # Do the dot files
 if [ -d $dotfiles ]; then
@@ -46,4 +47,4 @@ echo "Installing dotfiles..."
 $dotfiles/install.sh
 
 # Create a user tmp dir
-mkdir ~/tmp
+mkdir -p "$tmp"

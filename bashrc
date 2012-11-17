@@ -128,6 +128,7 @@ alias irc="irssi"
 
 # Aliases for fat fingered or stupid people
 alias :q="exit"
+alias :bd="exit"
 
 # Disable DELETE/UPDATE without WHERE
 alias mysql='mysql --safe-updates'

@@ -256,6 +256,11 @@ vnoremap > >gv
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
 
+" Do what my fat fingers mean!
+cmap Bd bd
+cmap BD bd
+cmap Q q
+
 " }}}-------------------------------------------------------------------------
 "   Undo, Backup and Swap file locations                                  {{{
 " ----------------------------------------------------------------------------

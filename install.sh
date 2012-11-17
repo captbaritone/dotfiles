@@ -69,7 +69,7 @@ fi
 
 echo "Linking dotfiles into place:"
 for name in *; do
-    if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ] && [ "$name" != 'tools' ] && [ "$name" != 'ssh' ]; then
+    if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ] && [ "$name" != 'tools' ] && [ "$name" != 'ssh' ] && [ "$name" != 'bootstrap.sh' ]; then
         target="$HOME/.$name"
         if [ "$target" -ef "$name" ]; then
             echo "$(ok) - .$name"

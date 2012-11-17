@@ -74,6 +74,11 @@ if executable("curl")                     " Other plugins require curl
     Bundle 'mattn/gist-vim'                   
 endif
 
+" Some plugins that I don't use, but are worth keeping track of
+                                          " Slow down vim, so you are forced to
+                                          " make more efficient choices
+" Bundle 'artemave/slowdown.vim'
+
   
 filetype plugin indent on                 " required!
 

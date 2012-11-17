@@ -127,7 +127,6 @@ Shortcomings ------------
 - Commands prefaced with `sudo` don't run as their alias. Especially annoying
   for editing system files. However, perhaps this is better because it makes
     sure everything you run as root is explicit.
-- I should add the .vimrc hack to retroactively open a file as root/rw
 - Auto indent in vim doesn't work for HTML tags
 - Ocassionally `git lg` will crash after it runs
 - Git aparently has a better way to do the brach and status in the prompt now.

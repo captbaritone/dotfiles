@@ -1,10 +1,12 @@
-Dotfiles ========
+Dotfiles 
+========
 
 These are my personal configuration files. Having them in a Gihub repository
 allows me to instantly set up shop on any machine as well as keep my tools and
 configurations in sync across my laptop and desktop machines.
 
-Install -------
+Install 
+-------
 
 In the home directory:
 
@@ -17,7 +19,8 @@ Then deploy (symbolically link) the files into your home dir
     cd dotfiles ./install.sh
 
 
-install.sh ----------
+install.sh 
+----------
 
 `install.sh` will symlink all the dotfiles (every file in `dotfiles` except
 `README.md` and `install.sh`) into your home dir. If the dotfile already
@@ -25,7 +28,8 @@ exists, and is not the correct symlink, it will be moved to `$FILENAME.local`
 with the expectation that the repository version of the dotfile will source it.
 This allows for per-machine customization.
 
-Workflow --------
+Workflow 
+--------
 
 I work as a freelance web developer mostly on small projects where I am
 responsible for taking sites from .psd to production. 
@@ -106,7 +110,8 @@ It is heavily keyboard and command-line centric.
   filter, search functionality and the highly usable web interface, for now
   I sacrifice principle for convenience.
 
-Shortcomings ------------
+Shortcomings 
+------------
 
 - Syntastic does not work with PHP on my OSX machine. I suspect it has to do
   with my version of PHP or perhaps my php.ini.

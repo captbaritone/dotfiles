@@ -227,13 +227,6 @@ autocmd FileType config setlocal ts=2 sts=2 sw=2 expandtab
 "   Custom mappings                                                       {{{
 " ----------------------------------------------------------------------------
 
-" Make standard GUI cut/copy/paste hotkeys work as expected
-" TODO: This should only run in gvim
-vmap <C-c> "+yi
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-imap <C-v> <ESC>"+pa
-
 " When pasting, refill the default register with what you just pasted
 xnoremap p pgvy
 

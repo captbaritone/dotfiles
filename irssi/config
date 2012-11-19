@@ -1,29 +1,27 @@
 # vim:ft=config
 
 servers = (
-    {
-        address = "irc.freenode.net";
-        chatnet = "freenode";
-        autoconnect = "yes";
-    } 
+  {
+    address = "irc.freenode.net";
+    chatnet = "freenode";
+    autoconnect = "yes";
+  }
 );
 
-chatnets = {
-    freenode = { type = "IRC"; ncik = "captbaritone"; };
-};
+chatnets = { freenode = { type = "IRC"; ncik = "captbaritone"; }; };
 
 channels = (
-  { name = "#/r/webdev"; chatnet = "freenode"; autojoin = "Yes"; }
+  { name = "#/r/webdev"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#ubuntu"; chatnet = "freenode"; autojoin = "Yes"; }
 );
 
 ignores = (
 
-{
+  {
     level = "JOINS PARTS QUITS";
-    channels = ( "#ubuntu", "#vim", "#powershell" );
-    network  = "freenode";
-}
+    channels = ( "#ubuntu", "#vim", "#powershell", "/r/webdev" );
+    network = "freenode";
+  }
 );
 aliases = {
   J = "join";
@@ -103,9 +101,10 @@ statusbar = {
     topic_empty = " Irssi v$J - http://www.irssi.org";
 
     # all of these treated specially, they're only displayed when needed
-    lag = "{sb Lag: $0-}";
+    lag = "{sb Lag: %m$0-%n}";
     act = "{sb Act: $0-}";
-    more = "-- more --";
+    more = "%k%3-- more --%n";
+    # Solarized
   };
 
   # there's two type of statusbars. root statusbars are either at the top
@@ -192,5 +191,14 @@ settings = {
     user_name = "captbaritone";
     nick = "captbaritone";
   };
+  "fe-common/core" = {
+    # Solarized
+    theme = "solarized-universal";
+    hilight_color = "= %R";
+  };
   "fe-text" = { actlist_sort = "refnum"; };
 };
+hilights = (
+  { text = "captbaritone"; color = "%M"; nick = "yes"; word = "yes"; }
+);
+

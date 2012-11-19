@@ -56,8 +56,8 @@ set foldcolumn=0            " Don't show the folding gutter/column
 set foldmethod=marker       " Fold on {{{ }}}
 
 " Highlight tabs and trailing spaces
-"set listchars=tab:>-,trail:-
-"set list
+set listchars=tab:▸\ ,trail:•,eol:¬
+set list
 
 " Trim trailing white space on save (preserving cursor postion
 fun! <SID>StripTrailingWhitespaces()
@@ -203,6 +203,7 @@ let g:gist_open_browser_after_post = 1
 
 autocmd BufNewFile,BufRead *.md,*.markdown  set filetype=markdown
 
+
 "php syntax options 
 let php_sql_query = 1                   "for SQL syntax highlighting inside strings
 let php_htmlInStrings = 1               "for HTML syntax highlighting inside strings
@@ -213,6 +214,13 @@ let php_htmlInStrings = 1               "for HTML syntax highlighting inside str
 "php_oldStyle = 1                       "for using old colorstyle
 "php_noShortTags = 1                    "don't sync <? ?> as php
 let php_folding = 1                     "for folding classes and functions
+
+" Per file-type indention rules
+autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType css setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType scss setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType config setlocal ts=2 sts=2 sw=2 expandtab
 
 
 " }}}-------------------------------------------------------------------------

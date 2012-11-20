@@ -51,19 +51,20 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'spolu/dwm.vim'
                                           " Syntax and scripts for Lilypond
 Bundle 'qrps/lilypond-vim'
-                                          " Indexed Search: Shows the number of
-                                          " matches when you search
-Bundle 'vim-scripts/IndexedSearch'                                        
-                                          
+                                          " Indexed Search: Shows # of matches
+Bundle 'vim-scripts/IndexedSearch'
+                                          " Allow % to go to matching XML tags
+Bundle 'tsaleh/vim-matchit'
+
 if has('python')                          " Some plugins require python
                                           " Gundo: Undo history
-    Bundle 'sjl/gundo.vim'                    
+    Bundle 'sjl/gundo.vim'
                                           " Ultisnips: Snippet manager
-    Bundle 'SirVer/ultisnips'                 
+    Bundle 'SirVer/ultisnips'
 endif
 
 if has('ruby')
-                                          " File launcher        
+                                          " File launcher
     "Bundle 'wincent/Command-T'
 endif
 

@@ -96,6 +96,13 @@ else                                    # for remote/ssh sessions
 fi
 export VISUAL="$EDITOR"
 
+# Stolen from: https://github.com/janmoesen/tilde/blob/master/.bash/commands
+# Enable simple aliases to be sudo'ed. ("sudone"?)
+# http://www.gnu.org/software/bash/manual/bashref.html#Aliases says: "If the
+# last character of the alias value is a space or tab character, then the next
+# command word following the alias is also checked for alias expansion."
+alias sudo='sudo ';
+
 # I want "vim" to be the best available version
 alias vim="$EDITOR"
 
@@ -124,6 +131,16 @@ alias :bd="exit"
 
 # Disable DELETE/UPDATE without WHERE
 alias mysql='mysql --safe-updates'
+
+# Stolen from: https://github.com/janmoesen/tilde/blob/master/.bash/commands
+# Standardize cipboard access across Cygwin, Linux and OS X.
+if command -v pbpaste >/dev/null; then
+	alias getclip='pbpaste';
+	alias putclip='pbcopy';
+elif command -v xclip >/dev/null; then
+	alias getclip='xclip --out';
+	alias putclip='xclip --in';
+fi;
 
 # Look for project details matching a regex
 function pw() {

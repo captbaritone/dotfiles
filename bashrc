@@ -12,15 +12,6 @@
 export CLICOLOR=1
 
 ###########################################################################
-#                             Baseball Scores                             #
-###########################################################################
-
-# Get some baseball scores
-alias score="lynx -nonumbers -dump http://m.mlb.com/sf/ | grep -A1 \"\(Last Game\)\|\(Next Game\)\|\(Live:\)\" | sed '/--/d'"
-
-alias standings="lynx -nonumbers -dump http://m.mlb.com/standings/ | grep 'San Francisco' | awk '{print \"   GB:\",\$6,\$8}'"
-
-###########################################################################
 #                          OS Dependent Options                           #
 ###########################################################################
 
@@ -108,8 +99,6 @@ export VISUAL="$EDITOR"
 # I want "vim" to be the best available version
 alias vim="$EDITOR"
 
-# Alias to give simple command to update
-alias seed="$HOME/dotfiles/install.sh"
 # Some single letter commands
 alias v="vim"
 alias g="git"

@@ -108,9 +108,12 @@ export VISUAL="$EDITOR"
 # I want "vim" to be the best available version
 alias vim="$EDITOR"
 
+# Alias to give simple command to update
+alias seed="$HOME/dotfiles/install.sh"
 # Some single letter commands
 alias v="vim"
 alias g="git"
+
 # Enable autocomplete for g
 complete -o default -o nospace -F _git g
 alias w="cd ~/Work && ls"

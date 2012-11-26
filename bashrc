@@ -133,7 +133,7 @@ alias :bd="exit"
 alias mysql='mysql --safe-updates'
 
 # Stolen from: https://github.com/janmoesen/tilde/blob/master/.bash/commands
-# Standardize cipboard access across Cygwin, Linux and OS X.
+# Standardize cipboard access. Cygwin, Linux and OS X.
 if command -v pbpaste >/dev/null; then
 	alias getclip='pbpaste';
 	alias putclip='pbcopy';

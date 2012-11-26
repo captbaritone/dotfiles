@@ -13,6 +13,8 @@ chatnets = { freenode = { type = "IRC"; ncik = "captbaritone"; }; };
 channels = (
   { name = "#/r/webdev"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#ubuntu"; chatnet = "freenode"; autojoin = "Yes"; }
+  { name = "#vim"; chatnet = "freenode"; autojoin = "Yes"; }
+  { name = "#irssi"; chatnet = "freenode"; autojoin = "Yes"; }
 );
 
 ignores = (

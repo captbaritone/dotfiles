@@ -22,7 +22,8 @@ dotfiles="$HOME/dotfiles"
 dotrepo="http://github.com/captbaritone/dotfiles"
 tmp="$HOME/tmp"
 
-#  apt-get install curl git-core irssi lame mplayer vim wget 
+# apt-get install curl git-core irssi lame mplayer vim wget 
+# brew install irssi wget vim tmux
 
 # Here we could test for osx an then install homebrew if it's missing
 # There should also be a list of "apps" that should either be downloaded or

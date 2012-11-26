@@ -201,7 +201,9 @@ let g:gist_open_browser_after_post = 1
 "   Custom filetypes                                                      {{{
 " ----------------------------------------------------------------------------
 
-autocmd BufNewFile,BufRead *.md,*.markdown  set filetype=markdown
+" Auto detect filetype
+autocmd BufRead,BufNewFile *.md,*.markdown  set filetype=markdown
+autocmd BufRead,BufNewFile ~/dotfiles/ssh/config set filetype=sshconfig
 
 
 "php syntax options 

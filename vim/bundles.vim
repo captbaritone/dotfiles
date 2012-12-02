@@ -55,6 +55,8 @@ Bundle 'qrps/lilypond-vim'
 Bundle 'vim-scripts/IndexedSearch'
                                           " Allow % to go to matching XML tags
 Bundle 'tsaleh/vim-matchit'
+                                          " Command-T alternative in Vimscript
+Bundle 'kien/ctrlp.vim.git'
 
 if has('python')                          " Some plugins require python
                                           " Gundo: Undo history

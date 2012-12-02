@@ -197,6 +197,15 @@ let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
+" Ctrl-P
+let g:ctrlp_root_markers = 'info.*'     " Projects in ~/Work have info.md files
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = {
+	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+	\ 'file': '\v\.(png|jpg|gif)$',
+	\ 'link': '',
+	\ }
+
 " }}}-------------------------------------------------------------------------
 "   Custom filetypes                                                      {{{
 " ----------------------------------------------------------------------------
@@ -234,7 +243,7 @@ autocmd FileType gitconfig setlocal ts=4 sts=4 sw=4 noexpandtab
 xnoremap p pgvy
 
 " Note: the next command destroys the visual mode <C-v> hotkey
-nnoremap <C-v> "+pa
+" nnoremap <C-v> "+pa
 
 " gundo plugin. Requires vim being compiled with Python support
 nnoremap <F5> :GundoToggle<CR>

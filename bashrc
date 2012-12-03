@@ -62,21 +62,22 @@ server() {
 
 # Set the default editor
 if [ -z "$SSH_CLIENT" ] ; then          # for local/console sessions
-#  case "$TERM" in
-#  screen*|xterm-256color)               # we're in screen or tmux
-#    if command -v vim >/dev/null ; then
-#      export EDITOR="$(which vim)"
-#    else
-#      export EDITOR="$(which vi)"
-#    fi
-#  ;;
-#  *)                                      # we're on a normal term console
     if command -v mvim >/dev/null ; then
       case "$TERM_PROGRAM" in
         Apple_Terminal) _terminal="Terminal"  ;;
         iTerm.app)      _terminal="iTerm"     ;;
       esac
-      export EDITOR="open -a 'MacVim'"
+      # Fix to open files in existing macvim window, but also create new files
+      # if they don't yet exist. Code copied from @tripleee's comment here:
+      # http://stackoverflow.com/questions/7458760/macvim-create-new-file-from-command-line-by-using-alias-mvim-open-a-macvim
+      mvim () {
+          local f
+          for f; do
+              test -e "$f" || touch "$f"
+          done
+          open -a macvim "$@"
+      }
+      export EDITOR="mvim"
       unset _terminal
     elif command -v gvim >/dev/null ; then
       export EDITOR="gvim --remote-silent"

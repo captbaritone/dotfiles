@@ -113,14 +113,8 @@ It is heavily keyboard and command-line centric.
 Shortcomings 
 ------------
 
-- Syntastic does not work with PHP on my OSX machine. I suspect it has to do
-  with my version of PHP or perhaps my php.ini.
 - On Ubuntu, opening a file in Vim from the command line spawns a new GVim
   instance instead of opening a new pane in the existing instance.
-- Opening a non-existant file in vim on OSX does not create the file because we
-  are using `open -a` instead of mvim
-- install.sh should force updates of Vundle bundles, and should clean up old
-  bundles.
 - There should be a script, or at least a list, to install expected software on
   brand new machines. Perhaps a `curl -s http://classicalcode.com | sh` kind of
   solution which would apt-get/brew install the initial requirements like Git,
@@ -129,9 +123,6 @@ Shortcomings
   because different OSs use different package managers.
 - Git push and pull on linux machines throw an error having to do with the OXS
   key thingy.
-- Commands prefaced with `sudo` don't run as their alias. Especially annoying
-  for editing system files. However, perhaps this is better because it makes
-    sure everything you run as root is explicit.
 - Auto indent in vim doesn't work for HTML tags
 - Ocassionally `git lg` will crash after it runs
 - Git aparently has a better way to do the brach and status in the prompt now.

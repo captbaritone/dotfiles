@@ -104,11 +104,8 @@ export VISUAL="$EDITOR"
 # command word following the alias is also checked for alias expansion."
 alias sudo='sudo ';
 
-# I want "vim" to be the best available version
-alias vim="$EDITOR"
-
 # Some single letter commands
-alias v="vim"
+alias v="$EDITOR"
 alias g="git"
 
 # Enable autocomplete for g

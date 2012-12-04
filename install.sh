@@ -11,7 +11,12 @@
 #     Could run git clone for us?
 #     Can't depend of either wget or curl :(
 
-cd ~/dotfiles
+dotfilespath="$HOME/dotfiles"
+dotfilerepo="git@github.com:captbaritone/dotfiles"
+
+guidespath="$HOME/guides"
+guidesrepo="git@db.classicalcode.com:guides"
+
 
 txtrst=$(tput sgr0) # Text reset
 txtred=$(tput setaf 9) # Red
@@ -54,7 +59,29 @@ else
   echo "$(missing) - Curl (Vim-Gist won't work)"
 fi
 
+
+echo "Updating guides:"
+# Get my guides
+if [ -d $guidespath ]; then
+    cd "$guidespath"
+    if [[ $(git status 2> /dev/null | tail -n1 | cut -c1-17) = "nothing to commit" ]]; then
+        if [[ $(git pull 2> /dev/null) = "Already up-to-date." ]]; then
+            echo "$(ok) - Already up-to-date"
+        else
+            echo "$(ok) - Updated guides"
+        fi
+    else
+        echo "$(notice) - Did not update guides (unclean)"
+    fi
+else
+    cd $HOME
+    if [[ $(git clone $guidesrepo $guidespath 2> /dev/null) ]]; then
+        echo "$(installed) - Guides cloned"
+    fi
+fi;
+
 echo "Updating dotfiles:"
+cd "$dotfilespath"
 # Is the dotfiles repo clean?
 if [[ $(git status 2> /dev/null | tail -n1 | cut -c1-17) = "nothing to commit" ]]; then
   if [[ $(git pull 2> /dev/null) = "Already up-to-date." ]]; then

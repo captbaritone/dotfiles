@@ -96,5 +96,8 @@ echo "Updating Vundle bundles:"
 vim -u ~/.vim/bundles.vim "+BundleInstall!" +qall
 echo "$(ok)" - Bundles
 
-echo -e "\nInstallation complete. You may wish to issue the following:"
-echo "    . ~/.bashrc"
+echo "Sourcing ~/.bashrc:"
+source "$HOME/.bashrc"
+echo "$(ok) - Sourced"
+
+echo "\nInstallation complete!"

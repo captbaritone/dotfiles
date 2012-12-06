@@ -8,21 +8,26 @@ servers = (
   }
 );
 
-chatnets = { freenode = { type = "IRC"; ncik = "captbaritone"; }; };
+chatnets = { freenode = { type = "IRC"; nick = "captbaritone"; }; };
 
 channels = (
   { name = "#/r/webdev"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#ubuntu"; chatnet = "freenode"; autojoin = "Yes"; }
-  { name = "#vim"; chatnet = "freenode"; autojoin = "Yes"; }
-  { name = "#irssi"; chatnet = "freenode"; autojoin = "Yes"; }
+  { name = "#git"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#github"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#irssi"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#raspberrypi"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#ubuntu"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#wordpress"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#vim"; chatnet = "freenode"; autojoin = "yes"; }
 );
 
 ignores = (
 
   {
     level = "JOINS PARTS QUITS";
-    channels = ( "#ubuntu", "#vim", "#powershell", "/r/webdev" );
-    network = "freenode";
+    # Really, I just want to ignore these for all channels
+    #channels = ( "#ubuntu", "#vim", "#powershell", "/r/webdev", "#rissi", "git", "github" );
+    #network = "freenode";
   }
 );
 aliases = {
@@ -103,7 +108,7 @@ statusbar = {
     topic_empty = " Irssi v$J - http://www.irssi.org";
 
     # all of these treated specially, they're only displayed when needed
-    lag = "{sb Lag: %m$0-%n}";
+    lag = "{sb Lag: $0-}";
     act = "{sb Act: $0-}";
     more = "%k%3-- more --%n";
     # Solarized

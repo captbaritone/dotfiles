@@ -206,6 +206,9 @@ let g:ctrlp_custom_ignore = {
 	\ 'link': '',
 	\ }
 
+" Whenever a new file is opened, foucs that pane
+autocmd BufRead,BufNewFile * call DWM_Focus()
+
 " }}}-------------------------------------------------------------------------
 "   Custom filetypes                                                      {{{
 " ----------------------------------------------------------------------------

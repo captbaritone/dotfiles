@@ -125,4 +125,6 @@ Shortcomings
   key thingy.
 - Auto indent in vim doesn't work for HTML tags
 - Ocassionally `git lg` will crash after it runs
+    - error: git lg1 died of signal 13
+    - fatal: While expanding alias 'lg': 'git lg1': Undefined error: 0
 - Git aparently has a better way to do the brach and status in the prompt now.

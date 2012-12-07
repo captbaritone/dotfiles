@@ -117,7 +117,7 @@ alias t="open -a 'Transmit'"
 function p() { open "$@" -a "Adobe Photoshop CS6"; }
 function i() { open "$@" -a "Adobe Illustrator CS6"; }
 
-alias refit="$HOME/dotfiles/install.sh"
+alias refit="source $HOME/dotfiles/install.sh"
 alias cpu="open -a 'Activity Monitor'"
 alias mem="open -a 'Activity Monitor'"
 

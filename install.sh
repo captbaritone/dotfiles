@@ -127,4 +127,4 @@ echo "Sourcing ~/.bashrc:"
 source "$HOME/.bashrc"
 echo "$(ok) - Sourced"
 
-echo "\nInstallation complete!"
+echo -e "\nInstallation complete!"

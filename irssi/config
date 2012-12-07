@@ -14,6 +14,7 @@ channels = (
   { name = "#/r/webdev"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#git"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#github"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#imslpchat"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#irssi"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#raspberrypi"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#ubuntu"; chatnet = "freenode"; autojoin = "Yes"; },
@@ -24,7 +25,7 @@ channels = (
 ignores = (
 
   {
-    level = "JOINS PARTS QUITS";
+    level = "JOINS PARTS QUITS MODES";
     # Really, I just want to ignore these for all channels
     #channels = ( "#ubuntu", "#vim", "#powershell", "/r/webdev", "#rissi", "git", "github" );
     #network = "freenode";
@@ -202,8 +203,9 @@ settings = {
     # Solarized
     theme = "solarized-universal";
     hilight_color = "= %R";
+    activity_hide_level = "JOINS PARTS QUITS MODES NICKS";
   };
-  "fe-text" = { actlist_sort = "refnum"; };
+  "fe-text" = { actlist_sort = "refnum"; actlist_names = "yes"; };
 };
 hilights = (
   { text = "captbaritone"; color = "%M"; nick = "yes"; word = "yes"; }

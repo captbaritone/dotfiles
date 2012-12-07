@@ -1,10 +1,3 @@
-# irssi theme for the Solarized color palette
-# (Adapted from default theme distributed with irssi 0.8.15 circa 2011-04-25)
-#
-# Adaptation by: Huy Z
-# Source: https://github.com/huyz/irssi-colors-solarized
-#
-
 # When testing changes, the easiest way to reload the theme is with /RELOAD.
 # This reloads the configuration file too, so if you did any changes remember
 # to /SAVE it first. Remember also that /SAVE overwrites the theme file with
@@ -62,7 +55,7 @@ info_eol = "false";
 
 # these characters are automatically replaced with specified color
 # (dark grey by default)
-replaces = { "[]=" = "%_$*%_"; };
+replaces = { "[]=" = "%K$*%n"; };
 
 abstracts = {
   ##
@@ -70,20 +63,16 @@ abstracts = {
   ##
 
   # text to insert at the beginning of each non-message line
-  # %G = brightgreen (Solarized: base01, i.e. darkest gray)
-  # %| probably right-aligns
-  line_start = " %G-!- ";
+  line_start = "%B-%n!%B-%n ";
 
   # timestamp styling, nothing by default
-  # %Y = brightyellow (Solarized: base00, i.e. 2nd darkest gray)
-  timestamp = "%Y$*%n";
+  timestamp = "$*";
 
   # any kind of text that needs hilighting, default is to bold
   hilight = "%_$*%_";
 
   # any kind of error message, default is bright red
-  # %r = red
-  error = "%r$*%n";
+  error = "%R$*%n";
 
   # channel name is printed
   channel = "%_$*%_";
@@ -92,14 +81,13 @@ abstracts = {
   nick = "%_$*%_";
 
   # nick host is printed
-  # (that's the "email" address of a user)
-  nickhost = "<$*>";
+  nickhost = "[$*]";
 
   # server name is printed
   server = "%_$*%_";
 
   # some kind of comment is printed
-  comment = "($*)";
+  comment = "[$*]";
 
   # reason for something is printed (part, quit, kick, ..)
   reason = "{comment $*}";
@@ -112,30 +100,25 @@ abstracts = {
   ##
 
   # highlighted nick/host is printed (joins)
-  # %c = cyan
-  # NOTE: %n doesn't work in irssi v0.8.15 for some reason.  So we have to end with the same color as line_start
-  #channick_hilight = "%C$*%n";
-  channick_hilight = "%c$*%G";
-  chanhost_hilight = "{nickhost $*}";
+  channick_hilight = "%C$*%n";
+  chanhost_hilight = "{nickhost %c$*%n}";
 
   # nick/host is printed (parts, quits, etc.)
-  #channick = "%c$*%n";
-  channick = "$*";
+  channick = "%c$*%n";
   chanhost = "{nickhost $*}";
 
   # highlighted channel name is printed
   channelhilight = "%c$*%n";
 
   # ban/ban exception/invite list mask is printed
-  # %R = brightred (Solarized: orange)
-  ban = "%R$*%n";
+  ban = "%c$*%n";
 
   ##
   ## messages
   ##
 
   # the basic styling of how to print message, $0 = nick mode, $1 = nick
-  msgnick = "%_<%_$0$1-%_>%_ %|";
+  msgnick = "%K<%n$0$1-%K>%n %|";
 
   # message from you is printed. "msgownnick" specifies the styling of the
   # nick ($0 part in msgnick) and "ownmsgnick" specifies the styling of the
@@ -154,68 +137,55 @@ abstracts = {
   #  privmsgnick = "%K{msgnick  %R$*%K}%n";
 
   # $0 = nick mode, $1 = nick
-  ownmsgnick = "{msgnick $0 $1-}%b";
-  ownnick = "%b$*%n";
+  ownmsgnick = "{msgnick $0 $1-}";
+  ownnick = "%_$*%n";
 
   # public message in channel, $0 = nick mode, $1 = nick
   pubmsgnick = "{msgnick $0 $1-}";
-  pubnick = "%N%_$*%_%n";
+  pubnick = "%N$*%n";
 
   # public message in channel meant for me, $0 = nick mode, $1 = nick
   pubmsgmenick = "{msgnick $0 $1-}";
-  # %m = magenta
-  menick = "%m$*%n";
+  menick = "%Y$*%n";
 
   # public highlighted message in channel
   # $0 = highlight color, $1 = nick mode, $2 = nick
   pubmsghinick = "{msgnick $1 $0$2-%n}";
 
   # channel name is printed with message
-  # This is printed whenever the channel name is printed for disambiguation, e.g.
-  # while there is a query in the same window.  Example: <+funnyuser:#test> hello
-  msgchannel = "%G:%c$*%n";
+  msgchannel = "%K:%c$*%n";
 
   # private message, $0 = nick, $1 = host
-  # TODO: To test for Solarized
-  #privmsg = "[%m$0%K<%M$1-%K>%n] ";
-  privmsg = "[%m$0%G<%n$1-%G>%n] ";
+  privmsg = "[%R$0%K(%r$1-%K)%n] ";
 
   # private message from you, $0 = "msg", $1 = target nick
-  # TODO: To test for Solarized
-  #ownprivmsg = "[%b$0%K<%B$1-%K>%n] ";
-  ownprivmsg = "[%b$0%G<%B$1-%G>%n] ";
+  ownprivmsg = "[%r$0%K(%R$1-%K)%n] ";
 
   # own private message in query
-  ownprivmsgnick = "{msgnick  $*}%b";
-  ownprivnick = "%b$*%n";
+  ownprivmsgnick = "{msgnick  $*}";
+  ownprivnick = "%_$*%n";
 
   # private message in query
-  # NOTE: for some reason, we gotta handle both the nick & msg on in this line
-  privmsgnick = "{msgnick  %m$*%n}%m";
+  privmsgnick = "{msgnick  %R$*%n}";
 
   ##
   ## Actions (/ME stuff)
   ##
 
   # used internally by this theme
-  action_core = "%_*%n $*";
+  action_core = "%_ * $*%n";
 
   # generic one that's used by most actions
-  action = "{action_core %_$*%n} ";
+  action = "{action_core $*} ";
 
   # own action, both private/public
-  ownaction = "{action_core %b$*%n} ";
+  ownaction = "{action $*}";
 
   # own action with target, both private/public
-  # NOTE: to test: /action NICK farted.  (This will tell NICK that you farted)
-  #   This is like a /me but only you and NICK will see
-  # TODO: To test for Solarized
-  ownaction_target = "{action_core $0}%G:%b$1%n ";
+  ownaction_target = "{action_core $0}%K:%c$1%n ";
 
   # private action sent by others
-  # TODO: To test for Solarized
-  # %M = brightmagenta (Solarized: violet)
-  pvtaction = "%M (*) $*%n ";
+  pvtaction = "%_ (*) $*%n ";
   pvtaction_query = "{action $*}";
 
   # public action sent by others
@@ -230,26 +200,24 @@ abstracts = {
   whois = "%# $[8]0 : $1-";
 
   # notices
-  # TODO: To adapt for Solarized
-  ownnotice = "[%b$0%G(%b$1-%G)]%n ";
-  notice = "%G-%M$*%G-%n ";
-  pubnotice_channel = "%G:%m$*";
-  pvtnotice_host = "%G(%m$*%G)";
+  ownnotice = "[%r$0%K(%R$1-%K)]%n ";
+  notice = "%K-%M$*%K-%n ";
+  pubnotice_channel = "%K:%m$*";
+  pvtnotice_host = "%K(%m$*%K)";
   servernotice = "%g!$*%n ";
 
   # CTCPs
-  # TODO: To adapt for Solarized
-  ownctcp = "[%b$0%G(%b$1-%G)] ";
+  ownctcp = "[%r$0%K(%R$1-%K)] ";
   ctcp = "%g$*%n";
 
   # wallops
-  wallop = "%c$*%n: ";
+  wallop = "%_$*%n: ";
   wallop_nick = "%n$*";
-  wallop_action = "%c * $*%n ";
+  wallop_action = "%_ * $*%n ";
 
   # netsplits
-  netsplit = "%r$*%n";
-  netjoin = "%g$*%n";
+  netsplit = "%R$*%n";
+  netjoin = "%C$*%n";
 
   # /names list
   names_prefix = "";
@@ -258,25 +226,23 @@ abstracts = {
   names_nick_halfop = "{names_nick $*}";
   names_nick_voice = "{names_nick $*}";
   names_users = "[%g$*%n]";
-  names_channel = "%c$*%n";
+  names_channel = "%G$*%n";
 
   # DCC
   dcc = "%g$*%n";
   dccfile = "%_$*%_";
 
   # DCC chat, own msg/action
-  #dccownmsg = "[%r$0%K($1-%K)%n] ";
-  dccownmsg = "[%b$0%G($1-%G)%n] ";
-  dccownnick = "%b$*%n";
-  dccownquerynick = "%c$*%n";
+  dccownmsg = "[%r$0%K($1-%K)%n] ";
+  dccownnick = "%R$*%n";
+  dccownquerynick = "%_$*%n";
   dccownaction = "{action $*}";
-  dccownaction_target = "{action_core $0}%G:%c$1%n ";
+  dccownaction_target = "{action_core $0}%K:%c$1%n ";
 
   # DCC chat, others
-  #dccmsg = "[%G$1-%K(%g$0%K)%n] ";
-  dccmsg = "[%g$1-%G($0%G)%n] ";
-  dccquerynick = "%g$*%n";
-  dccaction = "%c (*dcc*) $*%n %|";
+  dccmsg = "[%G$1-%K(%g$0%K)%n] ";
+  dccquerynick = "%G$*%n";
+  dccaction = "%_ (*dcc*) $*%n %|";
 
   ##
   ## statusbar
@@ -284,107 +250,45 @@ abstracts = {
 
   # default background for all statusbars. You can also give
   # the default foreground color for statusbar items.
-  # NOTE: if all the other overriding settings below are set, this only seems to affect
-  #   the content parts of the adv_windowlist.  Default seems to be blue
-  # NOTE: if not set, the default background seems to be %w%4 = white on blue
-  # %4 = blue
-  sb_background = "%k%6";
+  sb_background = "%4%w";
 
   # default backround for "default" statusbar group
-  # NOTE: this impacts the statusbar of an inactive window and the edges of adv_windowlist
-  # %7 = white (wich looks gray on a regular terminal with white bg)
-  sb_default_bg = "%k%7";
-
-  # background for topicbar at the top (defaults to sb_default_bg)
-  sb_topic_bg = "%W%0";
-
-  # background for the statusbar of active window. You can also give
-  # the foreground color.
-  # %2 = green
-  sb_window_bg = "%w%0";
-
+  #sb_default_bg = "%4";
   # background for prompt / input line
-  sb_prompt_bg = "%w";
+  sb_prompt_bg = "%n";
   # background for info statusbar
-  # %8 = reverse window
-  # TODO: To test for Solarized
   sb_info_bg = "%8";
+  # background for topicbar (same default)
+  #sb_topic_bg = "%4";
 
   # text at the beginning of statusbars. sb-item already puts
   # space there,so we don't use anything by default.
-  sbstart = "$0  %w%4⮀";
+  sbstart = "";
   # text at the end of statusbars. Use space so that it's never
   # used for anything.
-  sbend = "%n";
+  sbend = " ";
 
   topicsbstart = "{sbstart $*}";
   topicsbend = "{sbend $*}";
 
-  prompt = "$c$*%n> ";
+  prompt = "[$*] ";
 
-  # This controls each part of a statusbor, including the outer brackets of adv_windowlist
-  sb = " $* ";
-  # The mode is next to your NICK and the channel
-  # %Y = brightyellow (Solarized: base00, i.e. 2nd darkest gray)
-  sbmode = "%w(+$*%w)%n";
-  sbaway = "%c⮂%Y%6 zZzZ %c%0⮀";
-  # %Y = brightyellow (Solarized: base00, i.e. 2nd darkest gray)
-  sbservertag = "$0 %b(change with ^X)%n";
+  sb = " %c[%n$*%c]%n";
+  sbmode = "(%c+%n$*)";
+  sbaway = " (%GzZzZ%n)";
+  sbservertag = ":$0 (change with ^X)";
   sbnickmode = "$0";
 
   # activity in statusbar
 
-  # ',' separator between the window numbers
-  # %g = green (same color as the active statusbar so we dont' see it)
-  sb_act_sep = "%Y+";
+  # ',' separator
+  sb_act_sep = "%c$*";
   # normal text
-  # This also affects the color of the window with activity in adv_windowlist
-  sb_act_text = "$*";
-  # public message (ordinary messages)
+  sb_act_text = "%c$*";
+  # public message
   sb_act_msg = "%W$*";
-  # hilight (when people actually chat)
-  # This also affects the color of the window with direct message in adv_windowlist
+  # hilight
   sb_act_hilight = "%M$*";
   # hilight with specified color, $0 = color, $1 = text
-  sb_act_hilight_color = "%r$1-";
-
-  ### For windows_switcher.pl
-  #sb_window_switcher = "%r$*adadad%n";
-
-  ### For usercount.pl script
-  #sb_usercount = "{sb %_$0%_ nicks ($1-)}";
-  sb_usercount = "{sb %_$0%_ users %B(%n$1-%B) %C⮁%n}";
-  sb_uc_ircops = "%k*%n$*";
-  sb_uc_ops = "%y@%n$*";
-  sb_uc_halfops = "%y%%%n$*";
-  sb_uc_voices = "%y+%n$*";
-  sb_uc_normal = "$*";
-  #  sb_uc_space = " ";
-
-  ### For adv_windowlist.pl script
-
-  # Mentioned in adv_windowlist but not default_theme
-  #sb_act_none = "%0%W";
-};
-
-formats = {
-  "fe-common/core" = {
-    daychange = "           %g-----%w-%W-%n Day changed to %%D %W-%w-%g-----%n";
-    own_msg = "{ownmsgnick {ownnick $[-16]0$2}}$1";
-    own_msg_channel = "{ownmsgnick {ownnick $[-16]0$3}{msgchannel $1}}$2";
-    own_msg_private_query = "{ownprivmsgnick {ownprivnick $[-16]2}}$1";
-    pubmsg_me = "{pubmsgmenick {menick $[-16]0}$2}$1";
-    pubmsg_me_channel = "{pubmsgmenick {menick $[-16]0$3}{msgchannel $1}}$2";
-    pubmsg_hilight = "{pubmsghinick $0 $0 $[-16]1$3%n}$2";
-    pubmsg_hilight_channel = "{pubmsghinick $0 $[-16]1$4{msgchannel $2}}$3";
-    pubmsg = "{pubmsgnick {pubnick %w$[-16]0}$2}$1";
-    pubmsg_channel = "{pubmsgnick {pubnick %w$[-16]0}$2}$1";
-    msg_private_query = "{privmsgnick $[-16]0}$2";
-  };
-  "fe-common/irc" = {
-    own_action = "{ownaction $[-14]0} $1";
-    action_private = "{pvtaction $[-14]0}$1";
-    action_private_query = "{pvtaction_query $[-14]0} $2";
-    action_public = "{pubaction $[-14]0}$1";
-  };
+  sb_act_hilight_color = "$0$1-%n";
 };

@@ -8,7 +8,7 @@ BAKDEST="$BAKDIR$FILENAME"
 mv "$SOURCE" "$BAKDIR"
 ORIGSIZE=$( j size "$BAKDEST" )
 convert "$BAKDEST" -print "Original: $ORIGSIZE ($BAKDEST)\n" /dev/null
-convert -trim $BAKDEST $SOURCE
+convert -trim "$BAKDEST" "$SOURCE"
 NEWSIZE=$( j size "$SOURCE" )
 convert "$SOURCE" -print "New: $NEWSIZE ($1)\n" /dev/null
 

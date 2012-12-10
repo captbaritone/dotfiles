@@ -15,7 +15,7 @@ dotfilespath="$HOME/dotfiles"
 dotfilerepo="git@github.com:captbaritone/dotfiles"
 
 guidespath="$HOME/guides"
-guidesrepo="git@github.com:captbaritone/guides.git"
+guidesrepo="http://github.com/captbaritone/guides.git"
 
 
 txtrst=$(tput sgr0) # Text reset

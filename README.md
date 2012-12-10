@@ -11,9 +11,9 @@ Install
 A handy script to fetch and install these files is located at
 `classicalcode.com` you can run it via any of the one-liners below:
 
-    curl classicalcode.com | source
-    wget -o - classicalcode.com | source
-    lynx -source classicalcode.com | source
+- `curl classicalcode.com | source`
+- `wget -o - classicalcode.com | source`
+- `lynx -source classicalcode.com | source`
 
 This script fetches the dot files and then runs `install.sh` which setups up
 the machine, links the dotfiles in place, and then sources `~/.bashrc`.
@@ -116,14 +116,9 @@ Shortcomings
 
 - On Ubuntu, opening a file in Vim from the command line spawns a new GVim
   instance instead of opening a new pane in the existing instance.
-- There should be a script, or at least a list, to install expected software on
-  brand new machines. Perhaps a `curl -s http://classicalcode.com | sh` kind of
-  solution which would apt-get/brew install the initial requirements like Git,
-  Vim etc. We could use the .htaccess to return the script instead of
-  index.php. For reference see http://tpo.pe. This may be too complicated
-  because different OSs use different package managers.
 - Git push and pull on linux machines throw an error having to do with the OXS
-  key thingy.
+  key thingy. `git: 'credential-osxkeychain' is not a git command. See 'git
+  --help'.`
 - Auto indent in vim doesn't work for HTML tags
 - Ocassionally `git lg` will crash after it runs
     - error: git lg1 died of signal 13

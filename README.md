@@ -8,25 +8,26 @@ configurations in sync across my laptop and desktop machines.
 Install 
 -------
 
-In the home directory:
+A handy script to fetch and install these files is located at
+`classicalcode.com` you can run it via any of the one-liners below:
 
-    git clone git://github.com/captbaritone/dotfiles git submodule update
-    --init
+    curl classicalcode.com | source
+    wget -o - classicalcode.com | source
+    lynx -source classicalcode.com | source
 
+This script fetches the dot files and then runs `install.sh` which setups up
+the machine, links the dotfiles in place, and then sources `~/.bashrc`.
 
-Then deploy (symbolically link) the files into your home dir
+If a dotfile already exists, and is not the correct symlink, it will be moved
+to `$FILENAME.local` with the expectation that the repository version of the
+dotfile will source it. This allows for per-machine customization.
 
-    cd dotfiles ./install.sh
+refit
+-----
 
-
-install.sh 
-----------
-
-`install.sh` will symlink all the dotfiles (every file in `dotfiles` except
-`README.md` and `install.sh`) into your home dir. If the dotfile already
-exists, and is not the correct symlink, it will be moved to `$FILENAME.local`
-with the expectation that the repository version of the dotfile will source it.
-This allows for per-machine customization.
+Once these files are installed, a command `refit` will be avaliable on the
+command line. Which will re-execute will the `install.sh` script which, after
+the inital install, will simply update the machine to the most modern setup.
 
 Workflow 
 --------

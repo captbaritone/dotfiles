@@ -172,6 +172,10 @@ nmap <silent> ,u= :t.\|s/./=/g\|:nohls<cr>
 nmap <silent> ,u- :t.\|s/./-/g\|:nohls<cr>
 
 " Trying this alternative to escape
+imap jk <esc>
+cmap jk <esc>
+imap kj <esc>
+cmap kj <esc>
 imap jj <esc>
 cmap jj <esc>
 

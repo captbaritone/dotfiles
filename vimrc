@@ -121,7 +121,8 @@ endif
 "   Search                                                                {{{
 " ----------------------------------------------------------------------------
 
-set gdefault                " Greedy search by default
+" Turned this off because it broke greedy search and replace
+"set gdefault                " Greedy search by default
 set incsearch               " Show search results as we type
 set showmatch               " Show matching brackets
 set hlsearch                " Highlight search results

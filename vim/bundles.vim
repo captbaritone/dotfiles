@@ -48,7 +48,7 @@ Bundle 'cakebaker/scss-syntax.vim'
                                           " Fugitive: Git from within Vim
 Bundle 'tpope/vim-fugitive'
                                           " Window manager for vim splits
-Bundle 'spolu/dwm.vim'
+Bundle 'captbaritone/dwm.vim'
                                           " Syntax and scripts for Lilypond
 Bundle 'qrps/lilypond-vim'
                                           " Indexed Search: Shows # of matches

@@ -23,108 +23,108 @@ txtred=$(tput setaf 9) # Red
 txtgreen=$(tput setaf 190) # Green
 txtorange=$(tput setaf 172) # Orange
 indent="    "
-ok(){ echo "${indent}${txtgreen}OK${txtrst}"; }
-moved(){ echo "${indent}${txtgreen}MOVED${txtrst}"; }
-installed(){ echo "${indent}${txtgreen}INSTALLED${txtrst}"; }
-notice(){ echo "${indent}${txtorange}NOTICE${txtrst}"; }
-missing(){ echo "${indent}${txtred}MISSING${txtrst}"; }
+ok(){ printf "${indent}${txtgreen}OK${txtrst}\n"; }
+moved(){ printf "${indent}${txtgreen}MOVED${txtrst}\n"; }
+installed(){ printf "${indent}${txtgreen}INSTALLED${txtrst}\n"; }
+notice(){ printf "${indent}${txtorange}NOTICE${txtrst}\n"; }
+missing(){ printf "${indent}${txtred}MISSING${txtrst}\n"; }
 
 # Check for some required tools
-echo "Checking for commonly used tools:"
+printf "Checking for commonly used tools:\n"
 # git
 if [ `command -v git` ]; then
-  echo -e "$(ok) - Git"
+  printf "$(ok) - Git\n"
 else
-    echo "    MISSING - Git"
-    echo -e "\nYou serioulsy expect me to do this witout git?. Fix that shit."
+    printf "    MISSING - Git\n"
+    printf "You serioulsy expect me to do this witout git?. Fix that shit.\n"
     exit
 fi
 # vim
 if [ `command -v vim` ]; then
-    echo "$(ok) - Vim"
+    printf "$(ok) - Vim\n"
     #   +python?
     if [ "$(vim --version | grep \+python)" ]; then
-        echo "$(ok) - Vim +python"
+        printf "$(ok) - Vim +python\n"
     else
-        echo "$(missing) - Vim +python (Gundo won't work)"
+        printf "$(missing) - Vim +python (Gundo won't work)\n"
     fi
 else
-    echo "$(missing) - Vim"
+    printf "$(missing) - Vim\n"
 fi
 
 # curl
 if [ `command -v curl` ]; then
-    echo "$(ok) - Curl"
+    printf "$(ok) - Curl\n"
 else
-  echo "$(missing) - Curl (Vim-Gist won't work)"
+  printf "$(missing) - Curl (Vim-Gist won't work)\n"
 fi
 
 
-echo "Updating guides:"
+printf "Updating guides:\n"
 # Get my guides
 if [ -d $guidespath ]; then
     cd "$guidespath"
     if [[ $(git status 2> /dev/null | tail -n1 | cut -c1-17) = "nothing to commit" ]]; then
         if [[ $(git pull 2> /dev/null) = "Already up-to-date." ]]; then
-            echo "$(ok) - Already up-to-date"
+            printf "$(ok) - Already up-to-date\n"
         else
-            echo "$(ok) - Updated guides"
+            printf "$(ok) - Updated guides\n"
         fi
     else
-        echo "$(notice) - Did not update guides (unclean)"
+        printf "$(notice) - Did not update guides (unclean)\n"
     fi
 else
     cd $HOME
     if [[ $(git clone $guidesrepo $guidespath 2> /dev/null) ]]; then
-        echo "$(installed) - Guides cloned"
+        printf "$(installed) - Guides cloned\n"
     fi
 fi;
 
-echo "Updating dotfiles:"
+printf "Updating dotfiles:\n"
 cd "$dotfilespath"
 # Is the dotfiles repo clean?
 if [[ $(git status 2> /dev/null | tail -n1 | cut -c1-17) = "nothing to commit" ]]; then
   if [[ $(git pull 2> /dev/null) = "Already up-to-date." ]]; then
-    echo "$(ok) - Already up-to-date"
+    printf "$(ok) - Already up-to-date\n"
   else
-    echo "$(ok) - Updated dotfiles (you may want to rerun install.sh)"
+    printf "$(ok) - Updated dotfiles (you may want to rerun install.sh)\n"
     # Perhaps here we should start over with the new install.sh?
   fi
 else
-  echo "$(notice) - Did not update dotfiles (unclean)"
+  printf "$(notice) - Did not update dotfiles (unclean)\n"
 fi
 
-echo "Linking dotfiles into place:"
+printf "Linking dotfiles into place:\n"
 for name in *; do
     if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ] && [ "$name" != 'tools' ] && [ "$name" != 'ssh' ] && [ "$name" != 'bootstrap.sh' ]; then
         target="$HOME/.$name"
         if [ "$target" -ef "$name" ]; then
-            echo "$(ok) - .$name"
+            printf "$(ok) - .$name\n"
         else
             if [ -e "$target" ]; then
                 mv $target "$target.local"
-                echo "$(moved) - $target to $target.local"
+                printf "$(moved) - $target to $target.local\n"
             fi
             ln -s "$PWD/$name" "$target"
-            echo "$(installed) - .$name"
+            printf "$(installed) - .$name\n"
         fi
     fi
 done
 
-echo "Updating submodules:"
+printf "Updating submodules:\n"
 git submodule update -q --init ~/dotfiles/vim/bundle/vundle
-echo "$(ok) - Vundle"
+printf "$(ok) - Vundle\n"
 git submodule update -q --init ~/dotfiles/tools/z
-echo "$(ok) - Z"
-#echo "    .ssh..."
+printf "$(ok) - Z\n"
+#printf "    .ssh..."
 #git submodule update -q --init ~/dotfiles/ssh
 
-echo "Updating Vundle bundles:"
+printf "Updating Vundle bundles:\n"
 vim -u ~/.vim/bundles.vim "+BundleInstall!" +qall
-echo "$(ok)" - Bundles
+printf "$(ok) - Bundles\n"
 
-echo "Sourcing ~/.bashrc:"
+printf "Sourcing ~/.bashrc:\n"
 source "$HOME/.bashrc"
-echo "$(ok) - Sourced"
+printf "$(ok) - Sourced\n"
 
-echo -e "\nInstallation complete!"
+printf "\nInstallation complete!\n"

@@ -11,9 +11,9 @@ Install
 A handy script to fetch and install these files is located at
 `classicalcode.com` you can run it via any of the one-liners below:
 
-- `curl classicalcode.com | source`
-- `wget -o - classicalcode.com | source`
-- `lynx -source classicalcode.com | source`
+- `curl classicalcode.com | sh`
+- `wget -o - classicalcode.com | sh`
+- `lynx -source classicalcode.com | sh`
 
 This script fetches the dot files and then runs `install.sh` which setups up
 the machine, links the dotfiles in place, and then sources `~/.bashrc`.

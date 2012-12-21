@@ -163,7 +163,9 @@ nmap <silent> ,h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '
 
 " Edit the vimrc file
 nmap <silent> ,ev :e $MYVIMRC<CR>
+nmap <silent> ,eb :e $HOME/.vim/bundles.vim<CR>
 nmap <silent> ,sv :so $MYVIMRC<CR>
+nmap <silent> ,sb :so $HOME/.vim/bundles.vim<CR>
 
 " Underline the current line with '='
 nmap <silent> ,u= :t.\|s/./=/g\|:nohls<cr>

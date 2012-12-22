@@ -36,7 +36,7 @@ if [ `command -v git` ]; then
   printf "$(ok) - Git\n"
 else
     printf "    MISSING - Git\n"
-    printf "You serioulsy expect me to do this witout git?. Fix that shit.\n"
+    printf "You seriously expect me to do this without git?. Fix that shit.\n"
     exit
 fi
 # vim
@@ -82,7 +82,7 @@ fi;
 
 printf "Updating dotfiles:\n"
 cd "$dotfilespath"
-# Is the dotfiles repo clean?
+# Is the dotfiles repository clean?
 if [[ $(git status 2> /dev/null | tail -n1 | cut -c1-17) = "nothing to commit" ]]; then
   if [[ $(git pull 2> /dev/null) = "Already up-to-date." ]]; then
     printf "$(ok) - Already up-to-date\n"

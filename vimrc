@@ -22,6 +22,10 @@ let mapleader = ","
                                 " Seems to break `n` in normal mode, so
                                 " I turned it off
 set encoding=utf-8              " I generally want utf-8 encoding
+set spell                       " Trun on spelling
+set spelllang=en_us             " Set the spelling language 
+                                " Set the spelling file
+set spellfile=$HOME/.vim/spell/en.utf-8.add
 set hidden                      " Allow buffers to exist in the background
 set ttyfast                     " Indicates a fast terminal connection
 set backspace=indent,eol,start  " Allow backspaceing over autoindent, line breaks, starts of insert
@@ -104,9 +108,7 @@ if has("gui_running")
     set guioptions-=m       " Remove menu bar
     set guioptions-=L       " Remove left-hand scroll bar 
     set background=dark
-    " Turn on spellcheck only for GUI because colors don't work so well in
-    " command line
-    setlocal spell spelllang=en_us
+
     if has("gui_running")
         if has("gui_gtk2")
             " Set the font for linux machines

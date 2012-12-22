@@ -33,7 +33,7 @@
 
   # Show files ignored by git:
   ign = ls-files -o -i --exclude-standard
-[credential]
-	helper = osxkeychain
+[include]
+    path = ~/.gitconfig.local
 [github]
 	user = captbaritone

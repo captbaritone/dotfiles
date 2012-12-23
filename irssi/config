@@ -104,7 +104,7 @@ statusbar = {
     # treated specially .. window is printed with non-empty windows,
     # window_empty is printed with empty windows
     window = "{sb $winref:$tag/$itemname{sbmode $M}}";
-    window_empty = "{sb $winref{sbservertag $tag}}";
+    window_empty = "{sb $winref:{sbservertag $tag}}";
     prompt = "{prompt $[.15]itemname}";
     prompt_empty = "{prompt $winname}";
     topic = " $topic";
@@ -137,7 +137,7 @@ statusbar = {
 
       # list of items in statusbar in the display order
       items = {
-        barstart = { priority = "100"; };
+        # barstart = { priority = "100"; };
         time = { };
         user = { };
         window = { };
@@ -189,7 +189,7 @@ statusbar = {
       items = {
         topicbarstart = { priority = "100"; };
         topic = { };
-        topic_empty = { };
+        # topic_empty = { };
         topicbarend = { priority = "100"; alignment = "right"; };
       };
     };

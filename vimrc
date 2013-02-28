@@ -196,6 +196,7 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Return to last edit position when opening files
+" XXX This could be improved to ignore gitcommit file type
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
@@ -237,6 +238,9 @@ let php_htmlInStrings = 1               "for HTML syntax highlighting inside str
 "php_oldStyle = 1                       "for using old colorstyle
 "php_noShortTags = 1                    "don't sync <? ?> as php
 let php_folding = 1                     "for folding classes and functions
+
+" Sass and Css options
+autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 
 " Per file-type indention rules
 autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab

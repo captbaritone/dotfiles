@@ -62,6 +62,11 @@ Bundle 'kien/ctrlp.vim.git'
                                           " GitGutter adds +/- to lines re git
 Bundle 'airblade/vim-gitgutter'
                                           " Rename files from within vim
+Bundle 'danro/rename.vim'
+
+" Needs compilation, so we haven't set it up yet. Still it looks worth
+" exploring
+"Bundle 'Valloric/YouCompleteMe'
 
 if has('python')                          " Some plugins require python
                                           " Gundo: Undo history

@@ -186,7 +186,8 @@ cmap jj <esc>
 " ----------------------------------------------------------------------------
 
 " Custom command to refresh Chrome on save
-command! W exec "w" | silent !osascript ~/.vim/scripts/refresh_chrome.scptd
+" Replaced by LiveReload
+" command! W exec "w" | silent !osascript ~/.vim/scripts/refresh_chrome.scptd
 
 " Set Ultisnip directory
 let g:UltiSnipsSnippetDirectories=["snippets"]

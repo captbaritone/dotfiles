@@ -220,6 +220,9 @@ let g:ctrlp_custom_ignore = {
 " Whenever a new file is opened, foucs that pane
 autocmd BufRead,BufNewFile * call DWM_Focus()
 
+" Turn on Git gutters by default
+let g:gitgutter_enabled = 1
+
 " }}}-------------------------------------------------------------------------
 "   Custom filetypes                                                      {{{
 " ----------------------------------------------------------------------------

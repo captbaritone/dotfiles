@@ -59,6 +59,9 @@ Bundle 'tsaleh/vim-matchit'
 Bundle 'tpope/vim-surround'
                                           " Command-T alternative in Vimscript
 Bundle 'kien/ctrlp.vim.git'
+                                          " GitGutter adds +/- to lines re git
+Bundle 'airblade/vim-gitgutter'
+                                          " Rename files from within vim
 
 if has('python')                          " Some plugins require python
                                           " Gundo: Undo history

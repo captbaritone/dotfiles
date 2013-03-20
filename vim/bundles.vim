@@ -42,11 +42,11 @@ Bundle 'Lokaltog/vim-powerline'
                                           " Vim-Git: Highlight git files
 Bundle 'tpope/vim-git'
                                           " Zen Coding: Quickly write html
-Bundle 'mattn/zencoding-vim'
+"Bundle 'mattn/zencoding-vim'
                                           " Scss Syntax
 Bundle 'cakebaker/scss-syntax.vim'
                                           " Fugitive: Git from within Vim
-Bundle 'tpope/vim-fugitive'
+"Bundle 'tpope/vim-fugitive'
                                           " Window manager for vim splits
 Bundle 'captbaritone/dwm.vim'
                                           " Syntax and scripts for Lilypond

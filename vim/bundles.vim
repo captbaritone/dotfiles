@@ -2,22 +2,6 @@
 "   Vundle
 " ----------------------------------------------------------------------------
 
-" Some known (noticed) bugs:
-"   1. When the last buffer has syntax highlighting, :bd removes the 
-"   highlighting instead of closing the buffer
-"
-"   2. Syntastic does not work on my php installation on my mac. I think it has
-"   to do with errors being returned in a different format from the php command
-"   line tool.
-"
-"   3. If I open a new file from outside of vim and then try to focus it with
-"   dwm, often it focuses the wrong file.
-"
-"   4. Dwm and minibufexpl do not play well together. Minibufexpl would need
-"   special treatment.
-"
-"
-
 
 set nocompatible                          " Leave Vi in the dust
 

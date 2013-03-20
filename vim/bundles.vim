@@ -63,11 +63,17 @@ Bundle 'kien/ctrlp.vim.git'
 Bundle 'airblade/vim-gitgutter'
                                           " Rename files from within vim
 Bundle 'danro/rename.vim'
+                                          " Allow per-project .vimrc files
+Bundle 'embear/vim-localvimrc'
+                                          " Automatically align var blocks
+Bundle 'godlygeek/tabular'
 
 " Needs compilation, so we haven't set it up yet. Still it looks worth
-" exploring
-"Bundle 'Valloric/YouCompleteMe'
+" exploring. Now I learn it needs a newer version of vim... :(
+" Requires a newer version of vim then I have
+" Bundle 'Valloric/YouCompleteMe'
 
+Bundle 'skammer/vim-css-color'
 if has('python')                          " Some plugins require python
                                           " Gundo: Undo history
     Bundle 'sjl/gundo.vim'

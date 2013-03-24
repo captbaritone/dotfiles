@@ -38,12 +38,6 @@ esac
 # https://raw.github.com/paulirish/dotfiles/master/.bash_prompt
 source $HOME/.bash_prompt
 
-###########################################################################
-#                             z shell command                             #
-###########################################################################
-
-. $HOME/dotfiles/tools/z/z.sh
-
 ##
 # Quickly starts a webserver from the current directory.
 #

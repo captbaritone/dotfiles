@@ -293,6 +293,7 @@ cmap w!! %!sudo tee > /dev/null %
 cmap Bd bd
 cmap BD bd
 cmap Q q
+cmap W w
 
 " }}}-------------------------------------------------------------------------
 "   Undo, Backup and Swap file locations                                  {{{

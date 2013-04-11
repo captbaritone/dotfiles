@@ -95,8 +95,6 @@ It is heavily keyboard and command-line centric.
 - __Window manager:__ [SizeUp](http://www.irradiatedsoftware.com/sizeup/)
   assign hotkeys to resize your windows to predefined positions. Lets me
   effectively use my entire screen(s).
-- __Directory jumper:__ [z](https://github.com/sjl/z-zsh) quickly jump to
-  oft-visited directories at the command-line
 - __FTP client:__ [Transmit](http://panic.com/transmit/) sometimes I just need
   a GUI for a quick FTP transfer.
 - __Git server:__ [Gitolite](https://github.com/sitaramc/gitolite/) running on

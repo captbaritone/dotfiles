@@ -9,7 +9,8 @@ snippet doc_f "doc_f"
  * @author ${5:`!v g:snips_author`}
  **/
 ${1:public }function ${2:someFunc}(${3})
-{${6}
+{
+    ${6:// code...}
 }
 endsnippet
 
@@ -249,6 +250,11 @@ try {
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
 }
+endsnippet
+
+# Code Igniter specific
+snippet clog "Log a message CodeIgniter style"
+log_message('${2:debug}', "${1:--- MARK ---}");
 endsnippet
 
 # :vim:ft=snippets:

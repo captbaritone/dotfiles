@@ -187,7 +187,8 @@ cmap jj <esc>
 " ----------------------------------------------------------------------------
 
 " Custom command to refresh Chrome on save
-command! W exec "w" | silent !osascript ~/.vim/scripts/refresh_chrome.scptd
+" Replaced by LiveReload
+" command! W exec "w" | silent !osascript ~/.vim/scripts/refresh_chrome.scptd
 
 " Set Ultisnip directory
 let g:UltiSnipsSnippetDirectories=["snippets"]
@@ -201,6 +202,9 @@ autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
+" For Git commit messages the cursor should always start at the top
+" XXX This could be improved by never moving the cursor in the first place
+autocmd BufReadPost *.git/{,modules/**/}{COMMIT_EDIT,MERGE_}MSG exe "normal! gg"
 
 " Gist Vim
 let g:gist_clip_command = 'pbcopy'
@@ -218,6 +222,9 @@ let g:ctrlp_custom_ignore = {
 
 " Whenever a new file is opened, foucs that pane
 autocmd BufRead,BufNewFile * call DWM_Focus()
+
+" Turn on Git gutters by default
+let g:gitgutter_enabled = 1
 
 " }}}-------------------------------------------------------------------------
 "   Custom filetypes                                                      {{{
@@ -238,6 +245,9 @@ let php_htmlInStrings = 1               "for HTML syntax highlighting inside str
 "php_oldStyle = 1                       "for using old colorstyle
 "php_noShortTags = 1                    "don't sync <? ?> as php
 let php_folding = 1                     "for folding classes and functions
+
+" Sass and Css options
+autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 
 " Per file-type indention rules
 autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
@@ -291,6 +301,7 @@ cmap w!! %!sudo tee > /dev/null %
 cmap Bd bd
 cmap BD bd
 cmap Q q
+cmap W w
 
 " }}}-------------------------------------------------------------------------
 "   Undo, Backup and Swap file locations                                  {{{

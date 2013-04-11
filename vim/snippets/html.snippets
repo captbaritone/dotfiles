@@ -277,15 +277,14 @@ snippet movie "Embed QT movie (movie)" b
 </object>
 endsnippet
 
-# Eli like this stuff
-snippet three "Top, Bottom, Fill: Sliding doors"
-<div class='top'><div class='bottom'><div class='fill'>
-    ${1:<!-- Code... -->}
-</div></div></div>
-endsnippet
-
 snippet js "Embed a javascript file" b
 <script source="${1:js/main.css}" type="text/javascript" />
+endsnippet
+
+snippet javascript "Enbed javascript code" b
+<script type="text/javascript">
+    ${1:// Code...}
+</script>
 endsnippet
 
 snippet jquery "Jquery from Google CDN" b
@@ -298,6 +297,10 @@ endsnippet
 
 snippet clear "Clearing div" b
 <div class='clear'></div>
+endsnippet
+
+snippet youtube "Embedded filler youtube video"
+<iframe width="${1:420}" height="${2:315}" src="http://www.youtube.com/embed/${3:FtX8nswnUKU}" frameborder="0" allowfullscreen></iframe>
 endsnippet
 
 # vim:ft=snippets:

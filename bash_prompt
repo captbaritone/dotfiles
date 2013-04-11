@@ -36,14 +36,22 @@ else
 fi
 
 
-function parse_git_dirty() {
-# Added "cut" to accommodate .gitconfig "statusHints = false"
-    [[ $(git status 2> /dev/null | tail -n1 | cut -c1-17) != "nothing to commit" ]] && echo "*"
-}
+# https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
+# Show an '*' if the repo has uncommitted content
+GIT_PS1_SHOWDIRTYSTATE=true
 
-function parse_git_branch() {
-	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
-}
+# Show a '$' if there is stashed content
+#GIT_PS1_SHOWSTASHSTATE=true
+
+# Show a '%' if there are untracked files
+#GIT_PS1_SHOWUNTRACKEDFILES=true
+
+# Show a '<' or '>' to show if you are behind or ahead of your upstream
+GIT_PS1_SHOWUPSTREAM="auto"
+
+# Uses color to hint at the current dirty state
+# Not much use here, since we do colors ourself
+#GIT_PS1_SHOWCOLORHINTS=true
 
 # iTerm Tab and Title Customization and prompt customization
 # http://sage.ucsc.edu/xtal/iterm_tab_customization.html
@@ -56,4 +64,12 @@ function parse_git_branch() {
 # in the iterm tab
 # \[\e]1;\]$(basename $(dirname $PWD))/\W\[\a\]
 
-PS1="[\t] \[\e]2;$PWD\[\a\]\[\e]1;\]$(basename "$(dirname "$PWD")")/\W\[\a\]\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
+PS1="[\t] " # Time
+PS1=$PS1"\[${BOLD}${MAGENTA}\]\u " # User
+PS1=$PS1"\[$WHITE\]at \[$ORANGE\]\h " # Machine
+PS1=$PS1"\[$WHITE\]in \[$GREEN\]\w" # Path
+PS1=$PS1"\$(__git_ps1 '\[$WHITE\] on \[$PURPLE\]%s')" # Git Branch
+PS1=$PS1"\[$RESET\]" # Reset
+PS1=$PS1"\n$ " # Prompt (Finally!)
+
+

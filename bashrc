@@ -38,12 +38,6 @@ esac
 # https://raw.github.com/paulirish/dotfiles/master/.bash_prompt
 source $HOME/.bash_prompt
 
-###########################################################################
-#                             z shell command                             #
-###########################################################################
-
-. $HOME/dotfiles/tools/z/z.sh
-
 ##
 # Quickly starts a webserver from the current directory.
 #
@@ -110,6 +104,7 @@ alias g="git"
 
 # Enable autocomplete for g
 complete -o default -o nospace -F _git g
+alias r="cd \"$(git rev-parse --show-toplevel)\""
 alias w="cd ~/Work && ls"
 alias s="cd ~/Sites && ls"
 alias o="open"

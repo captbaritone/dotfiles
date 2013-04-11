@@ -68,7 +68,7 @@ PS1="[\t] " # Time
 PS1=$PS1"\[${BOLD}${MAGENTA}\]\u " # User
 PS1=$PS1"\[$WHITE\]at \[$ORANGE\]\h " # Machine
 PS1=$PS1"\[$WHITE\]in \[$GREEN\]\w" # Path
-PS1=$PS1"$(__git_ps1 '\[$WHITE\] on \[$PURPLE\]%s')" # Git Branch
+PS1=$PS1"\$(__git_ps1 '\[$WHITE\] on \[$PURPLE\]%s')" # Git Branch
 PS1=$PS1"\[$RESET\]" # Reset
 PS1=$PS1"\n$ " # Prompt (Finally!)
 

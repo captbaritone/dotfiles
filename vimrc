@@ -86,7 +86,7 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-autocmd FileType c,cpp,java,php,ruby,python,css autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,java,php,ruby,python,js autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " letter meaning when present in 'formatoptions'
 " ------ ---------------------------------------

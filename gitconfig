@@ -34,6 +34,8 @@
 
   # Show files ignored by git:
   ign = ls-files -o -i --exclude-standard
+  # Backup the working directory without a commit
+  snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
 [include]
     path = ~/.gitconfig.local
 [github]

@@ -249,7 +249,11 @@ let g:gitgutter_enabled = 1
 
 " Auto detect filetype
 autocmd BufRead,BufNewFile *.md,*.markdown  set filetype=markdown
+autocmd BufRead,BufNewFile *.php            set filetype=phtml
 autocmd BufRead,BufNewFile ~/dotfiles/ssh/config set filetype=sshconfig
+" Override what is done in /vim/bundle/scss-syntax.vim/ftdetect/scss.vim
+" This should prevent duplicate snippets
+autocmd BufRead,BufNewFile *.scss	        set filetype=scss
 
 
 "php syntax options 

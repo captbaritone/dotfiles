@@ -229,10 +229,13 @@ let g:gist_open_browser_after_post = 1
 let g:ctrlp_root_markers = 'info.*'     " Projects in ~/Work have info.md files
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
-	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
-	\ 'file': '\v\.(png|jpg|gif)$',
+	\ 'dir':  '\v[\/]\.(git|hg|svn|sass-cache)$',
+	\ 'file': '\v\.(png|jpg|jpeg|gif|DS_Store)$',
 	\ 'link': '',
 	\ }
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_clear_cache_on_exit = 0
+
 
 " Whenever a new file is opened, foucs that pane
 autocmd BufRead,BufNewFile * call DWM_Focus()

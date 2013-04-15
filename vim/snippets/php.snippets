@@ -233,11 +233,9 @@ endsnippet
 snippet hforeach "Foreach for use in HTML templates"
 <?php if($$1): ?>
 <?php foreach($$1 as $${2:item}): ?>
-  
 ${3:<!-- Code -->}
-
 <?php endforeach; ?>
-<?php endif; ?>
+<?php endif; // $1?>
 endsnippet
 
 # PDO database connection

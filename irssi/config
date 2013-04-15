@@ -11,16 +11,17 @@ servers = (
 chatnets = { freenode = { type = "IRC"; nick = "captbaritone"; }; };
 
 channels = (
-  { name = "#/r/webdev"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#bash"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "##classical"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#git"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#github"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#imslpchat"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#irssi"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#raspberrypi"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "#/r/webdev"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "#bash"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "##classical"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "#git"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "#github"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "#imslpchat"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "#irssi"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "#raspberrypi"; chatnet = "freenode"; autojoin = "Yes"; },
   #${ name = "#ubuntu"; chatnet = "freenode"; autojoin = "Yes"; },
   #{ name = "#wordpress"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#chromaplex"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#vim"; chatnet = "freenode"; autojoin = "yes"; }
 );
 

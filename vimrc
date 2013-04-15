@@ -30,6 +30,7 @@ set hidden                      " Allow buffers to exist in the background
 set ttyfast                     " Indicates a fast terminal connection
 set backspace=indent,eol,start  " Allow backspaceing over autoindent, line breaks, starts of insert
 set shortmess+=I                " No welcome screen
+set history=200                 " Remember the last 200 :ex commands
 
 " }}}-------------------------------------------------------------------------
 "   Visual                                                                {{{
@@ -302,6 +303,11 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
+
+" To encourage the use of <C-[np]> instead of the arrow keys in ex mode, remap
+" them to use <Up/Down> instead so that they will filter completions
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 
 " Navigate using displayed lines not actual lines
 nnoremap j gj

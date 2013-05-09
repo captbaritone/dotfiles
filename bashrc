@@ -104,7 +104,6 @@ alias g="git"
 
 # Enable autocomplete for g
 complete -o default -o nospace -F _git g
-alias r="cd \"$(git rev-parse --show-toplevel)\""
 alias w="cd ~/Work && ls"
 alias s="cd ~/Sites && ls"
 alias o="open"

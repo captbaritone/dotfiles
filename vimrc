@@ -26,7 +26,7 @@ set spell                       " Trun on spelling
 set spelllang=en_us             " Set the spelling language 
                                 " Set the spelling file
 set spellfile=$HOME/.vim/spell/en.utf-8.add
-set hidden                      " Allow buffers to exist in the background
+set nohidden                    " Don't allow buffers to exist in the background
 set ttyfast                     " Indicates a fast terminal connection
 set backspace=indent,eol,start  " Allow backspaceing over autoindent, line breaks, starts of insert
 set shortmess+=I                " No welcome screen

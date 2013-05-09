@@ -104,7 +104,6 @@ alias g="git"
 
 # Enable autocomplete for g
 complete -o default -o nospace -F _git g
-alias r="cd \"$(git rev-parse --show-toplevel)\""
 alias w="cd ~/Work && ls"
 alias s="cd ~/Sites && ls"
 alias o="open"
@@ -117,7 +116,7 @@ alias cpu="open -a 'Activity Monitor'"
 alias mem="open -a 'Activity Monitor'"
 
 alias todo="vim ~/todo.txt"
-alias irc="irssi"
+alias irc="weechat-curses"
 alias vpn="safejumper"
 
 # Aliases for fat fingered or stupid people

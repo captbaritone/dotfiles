@@ -19,6 +19,8 @@ Bundle 'captbaritone/myTodo'
 Bundle 'scrooloose/syntastic'
                                             " Solarized: Colorscheme
 Bundle 'altercation/vim-colors-solarized'
+                                            " Allow for HTML indenting in .php
+Bundle 'captbaritone/better-indent-support-for-php-with-html'
                                             " Powerline: Pretty statusline
 Bundle 'Lokaltog/vim-powerline'
                                             " Vim-Git: Highlight git files

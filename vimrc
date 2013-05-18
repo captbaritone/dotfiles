@@ -213,14 +213,11 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-" Return to last edit position when opening files
+" Return to last edit position when opening files, except git commit message
 autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
-" For Git commit messages the cursor should always start at the top
-" XXX This could be improved by never moving the cursor in the first place
-autocmd BufReadPost *.git/{,modules/**/}{COMMIT_EDIT,MERGE_}MSG exe "normal! gg"
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
 
 " Gist Vim
 let g:gist_clip_command = 'pbcopy'

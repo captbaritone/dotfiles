@@ -281,6 +281,9 @@ autocmd FileType config setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType gitconfig setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd FileType ruby,eruby setlocal ts=2 sts=2 sw=2 expandtab
 
+" Run Exuberant Ctags everytime I save a php file
+au BufWritePost php silent! !ctags -R &
+
 
 " }}}-------------------------------------------------------------------------
 "   Custom mappings                                                       {{{

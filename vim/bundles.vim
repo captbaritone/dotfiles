@@ -42,7 +42,9 @@ Bundle 'tpope/vim-surround'
                                             " Command-T alternative in Vimscript
 Bundle 'kien/ctrlp.vim.git'
                                             " GitGutter adds +/- to lines re git
-Bundle 'airblade/vim-gitgutter'
+"Bundle 'airblade/vim-gitgutter'
+                                            " Possibly a faster than Gitgutter
+"Bundle 'mhinz/vim-signify'
                                             " Rename files from within vim
 Bundle 'danro/rename.vim'
                                             " Allow per-project .vimrc files

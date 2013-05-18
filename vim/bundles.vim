@@ -11,14 +11,14 @@ call vundle#rc()
 " let Vundle manage Vundle (required)
 Bundle 'gmarik/vundle'
 
-                                            " Molokai colorscheme
+                                            " Colorschmes
 Bundle 'tomasr/molokai'
+Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'altercation/vim-colors-solarized'
                                             " My personal Todo list syntax
 Bundle 'captbaritone/myTodo'
                                             " Syntastic: Highlight code errors
 Bundle 'scrooloose/syntastic'
-                                            " Solarized: Colorscheme
-Bundle 'altercation/vim-colors-solarized'
                                             " Allow for HTML indenting in .php
 Bundle 'captbaritone/better-indent-support-for-php-with-html'
                                             " Powerline: Pretty statusline

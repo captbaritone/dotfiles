@@ -104,6 +104,7 @@ syntax enable               " This has to come after colorcolumn in order to dra
 set t_Co=256                " enable 256 colors
 
 " Colorscheme (Don't complain if you don't have it yet)
+let g:molokai_original = 0
 silent! colorscheme molokai
 
 " Printing options

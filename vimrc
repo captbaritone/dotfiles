@@ -87,7 +87,7 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-autocmd FileType c,cpp,java,php,ruby,python,js autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+"autocmd FileType c,cpp,java,php,ruby,python,js autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " Character meaning when present in 'formatoptions'
 " ------ ---------------------------------------
@@ -103,6 +103,7 @@ syntax enable               " This has to come after colorcolumn in order to dra
 set t_Co=256                " enable 256 colors
 
 " Colorscheme (Don't complain if you don't have it yet)
+let g:molokai_original = 0
 silent! colorscheme molokai
 
 " Printing options
@@ -271,6 +272,9 @@ autocmd FileType javascript  set local ts=4 sts=4 sw=4 expandtab
 autocmd FileType config      set local ts=2 sts=2 sw=2 expandtab
 autocmd FileType gitconfig   set local ts=4 sts=4 sw=4 noexpandtab
 autocmd FileType ruby,eruby  set local ts=2 sts=2 sw=2 expandtab
+
+" Run Exuberant Ctags everytime I save a php file
+au BufWritePost php silent! !ctags -R &
 
 
 " }}}-------------------------------------------------------------------------

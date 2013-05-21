@@ -11,14 +11,16 @@ call vundle#rc()
 " let Vundle manage Vundle (required)
 Bundle 'gmarik/vundle'
 
-                                            " Molokai colorscheme
+                                            " Colorschmes
 Bundle 'tomasr/molokai'
+Bundle 'chriskempson/vim-tomorrow-theme'
+Bundle 'altercation/vim-colors-solarized'
                                             " My personal Todo list syntax
 Bundle 'captbaritone/myTodo'
                                             " Syntastic: Highlight code errors
 Bundle 'scrooloose/syntastic'
-                                            " Solarized: Colorscheme
-Bundle 'altercation/vim-colors-solarized'
+                                            " Allow for HTML indenting in .php
+Bundle 'captbaritone/better-indent-support-for-php-with-html'
                                             " Powerline: Pretty statusline
 Bundle 'Lokaltog/vim-powerline'
                                             " Vim-Git: Highlight git files
@@ -40,7 +42,9 @@ Bundle 'tpope/vim-surround'
                                             " Command-T alternative in Vimscript
 Bundle 'kien/ctrlp.vim.git'
                                             " GitGutter adds +/- to lines re git
-Bundle 'airblade/vim-gitgutter'
+"Bundle 'airblade/vim-gitgutter'
+                                            " Possibly a faster than Gitgutter
+"Bundle 'mhinz/vim-signify'
                                             " Rename files from within vim
 Bundle 'danro/rename.vim'
                                             " Allow per-project .vimrc files

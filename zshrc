@@ -48,6 +48,13 @@ alias :bd="exit"
 # Disable DELETE/UPDATE without WHERE
 alias mysql='mysql --safe-updates'
 
+# Functions
+
+# Get the dimensions of an image
+function size () {
+    convert "$1" -print "%w x %h" /dev/null
+}
+
 ###########################################################################
 #                          OS Dependent Options                           #
 ###########################################################################

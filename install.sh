@@ -31,6 +31,13 @@ missing(){ printf "${indent}${txtred}MISSING${txtrst}\n"; }
 
 # Check for some required tools
 printf "Checking for commonly used tools:\n"
+# oh-my-zsh
+if [ ! -d $HOME/.oh-my-zsh ]
+then
+    $(curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh)
+else
+  printf "$(ok) - oh-my-zsh\n"
+fi
 # git
 if [ `command -v git` ]; then
   printf "$(ok) - Git\n"
@@ -96,7 +103,7 @@ fi
 
 printf "Linking dotfiles into place:\n"
 for name in *; do
-    if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ] && [ "$name" != 'tools' ] && [ "$name" != 'ssh' ] && [ "$name" != 'bootstrap.sh' ]; then
+    if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ] && [ "$name" != 'tools' ] && [ "$name" != 'ssh' ] && [ "$name" != 'bootstrap.sh' ] && [ "$name" != 'zsh-custom' ]; then
         target="$HOME/.$name"
         if [ "$target" -ef "$name" ]; then
             printf "$(ok) - .$name\n"
@@ -112,19 +119,15 @@ for name in *; do
 done
 
 printf "Updating submodules:\n"
-git submodule update -q --init ~/dotfiles/vim/bundle/vundle
+git submodule update -q --init $HOME/dotfiles/vim/bundle/vundle
 printf "$(ok) - Vundle\n"
-git submodule update -q --init ~/dotfiles/tools/z
-printf "$(ok) - Z\n"
+#git submodule update -q --init $HOME/dotfiles/tools/z
+#printf "$(ok) - Z\n"
 #printf "    .ssh..."
 #git submodule update -q --init ~/dotfiles/ssh
 
 printf "Updating Vundle bundles:\n"
 vim -u ~/.vim/bundles.vim "+BundleInstall!" +qall
 printf "$(ok) - Bundles\n"
-
-printf "Sourcing ~/.bashrc:\n"
-source "$HOME/.bashrc"
-printf "$(ok) - Sourced\n"
 
 printf "\nInstallation complete!\n"

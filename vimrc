@@ -22,9 +22,9 @@ let mapleader = ","
                                 " Seems to break `n` in normal mode, so
                                 " I turned it off
 set encoding=utf-8              " I generally want utf-8 encoding
-set spell                       " Trun on spelling
+set spell                       " Turn on spelling
 set spelllang=en_us             " Set the spelling language 
-                                " Set the spelling file
+                                " Set my personal spelling file
 set spellfile=$HOME/.vim/spell/en.utf-8.add
 set nohidden                    " Don't allow buffers to exist in the background
 set ttyfast                     " Indicates a fast terminal connection
@@ -62,7 +62,7 @@ set foldmethod=marker       " Fold on {{{ }}}
 
 " Prettier folding
 " From: http://dhruvasagar.com/2013/03/28/vim-better-foldtext
-function! NeatFoldText() "{{{2
+function! NeatFoldText() "{{{
   let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
   let lines_count = v:foldend - v:foldstart + 1
   let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
@@ -74,7 +74,7 @@ function! NeatFoldText() "{{{2
 endfunction
 
 set foldtext=NeatFoldText()
-" }}}2
+" }}}
 " Highlight tabs and trailing spaces
 set listchars=tab:▸\ ,trail:•,eol:¬
 set list
@@ -89,15 +89,14 @@ endfun
 
 "autocmd FileType c,cpp,java,php,ruby,python,js autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
-" letter meaning when present in 'formatoptions'
+" Character meaning when present in 'formatoptions'
 " ------ ---------------------------------------
-" c Auto-wrap comments using textwidth, inserting
-" the current comment leader automatically.
+" c Auto-wrap comments using textwidth, inserting the current comment leader automatically.
 " q Allow formatting of comments with "gq".
-" r Automatically insert the current comment leader
-" after hitting <Enter> in Insert mode. 
-" t Auto-wrap text using textwidth (does not apply
-" to comments)
+" r Automatically insert the current comment leader after hitting <Enter> in Insert mode.
+" t Auto-wrap text using textwidth (does not apply to comments)
+" n Recognize numbered lists
+" 1 Don't break line after one-letter words
 set formatoptions=cqrn1
 
 syntax enable               " This has to come after colorcolumn in order to draw it.
@@ -110,14 +109,15 @@ silent! colorscheme molokai
 " Printing options
 set printoptions=header:0,duplex:long,paper:letter,syntax:n
 " header:0                  Do not print a header
-" duplex:long (default)	    Print on both sides (when possible), bind on long
-" syntax:n		            Do not use syntax highlighting.  This is faster and
+" duplex:long (default)     Print on both sides (when possible), bind on long
+" syntax:n                  Do not use syntax highlighting.  This is faster and
 
 
 " }}}-------------------------------------------------------------------------
 "   GUI Specific                                                          {{{
 " ----------------------------------------------------------------------------
 
+" Consider movint these .gvim
 if has("gui_running")
     " Hide Scrollbars
 	set guioptions-=T       " Remove tool bar
@@ -126,13 +126,11 @@ if has("gui_running")
     set guioptions-=L       " Remove left-hand scroll bar 
     set background=dark
 
-    if has("gui_running")
-        if has("gui_gtk2")
-            " Set the font for linux machines
-            set guifont=Inconsolata\ 9
-        elseif has("gui_win32")
-            " set guifont=Consolas:h11:cANSI
-        endif
+    if has("gui_gtk2")
+        " Set the font for linux machines
+        set guifont=Inconsolata\ 9
+    elseif has("gui_win32")
+        " set guifont=Consolas:h11:cANSI
     endif
 endif
 
@@ -191,12 +189,13 @@ nmap <silent> ,u= :t.\|s/./=/g\|:nohls<cr>
 nmap <silent> ,u- :t.\|s/./-/g\|:nohls<cr>
 
 " Trying this alternative to escape
-imap jk <esc>
-cmap jk <esc>
-imap kj <esc>
-cmap kj <esc>
-imap jj <esc>
-cmap jj <esc>
+" Didn't stick
+" imap jk <esc>
+" cmap jk <esc>
+" imap kj <esc>
+" cmap kj <esc>
+" imap jj <esc>
+" cmap jj <esc>
 
 " }}}-------------------------------------------------------------------------
 "   Plugins                                                               {{{
@@ -235,12 +234,8 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_clear_cache_on_exit = 0
 
-
 " Whenever a new file is opened, foucs that pane
 autocmd BufRead,BufNewFile * call DWM_Focus()
-
-" Turn on Git gutters by default
-let g:gitgutter_enabled = 1
 
 " }}}-------------------------------------------------------------------------
 "   Custom filetypes                                                      {{{
@@ -270,13 +265,13 @@ let php_folding = 1                     "for folding classes and functions
 autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 
 " Per file-type indention rules
-autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
-autocmd FileType css setlocal ts=4 sts=4 sw=4 expandtab
-autocmd FileType scss setlocal ts=4 sts=4 sw=4 expandtab
-autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
-autocmd FileType config setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType gitconfig setlocal ts=4 sts=4 sw=4 noexpandtab
-autocmd FileType ruby,eruby setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType html        set local ts=4 sts=4 sw=4 expandtab
+autocmd FileType css         set local ts=4 sts=4 sw=4 expandtab
+autocmd FileType scss        set local ts=4 sts=4 sw=4 expandtab
+autocmd FileType javascript  set local ts=4 sts=4 sw=4 expandtab
+autocmd FileType config      set local ts=2 sts=2 sw=2 expandtab
+autocmd FileType gitconfig   set local ts=4 sts=4 sw=4 noexpandtab
+autocmd FileType ruby,eruby  set local ts=2 sts=2 sw=2 expandtab
 
 " Run Exuberant Ctags everytime I save a php file
 au BufWritePost php silent! !ctags -R &
@@ -333,7 +328,7 @@ cmap W w
 
 set directory=$HOME/.vim/swapdir//
 set backupdir=$HOME/.vim/backupdir//
-if exists('+undodir') 
+if exists('+undodir')
     set undodir=$HOME/.vim/undodir
     set undofile
 endif

@@ -64,14 +64,12 @@ It is heavily keyboard and command-line centric.
     - __Window Manager:__ [DWM.Vim](http://github.com/spolu/dwm.vim) Manage
       multiple editing panes within Vim. One main focused editing pane on the
       left, and the rest are stacked on the right.
+    - __Git Status:__ [vim-signify](http://github.com/mhinz/vim-signify) Show
+      git diff of current file in the gutter.
+    - __File Opener:__ [ctrl-p](http://github.com/kien/ctrlp.vim.git) Fuzzy
+      matching file opener.
 - __Revision control:__ [Git](http://git-scm.com/) I interact with Git via the
   command line.
-    - __Branching model:__ [A Successful Git Branching
-      Model](http://nvie.com/posts/a-successful-git-branching-model/) maintain
-      your code in production, staging and development stats in parallel.
-    - __Bash prompt:__ [Sexy Bash
-      Prompt](https://github.com/captbaritone/dotfiles/blob/master/bash_prompt)
-      have your prompt contain your current git branch and commit status.
 - __Website deployment:__ [Git-ftp](https://github.com/ezyang/git-ftp) easily
   push your current git branch state via ftp. Transfers only the files that
   have changed since the last push. I run it directly from my development
@@ -97,10 +95,6 @@ It is heavily keyboard and command-line centric.
   effectively use my entire screen(s).
 - __FTP client:__ [Transmit](http://panic.com/transmit/) sometimes I just need
   a GUI for a quick FTP transfer.
-- __Git server:__ [Gitolite](https://github.com/sitaramc/gitolite/) running on
-  the server in my closet, this allows for a central repository for all
-  collaborative projects. Especially useful in conjunction with Git-ftp (above)
-  running as a server side Git hook.
 - __Database management:__ [PhpMyAdmin](http://www.phpmyadmin.net/) another
   task for which I still use a GUI. PhpMyAdmin is generally already available
   on most shared hosting accounts.
@@ -112,13 +106,6 @@ It is heavily keyboard and command-line centric.
 Shortcomings 
 ------------
 
-- On Ubuntu, opening a file in Vim from the command line spawns a new GVim
-  instance instead of opening a new pane in the existing instance.
-- Git push and pull on linux machines throw an error having to do with the OXS
-  key thingy. `git: 'credential-osxkeychain' is not a git command. See 'git
-  --help'.`
-- Auto indent in vim doesn't work for HTML tags
 - Ocassionally `git lg` will crash after it runs
     - `error: git lg1 died of signal 13`
     - `fatal: While expanding alias 'lg': 'git lg1': Undefined error: 0`
-- Git aparently has a better way to do the brach and status in the prompt now.

@@ -35,6 +35,7 @@ printf "Checking for commonly used tools:\n"
 if [ ! -d $HOME/.oh-my-zsh ]
 then
     $(curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh)
+    rm $HOME/.zshrc
 else
   printf "$(ok) - oh-my-zsh\n"
 fi

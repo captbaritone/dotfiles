@@ -44,7 +44,7 @@ Bundle 'kien/ctrlp.vim.git'
                                             " GitGutter adds +/- to lines re git
 "Bundle 'airblade/vim-gitgutter'
                                             " Possibly a faster than Gitgutter
-"Bundle 'mhinz/vim-signify'
+Bundle 'mhinz/vim-signify'
                                             " Rename files from within vim
 Bundle 'danro/rename.vim'
                                             " Allow per-project .vimrc files

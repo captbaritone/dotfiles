@@ -57,6 +57,10 @@ if exists('+colorcolumn')
   set colorcolumn=+1        " Highlight the column after `textwidth` 
 endif
 
+" Windows
+set winminheight=0
+set winheight=999 " Fill whole height
+
 " show fold column, fold by markers
 set foldcolumn=0            " Don't show the folding gutter/column
 set foldmethod=marker       " Fold on {{{ }}}

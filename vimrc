@@ -155,6 +155,7 @@ vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
 set ignorecase              " Ignore case when searching
+set smartcase               " Don't ignore case if we have a capitol letter
 
 " Clear search highlights
 nnoremap <leader><space> :nohlsearch<cr>

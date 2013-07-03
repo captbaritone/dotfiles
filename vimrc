@@ -170,6 +170,7 @@ set softtabstop=4           " When hit <tab> use four columns
 set expandtab               " Create spaces when I type <tab>
 set autoindent              " Copy indent from current line when starting new line
 set smartindent             " Smart indent on new line, works for C-like langs.
+set smarttab                " Smart indent on new line, works for C-like langs.
 set shiftround              " Round indent to multiple of 'shiftwidth'.
 
 " }}}-------------------------------------------------------------------------

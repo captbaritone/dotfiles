@@ -84,7 +84,7 @@ endif
                                             " Show colors in css files
 " Bundle 'skammer/vim-css-color'
                                             " Fugitive: Git from within Vim
-"Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-fugitive'
                                             " MiniBufExpl: Show open buffers
 "Bundle 'fholgado/minibufexpl.vim'
 

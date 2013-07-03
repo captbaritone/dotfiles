@@ -181,28 +181,11 @@ set shiftround              " Round indent to multiple of 'shiftwidth'.
 " Turned off because it would end up loading plugins multiple times
 " au BufWritePost *vimrc so $MYVIMRC
 
-" Show the highlighting group that the cursor position belongs to
-" Stolen from: https://github.com/derekwyatt/vim-config/blob/master/vimrc
-nmap <silent> ,h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
 " Edit the vimrc file
 nmap <silent> ,ev :e $MYVIMRC<CR>
 nmap <silent> ,eb :e $HOME/.vim/bundles.vim<CR>
 nmap <silent> ,sv :so $MYVIMRC<CR>
 nmap <silent> ,sb :so $HOME/.vim/bundles.vim<CR>
-
-" Underline the current line with '='
-nmap <silent> ,u= :t.\|s/./=/g\|:nohls<cr>
-nmap <silent> ,u- :t.\|s/./-/g\|:nohls<cr>
-
-" Trying this alternative to escape
-" Didn't stick
-" imap jk <esc>
-" cmap jk <esc>
-" imap kj <esc>
-" cmap kj <esc>
-" imap jj <esc>
-" cmap jj <esc>
 
 " }}}-------------------------------------------------------------------------
 "   Plugins                                                               {{{

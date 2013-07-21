@@ -58,7 +58,7 @@ endif
 
 " Windows
 set winminheight=0
-set winheight=999 " Fill whole height
+set winheight=999           " Fill whole height. We only want 100% height windows
 
 " show fold column, fold by markers
 set foldcolumn=0            " Don't show the folding gutter/column
@@ -285,10 +285,10 @@ xnoremap p pgvy
 nnoremap <F5> :GundoToggle<CR>
 
 " Disable arrow keys to keep from falling back on bad habits 
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-nnoremap <up> <nop>
-nnoremap <down> <nop>
+nnoremap <left> :wincmd h<CR>
+nnoremap <right> :wincmd l<CR>
+nnoremap <up> :wincmd k<CR>
+nnoremap <down> :wincmd j<CR>
 inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>

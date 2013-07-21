@@ -1,8 +1,6 @@
 " ----------------------------------------------------------------------------
 "   .vimrc                                                                {{{
 " ----------------------------------------------------------------------------
-" TODO: See what happens when the swap/undo/backup files are not in place
-
 
 " }}}-------------------------------------------------------------------------
 "   Vundle                                                                {{{
@@ -84,7 +82,7 @@ set foldtext=NeatFoldText()
 set listchars=tab:▸\ ,trail:•,eol:¬
 set list
 
-" Trim trailing white space on save (preserving cursor postion
+" Trim trailing white space on save (preserving cursor position)
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
@@ -117,12 +115,11 @@ set printoptions=header:0,duplex:long,paper:letter,syntax:n
 " duplex:long (default)     Print on both sides (when possible), bind on long
 " syntax:n                  Do not use syntax highlighting.  This is faster and
 
-
 " }}}-------------------------------------------------------------------------
 "   GUI Specific                                                          {{{
 " ----------------------------------------------------------------------------
 
-" Consider movint these .gvim
+" Consider moving these .gvim
 if has("gui_running")
     " Hide Scrollbars
 	set guioptions-=T       " Remove tool bar
@@ -132,7 +129,7 @@ if has("gui_running")
     set background=dark
 
     if has("gui_gtk2")
-        " Set the font for linux machines
+        " Set the font for Linux machines
         set guifont=Inconsolata\ 9
     elseif has("gui_win32")
         " set guifont=Consolas:h11:cANSI
@@ -144,7 +141,6 @@ endif
 " ----------------------------------------------------------------------------
 
 " Turned this off because it broke greedy search and replace
-"set gdefault                " Greedy search by default
 set incsearch               " Show search results as we type
 set showmatch               " Show matching brackets
 set hlsearch                " Highlight search results
@@ -155,7 +151,7 @@ vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
 set ignorecase              " Ignore case when searching
-set smartcase               " Don't ignore case if we have a capitol letter
+set smartcase               " Don't ignore case if we have a capital letter
 
 " Clear search highlights
 nnoremap <leader><space> :nohlsearch<cr>
@@ -190,10 +186,6 @@ nmap <silent> ,sb :so $HOME/.vim/bundles.vim<CR>
 " }}}-------------------------------------------------------------------------
 "   Plugins                                                               {{{
 " ----------------------------------------------------------------------------
-
-" Custom command to refresh Chrome on save
-" Replaced by LiveReload
-" command! W exec "w" | silent !osascript ~/.vim/scripts/refresh_chrome.scptd
 
 " Set Ultisnip directory
 let g:UltiSnipsSnippetDirectories=["snippets"]
@@ -239,7 +231,6 @@ autocmd BufRead,BufNewFile ~/dotfiles/ssh/config set filetype=sshconfig
 " This should prevent duplicate snippets
 autocmd BufRead,BufNewFile *.scss	        set filetype=scss
 
-
 "php syntax options 
 let php_sql_query = 1                   "for SQL syntax highlighting inside strings
 let php_htmlInStrings = 1               "for HTML syntax highlighting inside strings
@@ -266,16 +257,13 @@ autocmd FileType ruby,eruby  set local ts=2 sts=2 sw=2 expandtab
 " Run Exuberant Ctags everytime I save a php file
 au BufWritePost php silent! !ctags -R &
 
-
 " }}}-------------------------------------------------------------------------
 "   Custom mappings                                                       {{{
 " ----------------------------------------------------------------------------
 
+
 " When pasting, refill the default register with what you just pasted
 xnoremap p pgvy
-
-" Note: the next command destroys the visual mode <C-v> hotkey
-" nnoremap <C-v> "+pa
 
 " gundo plugin. Requires vim being compiled with Python support
 nnoremap <F5> :GundoToggle<CR>

@@ -110,8 +110,13 @@ syntax enable               " This has to come after colorcolumn in order to dra
 set t_Co=256                " enable 256 colors
 
 " Colorscheme (Don't complain if you don't have it yet)
-let g:molokai_original = 0
-silent! colorscheme molokai
+"let g:molokai_original = 0
+"silent! colorscheme molokai
+silent! colorscheme solarized
+set background=dark
+
+" Use the same color for the SignColumn as the line number column
+highlight clear SignColumn
 
 " Printing options
 set printoptions=header:0,duplex:long,paper:letter,syntax:n
@@ -130,7 +135,6 @@ if has("gui_running")
 	set guioptions-=r       " Remove right-hand scroll bar
     set guioptions-=m       " Remove menu bar
     set guioptions-=L       " Remove left-hand scroll bar 
-    set background=dark
 
     if has("gui_gtk2")
         " Set the font for Linux machines

@@ -79,6 +79,9 @@ endfunction
 
 set foldtext=NeatFoldText()
 " }}}
+
+" Open folds under the following conditions
+set foldopen=block,hor,mark,percent,quickfix,search,tag,undo,jump
 " Highlight tabs and trailing spaces
 set listchars=tab:▸\ ,trail:•,eol:¬
 set list
@@ -175,9 +178,8 @@ set shiftwidth=4            " Reindent is also four spaces
 set softtabstop=4           " When hit <tab> use four columns
 set expandtab               " Create spaces when I type <tab>
 set autoindent              " Copy indent from current line when starting new line
-set smartindent             " Smart indent on new line, works for C-like langs.
-set smarttab                " Smart indent on new line, works for C-like langs.
 set shiftround              " Round indent to multiple of 'shiftwidth'.
+filetype plugin indent on   " Rely on file plugins to handle indenting
 
 " }}}-------------------------------------------------------------------------
 "   Custom commands                                                       {{{
@@ -188,10 +190,14 @@ set shiftround              " Round indent to multiple of 'shiftwidth'.
 " au BufWritePost *vimrc so $MYVIMRC
 
 " Edit the vimrc file
-nmap <silent> ,ev :e $MYVIMRC<CR>
-nmap <silent> ,eb :e $HOME/.vim/bundles.vim<CR>
-nmap <silent> ,sv :so $MYVIMRC<CR>
-nmap <silent> ,sb :so $HOME/.vim/bundles.vim<CR>
+nmap <silent> <Leader>ev :e $MYVIMRC<CR>
+nmap <silent> <Leader>eb :e $HOME/.vim/bundles.vim<CR>
+nmap <silent> <Leader>et :e $HOME/todo.txt<CR>
+nmap <silent> <Leader>sv :so $MYVIMRC<CR>
+nmap <silent> <Leader>sb :so $HOME/.vim/bundles.vim<CR>
+nmap <silent> <Leader>w :update<CR>
+nmap <silent> <Leader>q :quit<CR>
+nmap <silent> <Leader>c :bd<CR>
 
 " }}}-------------------------------------------------------------------------
 "   Plugins                                                               {{{
@@ -219,21 +225,35 @@ let g:gist_open_browser_after_post = 1
 let g:ctrlp_root_markers = 'info.*'     " Projects in ~/Work have info.md files
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
-	\ 'dir':  '\v[\/]\.(git|hg|svn|sass-cache)$',
-	\ 'file': '\v\.(png|jpg|jpeg|gif|DS_Store)$',
-	\ 'link': '',
-	\ }
+    \ 'dir':  '\v[\/]\.(git|hg|svn|sass-cache)$',
+    \ 'file': '\v\.(png|jpg|jpeg|gif|DS_Store)$',
+    \ 'link': '',
+    \ }
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_clear_cache_on_exit = 0
 
 " Whenever a new file is opened, foucs that pane
-autocmd BufRead,BufNewFile * call DWM_Focus()
+" autocmd BufRead,BufNewFile * call DWM_Focus()
 
 let g:airline_enable_fugitive=1
 let g:airline_enable_syntastic=1
 "let g:airline_theme='dark'
 let g:airline_theme='solarized'
 
+" Prevent Zencoding from converting $s into 1s
+" https://github.com/mattn/zencoding-vim/issues/99
+let g:user_zen_settings = {
+\ 'php' : {
+\ 'dollar_expr' : 0,
+\ },
+\}
+
+" Autoclose
+let g:AutoCloseExpandSpace = 0 " Don't expand spaces
+let g:AutoCloseExpandEnterOn = '{' " Does not seem to work currently
+
+" Syntax check phtml files (since we use that filetype instead of PHP)
+let g:syntastic_filetype_map = { 'phtml': 'php' }
 
 " }}}-------------------------------------------------------------------------
 "   Custom filetypes                                                      {{{
@@ -258,17 +278,20 @@ let php_htmlInStrings = 1               "for HTML syntax highlighting inside str
 "php_noShortTags = 1                    "don't sync <? ?> as php
 let php_folding = 1                     "for folding classes and functions
 
+"js syntax options
+let javaScript_fold=1                   "for folding classes and functions
+
 " Sass and Css options
 autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 
 " Per file-type indention rules
-autocmd FileType html        set local ts=4 sts=4 sw=4 expandtab
-autocmd FileType css         set local ts=4 sts=4 sw=4 expandtab
-autocmd FileType scss        set local ts=4 sts=4 sw=4 expandtab
-autocmd FileType javascript  set local ts=4 sts=4 sw=4 expandtab
-autocmd FileType config      set local ts=2 sts=2 sw=2 expandtab
-autocmd FileType gitconfig   set local ts=4 sts=4 sw=4 noexpandtab
-autocmd FileType ruby,eruby  set local ts=2 sts=2 sw=2 expandtab
+autocmd FileType html        setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType css         setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType scss        setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType javascript  setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType config      setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType gitconfig   setlocal ts=4 sts=4 sw=4 noexpandtab
+autocmd FileType ruby,eruby  setlocal ts=2 sts=2 sw=2 expandtab
 
 " Run Exuberant Ctags everytime I save a php file
 au BufWritePost php silent! !ctags -R &
@@ -306,6 +329,7 @@ nnoremap k gk
 " Reselect visual block after indent/outdent: http://vimbits.com/bits/20
 vnoremap < <gv
 vnoremap > >gv
+vnoremap = =gv
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
@@ -320,7 +344,7 @@ cmap W w
 "   Undo, Backup and Swap file locations                                  {{{
 " ----------------------------------------------------------------------------
 
-set directory=$HOME/.vim/swapdir//
+set noswapfile
 set backupdir=$HOME/.vim/backupdir//
 if exists('+undodir')
     set undodir=$HOME/.vim/undodir

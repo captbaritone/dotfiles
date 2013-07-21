@@ -35,13 +35,14 @@ set iskeyword-=_                " Underscore is a word boundary
 "   Visual                                                                {{{
 " ----------------------------------------------------------------------------
 
-" Control Area (May be superseeded by PowerLine)
+" Control Area (May be superseded by vim-airline)
 set showcmd                 " Show (partial) command in the last line of the screen.
 set wildmenu                " Command completion
 set wildmode=list:longest   " List all matches and complete till longest common string
 set laststatus=2            " The last window will have a status line always
-set showmode                " Show the mode in the last line of the screen
+set noshowmode              " Don't show the mode in the last line of the screen, vim-airline takes care of it
 set ruler                   " Show the line and column number of the cursor position, separated by a comma.
+set lazyredraw
 
 " Buffer Area Visuals
 set scrolloff=7             " Minimal number of screen lines to keep above and below the cursor.
@@ -133,7 +134,16 @@ if has("gui_running")
         set guifont=Inconsolata\ 9
     elseif has("gui_win32")
         " set guifont=Consolas:h11:cANSI
+    else
+        " set guifont=Menlo
+        let g:airline_powerline_fonts=1
+        set guifont=Inconsolata\ for\ Powerline:h13
     endif
+else
+    " Don't show the airline separators if we are not in GUI
+    " The angle bracket defaults look fugly
+    let g:airline_left_sep=''
+    let g:airline_right_sep=''
 endif
 
 " }}}-------------------------------------------------------------------------
@@ -218,6 +228,12 @@ let g:ctrlp_clear_cache_on_exit = 0
 
 " Whenever a new file is opened, foucs that pane
 autocmd BufRead,BufNewFile * call DWM_Focus()
+
+let g:airline_enable_fugitive=1
+let g:airline_enable_syntastic=1
+"let g:airline_theme='dark'
+let g:airline_theme='solarized'
+
 
 " }}}-------------------------------------------------------------------------
 "   Custom filetypes                                                      {{{

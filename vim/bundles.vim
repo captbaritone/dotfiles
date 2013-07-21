@@ -22,7 +22,8 @@ Bundle 'scrooloose/syntastic'
                                             " Allow for HTML indenting in .php
 Bundle 'captbaritone/better-indent-support-for-php-with-html'
                                             " Powerline: Pretty statusline
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
                                             " Vim-Git: Highlight git files
 Bundle 'tpope/vim-git'
                                             " Zen Coding: Quickly write html

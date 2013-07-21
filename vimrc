@@ -1,8 +1,6 @@
 " ----------------------------------------------------------------------------
 "   .vimrc                                                                {{{
 " ----------------------------------------------------------------------------
-" TODO: See what happens when the swap/undo/backup files are not in place
-
 
 " }}}-------------------------------------------------------------------------
 "   Vundle                                                                {{{
@@ -37,13 +35,14 @@ set iskeyword-=_                " Underscore is a word boundary
 "   Visual                                                                {{{
 " ----------------------------------------------------------------------------
 
-" Control Area (May be superseeded by PowerLine)
+" Control Area (May be superseded by vim-airline)
 set showcmd                 " Show (partial) command in the last line of the screen.
 set wildmenu                " Command completion
 set wildmode=list:longest   " List all matches and complete till longest common string
 set laststatus=2            " The last window will have a status line always
-set showmode                " Show the mode in the last line of the screen
+set noshowmode              " Don't show the mode in the last line of the screen, vim-airline takes care of it
 set ruler                   " Show the line and column number of the cursor position, separated by a comma.
+set lazyredraw
 
 " Buffer Area Visuals
 set scrolloff=7             " Minimal number of screen lines to keep above and below the cursor.
@@ -59,7 +58,7 @@ endif
 
 " Windows
 set winminheight=0
-set winheight=999 " Fill whole height
+set winheight=999           " Fill whole height. We only want 100% height windows
 
 " show fold column, fold by markers
 set foldcolumn=0            " Don't show the folding gutter/column
@@ -80,11 +79,14 @@ endfunction
 
 set foldtext=NeatFoldText()
 " }}}
+
+" Open folds under the following conditions
+set foldopen=block,hor,mark,percent,quickfix,search,tag,undo,jump
 " Highlight tabs and trailing spaces
 set listchars=tab:▸\ ,trail:•,eol:¬
 set list
 
-" Trim trailing white space on save (preserving cursor postion
+" Trim trailing white space on save (preserving cursor position)
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
@@ -108,8 +110,13 @@ syntax enable               " This has to come after colorcolumn in order to dra
 set t_Co=256                " enable 256 colors
 
 " Colorscheme (Don't complain if you don't have it yet)
-let g:molokai_original = 0
-silent! colorscheme molokai
+"let g:molokai_original = 0
+"silent! colorscheme molokai
+silent! colorscheme solarized
+set background=dark
+
+" Use the same color for the SignColumn as the line number column
+highlight clear SignColumn
 
 " Printing options
 set printoptions=header:0,duplex:long,paper:letter,syntax:n
@@ -117,26 +124,33 @@ set printoptions=header:0,duplex:long,paper:letter,syntax:n
 " duplex:long (default)     Print on both sides (when possible), bind on long
 " syntax:n                  Do not use syntax highlighting.  This is faster and
 
-
 " }}}-------------------------------------------------------------------------
 "   GUI Specific                                                          {{{
 " ----------------------------------------------------------------------------
 
-" Consider movint these .gvim
+" Consider moving these .gvim
 if has("gui_running")
     " Hide Scrollbars
 	set guioptions-=T       " Remove tool bar
 	set guioptions-=r       " Remove right-hand scroll bar
     set guioptions-=m       " Remove menu bar
     set guioptions-=L       " Remove left-hand scroll bar 
-    set background=dark
 
     if has("gui_gtk2")
-        " Set the font for linux machines
+        " Set the font for Linux machines
         set guifont=Inconsolata\ 9
     elseif has("gui_win32")
         " set guifont=Consolas:h11:cANSI
+    else
+        " set guifont=Menlo
+        let g:airline_powerline_fonts=1
+        set guifont=Inconsolata\ for\ Powerline:h13
     endif
+else
+    " Don't show the airline separators if we are not in GUI
+    " The angle bracket defaults look fugly
+    let g:airline_left_sep=''
+    let g:airline_right_sep=''
 endif
 
 " }}}-------------------------------------------------------------------------
@@ -144,7 +158,6 @@ endif
 " ----------------------------------------------------------------------------
 
 " Turned this off because it broke greedy search and replace
-"set gdefault                " Greedy search by default
 set incsearch               " Show search results as we type
 set showmatch               " Show matching brackets
 set hlsearch                " Highlight search results
@@ -155,7 +168,7 @@ vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
 set ignorecase              " Ignore case when searching
-set smartcase               " Don't ignore case if we have a capitol letter
+set smartcase               " Don't ignore case if we have a capital letter
 
 " Clear search highlights
 nnoremap <leader><space> :nohlsearch<cr>
@@ -169,9 +182,8 @@ set shiftwidth=4            " Reindent is also four spaces
 set softtabstop=4           " When hit <tab> use four columns
 set expandtab               " Create spaces when I type <tab>
 set autoindent              " Copy indent from current line when starting new line
-set smartindent             " Smart indent on new line, works for C-like langs.
-set smarttab                " Smart indent on new line, works for C-like langs.
 set shiftround              " Round indent to multiple of 'shiftwidth'.
+filetype plugin indent on   " Rely on file plugins to handle indenting
 
 " }}}-------------------------------------------------------------------------
 "   Custom commands                                                       {{{
@@ -182,18 +194,18 @@ set shiftround              " Round indent to multiple of 'shiftwidth'.
 " au BufWritePost *vimrc so $MYVIMRC
 
 " Edit the vimrc file
-nmap <silent> ,ev :e $MYVIMRC<CR>
-nmap <silent> ,eb :e $HOME/.vim/bundles.vim<CR>
-nmap <silent> ,sv :so $MYVIMRC<CR>
-nmap <silent> ,sb :so $HOME/.vim/bundles.vim<CR>
+nmap <silent> <Leader>ev :e $MYVIMRC<CR>
+nmap <silent> <Leader>eb :e $HOME/.vim/bundles.vim<CR>
+nmap <silent> <Leader>et :e $HOME/todo.txt<CR>
+nmap <silent> <Leader>sv :so $MYVIMRC<CR>
+nmap <silent> <Leader>sb :so $HOME/.vim/bundles.vim<CR>
+nmap <silent> <Leader>w :update<CR>
+nmap <silent> <Leader>q :quit<CR>
+nmap <silent> <Leader>c :bd<CR>
 
 " }}}-------------------------------------------------------------------------
 "   Plugins                                                               {{{
 " ----------------------------------------------------------------------------
-
-" Custom command to refresh Chrome on save
-" Replaced by LiveReload
-" command! W exec "w" | silent !osascript ~/.vim/scripts/refresh_chrome.scptd
 
 " Set Ultisnip directory
 let g:UltiSnipsSnippetDirectories=["snippets"]
@@ -217,15 +229,35 @@ let g:gist_open_browser_after_post = 1
 let g:ctrlp_root_markers = 'info.*'     " Projects in ~/Work have info.md files
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
-	\ 'dir':  '\v[\/]\.(git|hg|svn|sass-cache)$',
-	\ 'file': '\v\.(png|jpg|jpeg|gif|DS_Store)$',
-	\ 'link': '',
-	\ }
+    \ 'dir':  '\v[\/]\.(git|hg|svn|sass-cache)$',
+    \ 'file': '\v\.(png|jpg|jpeg|gif|DS_Store)$',
+    \ 'link': '',
+    \ }
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_clear_cache_on_exit = 0
 
 " Whenever a new file is opened, foucs that pane
-autocmd BufRead,BufNewFile * call DWM_Focus()
+" autocmd BufRead,BufNewFile * call DWM_Focus()
+
+let g:airline_enable_fugitive=1
+let g:airline_enable_syntastic=1
+"let g:airline_theme='dark'
+let g:airline_theme='solarized'
+
+" Prevent Zencoding from converting $s into 1s
+" https://github.com/mattn/zencoding-vim/issues/99
+let g:user_zen_settings = {
+\ 'php' : {
+\ 'dollar_expr' : 0,
+\ },
+\}
+
+" Autoclose
+let g:AutoCloseExpandSpace = 0 " Don't expand spaces
+let g:AutoCloseExpandEnterOn = '{' " Does not seem to work currently
+
+" Syntax check phtml files (since we use that filetype instead of PHP)
+let g:syntastic_filetype_map = { 'phtml': 'php' }
 
 " }}}-------------------------------------------------------------------------
 "   Custom filetypes                                                      {{{
@@ -239,7 +271,6 @@ autocmd BufRead,BufNewFile ~/dotfiles/ssh/config set filetype=sshconfig
 " This should prevent duplicate snippets
 autocmd BufRead,BufNewFile *.scss	        set filetype=scss
 
-
 "php syntax options 
 let php_sql_query = 1                   "for SQL syntax highlighting inside strings
 let php_htmlInStrings = 1               "for HTML syntax highlighting inside strings
@@ -251,40 +282,40 @@ let php_htmlInStrings = 1               "for HTML syntax highlighting inside str
 "php_noShortTags = 1                    "don't sync <? ?> as php
 let php_folding = 1                     "for folding classes and functions
 
+"js syntax options
+let javaScript_fold=1                   "for folding classes and functions
+
 " Sass and Css options
 autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 
 " Per file-type indention rules
-autocmd FileType html        set local ts=4 sts=4 sw=4 expandtab
-autocmd FileType css         set local ts=4 sts=4 sw=4 expandtab
-autocmd FileType scss        set local ts=4 sts=4 sw=4 expandtab
-autocmd FileType javascript  set local ts=4 sts=4 sw=4 expandtab
-autocmd FileType config      set local ts=2 sts=2 sw=2 expandtab
-autocmd FileType gitconfig   set local ts=4 sts=4 sw=4 noexpandtab
-autocmd FileType ruby,eruby  set local ts=2 sts=2 sw=2 expandtab
+autocmd FileType html        setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType css         setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType scss        setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType javascript  setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType config      setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType gitconfig   setlocal ts=4 sts=4 sw=4 noexpandtab
+autocmd FileType ruby,eruby  setlocal ts=2 sts=2 sw=2 expandtab
 
 " Run Exuberant Ctags everytime I save a php file
 au BufWritePost php silent! !ctags -R &
-
 
 " }}}-------------------------------------------------------------------------
 "   Custom mappings                                                       {{{
 " ----------------------------------------------------------------------------
 
+
 " When pasting, refill the default register with what you just pasted
 xnoremap p pgvy
-
-" Note: the next command destroys the visual mode <C-v> hotkey
-" nnoremap <C-v> "+pa
 
 " gundo plugin. Requires vim being compiled with Python support
 nnoremap <F5> :GundoToggle<CR>
 
 " Disable arrow keys to keep from falling back on bad habits 
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-nnoremap <up> <nop>
-nnoremap <down> <nop>
+nnoremap <left> :wincmd h<CR>
+nnoremap <right> :wincmd l<CR>
+nnoremap <up> :wincmd k<CR>
+nnoremap <down> :wincmd j<CR>
 inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
@@ -302,6 +333,7 @@ nnoremap k gk
 " Reselect visual block after indent/outdent: http://vimbits.com/bits/20
 vnoremap < <gv
 vnoremap > >gv
+vnoremap = =gv
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
@@ -316,7 +348,7 @@ cmap W w
 "   Undo, Backup and Swap file locations                                  {{{
 " ----------------------------------------------------------------------------
 
-set directory=$HOME/.vim/swapdir//
+set noswapfile
 set backupdir=$HOME/.vim/backupdir//
 if exists('+undodir')
     set undodir=$HOME/.vim/undodir

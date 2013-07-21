@@ -37,13 +37,17 @@ Bundle 'qrps/lilypond-vim'
                                             " Indexed Search: Shows # of matches
 Bundle 'vim-scripts/IndexedSearch'
                                             " Allow % to go to matching XML tags
-Bundle 'tsaleh/vim-matchit'
+                                            " Replaced by xmledit
+"Bundle 'tsaleh/vim-matchit'
                                             " Change brackets and quotes
 Bundle 'tpope/vim-surround'
+                                            " Autoclose ({" etc.
+Bundle 'Townk/vim-autoclose'
+Bundle 'sukima/xmledit'
                                             " Command-T alternative in Vimscript
 Bundle 'kien/ctrlp.vim.git'
                                             " GitGutter adds +/- to lines re git
-"Bundle 'airblade/vim-gitgutter'
+Bundle 'airblade/vim-gitgutter'
                                             " Possibly a faster than Gitgutter
 "Bundle 'mhinz/vim-signify'
 " Still too slow :(

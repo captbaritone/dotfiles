@@ -1,7 +1,7 @@
 Dotfiles 
 ========
 
-These are my personal configuration files. Having them in a Gihub repository
+These are my personal configuration files. Having them in a GitHub repository
 allows me to instantly set up shop on any machine as well as keep my tools and
 configurations in sync across my laptop and desktop machines.
 

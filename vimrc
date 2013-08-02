@@ -239,7 +239,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 " Whenever a new file is opened, foucs that pane
 " autocmd BufRead,BufNewFile * call DWM_Focus()
 
-let g:airline_enable_fugitive=1
+let g:airline_enable_branch=1
 let g:airline_enable_syntastic=1
 "let g:airline_theme='dark'
 let g:airline_theme='solarized'

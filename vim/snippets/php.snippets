@@ -2,6 +2,10 @@ extends html
 ## Snippets from SnipMate, taken from
 ## https://github.com/scrooloose/snipmate-snippets.git
 
+snippet <? "Dumb autoclose"
+<?php $1 ?>
+endsnippet
+
 snippet doc_f "doc_f"
 /**
  * $2
@@ -239,10 +243,6 @@ header("Location: ${1:foo.php}",TRUE,301);
 die();
 endsnippet
 
-snippet <?= "I like inline php, but it's a sin"
-<?php echo $1; ?>
-endsnippet
-
 # Templating foreach
 snippet hforeach "Foreach for use in HTML templates"
 <?php if($$1): ?>
@@ -273,6 +273,16 @@ endsnippet
 
 snippet cprofile "Enable profiling"
 $this->output->enable_profiler(TRUE);
+endsnippet
+
+# PHP templating specific
+
+snippet <?= "I like inline php, but it's a sin"
+<?php echo $1; ?>
+endsnippet
+
+snippet hpr "Html debug a variable"
+<?php echo "<pre style='background: white; color: black;'>" . var_export($1, 1) . '</pre>'; ?>
 endsnippet
 
 # :vim:ft=snippets:

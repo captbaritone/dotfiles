@@ -266,6 +266,8 @@ let g:syntastic_filetype_map = { 'phtml': 'php' }
 " Auto detect filetype
 autocmd BufRead,BufNewFile *.md,*.markdown  set filetype=markdown
 autocmd BufRead,BufNewFile *.php            set filetype=phtml
+autocmd BufRead,BufNewFile *.js             set filetype=javascript
+autocmd BufRead,BufNewFile *.lytex          set filetype=tex
 autocmd BufRead,BufNewFile ~/dotfiles/ssh/config set filetype=sshconfig
 " Override what is done in /vim/bundle/scss-syntax.vim/ftdetect/scss.vim
 " This should prevent duplicate snippets

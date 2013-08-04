@@ -126,4 +126,6 @@ fi
 source $ZSH/oh-my-zsh.sh
 # Don't make me confirm history expansions
 setopt no_hist_verify
+# Don't fill in autocomplete if there is ambiguity
+setopt no_auto_menu
 

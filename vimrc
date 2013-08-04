@@ -233,6 +233,11 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(png|jpg|jpeg|gif|DS_Store)$',
     \ 'link': '',
     \ }
+" Make ctrl-return open selected file in a new split
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("h")': [],
+  \ 'AcceptSelection("v")': ['<c-cr>']
+  \ }
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_clear_cache_on_exit = 0
 

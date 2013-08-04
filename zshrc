@@ -116,10 +116,14 @@ plugins=(git git-extras dircycle gem osx tmux vagrant vi-mode brew colored-man e
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
+# Don't ask for confirmation for history expansion
+
 # Customize to your needs...
 if [ -f $HOME/.zshrc.local ]; then
     source $HOME/.zshrc.local
 fi
 
 source $ZSH/oh-my-zsh.sh
+# Don't make me confirm history expansions
+setopt no_hist_verify
 

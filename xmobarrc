@@ -1,0 +1,20 @@
+Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
+, bgColor = "black"
+, fgColor = "grey"
+, position = Top
+, lowerOnStart = True
+, commands = [ Run Weather "KSFO" ["-t","SF: <tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
+             , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+             , Run Network "eth1" ["-L","0","-H","32","--normal","green","--high","red"] 10
+             , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+             , Run Memory ["-t","Mem: <usedratio>%"] 10
+             , Run Swap [ ] 10
+             , Run Date "%a %b %d %l:%M%p" "date" 10
+             , Run StdinReader
+             , Run Battery ["-t","<left>% / <timeleft>", "-L","50","-H","75","-h","green","-n","yell","-l","red"] 600
+             ]
+, sepChar = "%"
+, alignSep = "}{"
+, template = "%StdinReader% }{ %cpu% | %memory% * %swap% | %eth0% | %KSFO% | <fc=#ee9a00>%date%</fc> | %battery%"
+}
+

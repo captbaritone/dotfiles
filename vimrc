@@ -44,6 +44,12 @@ set noshowmode              " Don't show the mode in the last line of the screen
 set ruler                   " Show the line and column number of the cursor position, separated by a comma.
 set lazyredraw
 
+" My command line autocomplete is case insensitive. Keep vim consistent with
+" that. It's a recent feature to vim, test to make sure it's supported first.
+if exists("&wildignorecase")
+    set wildignorecase
+endif
+
 " Buffer Area Visuals
 set scrolloff=7             " Minimal number of screen lines to keep above and below the cursor.
 set visualbell              " Use a visual bell

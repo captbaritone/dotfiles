@@ -1,7 +1,7 @@
 Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
 , bgColor = "black"
 , fgColor = "grey"
-, position = TopW L 95
+, position = TopW L 94
 , lowerOnStart = True
 , commands = [ Run Weather "KSFO" ["-t","SF: <tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
              , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10

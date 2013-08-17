@@ -8,6 +8,7 @@ import System.IO
 myManageHook = composeAll
     [ className =? "Google-chrome" --> doShift "3:web"
     , className =? "Vncviewer"  --> doFloat
+    -- , isFullscreen -?> doFloat
     ]
 
 main = do
@@ -16,7 +17,7 @@ xmonad $ defaultConfig
      { terminal    = "gnome-terminal"
      , modMask     = mod4Mask
      , borderWidth = 1
-     , workspaces = ["term","vim","web"]
+     , workspaces = ["term","vim","web", "4", "5", "6", "7", "8"]
      , focusedBorderColor = "#ffffff"
      , manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
      , startupHook = do

@@ -280,6 +280,7 @@ autocmd BufRead,BufNewFile *.php            set filetype=phtml
 autocmd BufRead,BufNewFile *.js             set filetype=javascript
 autocmd BufRead,BufNewFile *.lytex          set filetype=tex
 autocmd BufRead,BufNewFile ~/dotfiles/ssh/config set filetype=sshconfig
+autocmd BufRead,BufNewFile *.git/config,.gitconfig,.gitmodules,gitconfig set ft=gitconfig
 " Override what is done in /vim/bundle/scss-syntax.vim/ftdetect/scss.vim
 " This should prevent duplicate snippets
 autocmd BufRead,BufNewFile *.scss	        set filetype=scss
@@ -307,7 +308,7 @@ autocmd FileType css         setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType scss        setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType javascript  setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType config      setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType gitconfig   setlocal ts=4 sts=4 sw=4 noexpandtab
+autocmd FileType gitconfig   setlocal ts=2 sts=2 sw=2 noexpandtab
 autocmd FileType ruby,eruby  setlocal ts=2 sts=2 sw=2 expandtab
 
 " Run Exuberant Ctags everytime I save a php file

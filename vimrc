@@ -144,7 +144,8 @@ if has("gui_running")
 
     if has("gui_gtk2")
         " Set the font for Linux machines
-        set guifont=Inconsolata\ 9
+        let g:airline_powerline_fonts=1
+        set guifont=Inconsolata\ for\ Powerline
     elseif has("gui_win32")
         " set guifont=Consolas:h11:cANSI
     else

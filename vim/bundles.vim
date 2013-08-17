@@ -51,10 +51,10 @@ Bundle 'airblade/vim-gitgutter'
                                             " Possibly a faster than Gitgutter
 "Bundle 'mhinz/vim-signify'
 " Still too slow :(
+                                            " Per repository .vimrcs
+Bundle 'captbaritone/repo-vimrc'
                                             " Rename files from within vim
 Bundle 'danro/rename.vim'
-                                            " Allow per-project .vimrc files
-Bundle 'embear/vim-localvimrc'
                                             " Automatically align var blocks
 Bundle 'godlygeek/tabular'
 

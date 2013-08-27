@@ -77,21 +77,8 @@ if executable("curl")                       " Other plugins require curl
     Bundle 'mattn/gist-vim'
 endif
 
-" Some plugins that I don't use, but are worth keeping track of
-                                            " Slow down vim, so you are forced to
-                                            " make more efficient choices
-" Bundle 'artemave/slowdown.vim'
-
-" Needs compilation, so we haven't set it up yet. Still it looks worth
-" exploring. Now I learn it needs a newer version of vim... :(
-" Requires a newer version of vim then I have
-" Bundle 'Valloric/YouCompleteMe'
-                                            " Show colors in css files
-" Bundle 'skammer/vim-css-color'
                                             " Fugitive: Git from within Vim
 Bundle 'tpope/vim-fugitive'
-                                            " MiniBufExpl: Show open buffers
-"Bundle 'fholgado/minibufexpl.vim'
 
 filetype plugin indent on                   " required!
 

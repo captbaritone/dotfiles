@@ -27,7 +27,7 @@ Bundle 'bling/vim-airline'
                                             " Vim-Git: Highlight git files
 Bundle 'tpope/vim-git'
                                             " Zen Coding: Quickly write html
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
                                             " Scss Syntax
 Bundle 'cakebaker/scss-syntax.vim'
                                             " Window manager for vim splits

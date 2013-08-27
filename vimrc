@@ -21,7 +21,7 @@ let mapleader = ","
                                 " I turned it off
 set encoding=utf-8              " I generally want utf-8 encoding
 set spell                       " Turn on spelling
-set spelllang=en_us             " Set the spelling language 
+set spelllang=en_us             " Set the spelling language
                                 " Set my personal spelling file
 set spellfile=$HOME/.vim/spell/en.utf-8.add
 set nohidden                    " Don't allow buffers to exist in the background
@@ -59,7 +59,7 @@ set wrap                    " Soft wrap at the window width
 set linebreak               " Break the line on words
 set textwidth=79            " Break lines at just under 80 characters
 if exists('+colorcolumn')
-  set colorcolumn=+1        " Highlight the column after `textwidth` 
+  set colorcolumn=+1        " Highlight the column after `textwidth`
 endif
 
 " Windows
@@ -93,14 +93,14 @@ set listchars=tab:▸\ ,trail:•,eol:¬
 set list
 
 " Trim trailing white space on save (preserving cursor position)
-fun! <SID>StripTrailingWhitespaces()
+function! StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
     %s/\s\+$//e
     call cursor(l, c)
 endfun
 
-"autocmd FileType c,cpp,java,php,ruby,python,js autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+"autocmd FileType c,cpp,java,php,ruby,python,js autocmd BufWritePre <buffer> :call StripTrailingWhitespaces()
 
 " Character meaning when present in 'formatoptions'
 " ------ ---------------------------------------
@@ -137,10 +137,10 @@ set printoptions=header:0,duplex:long,paper:letter,syntax:n
 " Consider moving these .gvim
 if has("gui_running")
     " Hide Scrollbars
-	set guioptions-=T       " Remove tool bar
-	set guioptions-=r       " Remove right-hand scroll bar
+    set guioptions-=T       " Remove tool bar
+    set guioptions-=r       " Remove right-hand scroll bar
     set guioptions-=m       " Remove menu bar
-    set guioptions-=L       " Remove left-hand scroll bar 
+    set guioptions-=L       " Remove left-hand scroll bar
 
     if has("gui_gtk2")
         " Set the font for Linux machines
@@ -284,9 +284,9 @@ autocmd BufRead,BufNewFile ~/dotfiles/ssh/config set filetype=sshconfig
 autocmd BufRead,BufNewFile *.git/config,.gitconfig,.gitmodules,gitconfig set ft=gitconfig
 " Override what is done in /vim/bundle/scss-syntax.vim/ftdetect/scss.vim
 " This should prevent duplicate snippets
-autocmd BufRead,BufNewFile *.scss	        set filetype=scss
+autocmd BufRead,BufNewFile *.scss           set filetype=scss
 
-"php syntax options 
+"php syntax options
 let php_sql_query = 1                   "for SQL syntax highlighting inside strings
 let php_htmlInStrings = 1               "for HTML syntax highlighting inside strings
 "php_baselib = 1                        "for highlighting baselib functions
@@ -313,7 +313,7 @@ autocmd FileType gitconfig   setlocal ts=2 sts=2 sw=2 noexpandtab
 autocmd FileType ruby,eruby  setlocal ts=2 sts=2 sw=2 expandtab
 
 " Run Exuberant Ctags everytime I save a php file
-au BufWritePost php silent! !ctags -R &
+autocmd BufWritePost php silent! !ctags -R &
 
 " }}}-------------------------------------------------------------------------
 "   Custom mappings                                                       {{{
@@ -326,7 +326,7 @@ xnoremap p pgvy
 " gundo plugin. Requires vim being compiled with Python support
 nnoremap <F5> :GundoToggle<CR>
 
-" Disable arrow keys to keep from falling back on bad habits 
+" Disable arrow keys to keep from falling back on bad habits
 nnoremap <left> :wincmd h<CR>
 nnoremap <right> :wincmd l<CR>
 nnoremap <up> :wincmd k<CR>
@@ -354,10 +354,10 @@ vnoremap = =gv
 cmap w!! %!sudo tee > /dev/null %
 
 " Do what my fat fingers mean!
-cmap Bd bd
-cmap BD bd
-cmap Q q
-cmap W w
+cmap :Bd :bd
+cmap :BD :bd
+cmap :Q :q
+cmap :W :w
 
 " }}}-------------------------------------------------------------------------
 "   Undo, Backup and Swap file locations                                  {{{
@@ -374,7 +374,7 @@ endif
 "   If there is a local .vimrc, source it here at the end                 {{{
 " ----------------------------------------------------------------------------
 
-if filereadable(glob("$HOME/.vimrc.local")) 
+if filereadable(glob("$HOME/.vimrc.local"))
     source $HOME/.vimrc.local
 endif
 

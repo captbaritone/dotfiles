@@ -63,8 +63,8 @@ if exists('+colorcolumn')
 endif
 
 " Windows
-set winminheight=0
-set winheight=999           " Fill whole height. We only want 100% height windows
+"set winminheight=0
+"set winheight=999           " Fill whole height. We only want 100% height windows
 
 " show fold column, fold by markers
 set foldcolumn=0            " Don't show the folding gutter/column

@@ -31,7 +31,7 @@ Bundle 'mattn/emmet-vim'
                                             " Scss Syntax
 Bundle 'cakebaker/scss-syntax.vim'
                                             " Window manager for vim splits
-"Bundle 'captbaritone/dwm.vim'
+Bundle 'captbaritone/dwm.vim'
                                             " Syntax and scripts for Lilypond
 Bundle 'qrps/lilypond-vim'
                                             " Indexed Search: Shows # of matches

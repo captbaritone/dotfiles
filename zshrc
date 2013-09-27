@@ -114,14 +114,24 @@ plugins=(git github git-extras dircycle gem osx tmux vagrant vi-mode brew colore
 
 # Don't ask for confirmation for history expansion
 
+# Don't make me confirm history expansions
+setopt no_hist_verify
+# Don't fill in autocomplete if there is ambiguity
+setopt no_auto_menu
+
+# Save lots of history
+SAVEHIST=1000
+# Save it to a file
+HISTFILE=~/.history
+
+# Autocomplete from history with arrow keys
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
+
 # Customize to your needs...
 if [ -f $HOME/.zshrc.local ]; then
     source $HOME/.zshrc.local
 fi
 
 source $ZSH/oh-my-zsh.sh
-# Don't make me confirm history expansions
-setopt no_hist_verify
-# Don't fill in autocomplete if there is ambiguity
-setopt no_auto_menu
 

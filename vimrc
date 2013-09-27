@@ -354,10 +354,10 @@ vnoremap = =gv
 cmap w!! %!sudo tee > /dev/null %
 
 " Do what my fat fingers mean!
-cmap :Bd :bd
-cmap :BD :bd
-cmap :Q :q
-cmap :W :w
+command! Bd bd
+command! BD bd
+command! Q q
+command! W w
 
 " }}}-------------------------------------------------------------------------
 "   Undo, Backup and Swap file locations                                  {{{

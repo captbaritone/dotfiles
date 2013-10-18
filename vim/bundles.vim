@@ -52,7 +52,7 @@ Bundle 'airblade/vim-gitgutter'
 "Bundle 'mhinz/vim-signify'
 " Still too slow :(
                                             " Per repository .vimrcs
-Bundle 'captbaritone/repo-vimrc'
+"Bundle 'captbaritone/repo-vimrc'
                                             " Rename files from within vim
 Bundle 'danro/rename.vim'
                                             " Automatically align var blocks

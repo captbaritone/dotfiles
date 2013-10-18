@@ -11,9 +11,7 @@ ZSH_THEME="captbaritone"
 
 # Set the default editor
 if [ -z "$SSH_CLIENT" ] ; then          # for local/console sessions
-    if command -v mvim >/dev/null ; then
-      export EDITOR="mvim"
-    elif command -v gvim >/dev/null ; then
+    if command -v gvim >/dev/null ; then
       export EDITOR="gvim --remote-silent"
     elif command -v vim >/dev/null ; then
       export EDITOR="vim"

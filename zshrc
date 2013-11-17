@@ -37,7 +37,6 @@ alias g="git"
 alias o="open"
 alias refit="$HOME/dotfiles/install.sh"
 alias todo="vim $HOME/todo.txt"
-alias irc="weechat-curses"
 
 # Aliases for fat fingered or stupid people
 alias :q="exit"
@@ -112,8 +111,6 @@ plugins=(git github git-extras dircycle gem osx tmux vagrant vi-mode brew colore
 
 # Don't ask for confirmation for history expansion
 
-# Don't make me confirm history expansions
-setopt no_hist_verify
 # Don't fill in autocomplete if there is ambiguity
 setopt no_auto_menu
 
@@ -133,3 +130,6 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
+# Don't make me confirm history expansions
+# This needs to go after we call oh-my-zsh
+setopt no_hist_verify

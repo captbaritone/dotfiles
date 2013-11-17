@@ -245,7 +245,6 @@ let g:ctrlp_custom_ignore = {
     \ }
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_default_input = 1
 
 let g:ctrlp_abbrev = {
 \ 'gmode': 'i',

@@ -43,6 +43,7 @@ set laststatus=2            " The last window will have a status line always
 set noshowmode              " Don't show the mode in the last line of the screen, vim-airline takes care of it
 set ruler                   " Show the line and column number of the cursor position, separated by a comma.
 set lazyredraw
+set linespace=0
 
 " My command line autocomplete is case insensitive. Keep vim consistent with
 " that. It's a recent feature to vim, test to make sure it's supported first.
@@ -61,10 +62,6 @@ set textwidth=79            " Break lines at just under 80 characters
 if exists('+colorcolumn')
   set colorcolumn=+1        " Highlight the column after `textwidth`
 endif
-
-" Windows
-"set winminheight=0
-"set winheight=999           " Fill whole height. We only want 100% height windows
 
 " show fold column, fold by markers
 set foldcolumn=0            " Don't show the folding gutter/column
@@ -92,15 +89,14 @@ set foldopen=block,hor,mark,percent,quickfix,search,tag,undo,jump
 set listchars=tab:▸\ ,trail:•,eol:¬
 set list
 
-" Trim trailing white space on save (preserving cursor position)
+" Function to trim trailing white space
+" Make your own mappings
 function! StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
     %s/\s\+$//e
     call cursor(l, c)
 endfun
-
-"autocmd FileType c,cpp,java,php,ruby,python,js autocmd BufWritePre <buffer> :call StripTrailingWhitespaces()
 
 " Character meaning when present in 'formatoptions'
 " ------ ---------------------------------------
@@ -117,8 +113,8 @@ set t_Co=256                " enable 256 colors
 
 " Colorscheme (Don't complain if you don't have it yet)
 "let g:molokai_original = 0
-"silent! colorscheme molokai
-silent! colorscheme solarized
+silent! colorscheme molokai
+"silent! colorscheme solarized
 set background=dark
 
 " Use the same color for the SignColumn as the line number column
@@ -158,6 +154,7 @@ else
     " The angle bracket defaults look fugly
     let g:airline_left_sep=''
     let g:airline_right_sep=''
+    set mouse=a
 endif
 
 " }}}-------------------------------------------------------------------------
@@ -210,6 +207,12 @@ nmap <silent> <Leader>w :update<CR>
 nmap <silent> <Leader>q :quit<CR>
 nmap <silent> <Leader>c :bd<CR>
 
+" Trim trailing white space
+nmap <silent> <Leader>t :call StripTrailingWhitespaces()<CR>
+
+" Cd to the current file's directory
+nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+
 " }}}-------------------------------------------------------------------------
 "   Plugins                                                               {{{
 " ----------------------------------------------------------------------------
@@ -240,33 +243,40 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(png|jpg|jpeg|gif|DS_Store)$',
     \ 'link': '',
     \ }
-" Make ctrl-return open selected file in a new split
-let g:ctrlp_prompt_mappings = {
-  \ 'AcceptSelection("h")': [],
-  \ 'AcceptSelection("v")': ['<c-cr>']
-  \ }
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_default_input = 1
 
-" Whenever a new file is opened, foucs that pane
-" autocmd BufRead,BufNewFile * call DWM_Focus()
+let g:ctrlp_abbrev = {
+\ 'gmode': 'i',
+\ 'abbrevs': [
+    \ {
+    \ 'pattern': '^clients',
+    \ 'expanded': '@cd ~/clients',
+    \ 'mode': 'pfrz',
+    \ },
+    \ {
+    \ 'pattern': '^downloads',
+    \ 'expanded': '@cd ~/Downloads',
+    \ 'mode': 'pfrz',
+    \ },
+    \ {
+    \ 'pattern': '^cd',
+    \ 'expanded': '@cd ~/',
+    \ 'mode': 'pfrz',
+    \ },
+    \ {
+    \ 'pattern': '^dotfiles',
+    \ 'expanded': '@cd ~/dotfiles',
+    \ 'mode': 'pfrz',
+    \ },
+    \ ]
+\ }
 
+" Airline
 let g:airline_enable_branch=1
 let g:airline_enable_syntastic=1
-"let g:airline_theme='dark'
-let g:airline_theme='solarized'
-
-" Prevent Zencoding from converting $s into 1s
-" https://github.com/mattn/zencoding-vim/issues/99
-let g:user_zen_settings = {
-\ 'php' : {
-\ 'dollar_expr' : 0,
-\ },
-\}
-
-" Autoclose
-let g:AutoCloseExpandSpace = 0 " Don't expand spaces
-let g:AutoCloseExpandEnterOn = '{' " Does not seem to work currently
+let g:airline_theme='molokai'
 
 " Syntax check phtml files (since we use that filetype instead of PHP)
 let g:syntastic_filetype_map = { 'phtml': 'php' }
@@ -327,14 +337,20 @@ xnoremap p pgvy
 nnoremap <F5> :GundoToggle<CR>
 
 " Disable arrow keys to keep from falling back on bad habits
-nnoremap <left> :wincmd h<CR>
-nnoremap <right> :wincmd l<CR>
-nnoremap <up> :wincmd k<CR>
-nnoremap <down> :wincmd j<CR>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
 inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
+
+" Split navigation
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 
 " To encourage the use of <C-[np]> instead of the arrow keys in ex mode, remap
 " them to use <Up/Down> instead so that they will filter completions
@@ -351,6 +367,8 @@ vnoremap > >gv
 vnoremap = =gv
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
+" Seems to have a problem where Vim sees that the file has changed and tries to
+" reload it. When it does it thinks the file is blank (but it's not really).
 cmap w!! %!sudo tee > /dev/null %
 
 " Do what my fat fingers mean!

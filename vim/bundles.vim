@@ -11,74 +11,57 @@ call vundle#rc()
 " let Vundle manage Vundle (required)
 Bundle 'gmarik/vundle'
 
-                                            " Colorschmes
+" Colorschmes
 Bundle 'tomasr/molokai'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'altercation/vim-colors-solarized'
-                                            " My personal Todo list syntax
-Bundle 'captbaritone/myTodo'
-                                            " Syntastic: Highlight code errors
-Bundle 'scrooloose/syntastic'
-                                            " Allow for HTML indenting in .php
-Bundle 'captbaritone/better-indent-support-for-php-with-html'
-                                            " Powerline: Pretty statusline
-"Bundle 'Lokaltog/vim-powerline'
-Bundle 'bling/vim-airline'
-                                            " Vim-Git: Highlight git files
-Bundle 'tpope/vim-git'
-                                            " Zen Coding: Quickly write html
-Bundle 'mattn/emmet-vim'
-                                            " Scss Syntax
-Bundle 'cakebaker/scss-syntax.vim'
-                                            " Window manager for vim splits
-Bundle 'captbaritone/dwm.vim'
-                                            " Syntax and scripts for Lilypond
-Bundle 'qrps/lilypond-vim'
-                                            " Indexed Search: Shows # of matches
-Bundle 'vim-scripts/IndexedSearch'
-                                            " Allow % to go to matching XML tags
-                                            " Replaced by xmledit
-"Bundle 'tsaleh/vim-matchit'
-                                            " Change brackets and quotes
-Bundle 'tpope/vim-surround'
-                                            " Autoclose ({" etc.
-Bundle 'Townk/vim-autoclose'
-Bundle 'sukima/xmledit'
-                                            " Command-T alternative in Vimscript
-Bundle 'kien/ctrlp.vim.git'
-                                            " GitGutter adds +/- to lines re git
-Bundle 'airblade/vim-gitgutter'
-                                            " Possibly a faster than Gitgutter
-"Bundle 'mhinz/vim-signify'
-" Still too slow :(
-                                            " Per repository .vimrcs
-"Bundle 'captbaritone/repo-vimrc'
-                                            " Rename files from within vim
-Bundle 'danro/rename.vim'
-                                            " Automatically align var blocks
-Bundle 'godlygeek/tabular'
 
-if has('python')                            " Some plugins require python
-                                            " Gundo: Undo history
+"Syntax
+Bundle 'tpope/vim-git'
+Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'xsbeats/vim-blade'
+Bundle 'qrps/lilypond-vim'
+
+" Syntastic: Code linting errors
+Bundle 'scrooloose/syntastic'
+
+" Fancy statusline
+Bundle 'bling/vim-airline'
+
+" Fuzzy file opener
+Bundle 'kien/ctrlp.vim.git'
+
+" Rename files from within vim
+Bundle 'AlexJF/rename.vim'
+
+" Allow for HTML indenting in .php
+Bundle 'captbaritone/better-indent-support-for-php-with-html'
+
+" Change brackets and quotes
+Bundle 'tpope/vim-surround'
+
+" Fugitive: Git from within Vim
+Bundle 'tpope/vim-fugitive'
+
+" Some plugins require python
+if has('python')
+
+    " Gundo: Undo history
     Bundle 'sjl/gundo.vim'
-                                            " Ultisnips: Snippet manager
+    " Ultisnips: Snippet manager
     Bundle 'SirVer/ultisnips'
 endif
 
-if has('ruby')
-                                            " File launcher
-    "Bundle 'wincent/Command-T'
-endif
+" Other plugins require curl
+if executable("curl")
 
-if executable("curl")                       " Other plugins require curl
-                                            " Webapi: Dependency of Gist-vim
+    " Webapi: Dependency of Gist-vim
     Bundle 'mattn/webapi-vim'
-                                            " Gist: Post text to gist.github
+
+    " Gist: Post text to gist.github
     Bundle 'mattn/gist-vim'
 endif
 
-                                            " Fugitive: Git from within Vim
-Bundle 'tpope/vim-fugitive'
 
 filetype plugin indent on                   " required!
 

@@ -1,0 +1,60 @@
+#!/bin/bash
+
+brew update
+brew install git
+brew upgrade
+
+brew instll zsh
+
+# json pretty print
+brew install yajl
+
+# Install GNU core utilities (those that come with OS X are outdated)
+brew install coreutils
+
+# # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
+brew install findutils
+
+# Install Bash 4 and tmux
+brew install bash
+brew install bash-completion
+brew install grc
+brew install tmux
+
+brew install ack
+brew install gibo
+brew install curl
+brew install ffmpeg
+brew install imagemagick
+brew install lynx
+brew install tree
+brew install unrar
+brew install watch
+
+# Remove outdated versions from the cellar
+brew cleanup
+
+# Install native apps
+brew tap phinze/homebrew-cask
+brew install brew-cask
+
+function installcask() {
+    brew cask install "${@}" 2> /dev/null
+}
+
+    installcask dropbox
+    installcask google-chrome
+    installcask google-chrome-canary
+    installcask imagealpha
+    installcask imageoptim
+    installcask iterm2
+    installcask macvim
+    installcask miro-video-converter
+    installcask sublime-text
+    installcask the-unarchiver
+    installcask tor-browser
+    installcask transmission
+    installcask ukelele
+    installcask virtualbox
+    installcask vlc
+# }

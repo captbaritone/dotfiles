@@ -1,1 +1,0 @@
-../gntp_notify.rb

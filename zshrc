@@ -128,6 +128,11 @@ if [ -f $HOME/.zshrc.local ]; then
     source $HOME/.zshrc.local
 fi
 
+# Look in my global composer packages
+export PATH=~/dotfiles/composer-packages/vendor/bin:$PATH
+# Look in this project's vendor/bin directory
+export PATH=vendor/bin:$PATH
+
 source $ZSH/oh-my-zsh.sh
 
 # Don't make me confirm history expansions

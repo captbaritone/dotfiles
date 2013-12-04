@@ -335,11 +335,11 @@ xnoremap p pgvy
 " gundo plugin. Requires vim being compiled with Python support
 nnoremap <F5> :GundoToggle<CR>
 
-" Disable arrow keys to keep from falling back on bad habits
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-nnoremap <up> <nop>
-nnoremap <down> <nop>
+" Repurpose arrow keys to navigating windows
+nnoremap <left> <C-w>h
+nnoremap <right> <C-w>l
+nnoremap <up> <C-w>k
+nnoremap <down> <C-w>j
 inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>

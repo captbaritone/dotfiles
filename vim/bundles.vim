@@ -29,7 +29,7 @@ Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'ervandew/supertab'
 
 " Syntastic: Code linting errors
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 
 " Fancy statusline
 Bundle 'bling/vim-airline'

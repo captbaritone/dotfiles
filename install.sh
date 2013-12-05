@@ -30,15 +30,7 @@ notice(){ printf "${indent}${txtorange}NOTICE${txtrst}\n"; }
 missing(){ printf "${indent}${txtred}MISSING${txtrst}\n"; }
 
 # Check for some required tools
-printf "Checking for commonly used tools:\n"
-# oh-my-zsh
-if [ ! -d $HOME/.oh-my-zsh ]
-then
-    $(curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh)
-    rm $HOME/.zshrc
-else
-  printf "$(ok) - oh-my-zsh\n"
-fi
+printf "Checking for required tools:\n"
 # git
 if [ `command -v git` ]; then
   printf "$(ok) - Git\n"
@@ -47,6 +39,7 @@ else
     printf "You seriously expect me to do this without git?. Fix that shit.\n"
     exit
 fi
+
 # vim
 if [ `command -v vim` ]; then
     printf "$(ok) - Vim\n"
@@ -60,13 +53,40 @@ else
     printf "$(missing) - Vim\n"
 fi
 
-# curl
-if [ `command -v curl` ]; then
-    printf "$(ok) - Curl\n"
+
+printf "Updating dotfiles:\n"
+cd "$dotfilespath"
+# Is the dotfiles repository clean?
+if [[ $(git status 2> /dev/null | tail -n1 | cut -c1-17) = "nothing to commit" ]]; then
+  if [[ $(git pull 2> /dev/null) = "Already up-to-date." ]]; then
+    printf "$(ok) - Already up-to-date\n"
+  else
+    printf "$(ok) - Updated dotfiles\n"
+    printf "\n\nStarting over now that we have newer dotfiles...\n\n\n"
+    $(./install.sh)
+    exit;
+    # Perhaps here we should start over with the new install.sh?
+  fi
 else
-  printf "$(missing) - Curl (Vim-Gist won't work)\n"
+  printf "$(missing) - Did not update dotfiles (unclean)\n"
 fi
 
+printf "Linking dotfiles into place:\n"
+for name in *; do
+    if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ] && [ "$name" != 'tools' ] && [ "$name" != 'ssh' ] && [ "$name" != 'bootstrap.sh' ] && [ "$name" != 'zsh-custom' ] && [ "$name" != 'composer-packages' ]; then
+        target="$HOME/.$name"
+        if [ "$target" -ef "$name" ]; then
+            printf "$(ok) - .$name\n"
+        else
+            if [ -e "$target" ]; then
+                mv $target "$target.local"
+                printf "$(moved) - $target to $target.local\n"
+            fi
+            ln -s "$PWD/$name" "$target"
+            printf "$(installed) - .$name\n"
+        fi
+    fi
+done
 
 printf "Updating guides:\n"
 # Get my guides
@@ -88,37 +108,6 @@ else
     fi
 fi;
 
-printf "Updating dotfiles:\n"
-cd "$dotfilespath"
-# Is the dotfiles repository clean?
-if [[ $(git status 2> /dev/null | tail -n1 | cut -c1-17) = "nothing to commit" ]]; then
-  if [[ $(git pull 2> /dev/null) = "Already up-to-date." ]]; then
-    printf "$(ok) - Already up-to-date\n"
-  else
-    printf "$(ok) - Updated dotfiles (you may want to rerun install.sh)\n"
-    # Perhaps here we should start over with the new install.sh?
-  fi
-else
-  printf "$(notice) - Did not update dotfiles (unclean)\n"
-fi
-
-printf "Linking dotfiles into place:\n"
-for name in *; do
-    if [ "$name" != 'install.sh' ] && [ "$name" != 'README.md' ] && [ "$name" != 'tools' ] && [ "$name" != 'ssh' ] && [ "$name" != 'bootstrap.sh' ] && [ "$name" != 'zsh-custom' ]; then
-        target="$HOME/.$name"
-        if [ "$target" -ef "$name" ]; then
-            printf "$(ok) - .$name\n"
-        else
-            if [ -e "$target" ]; then
-                mv $target "$target.local"
-                printf "$(moved) - $target to $target.local\n"
-            fi
-            ln -s "$PWD/$name" "$target"
-            printf "$(installed) - .$name\n"
-        fi
-    fi
-done
-
 printf "Updating submodules:\n"
 git submodule update -q --init $HOME/dotfiles/vim/bundle/vundle
 printf "$(ok) - Vundle\n"
@@ -128,7 +117,27 @@ printf "$(ok) - Vundle\n"
 #git submodule update -q --init ~/dotfiles/ssh
 
 printf "Updating Vundle bundles:\n"
-vim -u ~/.vim/bundles.vim "+BundleInstall!" +qall
-printf "$(ok) - Bundles\n"
+vim -u ~/.vim/bundles.vim "+BundleInstall" +qall
+printf "$(ok) - Install bundles\n"
+printf "Removing old Vundle bundles:\n"
+vim -u ~/.vim/bundles.vim "+BundleClean!" +qall
+printf "$(ok) - Clean bundles\n"
+
+printf "Checking for recommended tools\n"
+# oh-my-zsh
+if [ ! -d $HOME/.oh-my-zsh ]
+then
+    $(curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh)
+    rm $HOME/.zshrc
+else
+  printf "$(ok) - oh-my-zsh\n"
+fi
+# curl
+if [ `command -v curl` ]; then
+    printf "$(ok) - Curl\n"
+else
+  printf "$(missing) - Curl (Vim-Gist won't work)\n"
+fi
+
 
 printf "\nInstallation complete!\n"

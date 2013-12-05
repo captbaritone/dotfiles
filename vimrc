@@ -15,7 +15,7 @@ source ~/.vim/bundles.vim
 " ----------------------------------------------------------------------------
 
 " Set the leader key to , instead of \ because it's easier to reach
-let mapleader = ","
+let mapleader = " "
 "set notimeout                  " Turn off the timeout for the leader key
                                 " Seems to break `n` in normal mode, so
                                 " I turned it off

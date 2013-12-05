@@ -269,6 +269,9 @@ let g:airline_theme='molokai'
 " Syntax check phtml files (since we use that filetype instead of PHP)
 let g:syntastic_filetype_map = { 'phtml': 'php' }
 
+" Make supertab try omnicompletion first
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
 " }}}-------------------------------------------------------------------------
 "   Custom filetypes                                                      {{{
 " ----------------------------------------------------------------------------
@@ -312,6 +315,13 @@ autocmd FileType ruby,eruby  setlocal ts=2 sts=2 sw=2 expandtab
 
 " Run Exuberant Ctags everytime I save a php file
 autocmd BufWritePost php silent! !ctags -R &
+
+" Turn on completion for php
+autocmd FileType php,phtml setlocal omnifunc=phpcomplete#CompletePHP
+" When completing, fill with the longest common string
+" Auto select the first option
+set completeopt=longest,menuone
+
 
 " }}}-------------------------------------------------------------------------
 "   Custom mappings                                                       {{{

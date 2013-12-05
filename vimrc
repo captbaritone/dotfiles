@@ -250,6 +250,11 @@ let g:ctrlp_abbrev = {
     \ 'mode': 'pfrz',
     \ },
     \ {
+    \ 'pattern': '^vagrant',
+    \ 'expanded': '@cd ~/lamp/public',
+    \ 'mode': 'pfrz',
+    \ },
+    \ {
     \ 'pattern': '^dotfiles',
     \ 'expanded': '@cd ~/dotfiles',
     \ 'mode': 'pfrz',

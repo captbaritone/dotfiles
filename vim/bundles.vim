@@ -22,6 +22,12 @@ Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'xsbeats/vim-blade'
 Bundle 'qrps/lilypond-vim'
 
+" Completion
+Bundle 'shawncplus/phpcomplete.vim'
+
+" Make tab handle all completions
+Bundle 'ervandew/supertab'
+
 " Syntastic: Code linting errors
 Bundle 'scrooloose/syntastic'
 

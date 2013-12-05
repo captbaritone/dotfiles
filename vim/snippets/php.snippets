@@ -40,7 +40,7 @@ snippet doc_i "doc_i"
  **/
 interface ${1:someClass}
 {${4}
-} // END interface $1"
+}
 endsnippet
 
 snippet for "for"
@@ -61,138 +61,6 @@ foreach ($${1:variable} as $${2:key} => $${3:value}){
 }
 endsnippet
 
-snippet get "get"
-$_GET['${1}']${2}
-endsnippet
-
-snippet if "if"
-if (${1:/* condition */}) {
-	${2:// code...}
-}
-endsnippet
-
-snippet inc "inc"
-include '${1:file}';${2}
-endsnippet
-
-snippet log "log"
-error_log(var_export(${1}, true));${2}
-endsnippet
-
-snippet post "post"
-$_POST['${1}']${2}
-endsnippet
-
-snippet req1 "req1"
-require_once '${1:file}';${2}
-endsnippet
-
-snippet session "session"
-$_SESSION['${1}']${2}
-endsnippet
-
-snippet t "t"
-$${1:retVal} = (${2:condition}) ? ${3:a} : ${4:b};${5}
-endsnippet
-
-snippet var "var"
-var_export(${1});${2}
-endsnippet
-
-snippet getter "PHP Class Getter" !b
-/*
- * Getter for $1
- */
-public function get${1/\w+\s*/\u$0/}() 
-{
-    return $this->$1;$2
-}
-$4
-endsnippet
-
-snippet setter "PHP Class Setter" !b
-/*
- * Setter for $1
- */
-public function set${1/\w+\s*/\u$0/}($$1)
-{
-    $this->$1 = $$1;$3
-    return $this;
-}
-$4
-endsnippet
-
-snippet gs "PHP Class Getter Setter" !b
-protected $$1
-
-/*
- * Getter for $1
- */
-public function get${1/\w+\s*/\u$0/}() 
-{
-    return $this->$1;$2
-}
-
-/*
- * Setter for $1
- */
-public function set${1/\w+\s*/\u$0/}($$1)
-{
-    $this->$1 = $$1;$3
-    return $this;
-}
-$4
-endsnippet
-
-snippet pub "Public function" !b
-public function ${1:name}(${2:$param})
-{
-    ${3:return null;}
-}
-endsnippet
-
-snippet pro "Protected function" !b
-protected function ${1:name}(${2:$param})
-{
-    ${3:return null;}
-}
-endsnippet
-
-snippet pri "Private function" !b
-private function ${1:name}(${2:$param})
-{
-    ${3:return null;}
-}
-endsnippet
-
-snippet pubs "Public static function" !b
-public static function ${1:name}(${2:$param})
-{
-    ${3:return null;}
-}
-endsnippet
-
-snippet pros "Protected static function" !b
-protected static function ${1:name}(${2:$param})
-{
-    ${3:return null;}
-}
-endsnippet
-
-snippet pris "Private static function" !b
-private static function ${1:name}(${2:$param})
-{
-    ${3:return null;}
-}
-endsnippet
-
-snippet fu "Function snip" !b
-function ${1:name}(${2:$param}) 
-{
-    ${3:return null;}
-}
-endsnippet
-# :vim:ft=snippets
 
 snippet fore "Foreach loop"
 foreach ($${1:variable} as $${3:value}){
@@ -237,35 +105,6 @@ snippet pc "Dumb debug helper in cli"
 var_export($1);
 endsnippet
 
-snippet redirect "301 redirect"
-// Redirect
-header("Location: ${1:foo.php}",TRUE,301);
-die();
-endsnippet
-
-# Templating foreach
-snippet hforeach "Foreach for use in HTML templates"
-<?php if($$1): ?>
-<?php foreach($$1 as $${2:item}): ?>
-${3:<!-- Code -->}
-<?php endforeach; ?>
-<?php endif; // $1?>
-endsnippet
-
-# PDO database connection
-snippet pdo "Basic PHP PDO connection"
-$host = '${4:localhost}';
-$database = '$1';
-$user = '$2';
-$password = '$3';
-
-try {
-    $dbh = new PDO("mysql:dbname={$database};host={$host}", $user, $password);
-} catch (PDOException $e) {
-    echo 'Connection failed: ' . $e->getMessage();
-}
-endsnippet
-
 # Code Igniter specific
 snippet clog "Log a message CodeIgniter style"
 log_message('${2:debug}', "${1:--- MARK ---}");
@@ -276,13 +115,12 @@ $this->output->enable_profiler(TRUE);
 endsnippet
 
 # PHP templating specific
-
 snippet <?= "I like inline php, but it's a sin"
 <?php echo $1; ?>
 endsnippet
 
-snippet hpr "Html debug a variable"
-<?php echo "<pre style='background: white; color: black;'>" . var_export($1, 1) . '</pre>'; ?>
+snippet [  "Array shorthand for old php versions"
+array($1);
 endsnippet
 
 # :vim:ft=snippets:

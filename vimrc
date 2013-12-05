@@ -268,6 +268,7 @@ let g:airline_theme='molokai'
 
 " Syntax check phtml files (since we use that filetype instead of PHP)
 let g:syntastic_filetype_map = { 'phtml': 'php' }
+let g:syntastic_php_phpcs_args = '--standard=PSR1'
 
 " Make supertab try omnicompletion first
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"

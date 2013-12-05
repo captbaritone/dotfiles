@@ -11,12 +11,12 @@ call vundle#rc()
 " let Vundle manage Vundle (required)
 Bundle 'gmarik/vundle'
 
-" Colorschmes
+" Colorschemes
 Bundle 'tomasr/molokai'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'altercation/vim-colors-solarized'
 
-"Syntax
+" Syntax
 Bundle 'tpope/vim-git'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'xsbeats/vim-blade'
@@ -67,7 +67,6 @@ if executable("curl")
     " Gist: Post text to gist.github
     Bundle 'mattn/gist-vim'
 endif
-
 
 filetype plugin indent on                   " required!
 

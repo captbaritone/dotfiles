@@ -21,6 +21,7 @@ Bundle 'tpope/vim-git'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'xsbeats/vim-blade'
 Bundle 'qrps/lilypond-vim'
+Bundle 'tpope/vim-ragtag'
 
 " Completion
 Bundle 'shawncplus/phpcomplete.vim'

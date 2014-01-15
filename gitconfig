@@ -16,6 +16,7 @@
 	# Some typos
 	commmit = commit
 	stats = status
+	praise = blame
 
 	ad = add
 	ada = add -A

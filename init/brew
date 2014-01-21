@@ -4,7 +4,7 @@ brew update
 brew install git
 brew upgrade
 
-brew instll zsh
+brew install zsh
 
 # json pretty print
 brew install yajl
@@ -30,6 +30,7 @@ brew install lynx
 brew install tree
 brew install unrar
 brew install watch
+brew install the_silver_searcher
 
 # Remove outdated versions from the cellar
 brew cleanup
@@ -42,19 +43,18 @@ function installcask() {
     brew cask install "${@}" 2> /dev/null
 }
 
-    installcask dropbox
-    installcask google-chrome
-    installcask google-chrome-canary
-    installcask imagealpha
-    installcask imageoptim
-    installcask iterm2
-    installcask macvim
-    installcask miro-video-converter
-    installcask sublime-text
-    installcask the-unarchiver
-    installcask tor-browser
-    installcask transmission
-    installcask ukelele
-    installcask virtualbox
-    installcask vlc
-# }
+installcask dropbox
+installcask google-chrome
+installcask google-chrome-canary
+installcask imagealpha
+installcask imageoptim
+installcask iterm2
+installcask macvim
+installcask miro-video-converter
+installcask sublime-text
+installcask the-unarchiver
+installcask tor-browser
+installcask transmission
+installcask ukelele
+installcask virtualbox
+installcask vlc

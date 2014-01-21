@@ -63,9 +63,11 @@ if exists('+colorcolumn')
   set colorcolumn=+1        " Highlight the column after `textwidth`
 endif
 
+
 " show fold column, fold by markers
 set foldcolumn=0            " Don't show the folding gutter/column
 set foldmethod=marker       " Fold on {{{ }}}
+set foldlevelstart=20       " Open 20 levels of folding when I open a file
 
 " Open folds under the following conditions
 set foldopen=block,hor,mark,percent,quickfix,search,tag,undo,jump

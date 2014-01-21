@@ -75,6 +75,10 @@ set foldopen=block,hor,mark,percent,quickfix,search,tag,undo,jump
 set listchars=tab:▸\ ,trail:•,eol:¬
 set list
 
+" Splits
+set splitbelow              " Open new splits below
+set splitright              " Open new vertical splits to the right
+
 " Function to trim trailing white space
 " Make your own mappings
 function! StripTrailingWhitespaces()

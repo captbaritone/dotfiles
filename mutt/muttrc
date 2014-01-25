@@ -87,6 +87,9 @@ set include                          # include message in replies
 set forward_quote                    # include message in forwards
 set editor = "vim"                   # Use terminal Vim to compose email.
 
+# Attachment View Options ----------------------------
+macro attach s <save-entry><kill-line>~/Downloads/<enter>
+
 source ~/.mutt/gpg.rc
 source ~/.mutt/mutt-colors-solarized-dark-16.muttrc
 

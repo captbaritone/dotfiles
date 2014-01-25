@@ -46,6 +46,7 @@ set index_format = "[%Z]  %D  %-20.20F  %?X?%X& ?  %s"
 # Index Key Bindings ---------------------------------
 bind index gg       first-entry
 bind index G        last-entry
+bind index R        group-reply
 
 # Pager View Options ---------------------------------
 set pager_index_lines = 10 # number of index lines to show
@@ -64,6 +65,7 @@ bind pager k  previous-line
 bind pager j  next-line
 bind pager gg top
 bind pager G  bottom
+bind pager R  group-reply
 
 # View attachments properly.
 bind attach <return> view-mailcap

@@ -29,12 +29,19 @@ set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)
 
 # Index View Options ---------------------------------
 set date_format = "%m/%d"
-set index_format = "[%Z]  %D  %-20.20F  %s"
 set sort = threads                         # like gmail
 set sort_aux = reverse-last-date-received  # like gmail
 set uncollapse_jump                        # don't collapse on an unread message
 set sort_re                                # thread based on regex
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# Format for index list
+#   [message status flags]
+#   Date sent (in my timezone)
+#   20 characters of who it's from
+#   Number of attachment (if > 0)
+#   Subject
+set index_format = "[%Z]  %D  %-20.20F  %?X?%X& ?  %s"
 
 # Index Key Bindings ---------------------------------
 bind index gg       first-entry

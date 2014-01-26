@@ -47,6 +47,7 @@ set index_format = "[%Z]  %D  %-20.20F  %?X?%X& ?  %?M?[%M]->&?%s"
 bind index gg       first-entry
 bind index G        last-entry
 bind index R        group-reply
+bind index <tab>    sync-mailbox
 
 # Pager View Options ---------------------------------
 set pager_index_lines = 10 # number of index lines to show

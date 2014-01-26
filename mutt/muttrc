@@ -41,7 +41,7 @@ set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 #   20 characters of who it's from
 #   Number of attachment (if > 0)
 #   Subject
-set index_format = "[%Z]  %D  %-20.20F  %?X?%X& ?  %s"
+set index_format = "[%Z]  %D  %-20.20F  %?X?%X& ?  %?M?[%M]->&?%s"
 
 # Index Key Bindings ---------------------------------
 bind index gg       first-entry

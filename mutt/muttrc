@@ -97,5 +97,5 @@ source ~/.mutt/mutt-colors-solarized-dark-16.muttrc
 # Default
 source ~/.mutt/accounts/jordaneldredge.muttrc
 
-macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt/accounts/captbaritone.muttrc<enter><change-folder>!<enter>'
-macro index <f6> '<sync-mailbox><enter-command>source ~/.mutt/accounts/jordaneldredge.muttrc<enter><change-folder>!<enter>'
+macro index 1 '<sync-mailbox><enter-command>source ~/.mutt/accounts/captbaritone.muttrc<enter><change-folder>!<enter>'
+macro index 2 '<sync-mailbox><enter-command>source ~/.mutt/accounts/jordaneldredge.muttrc<enter><change-folder>!<enter>'

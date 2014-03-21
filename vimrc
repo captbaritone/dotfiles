@@ -182,16 +182,17 @@ filetype plugin indent on   " Rely on file plugins to handle indenting
 "   Custom commands                                                       {{{
 " ----------------------------------------------------------------------------
 
-" automatically reload vimrc when it's saved
-" Turned off because it would end up loading plugins multiple times
-" au BufWritePost *vimrc so $MYVIMRC
-
 " Edit the vimrc file
 nmap <silent> <Leader>ev :e $MYVIMRC<CR>
+nmap <silent> <Leader>ez :e $HOME/.zshrc<CR>
+nmap <silent> <Leader>em :e $HOME/.mutt/muttrc<CR>
 nmap <silent> <Leader>eb :e $HOME/.vim/bundles.vim<CR>
+nmap <silent> <Leader>es :e $HOME/.ssh/config<CR>
 nmap <silent> <Leader>et :e $HOME/todo.txt<CR>
 nmap <silent> <Leader>sv :so $MYVIMRC<CR>
 nmap <silent> <Leader>sb :so $HOME/.vim/bundles.vim<CR>
+
+" Faster save/quite/close
 nmap <silent> <Leader>w :update<CR>
 nmap <silent> <Leader>q :quit<CR>
 nmap <silent> <Leader>c :bd<CR>
@@ -200,7 +201,12 @@ nmap <silent> <Leader>c :bd<CR>
 nmap <silent> <Leader>t :call StripTrailingWhitespaces()<CR>
 
 " Cd to the current file's directory
-nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <Leader>. :cd %:p:h<CR>:pwd<CR>
+
+" Move current window to the far left using full height
+nmap <silent> <Leader>h <C-w>H
+
+nmap <silent> <Leader>u :Test<CR>
 
 " }}}-------------------------------------------------------------------------
 "   Plugins                                                               {{{

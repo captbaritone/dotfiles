@@ -22,6 +22,8 @@ unset mark_old           # read/new is good enough for me
 set beep_new             # bell on new mails
 set pipe_decode          # strip headers and eval mimes when piping
 set thorough_search      # strip headers and eval mimes before searching
+set imap_idle = yes      # hopefully this will keep my imap session from dying
+set imap_keepalive = 200 # hopefully this will keep my imap session from dying
 
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"
@@ -57,6 +59,8 @@ set menu_scroll            # scroll in menus
 set tilde                  # show tildes like in vim
 unset markers              # no ugly plus signs
 auto_view text/html
+set strict_threads         # Don't thread by message subjec
+alternative_order text/html text/enriched text/plain 
 
 set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 alternative_order text/plain text/enriched text/html
@@ -82,6 +86,7 @@ set envelope_from                    # which from?
 set sig_dashes                       # dashes before sig
 set edit_headers                     # show headers when composing
 set fast_reply                       # skip to compose when replying
+unset reply_self                     # don't include myself when replying
 unset askcc                          # don't ask for CC:
 set fcc_attach                       # save attachments with the body
 unset mime_forward                   # forward attachments as part of body
@@ -93,15 +98,23 @@ set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
 set editor = "vim"                   # Use terminal Vim to compose email.
+set text_flowed = yes                # Flow text instead of using line breaks
+set sig_on_top                       # puts signature above quoted text
+set display_filter = ~/.mutt/display_filter.sh
+set copy = yes
 
 # Attachment View Options ----------------------------
 macro attach s <save-entry><kill-line>~/Downloads/<enter>
 
 source ~/.mutt/gpg.rc
 source ~/.mutt/mutt-colors-solarized-dark-16.muttrc
+source $alias_file
 
 # Default
 source ~/.mutt/accounts/jordaneldredge.muttrc
 
+alternates "(captbaritone@gmail\.com)|(jordaneldredge@gmail\.com)|(jordan@chromaplexdesigns\.com)|(jordan@jordaneldredge\.com)"
+
 macro index 1 '<sync-mailbox><enter-command>source ~/.mutt/accounts/captbaritone.muttrc<enter><change-folder>!<enter>'
 macro index 2 '<sync-mailbox><enter-command>source ~/.mutt/accounts/jordaneldredge.muttrc<enter><change-folder>!<enter>'
+macro index 3 '<sync-mailbox><enter-command>source ~/.mutt/accounts/chromaplex.muttrc<enter><change-folder>!<enter>'

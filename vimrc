@@ -96,6 +96,7 @@ endfun
 " t Auto-wrap text using textwidth (does not apply to comments)
 " n Recognize numbered lists
 " 1 Don't break line after one-letter words
+" a Automatically format paragraphs
 set formatoptions=cqrn1
 
 syntax enable               " This has to come after colorcolumn in order to draw it.

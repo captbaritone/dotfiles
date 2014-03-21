@@ -284,6 +284,7 @@ let g:ctrlp_abbrev = {
 " Airline
 let g:airline_enable_branch=1
 let g:airline_enable_syntastic=1
+let g:airline#extensions#tabline#enabled = 1
 
 " Syntax check phtml files (since we use that filetype instead of PHP)
 let g:syntastic_filetype_map = { 'phtml': 'php' }

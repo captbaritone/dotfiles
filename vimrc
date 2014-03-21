@@ -286,8 +286,6 @@ let g:airline_enable_branch=1
 let g:airline_enable_syntastic=1
 let g:airline#extensions#tabline#enabled = 1
 
-" Syntax check phtml files (since we use that filetype instead of PHP)
-let g:syntastic_filetype_map = { 'phtml': 'php' }
 let g:syntastic_php_phpcs_args = '--standard=PSR1'
 
 " Make supertab try omnicompletion first
@@ -299,7 +297,6 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 " Auto detect filetype
 autocmd BufRead,BufNewFile *.md,*.markdown  set filetype=markdown
-autocmd BufRead,BufNewFile *.php            set filetype=phtml
 autocmd BufRead,BufNewFile *.js             set filetype=javascript
 autocmd BufRead,BufNewFile *.lytex          set filetype=tex
 autocmd BufRead,BufNewFile ~/dotfiles/ssh/config set filetype=sshconfig
@@ -338,7 +335,7 @@ autocmd FileType ruby,eruby  setlocal ts=2 sts=2 sw=2 expandtab
 autocmd BufWritePost php silent! !ctags -R &
 
 " Turn on completion for php
-autocmd FileType php,phtml setlocal omnifunc=phpcomplete#CompletePHP
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 " When completing, fill with the longest common string
 " Auto select the first option
 set completeopt=longest,menuone

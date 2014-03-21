@@ -37,6 +37,7 @@ alias g="git"
 alias o="open"
 alias refit="$HOME/dotfiles/install.sh"
 alias todo="vim $HOME/todo.txt"
+alias serve="python -m SimpleHTTPServer&"
 
 # Aliases for fat fingered or stupid people
 alias :q="exit"
@@ -75,6 +76,7 @@ case "$OSTYPE" in
         alias cpu="open -a 'Activity Monitor'"
         alias mem="open -a 'Activity Monitor'"
         alias vpn="open -a 'Tunnelblick'"
+        alias prank="osascript -e 'set volume 7' && say --voice Whisper "
         ;;
 esac
 

@@ -3,37 +3,31 @@
 brew update
 brew install git
 brew upgrade
-
-brew install zsh
-
-# json pretty print
-brew install yajl
-
-# Install GNU core utilities (those that come with OS X are outdated)
-brew install coreutils
-
-# # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
-brew install findutils
-
-# Install Bash 4 and tmux
-brew install bash
-brew install bash-completion
-brew install grc
-brew install tmux
-
-brew install ack
-brew install gibo
-brew install curl
-brew install ffmpeg
-brew install imagemagick
-brew install lynx
-brew install tree
-brew install unrar
-brew install watch
-brew install the_silver_searcher
+brew install \
+    mutt \
+    zsh \
+    yajl \
+    coreutils \
+    findutils \
+    bash \
+    bash-completion \
+    grc \
+    tmux \
+    ack \
+    gibo \
+    curl \
+    ffmpeg \
+    imagemagick \
+    lynx \
+    tree \
+    unrar \
+    watch \
+    the_silver_searcher
 
 # Remove outdated versions from the cellar
 brew cleanup
+# Symlink applications into the /Applications dir
+brew linkapps
 
 # Install native apps
 brew tap phinze/homebrew-cask
@@ -49,7 +43,8 @@ installcask google-chrome-canary
 installcask imagealpha
 installcask imageoptim
 installcask iterm2
-installcask macvim
+# brew install macvim is good enough
+#installcask macvim
 installcask miro-video-converter
 installcask sublime-text
 installcask the-unarchiver

@@ -102,12 +102,6 @@ set formatoptions=cqrn1
 syntax enable               " This has to come after colorcolumn in order to draw it.
 set t_Co=256                " enable 256 colors
 
-" Colorscheme (Don't complain if you don't have it yet)
-"let g:molokai_original = 0
-silent! colorscheme molokai
-"silent! colorscheme solarized
-set background=dark
-
 " Use the same color for the SignColumn as the line number column
 highlight clear SignColumn
 
@@ -133,12 +127,21 @@ if has("gui_running")
         " Set the font for Linux machines
         let g:airline_powerline_fonts=1
         set guifont=Inconsolata\ for\ Powerline
+        " Colorscheme (Don't complain if you don't have it yet)
+        silent! colorscheme molokai
+        set background=dark
+        let g:airline_theme='molokai'
     elseif has("gui_win32")
         " set guifont=Consolas:h11:cANSI
     else
         " set guifont=Menlo
         let g:airline_powerline_fonts=1
         set guifont=Inconsolata\ for\ Powerline:h13
+
+        " Colorscheme (Don't complain if you don't have it yet)
+        silent! colorscheme molokai
+        set background=dark
+        let g:airline_theme='molokai'
     endif
 else
     " Don't show the airline separators if we are not in GUI
@@ -146,6 +149,11 @@ else
     let g:airline_left_sep=''
     let g:airline_right_sep=''
     set mouse=a
+
+    " Colorscheme (Don't complain if you don't have it yet)
+    silent! colorscheme molokai
+    set background=dark
+    let g:airline_theme='molokai'
 endif
 
 " }}}-------------------------------------------------------------------------
@@ -276,7 +284,6 @@ let g:ctrlp_abbrev = {
 " Airline
 let g:airline_enable_branch=1
 let g:airline_enable_syntastic=1
-let g:airline_theme='molokai'
 
 " Syntax check phtml files (since we use that filetype instead of PHP)
 let g:syntastic_filetype_map = { 'phtml': 'php' }

@@ -15,6 +15,7 @@ Bundle 'gmarik/vundle'
 Bundle 'tomasr/molokai'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'fxn/vim-monochrome'
 
 " Syntax
 Bundle 'tpope/vim-git'
@@ -22,9 +23,14 @@ Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'xsbeats/vim-blade'
 Bundle 'qrps/lilypond-vim'
 Bundle 'tpope/vim-ragtag'
+Bundle 'plasticboy/vim-markdown'
 
 " Completion
 Bundle 'shawncplus/phpcomplete.vim'
+Bundle 'mattn/emmet-vim'
+
+" Make % match xml tags
+Bundle 'edsono/vim-matchit'
 
 " Make tab handle all completions
 Bundle 'ervandew/supertab'
@@ -42,13 +48,23 @@ Bundle 'kien/ctrlp.vim.git'
 Bundle 'AlexJF/rename.vim'
 
 " Allow for HTML indenting in .php
-Bundle 'captbaritone/better-indent-support-for-php-with-html'
+"Bundle 'captbaritone/better-indent-support-for-php-with-html'
+
+Bundle 'gcmt/taboo.vim'
 
 " Change brackets and quotes
 Bundle 'tpope/vim-surround'
+" Make vim-surround repeatable with .
+Bundle 'tpope/vim-repeat'
 
 " Fugitive: Git from within Vim
 Bundle 'tpope/vim-fugitive'
+
+" Detect indent style
+Bundle 'ciaranm/detectindent'
+
+" PHP Testing helper
+Bundle 'joonty/vim-phpunitqf'
 
 " Some plugins require python
 if has('python')

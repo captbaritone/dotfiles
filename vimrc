@@ -30,6 +30,8 @@ set backspace=indent,eol,start  " Allow backspaceing over autoindent, line break
 set shortmess+=I                " No welcome screen
 set history=200                 " Remember the last 200 :ex commands
 set iskeyword-=_                " Underscore is a word boundary
+set exrc                        " enable per-directory .vimrc files
+set secure                      " disable unsafe commands in local .vimrc files
 
 " }}}-------------------------------------------------------------------------
 "   Visual                                                                {{{

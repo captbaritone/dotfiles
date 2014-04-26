@@ -222,7 +222,7 @@ nmap <silent> <Leader>u :Test<CR>
 " ----------------------------------------------------------------------------
 
 " Set Ultisnip directory
-let g:UltiSnipsSnippetDirectories=["snippets"]
+let g:UltiSnipsSnippetDirectories=["ultisnips"]
 " Cycle through ultisnip triggers with <tab>
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"

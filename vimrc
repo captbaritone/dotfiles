@@ -243,7 +243,8 @@ let g:gist_open_browser_after_post = 1
 
 " Ctrl-P
 let g:ctrlp_root_markers = 'info.*'     " Projects in ~/Work have info.md files
-let g:ctrlp_working_path_mode = 'ra'
+"let g:ctrlp_working_path_mode = 0       " Use vim's working directory for search
+let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn|sass-cache)$',
     \ 'file': '\v\.(png|jpg|jpeg|gif|DS_Store)$',

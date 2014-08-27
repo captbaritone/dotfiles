@@ -6,9 +6,18 @@
 "   Vundle                                                                {{{
 " ----------------------------------------------------------------------------
 
+set nocompatible " This must be first, because it changes other options
+
 " Include bundles in a separate file to avoid Chicken and Egg issue
 " http://gmarik.info/blog/2011/05/17/chicken-or-egg-dilemma
-source ~/.vim/bundles.vim
+
+" Load vim-plug
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
+
+call plug#begin('~/.vim/plugged')
+source $HOME/.vim/bundles.vim
 
 " }}}-------------------------------------------------------------------------
 "   Base Options                                                          {{{
@@ -242,8 +251,6 @@ let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
 " Ctrl-P
-let g:ctrlp_root_markers = 'info.*'     " Projects in ~/Work have info.md files
-"let g:ctrlp_working_path_mode = 0       " Use vim's working directory for search
 let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn|sass-cache)$',

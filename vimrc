@@ -17,7 +17,7 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 
 call plug#begin('~/.vim/plugged')
-source $HOME/.vim/bundles.vim
+source $HOME/.vim/plug.vim
 
 " }}}-------------------------------------------------------------------------
 "   Base Options                                                          {{{

@@ -260,37 +260,6 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_clear_cache_on_exit = 0
 
-let g:ctrlp_abbrev = {
-\ 'gmode': 'i',
-\ 'abbrevs': [
-    \ {
-    \ 'pattern': '^clients',
-    \ 'expanded': '@cd ~/clients',
-    \ 'mode': 'pfrz',
-    \ },
-    \ {
-    \ 'pattern': '^downloads',
-    \ 'expanded': '@cd ~/Downloads',
-    \ 'mode': 'pfrz',
-    \ },
-    \ {
-    \ 'pattern': '^cd',
-    \ 'expanded': '@cd ~/',
-    \ 'mode': 'pfrz',
-    \ },
-    \ {
-    \ 'pattern': '^vagrant',
-    \ 'expanded': '@cd ~/lamp/public',
-    \ 'mode': 'pfrz',
-    \ },
-    \ {
-    \ 'pattern': '^dotfiles',
-    \ 'expanded': '@cd ~/dotfiles',
-    \ 'mode': 'pfrz',
-    \ },
-    \ ]
-\ }
-
 " Airline
 let g:airline_enable_branch=1
 let g:airline_enable_syntastic=1

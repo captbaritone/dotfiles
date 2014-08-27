@@ -63,9 +63,6 @@ Bundle 'tpope/vim-fugitive'
 " Detect indent style
 Bundle 'ciaranm/detectindent'
 
-" PHP Testing helper
-Bundle 'joonty/vim-phpunitqf'
-
 " Some plugins require python
 if has('python')
 

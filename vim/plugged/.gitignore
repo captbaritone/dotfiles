@@ -1,8 +1,5 @@
 # Ignore ALL THE PLUGINS!
 /*/
 
-# Except vundle
-!vundle/
-
 # And don't ignore yourself!
 !.gitignore

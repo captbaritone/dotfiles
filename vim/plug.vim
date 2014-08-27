@@ -17,7 +17,6 @@ Plug 'tpope/vim-ragtag'
 Plug 'plasticboy/vim-markdown'
 
 " Completion
-Plug 'shawncplus/phpcomplete.vim'
 Plug 'mattn/emmet-vim'
 
 " Make % match xml tags
@@ -38,9 +37,6 @@ Plug 'kien/ctrlp.vim'
 " Rename files from within vim
 Plug 'AlexJF/rename.vim'
 
-" Allow for HTML indenting in .php
-"Bundle 'captbaritone/better-indent-support-for-php-with-html'
-
 Plug 'gcmt/taboo.vim'
 
 " Split navigation
@@ -53,9 +49,6 @@ Plug 'tpope/vim-repeat'
 
 " Fugitive: Git from within Vim
 Plug 'tpope/vim-fugitive'
-
-" Detect indent style
-Plug 'ciaranm/detectindent'
 
 " Some plugins require python
 if has('python')

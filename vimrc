@@ -206,11 +206,11 @@ filetype plugin indent on   " Rely on file plugins to handle indenting
 nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 nmap <silent> <Leader>ez :e $HOME/.zshrc<CR>
 nmap <silent> <Leader>em :e $HOME/.mutt/muttrc<CR>
-nmap <silent> <Leader>eb :e $HOME/.vim/bundles.vim<CR>
+nmap <silent> <Leader>ep :e $HOME/.vim/plug.vim<CR>
 nmap <silent> <Leader>es :e $HOME/.ssh/config<CR>
 nmap <silent> <Leader>et :e $HOME/todo.txt<CR>
 nmap <silent> <Leader>sv :so $MYVIMRC<CR>
-nmap <silent> <Leader>sb :so $HOME/.vim/bundles.vim<CR>
+nmap <silent> <Leader>sp :so $HOME/.vim/plug.vim<CR>
 
 " Faster save/quite/close
 nmap <silent> <Leader>w :update<CR>

@@ -39,6 +39,9 @@ Plug 'AlexJF/rename.vim'
 
 Plug 'gcmt/taboo.vim'
 
+" Split navigation
+Plug 'christoomey/vim-tmux-navigator'
+
 " Change brackets and quotes
 Plug 'tpope/vim-surround'
 " Make vim-surround repeatable with .

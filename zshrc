@@ -46,6 +46,9 @@ alias :bd="exit"
 # Disable DELETE/UPDATE without WHERE
 alias mysql='mysql --safe-updates'
 
+# Ssh to my work VM and attach to tmux
+alias dev="ssh dev -t tmux a"
+
 # Functions
 
 # Get the dimensions of an image

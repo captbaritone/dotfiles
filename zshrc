@@ -14,9 +14,6 @@ export VISUAL="$EDITOR"
 # Some single letter commands
 alias v="$EDITOR"
 alias g="git"
-alias o="open"
-alias refit="$HOME/dotfiles/install.sh"
-alias todo="vim $HOME/todo.txt"
 alias serve="python -m SimpleHTTPServer&"
 
 # Aliases for fat fingered or stupid people
@@ -48,17 +45,8 @@ case "$OSTYPE" in
         # fix the ubuntu bug which spits out an error message after launching gvim
         function gvim () { (/usr/bin/gvim -f "$@" &) }
         alias open="xdg-open"
-        alias vpn="safejumper"
         ;;
     darwin*)
-        # OSX already does this
-        #alias open="open"
-        alias t="open -a 'Transmit'"
-        function p() { open "$@" -a "Adobe Photoshop CS6"; }
-        function i() { open "$@" -a "Adobe Illustrator CS6"; }
-        alias cpu="open -a 'Activity Monitor'"
-        alias mem="open -a 'Activity Monitor'"
-        alias vpn="open -a 'Tunnelblick'"
         alias prank="osascript -e 'set volume 7' && say --voice Whisper "
         ;;
 esac

@@ -5,26 +5,6 @@ ZSH=$HOME/.oh-my-zsh
 # ZSH theme
 ZSH_THEME="captbaritone"
 
-###########################################################################
-#                Detect the best version of vim available                 #
-###########################################################################
-
-# Set the default editor
-if [ -z "$SSH_CLIENT" ] ; then          # for local/console sessions
-    if command -v gvim >/dev/null ; then
-      export EDITOR="gvim --remote-silent"
-    elif command -v vim >/dev/null ; then
-      export EDITOR="vim"
-    else
-      export EDITOR="vi"
-    fi
-else                                    # for remote/ssh sessions
-  if command -v vim >/dev/null ; then
-    export EDITOR="vim"
-  else
-    export EDITOR="vi"
-  fi
-fi
 export VISUAL="$EDITOR"
 
 ###########################################################################

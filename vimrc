@@ -159,7 +159,11 @@ else
     " The angle bracket defaults look fugly
     let g:airline_left_sep=''
     let g:airline_right_sep=''
-    set mouse=a
+    set mouse+=a
+    if &term =~ '^screen'
+        " tmux knows the extended mouse mode
+        set ttymouse=xterm2
+    endif
 
     " Colorscheme (Don't complain if you don't have it yet)
     silent! colorscheme molokai

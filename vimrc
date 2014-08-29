@@ -359,12 +359,6 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-" Split navigation
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
-
 " To encourage the use of <C-[np]> instead of the arrow keys in ex mode, remap
 " them to use <Up/Down> instead so that they will filter completions
 cnoremap <C-p> <Up>

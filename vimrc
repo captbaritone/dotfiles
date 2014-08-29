@@ -263,7 +263,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 " Airline
 let g:airline_enable_branch=1
 let g:airline_enable_syntastic=1
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 
 let g:syntastic_php_phpcs_args = '--standard=PSR1'
 

@@ -5,6 +5,8 @@ ZSH=$HOME/.oh-my-zsh
 # ZSH theme
 ZSH_THEME="captbaritone"
 
+export EDITOR="vim"
+
 export VISUAL="$EDITOR"
 
 ###########################################################################

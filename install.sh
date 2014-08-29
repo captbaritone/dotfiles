@@ -108,20 +108,10 @@ else
     fi
 fi;
 
-printf "Updating submodules:\n"
-git submodule update -q --init $HOME/dotfiles/vim/bundle/vundle
-printf "$(ok) - Vundle\n"
-#git submodule update -q --init $HOME/dotfiles/tools/z
-#printf "$(ok) - Z\n"
-#printf "    .ssh..."
-#git submodule update -q --init ~/dotfiles/ssh
-
-printf "Updating Vundle bundles:\n"
-vim -u ~/.vim/bundles.vim "+BundleInstall" +qall
-printf "$(ok) - Install bundles\n"
+printf "Updating Vundle plugins:\n"
+vim "+PlugInstall" +qall
 printf "Removing old Vundle bundles:\n"
-vim -u ~/.vim/bundles.vim "+BundleClean!" +qall
-printf "$(ok) - Clean bundles\n"
+vim "+PlugClean!" +qall
 
 printf "Checking for recommended tools\n"
 # oh-my-zsh

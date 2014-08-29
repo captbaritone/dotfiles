@@ -50,6 +50,9 @@ Plug 'tpope/vim-repeat'
 " Fugitive: Git from within Vim
 Plug 'tpope/vim-fugitive'
 
+" Python test running
+Plug 'JarrodCTaylor/vim-python-test-runner'
+
 " Some plugins require python
 if has('python')
 

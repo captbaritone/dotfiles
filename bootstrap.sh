@@ -18,6 +18,9 @@ if [ ! -d "$dotfiles" ]; then
     git clone "$dotrepo" "$dotfiles"
 fi;
 
+printf "Installing oh-my-zsh"
+curl -L http://install.ohmyz.sh | sh
+
 printf "Installing/updating dotfiles...\n"
 source "$dotfiles/install.sh"
 printf "\nTo get the most recent bashrc need to issue \`bash\`\n"

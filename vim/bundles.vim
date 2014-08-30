@@ -66,6 +66,9 @@ Bundle 'ciaranm/detectindent'
 " PHP Testing helper
 Bundle 'joonty/vim-phpunitqf'
 
+" Python testing helper
+Bundle 'JarrodCTaylor/vim-python-test-runner'
+
 " Some plugins require python
 if has('python')
 

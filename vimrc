@@ -6,9 +6,18 @@
 "   Vundle                                                                {{{
 " ----------------------------------------------------------------------------
 
+set nocompatible " This must be first, because it changes other options
+
 " Include bundles in a separate file to avoid Chicken and Egg issue
 " http://gmarik.info/blog/2011/05/17/chicken-or-egg-dilemma
-source ~/.vim/bundles.vim
+
+" Load vim-plug
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
+
+call plug#begin('~/.vim/plugged')
+source $HOME/.vim/plug.vim
 
 " }}}-------------------------------------------------------------------------
 "   Base Options                                                          {{{
@@ -150,7 +159,11 @@ else
     " The angle bracket defaults look fugly
     let g:airline_left_sep=''
     let g:airline_right_sep=''
-    set mouse=a
+    set mouse+=a
+    if &term =~ '^screen'
+        " tmux knows the extended mouse mode
+        set ttymouse=xterm2
+    endif
 
     " Colorscheme (Don't complain if you don't have it yet)
     silent! colorscheme molokai
@@ -197,11 +210,11 @@ filetype plugin indent on   " Rely on file plugins to handle indenting
 nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 nmap <silent> <Leader>ez :e $HOME/.zshrc<CR>
 nmap <silent> <Leader>em :e $HOME/.mutt/muttrc<CR>
-nmap <silent> <Leader>eb :e $HOME/.vim/bundles.vim<CR>
+nmap <silent> <Leader>ep :e $HOME/.vim/plug.vim<CR>
 nmap <silent> <Leader>es :e $HOME/.ssh/config<CR>
 nmap <silent> <Leader>et :e $HOME/todo.txt<CR>
 nmap <silent> <Leader>sv :so $MYVIMRC<CR>
-nmap <silent> <Leader>sb :so $HOME/.vim/bundles.vim<CR>
+nmap <silent> <Leader>sp :so $HOME/.vim/plug.vim<CR>
 
 " Faster save/quite/close
 nmap <silent> <Leader>w :update<CR>
@@ -242,52 +255,33 @@ let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 
 " Ctrl-P
-let g:ctrlp_root_markers = 'info.*'     " Projects in ~/Work have info.md files
-"let g:ctrlp_working_path_mode = 0       " Use vim's working directory for search
 let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn|sass-cache)$',
-    \ 'file': '\v\.(png|jpg|jpeg|gif|DS_Store)$',
+    \ 'dir':  '\v[\/]\.(git|hg|svn|sass-cache|pip_download_cache|wheel_cache)$',
+    \ 'fil': '\v\.(png|jpg|jpeg|gif|DS_Store)$',
     \ 'link': '',
     \ }
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_clear_cache_on_exit = 0
 
-let g:ctrlp_abbrev = {
-\ 'gmode': 'i',
-\ 'abbrevs': [
-    \ {
-    \ 'pattern': '^clients',
-    \ 'expanded': '@cd ~/clients',
-    \ 'mode': 'pfrz',
-    \ },
-    \ {
-    \ 'pattern': '^downloads',
-    \ 'expanded': '@cd ~/Downloads',
-    \ 'mode': 'pfrz',
-    \ },
-    \ {
-    \ 'pattern': '^cd',
-    \ 'expanded': '@cd ~/',
-    \ 'mode': 'pfrz',
-    \ },
-    \ {
-    \ 'pattern': '^vagrant',
-    \ 'expanded': '@cd ~/lamp/public',
-    \ 'mode': 'pfrz',
-    \ },
-    \ {
-    \ 'pattern': '^dotfiles',
-    \ 'expanded': '@cd ~/dotfiles',
-    \ 'mode': 'pfrz',
-    \ },
-    \ ]
-\ }
+
+
+" The Silver Searcher
+if executable('ag')
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+endif
 
 " Airline
 let g:airline_enable_branch=1
 let g:airline_enable_syntastic=1
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 
 let g:syntastic_php_phpcs_args = '--standard=PSR1'
 
@@ -364,12 +358,6 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
-
-" Split navigation
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
 
 " To encourage the use of <C-[np]> instead of the arrow keys in ex mode, remap
 " them to use <Up/Down> instead so that they will filter completions

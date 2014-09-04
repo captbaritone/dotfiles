@@ -9,12 +9,11 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'fxn/vim-monochrome'
 
 " Syntax
-Plug 'tpope/vim-git'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'xsbeats/vim-blade'
-Plug 'qrps/lilypond-vim'
-Plug 'tpope/vim-ragtag'
-Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-git', { 'for': 'git' }
+Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
+Plug 'xsbeats/vim-blade', { 'for': 'blade' }
+Plug 'qrps/lilypond-vim', { 'for': 'lilypond' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Completion
 Plug 'mattn/emmet-vim'
@@ -26,7 +25,7 @@ Plug 'edsono/vim-matchit'
 Plug 'ervandew/supertab'
 
 " Syntastic: Code linting errors
-Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic', { 'for': ['php', 'python', 'javascript', 'css'] }
 
 " Fancy statusline
 Plug 'bling/vim-airline'

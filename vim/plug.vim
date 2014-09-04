@@ -50,7 +50,9 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 
 " Python test running
-Plug 'JarrodCTaylor/vim-python-test-runner'
+Plug 'benmills/vimux'
+Plug 'pitluga/vimux-nose-test', { 'for': 'python' }
+Plug '~/.vim/dev', { 'for': 'python' }
 
 " Some plugins require python
 if has('python')

@@ -285,6 +285,9 @@ let g:airline_enable_syntastic=1
 
 let g:syntastic_php_phpcs_args = '--standard=PSR1'
 
+" Don't user pylint even though it's installed
+let g:syntastic_python_checkers = ['python']
+
 " Make supertab try omnicompletion first
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 

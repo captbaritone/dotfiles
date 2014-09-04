@@ -38,7 +38,7 @@ Plug 'AlexJF/rename.vim'
 
 Plug 'gcmt/taboo.vim'
 
-" Split navigation
+" Split navigation that works with tmux
 Plug 'christoomey/vim-tmux-navigator'
 
 " Change brackets and quotes

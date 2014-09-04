@@ -1,5 +1,11 @@
 # Packages installed with apt
-yajl-tools #json prettyprint
-ntop # Network top
-lynx # Web browser
-silversearcher-ag # Faster grep
+apt-get install \
+vim \
+vim-gnome \
+git \
+zsh \
+lynx \
+curl \
+ll \
+tree \
+silversearcher-ag

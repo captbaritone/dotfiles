@@ -1,6 +1,5 @@
 # Packages installed with apt
-zsh
 yajl-tools #json prettyprint
 ntop # Network top
 lynx # Web browser
-mailutils # Send mail from the command line
+silversearcher-ag # Faster grep

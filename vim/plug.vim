@@ -1,6 +1,13 @@
 " ----------------------------------------------------------------------------
-"   Vundle
+"   Plug
 " ----------------------------------------------------------------------------
+
+" Load vim-plug
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
+
+call plug#begin('~/.vim/plugged')
 
 " Colorschemes
 Plug 'tomasr/molokai'
@@ -75,6 +82,3 @@ endif
 
 filetype plugin indent on                   " required!
 call plug#end()
-
-" Needed on jailed servers
-set shell=/bin/bash                         " Allows Vundle to work on jailed servers

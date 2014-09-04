@@ -8,15 +8,6 @@
 
 set nocompatible " This must be first, because it changes other options
 
-" Include bundles in a separate file to avoid Chicken and Egg issue
-" http://gmarik.info/blog/2011/05/17/chicken-or-egg-dilemma
-
-" Load vim-plug
-if empty(glob("~/.vim/autoload/plug.vim"))
-    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
-endif
-
-call plug#begin('~/.vim/plugged')
 source $HOME/.vim/plug.vim
 
 " }}}-------------------------------------------------------------------------

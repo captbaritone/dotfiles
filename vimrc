@@ -198,12 +198,12 @@ filetype plugin indent on   " Rely on file plugins to handle indenting
 " ----------------------------------------------------------------------------
 
 " Edit the vimrc file
-nmap <silent> <Leader>ev :e $MYVIMRC<CR>
-nmap <silent> <Leader>ez :e $HOME/.zshrc<CR>
-nmap <silent> <Leader>em :e $HOME/.mutt/muttrc<CR>
-nmap <silent> <Leader>ep :e $HOME/.vim/plug.vim<CR>
-nmap <silent> <Leader>es :e $HOME/.ssh/config<CR>
-nmap <silent> <Leader>et :e $HOME/todo.txt<CR>
+nmap <silent> <Leader>ev :vsp $MYVIMRC<CR>
+nmap <silent> <Leader>ez :vsp $HOME/.zshrc<CR>
+nmap <silent> <Leader>em :vsp $HOME/.mutt/muttrc<CR>
+nmap <silent> <Leader>ep :vsp $HOME/.vim/plug.vim<CR>
+nmap <silent> <Leader>es :vsp $HOME/.ssh/config<CR>
+nmap <silent> <Leader>et :vsp $HOME/.tmux.conf<CR>
 nmap <silent> <Leader>sv :so $MYVIMRC<CR>
 nmap <silent> <Leader>sp :so $HOME/.vim/plug.vim<CR>
 

@@ -53,6 +53,9 @@ Plug 'tpope/vim-surround'
 " Make vim-surround repeatable with .
 Plug 'tpope/vim-repeat'
 
+" Select indent objects
+Plug 'michaeljsmith/vim-indent-object'
+
 " Fugitive: Git from within Vim
 Plug 'tpope/vim-fugitive'
 
@@ -60,6 +63,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'benmills/vimux'
 Plug 'pitluga/vimux-nose-test', { 'for': 'python' }
 Plug '~/.vim/dev', { 'for': 'python' }
+Plug 'tpope/vim-dispatch'
 
 " Some plugins require python
 if has('python')

@@ -270,9 +270,7 @@ if executable('ag')
 endif
 
 " Airline
-let g:airline_enable_branch=1
-let g:airline_enable_syntastic=1
-"let g:airline#extensions#tabline#enabled = 1
+" Nothing here
 
 let g:syntastic_php_phpcs_args = '--standard=PSR1'
 

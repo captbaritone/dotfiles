@@ -60,10 +60,10 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-fugitive'
 
 " Python test running
-Plug 'benmills/vimux'
-Plug 'pitluga/vimux-nose-test', { 'for': 'python' }
-Plug '~/.vim/dev', { 'for': 'python' }
+Plug 'olethanh/Vim-nosecompiler', { 'for': 'python' }
 Plug 'tpope/vim-dispatch'
+"Plug 'reinh/vim-makegreen'
+Plug '~/.vim/dev', { 'for': 'python' }
 
 " Some plugins require python
 if has('python')

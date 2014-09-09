@@ -249,7 +249,7 @@ let g:gist_open_browser_after_post = 1
 let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn|sass-cache|pip_download_cache|wheel_cache)$',
-    \ 'fil': '\v\.(png|jpg|jpeg|gif|DS_Store)$',
+    \ 'fil': '\v\.(png|jpg|jpeg|gif|DS_Store|pyc)$',
     \ 'link': '',
     \ }
 let g:ctrlp_show_hidden = 1

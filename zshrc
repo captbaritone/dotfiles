@@ -28,7 +28,10 @@ alias mysql='mysql --safe-updates'
 # Ssh to my work VM and attach to tmux
 alias dev="ssh dev -t tmux a"
 
+# Hearsay specific
 alias pr="./lgtm create"
+alias logs="tail -f /var/log/fm/jeldredge.log"
+alias celery="./scripts/start_celeryd.sh"
 
 # Functions
 

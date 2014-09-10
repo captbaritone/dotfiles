@@ -253,6 +253,8 @@ let g:ctrlp_custom_ignore = {
     \ }
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_clear_cache_on_exit = 0
+" Wait to update results (This should fix the fact that backspace is so slow)
+let g:ctrlp_lazy_update = 1
 
 
 

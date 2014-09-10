@@ -29,7 +29,6 @@ set ttyfast                     " Indicates a fast terminal connection
 set backspace=indent,eol,start  " Allow backspaceing over autoindent, line breaks, starts of insert
 set shortmess+=I                " No welcome screen
 set history=200                 " Remember the last 200 :ex commands
-set iskeyword-=_                " Underscore is a word boundary
 set exrc                        " enable per-directory .vimrc files
 set secure                      " disable unsafe commands in local .vimrc files
 

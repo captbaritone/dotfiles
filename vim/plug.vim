@@ -41,7 +41,7 @@ Plug 'bling/vim-airline'
 Plug 'kien/ctrlp.vim'
 
 " Rename files from within vim
-Plug 'AlexJF/rename.vim'
+Plug 'AlexJF/rename.vim', { 'on': 'Rename' }
 
 Plug 'gcmt/taboo.vim'
 

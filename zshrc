@@ -120,10 +120,17 @@ setopt no_auto_menu
 SAVEHIST=1000
 # Save it to a file
 HISTFILE=~/.history
+export TMPDIR=$HOME/tmp
 
 # Autocomplete from history with arrow keys
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
+
+# Make "v" open current line in my editor
+export VISUAL=vim
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
 # Customize to your needs...
 if [ -f $HOME/.zshrc.local ]; then
@@ -131,7 +138,7 @@ if [ -f $HOME/.zshrc.local ]; then
 fi
 
 # Look in my global composer packages
-export PATH=~/dotfiles/composer-packages/vendor/bin:$PATH
+export PATH=~/dotfiles/composer-packages/vendor/bin:~/dotfiles/bin:$PATH
 # Look in this project's vendor/bin directory
 export PATH=vendor/bin:$PATH
 

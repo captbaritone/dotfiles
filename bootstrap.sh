@@ -12,11 +12,20 @@
 dotfiles="$HOME/dotfiles"
 dotrepo="http://github.com/captbaritone/dotfiles"
 
+printf "Installing Oh My Zsh"
+curl -L http://install.ohmyz.sh | sh
+
+printf "Changing shell to zsh"
+chsh -s `which zsh`
+
 # Do the dot files
 if [ ! -d "$dotfiles" ]; then
     printf "Fetching dotfiles...\n"
     git clone "$dotrepo" "$dotfiles"
 fi;
+
+printf "Installing oh-my-zsh"
+curl -L http://install.ohmyz.sh | sh
 
 printf "Installing/updating dotfiles...\n"
 source "$dotfiles/install.sh"

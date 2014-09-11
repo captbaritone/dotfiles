@@ -1,6 +1,11 @@
 # Packages installed with apt
-zsh
-yajl-tools #json prettyprint
-ntop # Network top
-lynx # Web browser
-mailutils # Send mail from the command line
+apt-get install \
+vim \
+vim-gnome \
+git \
+zsh \
+lynx \
+curl \
+ll \
+tree \
+silversearcher-ag

@@ -32,6 +32,7 @@ alias dev="ssh dev -t tmux a"
 alias pr="./lgtm create"
 alias logs="tail -f /var/log/fm/jeldredge.log"
 alias celery="./scripts/start_celeryd.sh"
+alias ship="./lgtm create"
 
 # Functions
 

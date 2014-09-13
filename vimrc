@@ -100,11 +100,31 @@ endfun
 " a Automatically format paragraphs
 set formatoptions=cqrn1
 
+" Colors
 syntax enable               " This has to come after colorcolumn in order to draw it.
-set t_Co=256                " enable 256 colors
+"set t_Co=256               " enable 256 colors
+set background=dark
+colorscheme base16-railscasts
+
+highlight clear SignColumn
+highlight VertSplit    ctermbg=236
+highlight ColorColumn  ctermbg=236
+highlight LineNr       ctermbg=236 ctermfg=240
+highlight CursorLineNr ctermbg=236 ctermfg=240
+highlight CursorLine   ctermbg=236
+highlight StatusLineNC ctermbg=238 ctermfg=0
+highlight StatusLine   ctermbg=240 ctermfg=12
+highlight IncSearch    ctermbg=3   ctermfg=1
+highlight Search       ctermbg=1   ctermfg=3
+highlight Visual       ctermbg=3   ctermfg=0
+highlight Pmenu        ctermbg=240 ctermfg=12
+highlight PmenuSel     ctermbg=3   ctermfg=1
+highlight SpellBad     ctermbg=0   ctermfg=1
 
 " Use the same color for the SignColumn as the line number column
 highlight clear SignColumn
+
+let g:airline_theme='base16'
 
 " Printing options
 set printoptions=header:0,duplex:long,paper:letter,syntax:n
@@ -128,21 +148,12 @@ if has("gui_running")
         " Set the font for Linux machines
         let g:airline_powerline_fonts=1
         set guifont=Inconsolata\ for\ Powerline
-        " Colorscheme (Don't complain if you don't have it yet)
-        silent! colorscheme molokai
-        set background=dark
-        let g:airline_theme='molokai'
     elseif has("gui_win32")
         " set guifont=Consolas:h11:cANSI
     else
         " set guifont=Menlo
         let g:airline_powerline_fonts=1
-        set guifont=Inconsolata\ for\ Powerline:h13
-
-        " Colorscheme (Don't complain if you don't have it yet)
-        silent! colorscheme molokai
-        set background=dark
-        let g:airline_theme='molokai'
+        set font=Inconsolata\ for\ Powerline:h13
     endif
 else
     " Don't show the airline separators if we are not in GUI
@@ -154,11 +165,6 @@ else
         " tmux knows the extended mouse mode
         set ttymouse=xterm2
     endif
-
-    " Colorscheme (Don't complain if you don't have it yet)
-    silent! colorscheme molokai
-    set background=dark
-    let g:airline_theme='molokai'
 endif
 
 " }}}-------------------------------------------------------------------------
@@ -400,4 +406,5 @@ endif
 " }}}-------------------------------------------------------------------------
 "                                                                         {{{
 " ----------------------------------------------------------------------------
+
 

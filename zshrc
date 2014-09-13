@@ -26,7 +26,7 @@ alias :bd="exit"
 alias mysql='mysql --safe-updates'
 
 # Ssh to my work VM and attach to tmux
-alias dev="ssh dev -t tmux a"
+alias dev="ssh dev -t tmux attach -d"
 
 # Hearsay specific
 alias pr="./lgtm create"

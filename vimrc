@@ -405,5 +405,44 @@ endif
 " }}}-------------------------------------------------------------------------
 "                                                                         {{{
 " ----------------------------------------------------------------------------
+"
 
+
+" Jumping to tags. (via Steve Losh)
+"
+" Basically, <c-]> jumps to tags (like normal) and <c-\> opens the tag in a new
+" split instead.
+" Both of them will align the destination line to the upper middle part of
+" the
+" screen. Both will pulse the cursor line so you can see where the hell you
+" are. <c-\> will also fold everything in the buffer and then unfold just
+" enough for you to see the destination line.
+
+nnoremap <c-]> <c-]>mzzvzz15<c-e>`z:Pulse<cr>
+nnoremap <c-\> <c-w>v<c-]>mzzMzvzz15<c-e>`z:Pulse<cr>
+
+function! s:Pulse()
+    redir => old_hi
+    silent execute 'hi CursorLine'
+    redir END
+    let old_hi = split(old_hi, '\n')[0]
+    let old_hi = substitute(old_hi, 'xxx', '', '')
+    let steps = 8
+    let width = 1
+    let start = width
+    let end = steps * width
+    let color = 233
+    for i in range(start, end, width)
+        execute "hi CursorLine ctermbg=" . (color + i)
+        redraw
+        sleep 6m
+    endfor
+    for i in range(end, start, -1 * width)
+        execute "hi CursorLine ctermbg=" . (color + i)
+        redraw
+        sleep 6m
+    endfor
+    execute 'hi ' . old_hi
+endfunction
+command! -nargs=0 Pulse call s:Pulse()
 

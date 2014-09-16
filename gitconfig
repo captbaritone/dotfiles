@@ -26,6 +26,7 @@
 	cm = commit -m
 	co = commit
 	dc = diff --cached
+	bn = branch --no-merge
 	di = diff
 	rb = pull --rebase upstream master
 	lg = !"git lg1"

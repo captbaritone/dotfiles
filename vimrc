@@ -104,12 +104,13 @@ set formatoptions=cqrn1
 syntax enable               " This has to come after colorcolumn in order to draw it.
 "set t_Co=256               " enable 256 colors
 set background=dark
-colorscheme base16-railscasts
+colorscheme molokai
 
+" Use the same color for the SignColumn as the line number column
 highlight clear SignColumn
 highlight VertSplit    ctermbg=236
 highlight ColorColumn  ctermbg=236
-highlight LineNr       ctermbg=236 ctermfg=240
+highlight LineNr       ctermbg=233 ctermfg=236
 highlight CursorLineNr ctermbg=236 ctermfg=240
 highlight CursorLine   ctermbg=236
 highlight StatusLineNC ctermbg=238 ctermfg=0
@@ -121,10 +122,7 @@ highlight Pmenu        ctermbg=240 ctermfg=12
 highlight PmenuSel     ctermbg=3   ctermfg=1
 highlight SpellBad     ctermbg=0   ctermfg=1
 
-" Use the same color for the SignColumn as the line number column
-highlight clear SignColumn
-
-let g:airline_theme='base16'
+let g:airline_theme='zenburn'
 
 " Printing options
 set printoptions=header:0,duplex:long,paper:letter,syntax:n
@@ -158,8 +156,9 @@ if has("gui_running")
 else
     " Don't show the airline separators if we are not in GUI
     " The angle bracket defaults look fugly
-    let g:airline_left_sep=''
-    let g:airline_right_sep=''
+    let g:airline_left_sep=' '
+    let g:airline_right_sep=' '
+    let g:airline_powerline_fonts=0
     set mouse+=a
     if &term =~ '^screen'
         " tmux knows the extended mouse mode

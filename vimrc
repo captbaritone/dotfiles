@@ -215,6 +215,8 @@ nmap <silent> <Leader>sp :so $HOME/.vim/plug.vim<CR>
 nmap <silent> <Leader>w :update<CR>
 nmap <silent> <Leader>q :quit<CR>
 nmap <silent> <Leader>c :bd<CR>
+nmap <silent> <Leader>n :cn<CR>
+nmap <silent> <Leader>p :cp<CR>
 
 " Trim trailing white space
 nmap <silent> <Leader>t :call StripTrailingWhitespaces()<CR>

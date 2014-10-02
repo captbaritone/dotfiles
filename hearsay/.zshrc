@@ -8,4 +8,4 @@ alias shell="./run.sh manage.py shell --settings=settings.jeldredge --organizati
 alias logs="tail -f /var/log/fm/jeldredge.log"
 alias celery="./scripts/start_celeryd.sh"
 alias ship="./lgtm create"
-
+alias fix="sudo service uwsgi restart && sudo service nginx restart"

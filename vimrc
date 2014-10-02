@@ -124,6 +124,10 @@ highlight SpellBad     ctermbg=0   ctermfg=1
 
 let g:airline_theme='zenburn'
 
+" When completing, fill with the longest common string
+" Auto select the first option
+set completeopt=longest,menuone
+
 " Printing options
 set printoptions=header:0,duplex:long,paper:letter,syntax:n
 " header:0                  Do not print a header
@@ -227,8 +231,6 @@ nnoremap <Leader>. :cd %:p:h<CR>:pwd<CR>
 " Move current window to the far left using full height
 nmap <silent> <Leader>h <C-w>H
 
-nmap <silent> <Leader>u :Test<CR>
-
 " }}}-------------------------------------------------------------------------
 "   Plugins                                                               {{{
 " ----------------------------------------------------------------------------
@@ -263,8 +265,6 @@ let g:ctrlp_clear_cache_on_exit = 0
 " Wait to update results (This should fix the fact that backspace is so slow)
 let g:ctrlp_lazy_update = 1
 
-
-
 " The Silver Searcher
 if executable('ag')
     " Use ag over grep
@@ -277,17 +277,16 @@ if executable('ag')
     let g:ctrlp_use_caching = 0
 endif
 
-" Airline
-" Nothing here
-
+" Syntastic
 let g:syntastic_php_phpcs_args = '--standard=PSR1'
 
 " Don't user pylint even though it's installed
 let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
 let g:syntastic_python_pep8_args="--ignore=E501,E121,E125,E126,E128,C0111"
 
-" Make supertab try omnicompletion first
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+" gundo plugin. Requires vim being compiled with Python support
+nnoremap <F5> :GundoToggle<CR>
+
 
 " }}}-------------------------------------------------------------------------
 "   Custom filetypes                                                      {{{
@@ -313,6 +312,10 @@ let php_htmlInStrings = 1               "for HTML syntax highlighting inside str
 "php_oldStyle = 1                       "for using old colorstyle
 "php_noShortTags = 1                    "don't sync <? ?> as php
 let php_folding = 1                     "for folding classes and functions
+" Turn on completion for php
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+" Run Exuberant Ctags everytime I save a php file
+autocmd BufWritePost php silent! !ctags -R &
 
 "js syntax options
 let javaScript_fold=1                   "for folding classes and functions
@@ -329,26 +332,12 @@ autocmd FileType config      setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType gitconfig   setlocal ts=2 sts=2 sw=2 noexpandtab
 autocmd FileType ruby,eruby  setlocal ts=2 sts=2 sw=2 expandtab
 
-" Run Exuberant Ctags everytime I save a php file
-autocmd BufWritePost php silent! !ctags -R &
-
-" Turn on completion for php
-autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-" When completing, fill with the longest common string
-" Auto select the first option
-set completeopt=longest,menuone
-
-
 " }}}-------------------------------------------------------------------------
 "   Custom mappings                                                       {{{
 " ----------------------------------------------------------------------------
 
-
 " When pasting, refill the default register with what you just pasted
 xnoremap p pgvy
-
-" gundo plugin. Requires vim being compiled with Python support
-nnoremap <F5> :GundoToggle<CR>
 
 " Repurpose arrow keys to navigating windows
 nnoremap <left> <C-w>h
@@ -369,6 +358,9 @@ cnoremap <C-n> <Down>
 nnoremap j gj
 nnoremap k gk
 
+" Make Y consistent with D
+nnoremap Y y$
+
 " Reselect visual block after indent/outdent: http://vimbits.com/bits/20
 vnoremap < <gv
 vnoremap > >gv
@@ -384,6 +376,8 @@ command! Bd bd
 command! BD bd
 command! Q q
 command! W w
+" Nobody ever uses this
+noremap Q <nop>
 
 " }}}-------------------------------------------------------------------------
 "   Undo, Backup and Swap file locations                                  {{{
@@ -407,44 +401,3 @@ endif
 " }}}-------------------------------------------------------------------------
 "                                                                         {{{
 " ----------------------------------------------------------------------------
-"
-
-
-" Jumping to tags. (via Steve Losh)
-"
-" Basically, <c-]> jumps to tags (like normal) and <c-\> opens the tag in a new
-" split instead.
-" Both of them will align the destination line to the upper middle part of
-" the
-" screen. Both will pulse the cursor line so you can see where the hell you
-" are. <c-\> will also fold everything in the buffer and then unfold just
-" enough for you to see the destination line.
-
-nnoremap <c-]> <c-]>mzzvzz15<c-e>`z:Pulse<cr>
-nnoremap <c-\> <c-w>v<c-]>mzzMzvzz15<c-e>`z:Pulse<cr>
-
-function! s:Pulse()
-    redir => old_hi
-    silent execute 'hi CursorLine'
-    redir END
-    let old_hi = split(old_hi, '\n')[0]
-    let old_hi = substitute(old_hi, 'xxx', '', '')
-    let steps = 8
-    let width = 1
-    let start = width
-    let end = steps * width
-    let color = 233
-    for i in range(start, end, width)
-        execute "hi CursorLine ctermbg=" . (color + i)
-        redraw
-        sleep 6m
-    endfor
-    for i in range(end, start, -1 * width)
-        execute "hi CursorLine ctermbg=" . (color + i)
-        redraw
-        sleep 6m
-    endfor
-    execute 'hi ' . old_hi
-endfunction
-command! -nargs=0 Pulse call s:Pulse()
-

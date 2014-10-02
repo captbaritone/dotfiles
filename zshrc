@@ -54,6 +54,8 @@ export TMPDIR=$HOME/tmp
 # Autocomplete from history with arrow keys
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
 
 source $ZSH/oh-my-zsh.sh
 

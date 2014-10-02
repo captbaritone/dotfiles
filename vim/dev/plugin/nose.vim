@@ -1,10 +1,5 @@
 " Run 
-let s:testProjectRoot = '~/projects/HearsayLabs/fanmgmt'
-let s:testSettings = 'settings.jeldredge'
-let s:testCommand = './run.sh manage.py test --settings=' . s:testSettings
-let s:testScript = 'clear && cd ' . s:testProjectRoot . " && " . s:testCommand
-
-let s:lastCmd = ''
+let s:testScript = 'clear && cd ~/projects/HearsayLabs/fanmgmt && ./run.sh manage.py test --settings=settings.jeldredge'
 
 nnoremap <leader>nc :call RunCurrentTests()<cr>
 nnoremap <leader>nn :RunLastTests<cr>
@@ -27,11 +22,7 @@ function! RunFocusedTests()
 endfunction
 
 function! s:RunLastTests()
-    if(s:lastCmd == '')
-        echo "ERROR: No last test to run, try running a test first"
-    else
-        call s:runCommand(s:lastCmd)
-    endif
+    call VimuxRunLastCommand()
 endfunction
 
 " Private functions
@@ -41,11 +32,8 @@ function! s:fileName()
 endfunction
 
 function! s:runCommand(cmd)
-    compile nose
-    let s:lastCmd = a:cmd
-    let &makeprg=a:cmd
-    echo "Running: " a:cmd
-    Make
+    echo a:cmd
+    call VimuxRunCommand(a:cmd)
 endfunction
 
 

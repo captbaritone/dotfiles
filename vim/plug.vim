@@ -65,6 +65,8 @@ Plug 'olethanh/Vim-nosecompiler', { 'for': 'python' }
 Plug 'tpope/vim-dispatch'
 "Plug 'reinh/vim-makegreen'
 Plug '~/.vim/dev', { 'for': 'python' }
+Plug 'davidhalter/jedi-vim'
+Plug 'vimwiki/vimwiki'
 
 " Some plugins require python
 if has('python')

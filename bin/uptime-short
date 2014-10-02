@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Just output the number of days
+uptime | cut -f 4-5 -d " " | cut -f 1 -d ","

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# ssh and automatically attach to, or create a tmux session, killing all other
+# attachments
+
+# http://marklodato.github.io/2013/10/31/autostart-tmux-on-ssh.html
+ssh -t "$@" -t -- /bin/sh -c 'tmux has-session && exec tmux attach -d || exec tmux'

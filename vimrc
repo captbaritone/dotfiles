@@ -320,6 +320,9 @@ let javaScript_fold=1                   "for folding classes and functions
 " Sass and Css options
 autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 
+" HTML options
+autocmd BufNewFile,BufRead *.html set filetype=htmldjango
+
 " Per file-type indention rules
 autocmd FileType html        setlocal ts=4 sts=4 sw=4 expandtab
 autocmd FileType css         setlocal ts=4 sts=4 sw=4 expandtab

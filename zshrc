@@ -1,13 +1,10 @@
-# Path to your oh-my-zsh configuration.
-ZSH_CUSTOM=$HOME/dotfiles/zsh-custom
-ZSH=$HOME/.oh-my-zsh
-
-# ZSH theme
-ZSH_THEME="captbaritone"
-
 export EDITOR="vim"
+export DOTFILES="$HOME/dotfiles"
 
 export VISUAL="$EDITOR"
+
+# Look in my global composer packages
+export PATH=~/dotfiles/composer-packages/vendor/bin:~/dotfiles/bin:$PATH
 
 ###########################################################################
 #                                  Alias                                  #
@@ -16,7 +13,6 @@ export VISUAL="$EDITOR"
 # Some single letter commands
 alias v="$EDITOR"
 alias g="git"
-alias serve="python -m SimpleHTTPServer&"
 
 # Aliases for fat fingered or stupid people
 alias :q="exit"

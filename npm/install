@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+echo "Installing npm"
+
+echo "Installing npm packages"
+npm install jshint

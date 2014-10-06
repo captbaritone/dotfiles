@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+if ! which brew &> /dev/null; then
+    echo "Installing homebrew"
+    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+fi
+
+echo "Installing Brew packages"
+brew install \
+    ack \
+    bash \
+    bash-completion \
+    coreutils \
+    curl \
+    ffmpeg \
+    findutils \
+    gibo \
+    grc \
+    imagemagick \
+    lynx \
+    mutt \
+    the_silver_searcher \
+    tmux \
+    tree \
+    unrar \
+    watch \
+    wget \
+    yajl \
+    zsh

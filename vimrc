@@ -284,8 +284,8 @@ let g:syntastic_php_phpcs_args = '--standard=PSR1'
 let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
 let g:syntastic_python_pep8_args="--ignore=E501,E121,E125,E126,E128,C0111"
 
-" gundo plugin. Requires vim being compiled with Python support
-nnoremap <F5> :GundoToggle<CR>
+" Undotree plugin.
+nnoremap <F5> :UndotreeToggle<CR>
 
 
 " }}}-------------------------------------------------------------------------

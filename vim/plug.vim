@@ -69,11 +69,12 @@ Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'vimwiki/vimwiki'
 
+" Visualize undo tree
+Plug 'mbbill/undotree'
+
 " Some plugins require python
 if has('python')
 
-    " Gundo: Undo history
-    Plug 'sjl/gundo.vim'
     " Ultisnips: Snippet manager
     Plug 'SirVer/ultisnips'
 endif

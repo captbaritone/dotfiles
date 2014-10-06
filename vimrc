@@ -301,6 +301,7 @@ autocmd BufRead,BufNewFile *.git/config,.gitconfig,.gitmodules,gitconfig set ft=
 " Override what is done in /vim/bundle/scss-syntax.vim/ftdetect/scss.vim
 " This should prevent duplicate snippets
 autocmd BufRead,BufNewFile *.scss           set filetype=scss
+autocmd BufRead,BufNewFile *.py             setlocal foldmethod=indent
 
 "php syntax options
 let php_sql_query = 1                   "for SQL syntax highlighting inside strings

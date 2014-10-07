@@ -19,6 +19,7 @@ brew install \
     ffmpeg \
     findutils \
     gibo \
+    gnupg \
     grc \
     imagemagick \
     lynx \

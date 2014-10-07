@@ -36,15 +36,16 @@ brew install \
 # GUI applications
 
 brew cask install \
-    hermes \
+    bittorrent-sync \
+    colloquy \
     firefox \
-    iterm2 \
     google-chrome \
-    colloqy \
+    hermes \
     hipchat \
-    bittorent-sync \
+    iterm2 \
     lilypond \
     seil \
+    transmit \
 
 # Turn off "Play feedback when volume is changed"
 defaults write -g "com.apple.sound.beep.feedback" -int 0

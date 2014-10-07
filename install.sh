@@ -1,11 +1,6 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 dotfilespath="$HOME/dotfiles"
-dotfilerepo="git@github.com:captbaritone/dotfiles"
-
-guidespath="$HOME/guides"
-guidesrepo="http://github.com/captbaritone/guides.git"
-
 
 FILES=(\
     bashrc \

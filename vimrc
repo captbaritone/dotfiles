@@ -135,39 +135,18 @@ set printoptions=header:0,duplex:long,paper:letter,syntax:n
 " syntax:n                  Do not use syntax highlighting.  This is faster and
 
 " }}}-------------------------------------------------------------------------
-"   GUI Specific                                                          {{{
+"   Non-GUI Specific                                                      {{{
 " ----------------------------------------------------------------------------
 
-" Consider moving these .gvim
-if has("gui_running")
-    " Hide Scrollbars
-    set guioptions-=T       " Remove tool bar
-    set guioptions-=r       " Remove right-hand scroll bar
-    set guioptions-=m       " Remove menu bar
-    set guioptions-=L       " Remove left-hand scroll bar
-
-    if has("gui_gtk2")
-        " Set the font for Linux machines
-        let g:airline_powerline_fonts=1
-        set guifont=Inconsolata\ for\ Powerline
-    elseif has("gui_win32")
-        " set guifont=Consolas:h11:cANSI
-    else
-        " set guifont=Menlo
-        let g:airline_powerline_fonts=1
-        set font=Inconsolata\ for\ Powerline:h13
-    endif
-else
-    " Don't show the airline separators if we are not in GUI
-    " The angle bracket defaults look fugly
-    let g:airline_left_sep=' '
-    let g:airline_right_sep=' '
-    let g:airline_powerline_fonts=0
-    set mouse+=a
-    if &term =~ '^screen'
-        " tmux knows the extended mouse mode
-        set ttymouse=xterm2
-    endif
+" Don't show the airline separators if we are not in GUI
+" The angle bracket defaults look fugly
+let g:airline_left_sep=' '
+let g:airline_right_sep=' '
+let g:airline_powerline_fonts=0
+set mouse+=a
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
 endif
 
 " }}}-------------------------------------------------------------------------
@@ -186,9 +165,6 @@ nnoremap ? ?\v
 vnoremap ? ?\v
 set ignorecase              " Ignore case when searching
 set smartcase               " Don't ignore case if we have a capital letter
-
-" Clear search highlights
-nnoremap <leader><space> :nohlsearch<cr>
 
 " }}}-------------------------------------------------------------------------
 "   Tabs                                                                  {{{
@@ -230,6 +206,9 @@ nnoremap <Leader>. :cd %:p:h<CR>:pwd<CR>
 
 " Move current window to the far left using full height
 nmap <silent> <Leader>h <C-w>H
+
+" Clear search highlights
+nnoremap <leader><space> :nohlsearch<cr>
 
 " }}}-------------------------------------------------------------------------
 "   Plugins                                                               {{{
@@ -277,13 +256,6 @@ if executable('ag')
     let g:ctrlp_use_caching = 0
 endif
 
-" Syntastic
-let g:syntastic_php_phpcs_args = '--standard=PSR1'
-
-" Don't user pylint even though it's installed
-let g:syntastic_python_checkers = ['python', 'pyflakes', 'pep8']
-let g:syntastic_python_pep8_args="--ignore=E501,E121,E125,E126,E128,C0111"
-
 " Undotree plugin.
 nnoremap <F5> :UndotreeToggle<CR>
 
@@ -298,43 +270,12 @@ autocmd BufRead,BufNewFile *.js             set filetype=javascript
 autocmd BufRead,BufNewFile *.lytex          set filetype=tex
 autocmd BufRead,BufNewFile ~/dotfiles/ssh/config set filetype=sshconfig
 autocmd BufRead,BufNewFile *.git/config,.gitconfig,.gitmodules,gitconfig set ft=gitconfig
+autocmd BufNewFile,BufRead *.html           set filetype=htmldjango
+
 " Override what is done in /vim/bundle/scss-syntax.vim/ftdetect/scss.vim
 " This should prevent duplicate snippets
 autocmd BufRead,BufNewFile *.scss           set filetype=scss
 autocmd BufRead,BufNewFile *.py             setlocal foldmethod=indent
-
-"php syntax options
-let php_sql_query = 1                   "for SQL syntax highlighting inside strings
-let php_htmlInStrings = 1               "for HTML syntax highlighting inside strings
-"php_baselib = 1                        "for highlighting baselib functions
-"php_asp_tags = 1                       "for highlighting ASP-style short tags
-"php_parent_error_close = 1             "for highlighting parent error ] or )
-"php_parent_error_open = 1              "for skipping an php end tag, if there exists an open ( or [ without a closing one
-"php_oldStyle = 1                       "for using old colorstyle
-"php_noShortTags = 1                    "don't sync <? ?> as php
-let php_folding = 1                     "for folding classes and functions
-" Turn on completion for php
-autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-" Run Exuberant Ctags everytime I save a php file
-autocmd BufWritePost php silent! !ctags -R &
-
-"js syntax options
-let javaScript_fold=1                   "for folding classes and functions
-
-" Sass and Css options
-autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
-
-" HTML options
-autocmd BufNewFile,BufRead *.html set filetype=htmldjango
-
-" Per file-type indention rules
-autocmd FileType html        setlocal ts=4 sts=4 sw=4 expandtab
-autocmd FileType css         setlocal ts=4 sts=4 sw=4 expandtab
-autocmd FileType scss        setlocal ts=4 sts=4 sw=4 expandtab
-autocmd FileType javascript  setlocal ts=4 sts=4 sw=4 expandtab
-autocmd FileType config      setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType gitconfig   setlocal ts=2 sts=2 sw=2 noexpandtab
-autocmd FileType ruby,eruby  setlocal ts=2 sts=2 sw=2 expandtab
 
 " }}}-------------------------------------------------------------------------
 "   Custom mappings                                                       {{{

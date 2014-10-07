@@ -1,0 +1,17 @@
+" Hide Scrollbars
+set guioptions-=T       " Remove tool bar
+set guioptions-=r       " Remove right-hand scroll bar
+set guioptions-=m       " Remove menu bar
+set guioptions-=L       " Remove left-hand scroll bar
+
+if has("gui_gtk2")
+    " Set the font for Linux machines
+    let g:airline_powerline_fonts=1
+    set guifont=Inconsolata\ for\ Powerline
+elseif has("gui_win32")
+    " set guifont=Consolas:h11:cANSI
+else
+    " set guifont=Menlo
+    let g:airline_powerline_fonts=1
+    set font=Inconsolata\ for\ Powerline:h13
+endif

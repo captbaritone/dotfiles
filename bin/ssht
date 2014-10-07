@@ -4,4 +4,4 @@
 # attachments
 
 # http://marklodato.github.io/2013/10/31/autostart-tmux-on-ssh.html
-ssh -t "$@" -t -- /bin/sh -c 'tmux has-session && exec tmux attach -d || exec tmux'
+ssh "$@" -t 'tmux has-session && exec tmux attach || exec tmux'

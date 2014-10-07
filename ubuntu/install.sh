@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+command -v apt-get || exit
+
 echo "Installing Ubuntu apt-get packages"
 sudo apt-get update
 sudo apt-get install --assume-yes \
@@ -11,10 +13,3 @@ sudo apt-get install --assume-yes \
     vim \
     vim-gnome \
     zsh \
-
-
-echo "Set zsh as shell"
-chsh -s $(which zsh) $USER
-if [[ ! -z "$SUDO_USER" ]];then
-    chsh -s $(which zsh) $SUDO_USER
-fi

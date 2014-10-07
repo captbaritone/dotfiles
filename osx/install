@@ -27,3 +27,10 @@ brew install \
     wget \
     yajl \
     zsh
+
+# Turn off "Play feedback when volume is changed"
+defaults write -g "com.apple.sound.beep.feedback" -int 0
+
+# Restart so that changes take effect
+killall -HUP SystemUIServer
+

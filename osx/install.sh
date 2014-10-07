@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+if [ "$(uname)" != "Darwin" ]; then
+    exit
+fi
+
 if ! which brew &> /dev/null; then
     echo "Installing homebrew"
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
@@ -26,7 +30,21 @@ brew install \
     watch \
     wget \
     yajl \
-    zsh
+    zsh \
+    caskroom/cask/brew-cask \
+
+# GUI applications
+
+brew cask install \
+    hermes \
+    firefox \
+    iterm2 \
+    google-chrome \
+    colloqy \
+    hipchat \
+    bittorent-sync \
+    lilypond \
+    seil \
 
 # Turn off "Play feedback when volume is changed"
 defaults write -g "com.apple.sound.beep.feedback" -int 0

@@ -23,6 +23,7 @@ brew install \
     grc \
     imagemagick \
     lynx \
+    mosh \
     mutt \
     the_silver_searcher \
     tmux \

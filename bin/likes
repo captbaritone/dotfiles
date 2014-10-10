@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+
+# Print the number of Facebook likes for a url
+
+import json
+import requests
+import locale
+import urllib
+import sys
+
+# For formatting numbers
+locale.setlocale(locale.LC_ALL, 'en_US')
+
+try:
+    url = sys.argv[1]
+except IndexError:
+    print "Ussage: likes url"
+    sys.exit()
+
+graph_url = "http://graph.facebook.com/?id=%s" % urllib.quote(url, '')
+
+response = requests.get(graph_url)
+json_data = json.loads(response.text)
+
+print json_data['shares']

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+#https://gist.github.com/kinkerl/2643101
+mosh "$@"
+[ $? -eq 5 ] && ssh "$@"

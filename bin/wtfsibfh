@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+
+# Suggest a sexy Halloween costume idea
+
+import json
+import requests
+
+url = "http://whatthefuckshouldibeforhalloween.com/api.com?count=1"
+response = requests.get(url)
+json_data = json.loads(response.text)
+suggestion = json_data[0]
+
+print "%s %s" % (suggestion['prompt'], suggestion['costume'].upper())

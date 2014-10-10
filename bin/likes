@@ -4,12 +4,8 @@
 
 import json
 import requests
-import locale
 import urllib
 import sys
-
-# For formatting numbers
-locale.setlocale(locale.LC_ALL, 'en_US')
 
 try:
     url = sys.argv[1]

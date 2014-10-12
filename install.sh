@@ -13,6 +13,7 @@ FILES=(\
     vimrc \
     xmobarrc \
     xmonad \
+    zshenv \
     zshrc \
 )
 

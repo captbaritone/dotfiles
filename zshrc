@@ -3,9 +3,6 @@ export DOTFILES="$HOME/dotfiles"
 
 export VISUAL="$EDITOR"
 
-# Look in my global composer packages
-export PATH=~/dotfiles/composer-packages/vendor/bin:~/dotfiles/bin:$PATH
-
 ###########################################################################
 #                                  Alias                                  #
 ###########################################################################

@@ -38,6 +38,7 @@ brew install \
 # GUI applications
 
 brew cask install \
+    onepassword \
     bittorrent-sync \
     colloquy \
     firefox \

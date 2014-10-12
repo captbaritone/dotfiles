@@ -10,7 +10,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Colorschemes
-Plug 'tomasr/molokai'
+Plug 'captbaritone/molokai'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'altercation/vim-colors-solarized'
 Plug 'fxn/vim-monochrome'

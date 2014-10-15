@@ -18,6 +18,7 @@ brew install \
     curl \
     ffmpeg \
     findutils \
+    fortune \
     gibo \
     gnupg \
     grc \

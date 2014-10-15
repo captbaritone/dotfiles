@@ -54,6 +54,11 @@ brew cask install \
 # Turn off "Play feedback when volume is changed"
 defaults write -g "com.apple.sound.beep.feedback" -int 0
 
+defaults write com.apple.finder CreateDesktop -bool false
+
+# Restart finder
+killall Finder
+
 # Restart so that changes take effect
 killall -HUP SystemUIServer
 

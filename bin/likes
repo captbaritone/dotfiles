@@ -18,4 +18,7 @@ graph_url = "http://graph.facebook.com/?id=%s" % urllib.quote(url, '')
 response = requests.get(graph_url)
 json_data = json.loads(response.text)
 
-print json_data['shares']
+try:
+    print json_data['shares']
+except KeyError:
+    print "Bad response from Facebook: " + response.text

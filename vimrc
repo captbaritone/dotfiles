@@ -243,6 +243,8 @@ endif
 " Undotree plugin.
 nnoremap <F5> :UndotreeToggle<CR>
 
+let g:jedi#use_tabs_not_buffers = 0 " Jedi needs you to unset this default to get to splits
+let g:jedi#use_splits_not_buffers = "bottom"
 
 " }}}-------------------------------------------------------------------------
 "   Custom filetypes                                                      {{{

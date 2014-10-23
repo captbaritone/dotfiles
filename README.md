@@ -36,8 +36,6 @@ It is heavily keyboard and command-line centric.
   leap, I recommend reading [Coming Home to Vim] a blog post by Steve Losh
   and [Your problem with Vim is that you don't grock vi] by StackOverflow user
   Jim Dennis.
-    - __Snippet manager:__ [Ultisnips] easily manage sophisticated code
-      snippets.
     - __Colorscheme:__ [Molokai] a high contrast, dark background colorscheme.
     - __Code Linting:__ [Syntastic] Find mal-formatted code at save time instead of
     at run time.

@@ -72,13 +72,6 @@ Plug 'vimwiki/vimwiki'
 " Visualize undo tree
 Plug 'mbbill/undotree'
 
-" Some plugins require python
-if has('python')
-
-    " Ultisnips: Snippet manager
-    Plug 'SirVer/ultisnips'
-endif
-
 " Other plugins require curl
 if executable("curl")
 

@@ -64,7 +64,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'olethanh/Vim-nosecompiler', { 'for': 'python' }
 Plug 'tpope/vim-dispatch'
 "Plug 'reinh/vim-makegreen'
-Plug '~/.vim/dev', { 'for': 'python' }
+Plug '~/projects/vim-vigilant', { 'for': 'python' }
 Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'vimwiki/vimwiki'

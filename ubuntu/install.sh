@@ -25,4 +25,5 @@ sudo apt-get install --assume-yes \
     tree \
     vim \
     vim-gnome \
+    weechat \
     zsh \

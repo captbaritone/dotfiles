@@ -16,9 +16,11 @@ brew install \
     bash-completion \
     coreutils \
     curl \
+    encfs \
     ffmpeg \
     findutils \
     fortune \
+    gettext \
     gibo \
     gnupg \
     grc \
@@ -35,6 +37,14 @@ brew install \
     yajl \
     zsh \
     caskroom/cask/brew-cask \
+
+# gettext is needed to fix encfs
+# https://github.com/Homebrew/homebrew/issues/29251
+
+# encfs also needs this to install the osxfuse kernel module
+# http://apple.stackexchange.com/questions/130838/unable-to-mount-remote-directory-using-sshfs
+sudo /bin/cp -RfX /usr/local/opt/osxfuse/Library/Filesystems/osxfusefs.fs /Library/Filesystems
+sudo chmod +s /Library/Filesystems/osxfusefs.fs/Support/load_osxfusefs
 
 # GUI applications
 

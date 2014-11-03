@@ -59,12 +59,38 @@ brew cask install \
     iterm2 \
     lilypond \
     seil \
+    spectacle \
     transmit \
 
 # Turn off "Play feedback when volume is changed"
 defaults write -g "com.apple.sound.beep.feedback" -int 0
 
+###############################################################################
+# Dock, Dashboard, and hot corners #
+# ###############################################################################
+
+
+###############################################################################
+# Finder #
+# ###############################################################################
+
 defaults write com.apple.finder CreateDesktop -bool false
+
+# Finder: show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Display full POSIX path as Finder window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# When performing a search, search the current folder by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Use list view in all Finder windows by default
+# # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Restart finder
 killall Finder

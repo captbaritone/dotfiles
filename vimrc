@@ -198,13 +198,8 @@ nnoremap <leader><space> :nohlsearch<cr>
 "   Plugins                                                               {{{
 " ----------------------------------------------------------------------------
 
-" Set Ultisnip directory
-let g:UltiSnipsSnippetDirectories=["ultisnips"]
-" Cycle through ultisnip triggers with <tab>
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
+" Jump thought errors with :lnext and :lprev
+let g:syntastic_always_populate_loc_list = 1
 " Return to last edit position when opening files, except git commit message
 autocmd BufReadPost *
     \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
@@ -227,6 +222,8 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_clear_cache_on_exit = 0
 " Wait to update results (This should fix the fact that backspace is so slow)
 let g:ctrlp_lazy_update = 1
+" Show as many results as our screen will allow
+let g:ctrlp_match_window = 'max:1000'
 
 " The Silver Searcher
 if executable('ag')
@@ -309,6 +306,9 @@ command! Q q
 command! W w
 " Nobody ever uses this
 noremap Q <nop>
+" Let's try to avoid esc
+imap kl <Esc>
+imap lk <Esc>
 
 " }}}-------------------------------------------------------------------------
 "   Undo, Backup and Swap file locations                                  {{{

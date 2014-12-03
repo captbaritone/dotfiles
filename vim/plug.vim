@@ -61,9 +61,6 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-fugitive'
 
 " Python test running
-Plug 'olethanh/Vim-nosecompiler', { 'for': 'python' }
-Plug 'tpope/vim-dispatch'
-"Plug 'reinh/vim-makegreen'
 Plug '~/projects/vim-vigilant', { 'for': 'python' }
 Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }

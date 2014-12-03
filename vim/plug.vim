@@ -24,10 +24,10 @@ Plug 'qrps/lilypond-vim', { 'for': 'lilypond' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Completion
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', { 'for': 'html' }
 
 " Make % match xml tags
-Plug 'edsono/vim-matchit'
+Plug 'edsono/vim-matchit', { 'for': ['html', 'xml'] }
 
 " Make tab handle all completions
 Plug 'ervandew/supertab'

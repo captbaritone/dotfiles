@@ -243,6 +243,11 @@ nnoremap <F5> :UndotreeToggle<CR>
 let g:jedi#use_tabs_not_buffers = 0 " Jedi needs you to unset this default to get to splits
 let g:jedi#use_splits_not_buffers = "bottom"
 
+" Fugitive Mappings
+
+" Automatically open the list of matches when I grep. Thanks @jlynn
+command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
+
 " }}}-------------------------------------------------------------------------
 "   Custom filetypes                                                      {{{
 " ----------------------------------------------------------------------------

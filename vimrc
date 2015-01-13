@@ -127,7 +127,7 @@ set printoptions=header:0,duplex:long,paper:letter,syntax:n
 let g:airline_left_sep=' '
 let g:airline_right_sep=' '
 let g:airline_powerline_fonts=0
-set mouse+=a
+set mouse+=a  " Add mouse support for 'all' modes
 if &term =~ '^screen'
     " tmux knows the extended mouse mode
     set ttymouse=xterm2

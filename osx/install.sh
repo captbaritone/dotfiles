@@ -21,6 +21,7 @@ brew install \
     findutils \
     fortune \
     gettext \
+    ghostscript \
     gibo \
     gnupg \
     grc \
@@ -28,7 +29,9 @@ brew install \
     lynx \
     mosh \
     mutt \
+    node \
     the_silver_searcher \
+    sox \
     tmux \
     tree \
     unrar \
@@ -59,6 +62,7 @@ brew cask install \
     iterm2 \
     lilypond \
     seil \
+    sequel-pro \
     spectacle \
     transmit \
 

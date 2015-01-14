@@ -13,6 +13,7 @@ sudo add-apt-repository -y ppa:rudenko/neovim
 
 sudo apt-get update
 sudo apt-get install --assume-yes \
+    ca-certificates \
     curl \
     git \
     locate \
@@ -21,6 +22,8 @@ sudo apt-get install --assume-yes \
     neovim \
     php5 php5-cli \
     python-software-properties \
+    mutt \
+    offlineimap \
     silversearcher-ag \
     tree \
     vim \

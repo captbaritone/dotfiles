@@ -65,6 +65,7 @@ Plug '~/projects/vim-vigilant', { 'for': 'python' }
 Plug 'benmills/vimux', { 'for': 'python' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'vimwiki/vimwiki'
+Plug 'vim-scripts/pythonhelper'
 
 Plug 'pangloss/vim-javascript'
 " Visualize undo tree

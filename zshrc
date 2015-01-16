@@ -35,7 +35,8 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github git-extras dircycle gem osx tmux vagrant vi-mode brew colored-man extract web-search)
+plugins=(git github git-extras dircycle gem osx tmux vagrant brew colored-man extract web-search)
+# Temporarily removed: vi-mode to fix history completion
 
 # Don't fill in autocomplete if there is ambiguity
 setopt no_auto_menu
@@ -47,14 +48,6 @@ SAVEHIST=1000
 HISTFILE=~/.history
 
 export TMPDIR=$HOME/tmp
-
-# Autocomplete from history with arrow keys
-bindkey '\e[A' history-beginning-search-backward
-bindkey '\e[B' history-beginning-search-forward
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
-
-source $ZSH/oh-my-zsh.sh
 
 # Don't make me confirm history expansions
 # This needs to go after we call oh-my-zsh

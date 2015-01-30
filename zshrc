@@ -13,7 +13,10 @@ alias g="git"
 
 # Aliases for fat fingered or stupid people
 alias :q="exit"
+alias :Q="exit"
 alias :bd="exit"
+alias :Bd="exit"
+alias :BD="exit"
 
 # Disable DELETE/UPDATE without WHERE
 alias mysql='mysql --safe-updates'

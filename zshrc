@@ -21,6 +21,9 @@ alias :BD="exit"
 # Disable DELETE/UPDATE without WHERE
 alias mysql='mysql --safe-updates'
 
+# Pretty print json blobs
+alias pprint "python -mjson.tool"
+
 ###########################################################################
 #                            ZSH Configuration                            #
 ###########################################################################

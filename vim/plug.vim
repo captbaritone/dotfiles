@@ -60,14 +60,23 @@ Plug 'michaeljsmith/vim-indent-object'
 " Fugitive: Git from within Vim
 Plug 'tpope/vim-fugitive'
 
-" Python test running
+" Run Python tests in tmux splits
+" Plug 'captbaritone/projects/vim-vigilant', { 'for': 'python' }
 Plug '~/projects/vim-vigilant', { 'for': 'python' }
 Plug 'benmills/vimux', { 'for': 'python' }
+
+" Python completion and tag navigation
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+
+" Take notes and keep todo lists in vim
 Plug 'vimwiki/vimwiki'
+
+" Find the class/method based on cursor position
 Plug 'vim-scripts/pythonhelper'
 
+" 'Vastly improved Javascript indentation and syntax support in Vim'
 Plug 'pangloss/vim-javascript'
+
 " Visualize undo tree
 Plug 'mbbill/undotree'
 

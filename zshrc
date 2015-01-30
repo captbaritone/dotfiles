@@ -55,6 +55,7 @@ HISTFILE=~/.history
 
 export TMPDIR=$HOME/tmp
 
+source $ZSH/oh-my-zsh.sh
 # Don't make me confirm history expansions
 # This needs to go after we call oh-my-zsh
 setopt no_hist_verify

@@ -5,5 +5,5 @@ if ! which npm &> /dev/null; then
     sudo curl -L https://npmjs.org/install.sh | sh
 fi
 echo "Installing npm packages"
-sudo npm install jshint
-sudo npm install gulp -g
+sudo npm install -g jshint
+sudo npm install -g gulp

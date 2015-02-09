@@ -190,6 +190,9 @@ nnoremap <Leader>. :cd %:p:h<CR>:pwd<CR>
 
 " Move current window to the far left using full height
 nmap <silent> <Leader>h <C-w>H
+nmap <silent> <Leader>k <C-w>K
+nmap <silent> <Leader>j <C-w>J
+nmap <silent> <Leader>l <C-w>L
 
 " Clear search highlights
 nnoremap <leader><space> :nohlsearch<cr>

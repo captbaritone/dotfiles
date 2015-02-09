@@ -6,4 +6,5 @@ if ! which npm &> /dev/null; then
 fi
 echo "Installing npm packages"
 sudo npm install -g jshint
+sudo npm install -g jslint
 sudo npm install -g gulp

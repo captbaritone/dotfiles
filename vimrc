@@ -343,6 +343,8 @@ endif
 
 let g:vigilant_cmd = 'clear && cd ~/projects/HearsayLabs/fanmgmt && ./run.sh manage.py test --settings=settings.jeldredge'
 
+nnoremap <leader>j :!./run.sh run_jasmine.py %<cr>
+
 " Run all your tests
 " e.g.  nosetests
 nnoremap <leader>va :VigilantRunTests<cr>

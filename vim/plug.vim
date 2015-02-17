@@ -35,6 +35,9 @@ Plug 'ervandew/supertab'
 " Syntastic: Code linting errors
 Plug 'scrooloose/syntastic', { 'for': ['php', 'python', 'javascript', 'css'] }
 
+" Pairs of handy bracket mappings
+Plug 'vim-unimpaired'
+
 " Fancy statusline
 Plug 'bling/vim-airline'
 

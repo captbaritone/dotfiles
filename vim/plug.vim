@@ -44,6 +44,8 @@ Plug 'bling/vim-airline'
 " Fuzzy file opener
 Plug 'kien/ctrlp.vim'
 
+Plug 'rking/ag.vim'
+
 " Rename files from within vim
 Plug 'AlexJF/rename.vim', { 'on': 'Rename' }
 

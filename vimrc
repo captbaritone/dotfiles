@@ -343,7 +343,7 @@ endif
 
 let g:vigilant_cmd = 'clear && cd ~/projects/HearsayLabs/fanmgmt && ./run.sh manage.py test --settings=settings.jeldredge'
 
-nnoremap <leader>j :!./run.sh run_jasmine.py %<cr>
+nnoremap <leader>j :call VimuxRunCommand('./run.sh run_jasmine.py ' . expand('%'))<cr>
 
 " Run all your tests
 " e.g.  nosetests

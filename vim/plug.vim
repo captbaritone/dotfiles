@@ -68,7 +68,7 @@ Plug 'tpope/vim-fugitive'
 " Run Python tests in tmux splits
 " Plug 'captbaritone/projects/vim-vigilant', { 'for': 'python' }
 Plug '~/projects/vim-vigilant', { 'for': 'python' }
-Plug 'benmills/vimux', { 'for': 'python' }
+Plug 'benmills/vimux', { 'for': ['python', 'javascript'] }
 
 " Python completion and tag navigation
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }

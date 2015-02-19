@@ -9,7 +9,7 @@ sudo apt-get install python-software-properties
 sudo add-apt-repository -y ppa:keithw/mosh
 
 # For neovim
-sudo add-apt-repository -y ppa:rudenko/neovim 
+sudo add-apt-repository ppa:neovim-ppa/unstable
 
 sudo apt-get update
 sudo apt-get install --assume-yes \

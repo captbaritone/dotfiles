@@ -13,3 +13,7 @@ alias logs="tail -f /var/log/fm/$HEARSAY_USERNAME.log"
 alias celery="./scripts/start_celeryd.sh"
 alias ship="./lgtm create"
 alias fix="sudo service uwsgi restart && sudo service nginx restart"
+
+start() {
+    git checkout -b workflow-"$*" upstream/master
+}

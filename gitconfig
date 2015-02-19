@@ -44,6 +44,7 @@
 	# Hearsay Social specific
 	# Create a new branch from upstream master
 	bru = "!sh -c \"git checkout -b $1 upstream/master\" -"
+	pu = !"git fetch origin -v; git fetch upstream -v; git rebase upstream/master"
 [include]
 	path = ~/.gitconfig.local
 [github]

@@ -2,19 +2,22 @@
 "   .vimrc                                                                {{{
 " ----------------------------------------------------------------------------
 
-" }}}-------------------------------------------------------------------------
-"   Vundle                                                                {{{
-" ----------------------------------------------------------------------------
-
+" Allow vim to break compatibility with vi
 set nocompatible " This must be first, because it changes other options
 
+" }}}-------------------------------------------------------------------------
+"   Plugin                                                                {{{
+" ----------------------------------------------------------------------------
+
+" Installing the Plug plugin manager, and all the plugins are included in this
+" other file.
 source $HOME/.vim/plug.vim
 
 " }}}-------------------------------------------------------------------------
 "   Base Options                                                          {{{
 " ----------------------------------------------------------------------------
 
-" Set the leader key to , instead of \ because it's easier to reach
+" Set the leader key to <space> instead of \ because it's easier to reach
 let mapleader = " "
 "set notimeout                  " Turn off the timeout for the leader key
                                 " Seems to break `n` in normal mode, so
@@ -43,8 +46,7 @@ set wildmode=list:longest   " List all matches and complete till longest common 
 set laststatus=2            " The last window will have a status line always
 set noshowmode              " Don't show the mode in the last line of the screen, vim-airline takes care of it
 set ruler                   " Show the line and column number of the cursor position, separated by a comma.
-set lazyredraw
-set linespace=0
+set lazyredraw              " Don't update the screen while executing macros/commands
 
 " My command line autocomplete is case insensitive. Keep vim consistent with
 " that. It's a recent feature to vim, test to make sure it's supported first.
@@ -54,7 +56,7 @@ endif
 
 " Buffer Area Visuals
 set scrolloff=7             " Minimal number of screen lines to keep above and below the cursor.
-set visualbell              " Use a visual bell
+set visualbell              " Use a visual bell, don't beep!
 set cursorline              " Highlight the current line
 set number                  " Show line numbers
 set wrap                    " Soft wrap at the window width
@@ -64,7 +66,6 @@ if exists('+colorcolumn')
   set colorcolumn=+1        " Highlight the column after `textwidth`
 endif
 
-
 " show fold column, fold by markers
 set foldcolumn=0            " Don't show the folding gutter/column
 set foldmethod=marker       " Fold on {{{ }}}
@@ -72,10 +73,10 @@ set foldlevelstart=20       " Open 20 levels of folding when I open a file
 
 " Open folds under the following conditions
 set foldopen=block,hor,mark,percent,quickfix,search,tag,undo,jump
+
 " Highlight tabs and trailing spaces
-"set listchars=tab:▸\ ,trail:•,eol:¬
 set listchars=tab:▸\ ,trail:•
-set list
+set list                    " Make whitespace characters visible
 
 " Splits
 set splitbelow              " Open new splits below
@@ -116,18 +117,18 @@ set completeopt=longest,menuone
 set printoptions=header:0,duplex:long,paper:letter,syntax:n
 " header:0                  Do not print a header
 " duplex:long (default)     Print on both sides (when possible), bind on long
-" syntax:n                  Do not use syntax highlighting.  This is faster and
+" syntax:n                  Do not use syntax highlighting.
 
 " }}}-------------------------------------------------------------------------
-"   Non-GUI Specific                                                      {{{
+"   Style for terminal vim
 " ----------------------------------------------------------------------------
 
-" Don't show the airline separators if we are not in GUI
+" Don't show the airline separators
 " The angle bracket defaults look fugly
 let g:airline_left_sep=' '
 let g:airline_right_sep=' '
 let g:airline_powerline_fonts=0
-set mouse+=a  " Add mouse support for 'all' modes
+set mouse+=a  " Add mouse support for 'all' modes, may require iTerm
 if &term =~ '^screen'
     " tmux knows the extended mouse mode
     set ttymouse=xterm2
@@ -137,7 +138,6 @@ endif
 "   Search                                                                {{{
 " ----------------------------------------------------------------------------
 
-" Turned this off because it broke greedy search and replace
 set incsearch               " Show search results as we type
 set showmatch               " Show matching brackets
 set hlsearch                " Highlight search results
@@ -166,21 +166,20 @@ filetype plugin indent on   " Rely on file plugins to handle indenting
 " ----------------------------------------------------------------------------
 
 " Edit the vimrc file
-nmap <silent> <Leader>ev :vsp $MYVIMRC<CR>
-nmap <silent> <Leader>ez :vsp $HOME/.zshrc<CR>
-nmap <silent> <Leader>em :vsp $HOME/.mutt/muttrc<CR>
-nmap <silent> <Leader>ep :vsp $HOME/.vim/plug.vim<CR>
-nmap <silent> <Leader>es :vsp $HOME/.ssh/config<CR>
-nmap <silent> <Leader>et :vsp $HOME/.tmux.conf<CR>
-nmap <silent> <Leader>sv :so $MYVIMRC<CR>
-nmap <silent> <Leader>sp :so $HOME/.vim/plug.vim<CR>
+nmap <silent> <Leader>ev :vsplit $MYVIMRC<CR>
+nmap <silent> <Leader>ez :vsplit $HOME/.zshrc<CR>
+nmap <silent> <Leader>ep :vsplit $HOME/.vim/plug.vim<CR>
+nmap <silent> <Leader>es :vsplit $HOME/.ssh/config<CR>
+nmap <silent> <Leader>et :vsplit $HOME/.tmux.conf<CR>
+nmap <silent> <Leader>sv :source $MYVIMRC<CR>
+nmap <silent> <Leader>sp :source $HOME/.vim/plug.vim<CR>
 
 " Faster save/quite/close
 nmap <silent> <Leader>w :update<CR>
 nmap <silent> <Leader>q :quit<CR>
-nmap <silent> <Leader>c :bd<CR>
-nmap <silent> <Leader>n :cn<CR>
-nmap <silent> <Leader>p :cp<CR>
+nmap <silent> <Leader>c :bdelete<CR>
+nmap <silent> <Leader>n :cnext<CR>
+nmap <silent> <Leader>p :cprevious<CR>
 
 " Trim trailing white space
 nmap <silent> <Leader>t :call StripTrailingWhitespaces()<CR>
@@ -190,19 +189,17 @@ nnoremap <Leader>. :cd %:p:h<CR>:pwd<CR>
 
 " Move current window to the far left using full height
 nmap <silent> <Leader>h <C-w>H
-nmap <silent> <Leader>k <C-w>K
-nmap <silent> <Leader>j <C-w>J
-nmap <silent> <Leader>l <C-w>L
 
 " Clear search highlights
 nnoremap <leader><space> :nohlsearch<cr>
 
 " }}}-------------------------------------------------------------------------
-"   Plugins                                                               {{{
+"   Configure My Plugins                                                  {{{
 " ----------------------------------------------------------------------------
 
 " Jump thought errors with :lnext and :lprev
 let g:syntastic_always_populate_loc_list = 1
+
 " Return to last edit position when opening files, except git commit message
 autocmd BufReadPost *
     \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
@@ -228,7 +225,7 @@ let g:ctrlp_lazy_update = 1
 " Show as many results as our screen will allow
 let g:ctrlp_match_window = 'max:1000'
 
-" The Silver Searcher
+" If we have The Silver Searcher
 if executable('ag')
     " Use ag over grep
     set grepprg=ag\ --nogroup\ --nocolor
@@ -243,6 +240,7 @@ endif
 " Undotree plugin.
 nnoremap <F5> :UndotreeToggle<CR>
 
+" Jedi Python Autocomplete
 let g:jedi#use_tabs_not_buffers = 0 " Jedi needs you to unset this default to get to splits
 let g:jedi#use_splits_not_buffers = "bottom"
 
@@ -257,7 +255,6 @@ command! -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
 
 " Auto detect filetype
 autocmd BufRead,BufNewFile *.md,*.markdown  set filetype=markdown
-autocmd BufRead,BufNewFile *.js             set filetype=javascript
 autocmd BufRead,BufNewFile *.lytex          set filetype=tex
 autocmd BufRead,BufNewFile ~/dotfiles/ssh/config set filetype=sshconfig
 autocmd BufRead,BufNewFile *.git/config,.gitconfig,.gitmodules,gitconfig set ft=gitconfig
@@ -312,17 +309,16 @@ command! Bd bd
 command! BD bd
 command! Q q
 command! W w
-" Nobody ever uses this
+
+" Nobody ever uses "Ex" mode, and it's annoying to leave
 noremap Q <nop>
-" Let's try to avoid esc
-imap kl <Esc>
-imap lk <Esc>
 
 " }}}-------------------------------------------------------------------------
 "   Undo, Backup and Swap file locations                                  {{{
 " ----------------------------------------------------------------------------
 
-set noswapfile
+" Don't leave .swp files everywhere. Put them in a central place
+set directory=$HOME/.vim/swp/
 set backupdir=$HOME/.vim/backupdir//
 if exists('+undodir')
     set undodir=$HOME/.vim/undodir
@@ -330,7 +326,7 @@ if exists('+undodir')
 endif
 
 " }}}-------------------------------------------------------------------------
-"   If there is a local .vimrc, source it here at the end                 {{{
+"   If there is a per-machine local .vimrc, source it here at the end     {{{
 " ----------------------------------------------------------------------------
 
 if filereadable(glob("$HOME/.vimrc.local"))

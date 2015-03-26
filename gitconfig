@@ -9,7 +9,6 @@
 	stat = true
 [core]
 	excludesfile = ~/.gitignore
-	editor = vim
 [advice]
 	statusHints = false
 [alias]

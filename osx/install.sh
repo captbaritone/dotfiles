@@ -41,6 +41,10 @@ brew install \
     zsh \
     caskroom/cask/brew-cask \
 
+brew tap neovim/homebrew-neovim
+brew install --HEAD neovim
+
+
 # gettext is needed to fix encfs
 # https://github.com/Homebrew/homebrew/issues/29251
 

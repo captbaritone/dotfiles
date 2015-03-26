@@ -1,4 +1,4 @@
-export EDITOR="vim"
+export EDITOR="nvim"
 export DOTFILES="$HOME/dotfiles"
 
 export VISUAL="$EDITOR"
@@ -10,6 +10,7 @@ export VISUAL="$EDITOR"
 # Some single letter commands
 alias v="$EDITOR"
 alias g="git"
+alias w="$EDITOR ~/cloud/vimwiki/index.wiki"
 
 # Aliases for fat fingered or stupid people
 alias :q="exit"

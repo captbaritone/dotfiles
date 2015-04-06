@@ -85,6 +85,9 @@ Plug 'pangloss/vim-javascript'
 " Visualize undo tree
 Plug 'mbbill/undotree'
 
+Plug 'parkr/vim-jekyll'
+
+
 " Other plugins require curl
 if executable("curl")
 

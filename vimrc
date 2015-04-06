@@ -318,7 +318,7 @@ noremap Q <nop>
 " ----------------------------------------------------------------------------
 
 " Don't leave .swp files everywhere. Put them in a central place
-set directory=$HOME/.vim/swp/
+set directory=$HOME/.vim/swapdir//
 set backupdir=$HOME/.vim/backupdir//
 if exists('+undodir')
     set undodir=$HOME/.vim/undodir

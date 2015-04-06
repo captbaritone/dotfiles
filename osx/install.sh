@@ -31,6 +31,7 @@ brew install \
     mutt \
     node \
     the_silver_searcher \
+    redis \
     sox \
     tmux \
     tree \

@@ -359,3 +359,7 @@ nnoremap <leader>vm :VigilantRunSingleTest<cr>
 
 " Rerun your last Vigilant test command
 nnoremap <leader>vv :VigilantRerun<cr>
+
+" Use S_ to wrap a selection in gettext (Underscore tempalate style)
+" Requires https://github.com/tpope/vim-surround
+let b:surround_{char2nr('_')} = "<%- gettext(\"\r\") %>"

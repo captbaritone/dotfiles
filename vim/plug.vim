@@ -49,6 +49,18 @@ Plug 'rking/ag.vim'
 " Rename files from within vim
 Plug 'AlexJF/rename.vim', { 'on': 'Rename' }
 
+" Make commenting easier
+Plug 'tpope/vim-commentary'
+
+" Adjust 'shiftwidth' and 'expandtab' heuristically based on the current file
+Plug 'tpope/vim-sleuth'
+
+" CamelCase motions through words
+Plug 'bkad/CamelCaseMotion'
+
+" Split and join lines of code intelligently
+Plug 'AndrewRadev/splitjoin.vim'
+
 Plug 'gcmt/taboo.vim'
 
 " Split navigation that works with tmux

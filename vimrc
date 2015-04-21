@@ -194,6 +194,8 @@ nmap <silent> <Leader>h <C-w>H
 " Clear search highlights
 nnoremap <leader><space> :nohlsearch<cr>
 
+nnoremap <leader>pp :%!python -m json.tool<cr>
+
 " }}}-------------------------------------------------------------------------
 "   Configure My Plugins                                                  {{{
 " ----------------------------------------------------------------------------

@@ -159,6 +159,7 @@ set shiftwidth=4            " Reindent is also four spaces
 set softtabstop=4           " When hit <tab> use four columns
 set expandtab               " Create spaces when I type <tab>
 set shiftround              " Round indent to multiple of 'shiftwidth'.
+set autoindent              " Put my cursor in the right place when I start a new line
 filetype plugin indent on   " Rely on file plugins to handle indenting
 
 " }}}-------------------------------------------------------------------------

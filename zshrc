@@ -42,7 +42,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github git-extras dircycle gem osx tmux vagrant brew colored-man extract web-search)
+plugins=(git github git-extras dircycle gem osx tmux vagrant brew colored-man extract web-search jira)
 # Temporarily removed: vi-mode to fix history completion
 
 # Don't fill in autocomplete if there is ambiguity

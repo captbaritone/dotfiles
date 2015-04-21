@@ -47,7 +47,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'rking/ag.vim'
 
 " Rename files from within vim
-Plug 'AlexJF/rename.vim', { 'on': 'Rename' }
+Plug 'tpope/vim-eunuch'
 
 " Make commenting easier
 Plug 'tpope/vim-commentary'

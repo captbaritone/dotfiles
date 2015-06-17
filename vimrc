@@ -382,3 +382,5 @@ nnoremap <leader>vv :VigilantRerun<cr>
 " Use S_ to wrap a selection in gettext (Underscore tempalate style)
 " Requires https://github.com/tpope/vim-surround
 let b:surround_{char2nr('_')} = "<%- gettext(\"\r\") %>"
+
+let g:jekyll_post_extension = '.md'

@@ -15,6 +15,7 @@ Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'altercation/vim-colors-solarized'
 Plug 'fxn/vim-monochrome'
 Plug 'chriskempson/base16-vim'
+Plug 'NLKNguyen/papercolor-theme'
 
 " Syntax
 Plug 'tpope/vim-git', { 'for': 'git' }

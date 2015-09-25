@@ -11,6 +11,8 @@
 	excludesfile = ~/.gitignore
 [advice]
 	statusHints = false
+[help]
+	autocorrect = 1
 [alias]
 	# Some typos
 	commmit = commit

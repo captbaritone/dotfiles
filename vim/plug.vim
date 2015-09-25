@@ -47,7 +47,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'bling/vim-airline'
 
 " Fuzzy file opener
-Plug 'kien/ctrlp.vim'
+" Plug 'kien/ctrlp.vim' <-- Not maintained any more
+Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'rking/ag.vim'
 

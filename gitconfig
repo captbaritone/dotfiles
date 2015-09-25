@@ -20,6 +20,7 @@
 	praise = blame
 
 	ad = add
+	ap = add -p
 	ada = add -A
 	br = branch
 	cam = commit -am

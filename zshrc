@@ -47,7 +47,7 @@ plugins=(git github git-extras dircycle gem osx tmux vagrant brew colored-man ex
 # Temporarily removed: vi-mode to fix history completion
 
 # Don't fill in autocomplete if there is ambiguity
-setopt no_auto_menu
+setopt no_auto_menu # Currently clobbered by oh my zsh!
 
 # Save lots of history
 SAVEHIST=1000

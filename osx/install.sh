@@ -5,6 +5,7 @@
 # Spotify
 # Sonos
 # Virtualbox
+# Caffeine
 
 if [ "$(uname)" != "Darwin" ]; then
     exit

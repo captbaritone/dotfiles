@@ -385,3 +385,6 @@ nnoremap <leader>vv :VigilantRerun<cr>
 let b:surround_{char2nr('_')} = "<%- gettext(\"\r\") %>"
 
 let g:jekyll_post_extension = '.md'
+
+command! Py :!python %
+command! O :!open %

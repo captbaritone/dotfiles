@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Manual insalls
+# Private Internet Access
+# Spotify
+# Sonos
+# Virtualbox
+
 if [ "$(uname)" != "Darwin" ]; then
     exit
 fi

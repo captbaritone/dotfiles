@@ -100,6 +100,8 @@ Plug 'vim-scripts/pythonhelper'
 " 'Vastly improved Javascript indentation and syntax support in Vim'
 Plug 'pangloss/vim-javascript'
 
+Plug 'reedes/vim-pencil'
+
 " Visualize undo tree
 Plug 'mbbill/undotree'
 

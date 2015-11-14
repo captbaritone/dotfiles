@@ -77,8 +77,14 @@ Plug 'tpope/vim-surround'
 " Make vim-surround repeatable with .
 Plug 'tpope/vim-repeat'
 
-" Select indent objects
+" Custom motions
+
+" Indent object
 Plug 'michaeljsmith/vim-indent-object'
+" Camel Case object
+Plug 'bkad/CamelCaseMotion'
+" Argumetn object
+Plug 'vim-scripts/argtextobj.vim'
 
 " Fugitive: Git from within Vim
 Plug 'tpope/vim-fugitive'

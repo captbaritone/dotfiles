@@ -23,19 +23,16 @@
 	ap = add -p
 	ada = add -A
 	br = branch
-	cam = commit -am
 	ch = checkout
 	cm = commit -m
 	co = commit
 	dc = diff --cached
-	bn = branch --no-merge
-	di = diff
-	rb = pull --rebase upstream master
+	up = !git fetch origin && git rebase origin/master
 	lg = !"git lg1"
 	lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-	lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
 	ls = ls-files
 	st = status
+	recent = "!r() { cur=$(git rev-parse --abbrev-ref HEAD); git for-each-ref --sort=-committerdate refs/heads/ --format='%(color:yellow)%(refname:short)|%(color:bold               green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' | sed \"s/m${cur}|/m* ${cur}|/\" | column -ts'|'; }; r"
 
 	# Show files ignored by git:
 	ign = ls-files -o -i --exclude-standard

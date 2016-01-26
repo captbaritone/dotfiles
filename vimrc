@@ -203,6 +203,9 @@ nnoremap <leader>pp :%!python -m json.tool<cr>
 
 " Jump thought errors with :lnext and :lprev
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Return to last edit position when opening files, except git commit message
 autocmd BufReadPost *

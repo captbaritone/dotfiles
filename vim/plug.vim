@@ -2,7 +2,7 @@
 "   Plug
 " ----------------------------------------------------------------------------
 
-" Install vim-plug if we don't arlready have it
+" Install vim-plug if we don't already have it
 if empty(glob("~/.vim/autoload/plug.vim"))
     " Ensure all needed directories exist  (Thanks @kapadiamush)
     execute 'mkdir -p ~/.vim/plugged'

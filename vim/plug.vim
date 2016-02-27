@@ -88,6 +88,7 @@ Plug 'vim-scripts/argtextobj.vim'
 
 " Fugitive: Git from within Vim
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " Run Python tests in tmux splits
 " Plug 'captbaritone/projects/vim-vigilant', { 'for': 'python' }

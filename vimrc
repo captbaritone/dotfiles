@@ -277,16 +277,17 @@ command! -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
 " ----------------------------------------------------------------------------
 
 " Auto detect filetype
-autocmd BufRead,BufNewFile *.md,*.markdown  set filetype=markdown
-autocmd BufRead,BufNewFile *.lytex          set filetype=tex
+autocmd BufRead,BufNewFile *.md,*.markdown set filetype=markdown
+autocmd BufRead,BufNewFile *.lytex set filetype=tex
 autocmd BufRead,BufNewFile ~/dotfiles/ssh/config set filetype=sshconfig
 autocmd BufRead,BufNewFile *.git/config,.gitconfig,.gitmodules,gitconfig set ft=gitconfig
-autocmd BufNewFile,BufRead *.html           set filetype=htmldjango
+autocmd BufNewFile,BufRead *.html set filetype=htmldjango
+autocmd BufNewFile,BufRead .eslintrc set filetype=javascript
+autocmd BufRead,BufNewFile *.py setlocal foldmethod=indent
 
 " Override what is done in /vim/bundle/scss-syntax.vim/ftdetect/scss.vim
 " This should prevent duplicate snippets
-autocmd BufRead,BufNewFile *.scss           set filetype=scss
-autocmd BufRead,BufNewFile *.py             setlocal foldmethod=indent
+autocmd BufRead,BufNewFile *.scss set filetype=scss
 
 " }}}-------------------------------------------------------------------------
 "   Custom mappings                                                       {{{

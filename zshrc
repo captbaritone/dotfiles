@@ -73,3 +73,4 @@ source $HOME/dotfiles/*/.zshrc
 if [ -f $HOME/.zshrc.local ]; then
     source $HOME/.zshrc.local
 fi
+eval "`npm completion`"

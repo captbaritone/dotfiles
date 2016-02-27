@@ -50,7 +50,7 @@ brew install \
     zsh \
     caskroom/cask/brew-cask \
 
-brew tap neovim/homebrew-neovim
+brew tap neovim/neovim
 brew install --HEAD neovim
 
 

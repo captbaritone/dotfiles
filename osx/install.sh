@@ -39,6 +39,7 @@ brew install \
     node \
     the_silver_searcher \
     redis \
+    ssh-copy-id \
     sox \
     tmux \
     tree \

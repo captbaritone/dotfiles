@@ -14,19 +14,5 @@ alias manage="fan && $HEARSAY_LABS_FANMGMT_PATH/run.sh manage.py --settings=$HEA
 alias shell="fan && $HEARSAY_LABS_FANMGMT_PATH/run.sh manage.py shell --settings=$HEARSAY_SETTINGS --organization=$HEARSAY_LABS_ORG"
 alias logs="tail -f /var/log/fm/$HEARSAY_USERNAME.log"
 alias celery="fan && $HEARSAY_LABS_FANMGMT_PATH/scripts/start_celeryd.sh"
-alias ship="fan && ./lgtm create"
+alias ship="fan && lgtm create"
 alias fix="sudo service uwsgi restart && sudo service nginx restart"
-alias revert="$HEARSAY_LABS_FANMGMT_PATH/lgtm revert"
-alias chef="sudo chef-client"
-
-revert() { $HEARSAY_LABS_FANMGMT_PATH/lgtm revert $1 }
-unrevert() { ./lgtm revert $1 --no-push }
-
-start() {
-    git fetch upstream
-    git checkout -b workflow-"$*" upstream/master
-}
-
-work() {
-    git checkout workflow-"$*"
-}

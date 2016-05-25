@@ -15,13 +15,9 @@ sudo apt-get install --assume-yes \
     locate \
     lynx \
     neovim \
-    php5 php5-cli \
     python-software-properties \
-    mutt \
-    offlineimap \
     silversearcher-ag \
     tree \
     vim \
-    vim-gnome \
     weechat \
     zsh \

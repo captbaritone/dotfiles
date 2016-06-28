@@ -1,4 +1,4 @@
-export EDITOR="vim"
+export EDITOR="nvim"
 export DOTFILES="$HOME/dotfiles"
 
 export VISUAL="$EDITOR"
@@ -74,3 +74,8 @@ if [ -f $HOME/.zshrc.local ]; then
     source $HOME/.zshrc.local
 fi
 eval "`npm completion`"
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

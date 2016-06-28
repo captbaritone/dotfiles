@@ -45,12 +45,17 @@ Plug 'tpope/vim-unimpaired'
 
 " Fancy statusline
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Fuzzy file opener
 " Plug 'kien/ctrlp.vim' <-- Not maintained any more
 Plug 'ctrlpvim/ctrlp.vim'
 
+" Open from quick-fix-list in new split
+Plug 'yssl/QFEnter'
+
 Plug 'rking/ag.vim'
+Plug 'Chun-Yang/vim-action-ag'
 
 " Rename files from within vim
 Plug 'tpope/vim-eunuch'
@@ -69,6 +74,10 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 Plug 'gcmt/taboo.vim'
 
+Plug 'vim-scripts/CursorLineCurrentWindow'
+
+Plug 'ternjs/tern_for_vim'
+
 " Split navigation that works with tmux
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -76,6 +85,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-surround'
 " Make vim-surround repeatable with .
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-abolish'
 
 " Custom motions
 
@@ -90,19 +100,24 @@ Plug 'vim-scripts/argtextobj.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+Plug 'airblade/vim-gitgutter'
+
 " Run Python tests in tmux splits
 " Plug 'captbaritone/projects/vim-vigilant', { 'for': 'python' }
 Plug '~/projects/vim-vigilant', { 'for': 'python' }
 Plug 'benmills/vimux', { 'for': ['python', 'javascript'] }
 
+"Plug 'Valloric/YouCompleteMe'
 " Python completion and tag navigation
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+
+Plug 'FooSoft/vim-argwrap'
 
 " Take notes and keep todo lists in vim
 Plug 'vimwiki/vimwiki'
 
 " Find the class/method based on cursor position
-Plug 'vim-scripts/pythonhelper'
+"Plug 'vim-scripts/pythonhelper'
 
 " 'Vastly improved Javascript indentation and syntax support in Vim'
 Plug 'pangloss/vim-javascript'

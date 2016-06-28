@@ -66,6 +66,7 @@ set textwidth=79            " Break lines at just under 80 characters
 if exists('+colorcolumn')
   set colorcolumn=+1        " Highlight the column after `textwidth`
 endif
+set numberwidth=4           " Width of hte line number column
 
 " show fold column, fold by markers
 set foldcolumn=0            " Don't show the folding gutter/column
@@ -191,6 +192,14 @@ nnoremap <Leader>. :cd %:p:h<CR>:pwd<CR>
 
 " Move current window to the far left using full height
 nmap <silent> <Leader>h <C-w>H
+" Move current window to the far right using full height
+nmap <silent> <Leader>l <C-w>L
+" Move current window to the top using full width
+nmap <silent> <Leader>k <C-w>K
+" Move current window to the bottom using full width
+nmap <silent> <Leader>j <C-w>J
+
+nmap <silent> <Leader>d :YcmCompleter GoToDefinition<CR>
 
 " Clear search highlights
 nnoremap <leader><space> :nohlsearch<cr>
@@ -203,7 +212,7 @@ nnoremap <leader>pp :%!python -m json.tool<cr>
 
 " Jump thought errors with :lnext and :lprev
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
@@ -241,12 +250,22 @@ let g:ctrlp_match_window = 'max:1000'
         \ 'mode': 'pfrz',
       \ },
       \ {
+        \ 'pattern': '^sht',
+        \ 'expanded': 'fanmgmt/static/js/tests/spec/workflow',
+        \ 'mode': 'pfrz',
+      \ },
+      \ {
         \ 'pattern': '^shh',
-        \ 'expanded': 'fanmgmt/templates/workflow/compliance_review/jst',
+        \ 'expanded': 'fanmgmt/templates/workflow/supervision',
         \ 'mode': 'pfrz',
       \ }
       \ ]
     \ }
+
+" CtrlP like mapings for opening quick fixes in new splits
+let g:qfenter_vopen_map = ['<C-v>']
+let g:qfenter_hopen_map = ['<C-CR>', '<C-s>', '<C-x>']
+let g:qfenter_topen_map = ['<C-t>']
 
 " If we have The Silver Searcher
 if executable('ag')
@@ -254,7 +273,7 @@ if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
 
     " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_user_command = 'ag %s --files-with-matches -g "" --hidden --ignore "\.git$\|\.hg$\|\.svn|\.pyc$"'
 
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
@@ -333,6 +352,8 @@ command! Bd bd
 command! BD bd
 command! Q q
 command! W w
+command! Cn cn
+command! Cp cp
 
 " Nobody ever uses "Ex" mode, and it's annoying to leave
 noremap Q <nop>
@@ -392,3 +413,8 @@ let g:jekyll_post_extension = '.md'
 
 command! Py :!python %
 command! O :!open %
+let g:ag_working_path_mode="r"
+
+nmap  -  <Plug>(choosewin)
+" if you want to use overlay feature
+let g:choosewin_overlay_enable = 1

@@ -27,6 +27,7 @@ Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 Plug 'xsbeats/vim-blade', { 'for': 'blade' }
 Plug 'qrps/lilypond-vim', { 'for': 'lilypond' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'mxw/vim-jsx'
 
 " Completion
 Plug 'mattn/emmet-vim', { 'for': 'html' }
@@ -54,6 +55,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Open from quick-fix-list in new split
 Plug 'yssl/QFEnter'
 
+Plug 'editorconfig/editorconfig-vim'
+
 Plug 'rking/ag.vim'
 Plug 'Chun-Yang/vim-action-ag'
 
@@ -64,7 +67,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
 
 " Adjust 'shiftwidth' and 'expandtab' heuristically based on the current file
-Plug 'tpope/vim-sleuth'
+"Plug 'tpope/vim-sleuth'
 
 " CamelCase motions through words
 Plug 'bkad/CamelCaseMotion'

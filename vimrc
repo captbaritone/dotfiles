@@ -212,7 +212,10 @@ nnoremap <leader>pp :%!python -m json.tool<cr>
 
 " Jump thought errors with :lnext and :lprev
 let g:syntastic_always_populate_loc_list = 1
+<<<<<<< Updated upstream
 "let g:syntastic_auto_loc_list = 1
+=======
+>>>>>>> Stashed changes
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
@@ -413,8 +416,12 @@ let g:jekyll_post_extension = '.md'
 
 command! Py :!python %
 command! O :!open %
+
 let g:ag_working_path_mode="r"
 
 nmap  -  <Plug>(choosewin)
 " if you want to use overlay feature
 let g:choosewin_overlay_enable = 1
+
+set exrc
+set secure

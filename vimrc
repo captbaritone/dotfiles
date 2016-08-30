@@ -66,7 +66,7 @@ set textwidth=79            " Break lines at just under 80 characters
 if exists('+colorcolumn')
   set colorcolumn=+1        " Highlight the column after `textwidth`
 endif
-set numberwidth=4           " Width of hte line number column
+set numberwidth=4           " Width of the line number column
 
 " show fold column, fold by markers
 set foldcolumn=0            " Don't show the folding gutter/column

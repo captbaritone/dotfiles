@@ -24,7 +24,6 @@ Plug 'NLKNguyen/papercolor-theme'
 " Syntax
 Plug 'tpope/vim-git', { 'for': 'git' }
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
-Plug 'xsbeats/vim-blade', { 'for': 'blade' }
 Plug 'qrps/lilypond-vim', { 'for': 'lilypond' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'mxw/vim-jsx'
@@ -79,8 +78,6 @@ Plug 'gcmt/taboo.vim'
 
 Plug 'vim-scripts/CursorLineCurrentWindow'
 
-Plug 'ternjs/tern_for_vim'
-
 " Split navigation that works with tmux
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -101,8 +98,6 @@ Plug 'vim-scripts/argtextobj.vim'
 
 " Fugitive: Git from within Vim
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
 Plug 'airblade/vim-gitgutter'
 
 " Run Python tests in tmux splits

@@ -22,3 +22,4 @@ tags
 # Let Plug manage itself
 vim/autoload/plug.vim
 .editorconfig
+npm-debug.log

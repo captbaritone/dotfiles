@@ -30,6 +30,7 @@ set spellfile=$HOME/.vim/spell/en.utf-8.add
 set nohidden                    " Don't allow buffers to exist in the background
 set ttyfast                     " Indicates a fast terminal connection
 set backspace=indent,eol,start  " Allow backspaceing over autoindent, line breaks, starts of insert
+set backupcopy=yes              " Fixes some node watching tools: http://stackoverflow.com/a/35583907/1263117
 set shortmess+=I                " No welcome screen
 set shortmess+=A                " No .swp warning
 set history=200                 " Remember the last 200 :ex commands

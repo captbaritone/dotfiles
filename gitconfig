@@ -25,6 +25,7 @@
 	ch = checkout
 	cm = commit -m
 	co = commit
+	pr = pull-request
 	dc = diff --cached
 	rb = !git fetch upstream && git rebase upstream/master
 	save = commit -m "Work in progress"

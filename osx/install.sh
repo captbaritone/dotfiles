@@ -21,6 +21,7 @@ brew install \
     ack \
     bash \
     bash-completion \
+    caskroom/cask/brew-cask \
     coreutils \
     curl \
     encfs \
@@ -37,10 +38,10 @@ brew install \
     mosh \
     mutt \
     node \
-    the_silver_searcher \
     redis \
-    ssh-copy-id \
     sox \
+    ssh-copy-id \
+    the_silver_searcher \
     tmux \
     tree \
     unrar \
@@ -48,34 +49,19 @@ brew install \
     wget \
     yajl \
     zsh \
-    caskroom/cask/brew-cask \
 
-brew tap neovim/neovim
-brew install --HEAD neovim
-
-
-# gettext is needed to fix encfs
-# https://github.com/Homebrew/homebrew/issues/29251
-
-# encfs also needs this to install the osxfuse kernel module
-# http://apple.stackexchange.com/questions/130838/unable-to-mount-remote-directory-using-sshfs
-sudo /bin/cp -RfX /usr/local/opt/osxfuse/Library/Filesystems/osxfusefs.fs /Library/Filesystems
-sudo chmod +s /Library/Filesystems/osxfusefs.fs/Support/load_osxfusefs
 
 # GUI applications
 
 brew cask install \
     onepassword \
-    bittorrent-sync \
     colloquy \
     firefox \
     google-chrome \
     hermes \
-    hipchat \
     iterm2 \
     lilypond \
     seil \
-    sequel-pro \
     spectacle \
     transmit \
 

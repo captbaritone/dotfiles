@@ -93,7 +93,8 @@ Plug 'tpope/vim-abolish'
 Plug 'michaeljsmith/vim-indent-object'
 " Camel Case object
 Plug 'bkad/CamelCaseMotion'
-" Argumetn object
+"
+" Argument object
 Plug 'vim-scripts/argtextobj.vim'
 
 " Fugitive: Git from within Vim

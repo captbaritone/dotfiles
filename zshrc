@@ -1,4 +1,4 @@
-export EDITOR="nvim"
+export EDITOR="vim"
 export DOTFILES="$HOME/dotfiles"
 
 export VISUAL="$EDITOR"

@@ -390,9 +390,5 @@ command! O :!open %
 
 let g:ag_working_path_mode="r"
 
-nmap  -  <Plug>(choosewin)
-" if you want to use overlay feature
-let g:choosewin_overlay_enable = 1
-
 set exrc
 set secure

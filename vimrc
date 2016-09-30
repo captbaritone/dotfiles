@@ -241,27 +241,6 @@ let g:ctrlp_lazy_update = 1
 " Show as many results as our screen will allow
 let g:ctrlp_match_window = 'max:1000'
 
-  let g:ctrlp_abbrev = {
-    \ 'gmode': 'i',
-    \ 'abbrevs': [
-      \ {
-        \ 'pattern': '^shj',
-        \ 'expanded': 'fanmgmt/static/js/workflow',
-        \ 'mode': 'pfrz',
-      \ },
-      \ {
-        \ 'pattern': '^sht',
-        \ 'expanded': 'fanmgmt/static/js/tests/spec/workflow',
-        \ 'mode': 'pfrz',
-      \ },
-      \ {
-        \ 'pattern': '^shh',
-        \ 'expanded': 'fanmgmt/templates/workflow/supervision',
-        \ 'mode': 'pfrz',
-      \ }
-      \ ]
-    \ }
-
 " CtrlP like mapings for opening quick fixes in new splits
 let g:qfenter_vopen_map = ['<C-v>']
 let g:qfenter_hopen_map = ['<C-CR>', '<C-s>', '<C-x>']

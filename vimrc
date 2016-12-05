@@ -108,7 +108,7 @@ set formatoptions=cqrn1
 " Colors
 syntax enable               " This has to come after colorcolumn in order to draw it.
 set t_Co=256                " enable 256 colors
-colorscheme molokai
+colorscheme spacegray
 
 let g:airline_theme='zenburn'
 

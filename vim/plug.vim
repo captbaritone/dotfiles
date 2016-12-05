@@ -20,6 +20,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'fxn/vim-monochrome'
 Plug 'chriskempson/base16-vim'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'ajh17/spacegray.vim'
 
 " Syntax
 Plug 'tpope/vim-git', { 'for': 'git' }
@@ -65,6 +66,7 @@ Plug 'tpope/vim-eunuch'
 " Make commenting easier
 Plug 'tpope/vim-commentary'
 
+Plug 'scrooloose/nerdtree'
 " Adjust 'shiftwidth' and 'expandtab' heuristically based on the current file
 "Plug 'tpope/vim-sleuth'
 
@@ -99,7 +101,7 @@ Plug 'vim-scripts/argtextobj.vim'
 
 " Fugitive: Git from within Vim
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+"Plug 'airblade/vim-gitgutter'
 
 " Run Python tests in tmux splits
 " Plug 'captbaritone/projects/vim-vigilant', { 'for': 'python' }

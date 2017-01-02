@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-# http://unix.stackexchange.com/a/81699
-dig +short myip.opendns.com @resolver1.opendns.com

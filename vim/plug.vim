@@ -15,12 +15,8 @@ call plug#begin('~/.vim/plugged')
 
 " Colorschemes
 Plug 'captbaritone/molokai'
-Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'altercation/vim-colors-solarized'
-Plug 'fxn/vim-monochrome'
-Plug 'chriskempson/base16-vim'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'ajh17/spacegray.vim'
 
 " Syntax
 Plug 'tpope/vim-git', { 'for': 'git' }
@@ -39,7 +35,7 @@ Plug 'edsono/vim-matchit', { 'for': ['html', 'xml'] }
 Plug 'ervandew/supertab'
 
 " Syntastic: Code linting errors
-Plug 'scrooloose/syntastic', { 'for': ['php', 'python', 'javascript', 'css'] }
+Plug 'scrooloose/syntastic'
 
 " Pairs of handy bracket mappings
 Plug 'tpope/vim-unimpaired'
@@ -49,26 +45,28 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Fuzzy file opener
-" Plug 'kien/ctrlp.vim' <-- Not maintained any more
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Open from quick-fix-list in new split
 Plug 'yssl/QFEnter'
 
+" Respect .editorconfig files. (http://editorconfig.org/)
 Plug 'editorconfig/editorconfig-vim'
 
+" Search files using Silver Searcher
 Plug 'rking/ag.vim'
+
+" Make Ag searches of selected text
 Plug 'Chun-Yang/vim-action-ag'
 
-" Rename files from within vim
+" Rename/remove files from within vim
 Plug 'tpope/vim-eunuch'
 
 " Make commenting easier
 Plug 'tpope/vim-commentary'
 
+" Navigate files in a sidebar
 Plug 'scrooloose/nerdtree'
-" Adjust 'shiftwidth' and 'expandtab' heuristically based on the current file
-"Plug 'tpope/vim-sleuth'
 
 " CamelCase motions through words
 Plug 'bkad/CamelCaseMotion'
@@ -76,8 +74,7 @@ Plug 'bkad/CamelCaseMotion'
 " Split and join lines of code intelligently
 Plug 'AndrewRadev/splitjoin.vim'
 
-Plug 'gcmt/taboo.vim'
-
+" Only show cursorline in the current window
 Plug 'vim-scripts/CursorLineCurrentWindow'
 
 " Split navigation that works with tmux
@@ -85,9 +82,9 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Change brackets and quotes
 Plug 'tpope/vim-surround'
+
 " Make vim-surround repeatable with .
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-abolish'
 
 " Custom motions
 
@@ -101,35 +98,31 @@ Plug 'vim-scripts/argtextobj.vim'
 
 " Fugitive: Git from within Vim
 Plug 'tpope/vim-fugitive'
-"Plug 'airblade/vim-gitgutter'
+
+" Show git status in the gutter
+Plug 'airblade/vim-gitgutter'
 
 " Run Python tests in tmux splits
 " Plug 'captbaritone/projects/vim-vigilant', { 'for': 'python' }
 Plug '~/projects/vim-vigilant', { 'for': 'python' }
 Plug 'benmills/vimux', { 'for': ['python', 'javascript'] }
 
-"Plug 'Valloric/YouCompleteMe'
 " Python completion and tag navigation
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 
+" Wrap and upwrap argument lists
 Plug 'FooSoft/vim-argwrap'
 
 " Take notes and keep todo lists in vim
 Plug 'vimwiki/vimwiki'
 
-" Find the class/method based on cursor position
-"Plug 'vim-scripts/pythonhelper'
-
 " 'Vastly improved Javascript indentation and syntax support in Vim'
 Plug 'pangloss/vim-javascript'
-
-Plug 'reedes/vim-pencil'
 
 " Visualize undo tree
 Plug 'mbbill/undotree'
 
 Plug 'parkr/vim-jekyll'
-
 
 " Other plugins require curl
 if executable("curl")

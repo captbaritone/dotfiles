@@ -16,7 +16,7 @@ call plug#begin('~/.vim/plugged')
 " Colorschemes
 Plug 'captbaritone/molokai'
 Plug 'altercation/vim-colors-solarized'
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'ajh17/spacegray.vim'
 
 " Syntax
 Plug 'tpope/vim-git', { 'for': 'git' }

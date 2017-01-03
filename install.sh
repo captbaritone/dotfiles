@@ -6,13 +6,10 @@ FILES=(\
     bashrc \
     gitconfig \
     gitignore \
-    gvim \
-    mutt \
+    hyper.js \
     tmux.conf \
     vim \
     vimrc \
-    xmobarrc \
-    xmonad \
     zshenv \
     zshrc \
 )

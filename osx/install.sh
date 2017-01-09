@@ -77,6 +77,7 @@ defaults write -g "com.apple.sound.beep.feedback" -int 0
 # Finder #
 # ###############################################################################
 
+# Hide icons on the desktop
 defaults write com.apple.finder CreateDesktop -bool false
 
 # Finder: show path bar

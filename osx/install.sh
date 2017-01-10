@@ -46,6 +46,7 @@ brew install \
     tree \
     unrar \
     watch \
+    watchman \
     wget \
     yajl \
     zsh \

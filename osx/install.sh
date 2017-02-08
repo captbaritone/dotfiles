@@ -55,13 +55,14 @@ brew install \
 # GUI applications
 
 brew cask install \
-    onepassword \
     colloquy \
     firefox \
     google-chrome \
     hermes \
+    hyper \
     iterm2 \
     lilypond \
+    onepassword \
     seil \
     spectacle \
     transmit \

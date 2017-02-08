@@ -34,7 +34,6 @@ set backupcopy=yes              " Fixes some node watching tools: http://stackov
 set shortmess+=I                " No welcome screen
 set shortmess+=A                " No .swp warning
 set history=200                 " Remember the last 200 :ex commands
-set exrc                        " enable per-directory .vimrc files
 set secure                      " disable unsafe commands in local .vimrc files
 
 " }}}-------------------------------------------------------------------------

@@ -7,6 +7,5 @@ if ! which pip &> /dev/null; then
 fi
 
 sudo pip install \
-    neovim \
     pep8 \
     pyflakes

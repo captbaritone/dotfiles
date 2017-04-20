@@ -24,19 +24,14 @@ brew install \
     caskroom/cask/brew-cask \
     coreutils \
     curl \
-    encfs \
     ffmpeg \
-    findutils \
     fortune \
-    gettext \
     ghostscript \
     gibo \
     gnupg \
     grc \
     imagemagick \
     lynx \
-    mosh \
-    mutt \
     node \
     redis \
     sox \
@@ -55,17 +50,18 @@ brew install \
 # GUI applications
 
 brew cask install \
-    colloquy \
+    dropbox \
+    caffeine \
     firefox \
     google-chrome \
     hermes \
+    slack \
     hyper \
     iterm2 \
-    lilypond \
-    onepassword \
-    seil \
+    1password \
     spectacle \
     transmit \
+    visual-studio-code \
 
 # Turn off "Play feedback when volume is changed"
 defaults write -g "com.apple.sound.beep.feedback" -int 0

@@ -23,3 +23,4 @@ tags
 vim/autoload/plug.vim
 .editorconfig
 npm-debug.log
+.vscode

@@ -276,6 +276,7 @@ autocmd BufRead,BufNewFile ~/dotfiles/ssh/config set filetype=sshconfig
 autocmd BufRead,BufNewFile *.git/config,.gitconfig,.gitmodules,gitconfig set ft=gitconfig
 autocmd BufNewFile,BufRead *.html set filetype=htmldjango
 autocmd BufNewFile,BufRead .eslintrc set filetype=javascript
+autocmd BufNewFile,BufRead *.es6 set filetype=javascript
 autocmd BufRead,BufNewFile *.py setlocal foldmethod=indent
 
 " Override what is done in /vim/bundle/scss-syntax.vim/ftdetect/scss.vim

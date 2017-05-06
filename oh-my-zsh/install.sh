@@ -6,5 +6,6 @@ then
     # Put my ~/.zshrc file back
     rm ~/.zshrc
     mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
+    ln -s 
 fi
 

@@ -4,6 +4,8 @@ if ! which npm &> /dev/null; then
     echo "Installing npm"
     sudo curl -L https://npmjs.org/install.sh | sh
 fi
-echo "Installing npm packages"
-sudo npm install -g gulp
-sudo npm install -g grunt-cli
+
+if ! which nvm &> /dev/null; then
+    echo "Installing nvm"
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+fi

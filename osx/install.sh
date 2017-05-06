@@ -13,7 +13,7 @@ fi
 
 if ! which brew &> /dev/null; then
     echo "Installing homebrew"
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 echo "Installing Brew packages"
@@ -70,6 +70,7 @@ defaults write -g "com.apple.sound.beep.feedback" -int 0
 # Dock, Dashboard, and hot corners #
 # ###############################################################################
 
+# TODO: Enable locking the screen when I mouse to the upper left corner.
 
 ###############################################################################
 # Finder #

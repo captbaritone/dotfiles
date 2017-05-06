@@ -59,8 +59,11 @@ function install_links () {
 
 install_links
 
+echo "Swtiching default shell to zsh"
+chsh -s /bin/zsh
+
 echo "Running module install files:"
-find . -mindepth 2 -name 'install.sh' | while read FILE; do
+find $dotfilespath -mindepth 2 -name 'install.sh' | while read FILE; do
     echo $FILE
     $FILE
 done

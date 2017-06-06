@@ -41,7 +41,6 @@
 	# Backup the working directory without a commit
 	snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
 
-	# Hearsay Social specific
 	# Create a new branch from upstream master
 	bru = "!git fetch upstream && sh -c \"git checkout -b $1 upstream/master\" -"
 [include]

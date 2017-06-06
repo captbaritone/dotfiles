@@ -60,7 +60,8 @@ function install_links () {
 
 install_links
 
-echo "Swtiching default shell to zsh"
+echo "Switching default shell to zsh"
+echo "If this fails on MacOS, read https://superuser.com/questions/362372/how-to-change-the-login-shell-on-mac-os-x-from-bash-to-zsh"
 chsh -s /bin/zsh
 
 echo "Running module install files:"

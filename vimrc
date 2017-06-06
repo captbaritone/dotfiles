@@ -357,33 +357,6 @@ endif
 "                                                                         {{{
 " ----------------------------------------------------------------------------
 
-let g:vigilant_cmd = 'clear && cd ~/projects/HearsayLabs/fanmgmt && ./run.sh manage.py test --settings=settings.jeldredge'
-
-nnoremap <leader>j :call VimuxRunCommand('./run.sh run_jasmine.py ' . expand('%'))<cr>
-
-" Run all your tests
-" e.g.  nosetests
-nnoremap <leader>va :VigilantRunTests<cr>
-
-" Run the currently open test file
-" e.g.  nosetests /path/to/my/file.py
-nnoremap <leader>vf :VigilantRunCurrentTests<cr>
-
-" Run a single test class based on cursor postion
-" e.g.  nosetests /path/to/my/file.py:MySuite
-nnoremap <leader>vc :VigilantRunTestClass<cr>
-
-" Run a single test method based on cursor postion
-" e.g.  nosetests /path/to/my/file.py:MySuite.my_test_method
-nnoremap <leader>vm :VigilantRunSingleTest<cr>
-
-" Rerun your last Vigilant test command
-nnoremap <leader>vv :VigilantRerun<cr>
-
-" Use S_ to wrap a selection in gettext (Underscore tempalate style)
-" Requires https://github.com/tpope/vim-surround
-let b:surround_{char2nr('_')} = "<%- gettext(\"\r\") %>"
-
 let g:jekyll_post_extension = '.md'
 
 command! Py :!python %

@@ -100,11 +100,6 @@ Plug 'tpope/vim-fugitive'
 " Show git status in the gutter
 Plug 'airblade/vim-gitgutter'
 
-" Run Python tests in tmux splits
-" Plug 'captbaritone/projects/vim-vigilant', { 'for': 'python' }
-Plug '~/projects/vim-vigilant', { 'for': 'python' }
-Plug 'benmills/vimux', { 'for': ['python', 'javascript'] }
-
 " Python completion and tag navigation
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 

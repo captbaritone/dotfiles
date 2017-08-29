@@ -95,6 +95,13 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
+# Enable key repeat
+# http://www.idownloadblog.com/2015/01/14/how-to-enable-key-repeats-on-your-mac/
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# Decrease the delay for opening the dock
+# https://apple.stackexchange.com/a/46223/56645
+defaults write com.apple.Dock autohide-delay -float 0; killall Dock
 # Restart finder
 killall Finder
 

@@ -3,29 +3,8 @@ export DOTFILES="$HOME/dotfiles"
 
 export VISUAL="$EDITOR"
 
-###########################################################################
-#                                  Alias                                  #
-###########################################################################
 
-# Some single letter commands
-alias v="$EDITOR"
-alias vim="$EDITOR"
-alias g="git"
-alias w="$EDITOR ~/cloud/vimwiki/index.wiki"
-
-# Aliases for fat fingered or stupid people
-alias :q="exit"
-alias :Q="exit"
-alias :bd="exit"
-alias :Bd="exit"
-alias :BD="exit"
-
-# Disable DELETE/UPDATE without WHERE
-alias mysql='mysql --safe-updates'
-
-# Pretty print json blobs
-alias pprint "python -mjson.tool"
-
+source $DOTFILES/aliases.sh
 ###########################################################################
 #                            ZSH Configuration                            #
 ###########################################################################

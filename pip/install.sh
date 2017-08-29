@@ -8,4 +8,5 @@ fi
 
 sudo pip install \
     pep8 \
-    pyflakes
+    pyflakes \
+    youtube-dl

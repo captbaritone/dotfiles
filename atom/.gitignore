@@ -1,0 +1,8 @@
+.apm/
+.node-gyp/
+compile-cache/
+blob-store/
+packages/
+storage/
+recovery/
+github.cson

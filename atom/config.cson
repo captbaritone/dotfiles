@@ -1,0 +1,96 @@
+"*":
+  core:
+    automaticallyUpdate: false
+    closeDeletedFileTabs: true
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".hgrc"
+        ".flowconfig"
+      ]
+      "source.json": [
+        ".arcconfig"
+        ".jfconfig"
+        ".watchmanconfig"
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "TARGETS"
+        "cconf"
+        "cinc"
+        "ctest"
+        "ctw"
+        "mcconf"
+        "tw"
+        "thrift-cvalidator"
+        "BUCK"
+      ]
+    telemetryConsent: "no"
+  "exception-reporting":
+    userId: "644a5340-cce5-4bf0-8b90-6ac2933ced34"
+  "file-icons":
+    coloured: false
+  nuclide:
+    "fb-phabricator-comments-client":
+      showComments: false
+    installRecommendedPackages: true
+    "nuclide-arc-lint":
+      blacklistedLinters: [
+        "FBFLOW"
+        "FBHACK"
+        "FBRELAYFLOW"
+        "FLAKE8"
+        "FlowLint"
+        "HACKSYNTAX"
+        "PEP8"
+      ]
+    "nuclide-console":
+      diffUrlPattern: "https://phabricator.intern.facebook.com/%s"
+      taskUrlPattern: "https://our.intern.facebook.com/intern/tasks?t=%s"
+    "nuclide-home":
+      showHome: false
+    "nuclide-js-imports-client":
+      autocompleteWhitelist: [
+        "^.*/Nuclide"
+        "^.*/www"
+      ]
+      diagnosticsWhitelist: [
+        "^.*/Nuclide"
+      ]
+    "nuclide-remote-projects":
+      connectionProfiles: [
+        {
+          deletable: true
+          displayTitle: "www"
+          params:
+            authMethod: "PRIVATE_KEY"
+            cwd: "/home/jeldredge/www"
+            pathToPrivateKey: "/Users/jeldredge/.ssh/fb_id_rsa"
+            remoteServerCommand: ""
+            server: "our.jeldredge.sb.facebook.com"
+            sshPort: "22"
+            username: "jeldredge"
+          saveable: true
+        }
+      ]
+    overriddenThirdPartySettings: [
+      "core.automaticallyUpdate"
+      "core.closeDeletedFileTabs"
+      "core.telemetryConsent"
+      "tool-bar.position"
+      "tool-bar.iconSize"
+      "nuclide.installRecommendedPackages"
+      "nuclide.nuclide-arc-lint.blacklistedLinters"
+      "file-icons.coloured"
+      "nuclide.nuclide-console.diffUrlPattern"
+      "nuclide.nuclide-console.taskUrlPattern"
+      "nuclide.nuclide-remote-projects.connectionProfiles"
+    ]
+    "redux-debug-loggers": [
+      "breadcrumbs"
+    ]
+  "tool-bar":
+    iconSize: "16px"
+    position: "Left"
+  welcome:
+    showOnStartup: false

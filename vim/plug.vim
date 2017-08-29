@@ -22,6 +22,7 @@ Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 Plug 'qrps/lilypond-vim', { 'for': 'lilypond' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'mxw/vim-jsx'
+Plug 'kchmck/vim-coffee-script'
 
 " Completion
 Plug 'mattn/emmet-vim', { 'for': 'html' }

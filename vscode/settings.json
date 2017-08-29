@@ -1,0 +1,12 @@
+{
+    "vim.disableAnnoyingNeovimMessage": true,
+    "typescript.implementationsCodeLens.enabled": true,
+    "window.zoomLevel": 0,
+    // Don't reuse my tabs (I may regret this)
+    "workbench.editor.enablePreview": false,
+    "editor.folding": false,
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
+    "editor.snippetSuggestions": "top",
+    "workbench.startupEditor": "newUntitledFile"
+}

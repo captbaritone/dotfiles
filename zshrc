@@ -46,9 +46,6 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git github git-extras dircycle gem osx tmux brew colored-man extract tmuxinator)
 # Temporarily removed: vi-mode to fix history completion
 
-# Don't fill in autocomplete if there is ambiguity
-setopt no_auto_menu # Currently clobbered by oh my zsh!
-
 # Save lots of history
 SAVEHIST=1000
 
@@ -59,8 +56,9 @@ export TMPDIR=$HOME/tmp
 
 source $ZSH/oh-my-zsh.sh
 # Don't make me confirm history expansions
-# This needs to go after we call oh-my-zsh
 setopt no_hist_verify
+# Don't fill in autocomplete if there is ambiguity
+setopt no_auto_menu
 
 ###########################################################################
 #                            Source other files                           #

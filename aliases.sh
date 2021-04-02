@@ -14,6 +14,7 @@ alias :Q="exit"
 alias :bd="exit"
 alias :Bd="exit"
 alias :BD="exit"
+alias ZZ="exit"
 
 # Disable DELETE/UPDATE without WHERE
 alias mysql='mysql --safe-updates'
